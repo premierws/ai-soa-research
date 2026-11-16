@@ -1,0 +1,31 @@
+{
+  "request_id": "request-001",
+  "goals": [
+    {
+      "goal_id": "goal-thermal",
+      "thermal_comfort": {
+        "area": "SECOND_ROW_RIGHT",
+        "change": "SLIGHTLY_WARMER"
+      }
+    },
+    {
+      "goal_id": "goal-lighting",
+      "lighting_comfort": {
+        "area": "SECOND_ROW_RIGHT",
+        "change": "SLIGHTLY_DIMMER"
+      }
+    }
+  ],
+  "constraints": {
+    "preserve_settings": [
+      {
+        "area": "FRONT_ROW",
+        "domains": [
+          "THERMAL",
+          "LIGHTING"
+        ]
+      }
+    ]
+  },
+  "preference": "ENERGY_SAVING"
+}

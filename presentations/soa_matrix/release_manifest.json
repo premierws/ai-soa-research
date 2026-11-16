@@ -1,0 +1,136 @@
+{
+  "date": "2026-11-16",
+  "slides": {
+    "agent": 20,
+    "matrix": 18
+  },
+  "browser_checks": "passed",
+  "pdf_pages": {
+    "agent": 20,
+    "matrix": 18
+  },
+  "deployment": "pending_jump_host_authentication",
+  "target": "10.110.169.217:/workspace/soa_matrix",
+  "files": [
+    {
+      "path": "DEPLOYMENT.md",
+      "bytes": 1482,
+      "sha256": "e7721cb33e5acd6838bd7955e33141dfd99acaf17d5e09d08cbfdd2815a36432"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1704,
+      "sha256": "4b3b776aedb51e28faed71308ce48558e0b8c0a4c0ddf6fce0628886df130e1a"
+    },
+    {
+      "path": "agent.html",
+      "bytes": 28603,
+      "sha256": "9ac40e10fc6064a2b11c2a02945f9e8c7d8b5de345a21b0908c607cd6d146408"
+    },
+    {
+      "path": "assets/deck.css",
+      "bytes": 11269,
+      "sha256": "1f454f3667752c98aeceb116ed18cb5b7eb035d754247edb678c61da35dac160"
+    },
+    {
+      "path": "assets/deck.js",
+      "bytes": 4325,
+      "sha256": "7f462bd11ccda8f0c084a02dcd9799f230bd3dd58b46d3a78122facaedacf7a4"
+    },
+    {
+      "path": "build_decks.py",
+      "bytes": 38543,
+      "sha256": "31f64b61aaaa70ac86137c7790b5582d4e4eedaa0a22cdad3d7bcb6ba190c0ef"
+    },
+    {
+      "path": "deck_content.json",
+      "bytes": 46252,
+      "sha256": "cd830401e5917c0971fac168201257a1df79d8e3d4be61a4aecbcee49ad17742"
+    },
+    {
+      "path": "index.html",
+      "bytes": 1474,
+      "sha256": "c275db8a4edbfc22163693e63ffb702ac0437e940ee6dd6eeb4f9b581e8d8553"
+    },
+    {
+      "path": "matrix.html",
+      "bytes": 26059,
+      "sha256": "21d4a07980383aa6df28a61cfbf3e13988a1b198670087501713e6f71ab5637b"
+    },
+    {
+      "path": "references/sdvai-reference.txt",
+      "bytes": 13547,
+      "sha256": "c6264a3f6a638b4a4d8eb11a7fd99f2342377bd13927ed190a2cf503241f802f"
+    },
+    {
+      "path": "sources.html",
+      "bytes": 2714,
+      "sha256": "f08b84e0abbc995d80ec304f0f1ae3d501535e5081a6369e55265c2f7c6240fc"
+    },
+    {
+      "path": "verification/agent-16.png",
+      "bytes": 113241,
+      "sha256": "4ae7b59547681a47b4f0d16855b3f5e66970d74798368a802f56de8e1881d97d"
+    },
+    {
+      "path": "verification/agent-4.png",
+      "bytes": 130825,
+      "sha256": "42b1d883b4086f2ba246a84fd11170c9fe7c7917c76216178fb71f8b4533bb7a"
+    },
+    {
+      "path": "verification/agent-9.png",
+      "bytes": 129958,
+      "sha256": "b268cd961fef61a336ce117fb3398521fb95b353cb58ddcc0c2da453e459871f"
+    },
+    {
+      "path": "verification/agent-cover.png",
+      "bytes": 68536,
+      "sha256": "b437031f675a3b3aaebbe022322bba8ae57a642c40edb7c7f3a428e8a5ce7c94"
+    },
+    {
+      "path": "verification/agent-review.pdf",
+      "bytes": 1135044,
+      "sha256": "dd335d928d7b6343fb9aeaf5901ef781fbb03ffa4f26c7f0df4baea3bf6aa6ef"
+    },
+    {
+      "path": "verification/browser_checks.json",
+      "bytes": 990,
+      "sha256": "24c77cf3e713d02998e8aedf6fb7c85d9b129716662f7705f1c3c9a1a992857e"
+    },
+    {
+      "path": "verification/index.png",
+      "bytes": 139356,
+      "sha256": "eebd07f5a20425821ea7ec4e9ce6b94c635ac8cdc2f3f71e0de00a1c1800631f"
+    },
+    {
+      "path": "verification/matrix-10.png",
+      "bytes": 129123,
+      "sha256": "abd4cb27c1d6db0329d9fd4ac5f9a19e9368a923b12ac5adcf58172cb8dcd3c1"
+    },
+    {
+      "path": "verification/matrix-4.png",
+      "bytes": 134922,
+      "sha256": "f09b7fcfdf5abf0c5cac567123a5226bbbbde82dd7daf15e405c933a24084875"
+    },
+    {
+      "path": "verification/matrix-9.png",
+      "bytes": 119449,
+      "sha256": "8cd777e8e62feb27a34e944d016859f129b66b4bb13ab865916d293079f1bf4f"
+    },
+    {
+      "path": "verification/matrix-cover.png",
+      "bytes": 76151,
+      "sha256": "a996de631fdc6d9c68ba3aacd22aa59f33bad2aa2117af2cba2f08905acfe5bc"
+    },
+    {
+      "path": "verification/matrix-review.pdf",
+      "bytes": 1056366,
+      "sha256": "b02963b744982607b537cc596f063b2bad46284bf4be3a5cef383cbf9e42da9f"
+    },
+    {
+      "path": "verify_decks.cjs",
+      "bytes": 3593,
+      "sha256": "3ef2ecff8d9f65797d74e1ed9e3ea3028c1511883f438f37476391c22d8af7c8"
+    }
+  ]
+}

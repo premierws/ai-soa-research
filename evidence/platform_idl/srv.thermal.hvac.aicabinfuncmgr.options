@@ -1,0 +1,36 @@
+srv.thermal.hvac.SeatSpatialAutoModeMsg.seat_position    int_size:IS_8
+srv.thermal.hvac.SeatSpatialAutoModeMsg.on_off_req    int_size:IS_8
+srv.thermal.hvac.SeatSpatialAutoModeMsg.spatial_priority    int_size:IS_8
+srv.thermal.hvac.SeatSpatialAutoModeMsg.spatial_priority    max_count:3
+srv.thermal.hvac.SeatSpatialAutoModeMsg.fatigue_level    int_size:IS_8
+srv.thermal.hvac.SeatSpatialAutoModeInfo.spatial_priority    int_size:IS_8
+srv.thermal.hvac.SeatSpatialAutoModeInfo.spatial_priority    max_count:3
+srv.thermal.hvac.SeatSpatialAutoModeInfo.fatigue_level    int_size:IS_8
+srv.thermal.hvac.SeatSpatialAutoModeInfo.status    int_size:IS_8
+srv.thermal.hvac.SeatSpatialAutoModeInfo.seat_position    int_size:IS_8
+srv.thermal.hvac.SeatSpatialAutoModeStsMsg.seat_spatial_auto_mode_sts    max_count:7 fixed_count:true
+srv.thermal.hvac.ThmSceneModeMsg.scene_id    int_size:IS_8
+srv.thermal.hvac.ThmSceneModeMsg.preference_shield    int_size:IS_8
+srv.thermal.hvac.ThmSceneModeMsg.preference_ac_temp    int_size:IS_8
+srv.thermal.hvac.ThmSceneModeMsg.preference_ac_fan    int_size:IS_8
+srv.thermal.hvac.ThmSceneModeMsg.preference_seat_vent_heat    int_size:IS_8
+srv.thermal.hvac.ThmSceneModeMsg.on_off_req    int_size:IS_8
+srv.thermal.hvac.ThmSceneModeMsg.seat_position    int_size:IS_8
+srv.thermal.hvac.ThmSceneModeMsg.temp_adjust    int_size:IS_8
+srv.thermal.hvac.ThmSceneModeMsg.fandirection_adjust    int_size:IS_8
+srv.thermal.hvac.ThmSceneModeMsg.fandirection_adjust    max_count:11
+srv.thermal.hvac.ThmSceneModeMsg.body_part    int_size:IS_8
+srv.thermal.hvac.ThmSceneModeMsg.body_part    max_count:11
+srv.thermal.hvac.ThmSceneModeMsg.manual_airvent_direction_left    int_size:IS_8
+srv.thermal.hvac.ThmSceneModeMsg.manual_airvent_direction_right    int_size:IS_8
+srv.thermal.hvac.AiCabinReqReturnMsg.result    int_size:IS_8
+srv.thermal.hvac.ThmSceneModeStsMsg.scene_id    int_size:IS_8
+srv.thermal.hvac.ThmSceneModeStsMsg.preference_shield    int_size:IS_8
+srv.thermal.hvac.ThmSceneModeStsMsg.preference_ac_temp    int_size:IS_8
+srv.thermal.hvac.ThmSceneModeStsMsg.preference_ac_fan    int_size:IS_8
+srv.thermal.hvac.ThmSceneModeStsMsg.preference_seat_vent_heat    int_size:IS_8
+srv.thermal.hvac.ThmSceneModeStsMsg.detail_info    max_count:7 fixed_count:true
+srv.thermal.hvac.ThmSeatAutoModeStsInfo.seat_position    int_size:IS_8
+srv.thermal.hvac.ThmSeatAutoModeStsInfo.fan_direction    int_size:IS_8
+srv.thermal.hvac.ThmSeatAutoModeStsInfo.fan_direction    max_count:12 fixed_count:true
+srv.thermal.hvac.ThmSeatAutoModeStsInfo.fan_speed    int_size:IS_8

@@ -1,0 +1,222 @@
+/**
+ * @author jingde.ma
+ * @brief 
+ * @date 2025-09-18
+ * 
+ * @copyright Copyright (c) NIO 2025
+ * All rights reserved.
+ * This document contains proprietary information belonging to NIO. Passing on and copying of this document,
+ * and communication of its contents is not permitted without prior written authorization.
+ * 
+ */
+syntax = "proto3";
+package srv.body.intrlight;
+import "nrpc.option.proto";
+option (idl_version) = "4.4";
+
+enum AmbLiSwtType {
+    AMBLI_SWT_NO_REQ = 0; // NO REQUEST
+    AMBLI_SWT_OFF    = 1; // OFF
+    AMBLI_SWT_MANUAL = 2; // MANUAL
+    AMBLI_SWT_AUTO   = 3; // AUTO
+}
+
+enum MusicColorSelType {
+    AMBLI_COLOR_NO_REQ       = 0;
+    AMBLI_COLOR_FOLW_ALBUM   = 1;
+    AMBLI_COLOR_FOLW_IMG     = 2;
+    AMBLI_COLOR_FOLW_DIY     = 3;
+    AMBLI_COLOR_FOLW_EMOTION = 4;
+}
+
+enum AmbLiCmnSwtType {
+    AMBLI_CMN_SWT_NO_REQ = 0; // NO REQUEST
+    AMBLI_CMN_SWT_OFF    = 1; // OFF
+    AMBLI_CMN_SWT_ON     = 2; // ON
+}
+
+enum IntrIllmnSwtType {
+    INTR_ILLMN_SWT_NO_REQ    = 0;
+    INTR_ILLMN_SWT_OFF       = 1;
+    INTR_ILLMN_SWT_EASY_FIND = 2;
+    INTR_ILLMN_SWT_PRIVACY   = 3;
+    INTR_ILLMN_SWT_NIGHT     = 4;
+}
+
+message AmbLiColorSetType {
+    uint32 color_or_h   = 1;
+    bool color_or_h_vld = 2;
+    uint32 color_s      = 3;
+}
+
+message MsgAmbLiSwtSet {
+    uint32 req_src_type                       = 1;
+    AmbLiSwtType ambli_swt                    = 2;
+    AmbLiCmnSwtType bri_auto_mod             = 21;
+    MusicColorSelType music_color_swt         = 4;
+    uint32 img_set                           = 12;
+    AmbLiCmnSwtType img_auto_mod              = 7;
+    uint32 img_auto_spd                       = 8; // Unit: s
+    AmbLiCmnSwtType psu_swt                  = 19;
+    /**
+     * Value  Description(EN)
+     * 0      NO_REQUEST
+     * 1      OFF_EFFECT
+     * 2      BREATH_EFFECT
+     * 3       WAVE_EFFECT
+     * 4       BLINK_EFFECT
+     * 5      SPLASH_EFFECT
+     * 6      COLOR_STREAM_EFFECT
+     */
+    uint32 dyn_effect_mod                    = 18;
+    DynEffectSpdType dyn_effect_spd          = 17;
+    repeated AmbLiColorSetType diy_color_set = 15;
+    uint32 diy_bri_set                       = 16; // Unit: %
+    StreamDirType stream_dir                 = 13;
+    /**
+     * Value  Description(EN)
+     * 1      main color,
+     * 2      main color+minor color1,
+     * 3      main color+minor color1+minor color2
+     */
+    uint32 color_swt                         = 14;
+    IntrIllmnSwtType intr_illmn_swt          = 20;
+    uint32 scenario_set                      = 22;
+    uint32 psu_bri_set                       = 23; // Unit: %
+    AmbLiCmnSwtType lowbri_mode              = 24;
+    uint32 diy_bri_drv                       = 25; // Comment: defalut15  Unit: %
+    uint32 img_bri_set                       = 26; // Comment: default100  Unit: %
+    /**
+     * Value  Description(EN)
+     * 0      NO_REQUEST
+     * 1      OFF
+     * 2      REDUCE_BRT
+     * 3      TURNOFF_IP
+     */
+    uint32 lowbri_mode_cmd                   = 27;
+    /**
+     * Value  Description(EN)
+     * 0      AMBLI_CMN_SWT_NO_REQ
+     * 1       AMBLI_CMN_SWT_OFF
+     * 2      AMBLI_CMN_SWT_ON
+     */
+    repeated uint32 ambli_row_swt            = 28;
+}
+
+message MsgAmbLiSceneReq {
+    AmbLiCmnSwtType scene_req  = 2;
+    SdowWarnType sdow_warn_req = 3;
+    VoiceReqType voice_req     = 4;
+    uint32 req_src_type        = 1;
+}
+
+enum VoiceReqType {
+    VOICE_NO_REQ       = 0;
+    VOICE_REQ_POSN_R1L = 1;
+    VOICE_REQ_POSN_R1R = 2;
+    VOICE_REQ_POSN_R2L = 3;
+    VOICE_REQ_POSN_R2R = 4;
+    VOICE_REQ_POSN_R3L = 5;
+    VOICE_REQ_POSN_R3R = 6;
+}
+
+message AmbLiStsType {
+    uint32 color_or_h = 1;
+    uint32 color_s    = 3;
+    uint32 bri        = 2;
+    /**
+     * Value  Description(EN)
+     * 0      OFF
+     * 1      ON
+     */
+    uint32 ambli_sts  = 4;
+}
+
+message MsgAmbLiParamReq {
+    uint32 req_src_type               = 1;
+    bool zone_bri_vld                 = 3;
+    repeated uint32 zone_bri          = 7; // Unit: %
+    bool node_bri_vld                = 11;
+    repeated uint32 node_bri          = 4; // Unit: %
+    bool zone_color_or_h_vld          = 9;
+    repeated uint32 zone_color_or_h   = 2;
+    bool zone_color_s_vld             = 8;
+    repeated uint32 zone_color_s      = 6;
+    bool seg_color_or_h_vld          = 13;
+    repeated uint32 seg_color_or_h   = 10;
+    bool seg_color_s_vld             = 12;
+    repeated uint32 seg_color_s       = 5;
+    bool node_color_vld              = 14;
+    repeated uint32 node_color       = 15;
+    uint32 dyn_fade_tim              = 16; // Unit: ms
+    repeated uint32 sta_fade_tim     = 17; // Unit: ms
+    uint32 dyn_nat_tran_tim          = 18; // Unit: ms
+    repeated uint32 sta_nat_tran_tim = 19; // Unit: ms
+}
+
+message MsgAmbLiStsInfo {
+    repeated AmbLiStsType ip_ambli_sts     = 2;
+    repeated AmbLiStsType storg_ambli_sts  = 3;
+    repeated AmbLiStsType fw_ambli_sts     = 4;
+    repeated AmbLiStsType reseat_ambli_sts = 5;
+    repeated AmbLiStsType roof_ambli_sts   = 6;
+    repeated AmbLiStsType dyn_ambli_sts    = 7;
+    uint32 ambli_work_src_type            = 10;
+}
+
+enum SdowWarnType {
+    SDOW_WARN_NO_REQ     = 0; // NO REQUEST
+    SDOW_WARN_OFF        = 1; // OFF
+    SDOW_WARN_LEFT_SIDE  = 2; // LEFT SIDE
+    SDOW_WARN_RIGHT_SIDE = 3; // RIGHT SIDE
+    SDOW_WARN_BOTH_SIDE  = 4; // BOTH SIDE
+}
+
+enum DynEffectSpdType {
+    DYN_EFFECT_SPD_NO_REQ = 0; // NO REQUEST
+    DYN_EFFECT_SPD_SLOW   = 1; // SLOW
+    DYN_EFFECT_SPD_MIDDLE = 2; // MIDDLE
+    DYN_EFFECT_SPD_FAST   = 3; // FAST
+    DYN_EFFECT_ACCR_PEDL  = 4; // Associated accelerator pedal
+    DYN_EFFECT_VEH_SPD    = 5; // Related vehicle speed
+    DYN_EFFECT_RAND       = 6; // Association??
+    DYN_EFFECT_BRK_PEDL   = 7; // Associated brake pedal
+    DYN_EFFECT_VEH_ACC    = 8; // correlated acceleration
+    DYN_EFFECT_MUS_VOL    = 9; // associate volume
+    DYN_EFFECT_SPK_VOL   = 10; // Association??
+}
+
+enum StreamDirType {
+    AMBLI_STREAM_DIR_NO_REQ        = 0;
+    AMBLI_STREAM_DIR_MIRROR        = 1;
+    AMBLI_STREAM_DIR_CLOCKWISE     = 2;
+    AMBLI_STREAM_DIR_ANTICLOCKWISE = 3;
+}
+
+service AmbLiMgr {
+    option(service_id) = 2095;
+
+    rpc AmbLiParamReq(MsgAmbLiParamReq) returns (Null) {
+        option (rpc_id) = 105;
+        option (method_type) = METHOD;
+    }
+
+    rpc AmbLiSceneReq(MsgAmbLiSceneReq) returns (Null) {
+        option (rpc_id) = 106;
+        option (method_type) = METHOD;
+        option (rpc_reliability) = RELIABLE;
+    }
+
+    rpc AmbLiStsInfo(MsgAmbLiStsInfo) returns (Null) {
+        option (rpc_id) = 104;
+        option (method_type) = FIELD_READONLY;
+        option (update_policy) = ON_CHANGE;
+    }
+
+    rpc AmbLiSwtSet(MsgAmbLiSwtSet) returns (Null) {
+        option (rpc_id) = 101;
+        option (method_type) = FIELD_WRITABLE;
+        option (update_policy) = ON_CHANGE;
+        option (rpc_reliability_field_set) = RELIABLE;
+    }
+}

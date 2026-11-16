@@ -1,0 +1,348 @@
+{
+  "agent": [
+    {
+      "chapter": "战略命题",
+      "title": "让车辆完成目标，<br>让用户少做协调",
+      "lead": "车控 Agent 的价值、建设条件与演进路径",
+      "body": "<div class=\"hero-line\"></div><div><span class=\"tag filled\">面向业务价值</span><span class=\"tag\">受约束的目标组合</span><span class=\"tag\">复用现有 SOA</span></div><div class=\"cover-meta\"><span>战略与实施建议</span><span>2026.11 · REV 1.0</span></div>",
+      "notes": "本报告回答五个问题：有什么新增价值，为什么需要共同车控职责，何时值得 Agent 化，怎样落地，怎样证明投入有效。所有阶段、资源和收益均为建议或待验证假设，不是已批准项目。",
+      "cover": true,
+      "foot": ""
+    },
+    {
+      "chapter": "管理摘要",
+      "title": "先确定业务增量，再选择 Agent 的形态",
+      "lead": "建议以一个完整业务切片验证价值，而非先建设全量平台。",
+      "body": "<div class=\"grid three\"><div class=\"panel\"><div class=\"num\">01</div><h3>价值</h3><p>满足未预定义的合理需求，减少用户逐项操作，形成可复用的个人场景。</p></div><div class=\"panel\"><div class=\"num\">02</div><h3>条件</h3><p>共同协调职责已经有需求；独立 VCC、智能规划和大模型仍需分别论证。</p></div><div class=\"panel\"><div class=\"num\">03</div><h3>路径</h3><p>现有能力闭环 → 边界内组合 → 个人复用 → 产品化；按证据逐步投入。</p></div></div><div class=\"callout\">建议决策：认可方向，指定试点责任团队；以技术与业务证据决定后续扩展。</div>",
+      "notes": "不要把跨入口协调缺口直接等同于大模型的必要性。先建立任务责任与执行闭环，再对动态规划与确定性基线进行比较。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "战略对齐",
+      "title": "SDV 是产品范式，SOA 是重要架构基础",
+      "lead": "沿用战略材料的大方向，以能力与结果契约连接智能规划和既有执行。",
+      "body": "<div class=\"stack\"><div class=\"layer \"><span class=\"label\">产品演进</span><b>软件可迭代 → 理解目标、组织能力</b><small>发展方向；不承诺特定年份</small></div><div class=\"layer em\"><span class=\"label\">业务协调</span><b>座舱理解需求 · VCC 协调车控目标</b><small>职责边界先于技术选型</small></div><div class=\"layer \"><span class=\"label\">能力契约</span><b>语义 · 条件 · 约束 · 状态 · 结果</b><small>按真实能力逐步补齐</small></div><div class=\"layer \"><span class=\"label\">执行基础</span><b>SOA 服务 · 系统产品 · 中间件与底软</b><small>稳定执行、域内策略与保护</small></div></div><p class=\"footnote\">SOA 是本项目的核心积累；逻辑分层不等于新增部署层，也不要求重写全部服务。</p>",
+      "notes": "战略参考提出 SOA、能力、Agent 的演进方向。我们的方案保留其方向，明确 SDV 不等同于 SOA，能力语义也不一定需要独立进程实现。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "业务价值",
+      "title": "新增价值：满足“没有现成功能入口”的需求",
+      "lead": "单纯更准确地识别语音、调用固定模式，不能独自证明建设车控 Agent 的价值。",
+      "body": "<div class=\"grid three\"><div class=\"panel\"><div class=\"num\">01</div><h3>覆盖更多需求</h3><p>在已有能力内组合出未被逐个预设的场景；不凭空增加硬件功能。</p></div><div class=\"panel\"><div class=\"num\">02</div><h3>减少用户操心</h3><p>用户表达效果与限制，由车辆选择、协调并根据结果调整，而非反复试设置。</p></div><div class=\"panel\"><div class=\"num\">03</div><h3>越用越适合个人</h3><p>保存个人目标、约束和使用反馈，按当前条件复用，而非仅记住几个参数。</p></div></div><div class=\"callout\">车企价值：复用既有能力覆盖更多需求，并以真实使用证据指导场景产品化。</div>",
+      "notes": "这些价值属于智能车控整体，不天然要求独立车控 Agent。座舱也可承接部分职责。后续页面论证为什么共同车控职责与动态规划有时值得独立组织。付费、销量和品牌收益仍是商业假设。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "价值验证",
+      "title": "用同一批任务比较，证明投入是否值得",
+      "lead": "对比现有固定场景、扩展规则方案、目标规划方案；不只比较正常路径演示。",
+      "body": "<table><thead><tr><th>价值问题</th><th>观察指标</th><th>避免误判</th></tr></thead><tbody><tr><td>是否覆盖新增需求</td><td>范围内需求的成功／部分完成／拒绝／失败／未知分布</td><td>单独报告范围外请求；不能靠拒绝抬高成功率</td></tr><tr><td>是否减少用户成本</td><td>操作次数、澄清与纠正次数、任务起效与完成时间</td><td>更智能不能以不可接受的等待为代价</td></tr><tr><td>是否降低工程成本</td><td>新场景接入工时、重复逻辑、验证与维护投入</td><td>一并计入能力建模和异常处理成本</td></tr><tr><td>是否形成长期复用</td><td>个人场景再次使用情况、跨入口／车型复用情况</td><td>区分尝试、成功使用与实际偏好</td></tr></tbody></table><div class=\"callout\">先建立基线和测量口径，再由业务负责人确定目标值；本报告不虚构收益百分比。</div>",
+      "notes": "建议采用同样的能力、车辆条件与任务集评估三种方案。收益归因应排除单纯语音理解改进和新增硬件的影响。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "必要性决策",
+      "title": "协调缺口，不自动等于 Agent 必要性",
+      "lead": "将四个决策分开，避免“先定组织和技术，再寻找需求”。",
+      "body": "<table><thead><tr><th>决策</th><th>成立依据</th><th>可选承载</th></tr></thead><tbody><tr><td>统一车控协调职责</td><td>跨入口／跨系统冲突、任务状态和整体结果缺口</td><td>扩展既有协调机制或定义共同职责</td></tr><tr><td>独立 VCC 边界</td><td>整体任务责任、跨入口复用、独立演进价值</td><td>逻辑模块可先独立；部署不必立即独立</td></tr><tr><td>引入 Agent 规划</td><td>运行时选择路径、动态组合与重规划有实际收益</td><td>规则＋规划混合，与确定性基线比较</td></tr><tr><td>使用大模型</td><td>语义解释或候选生成收益超过时延与验证成本</td><td>仅用于适合的环节，不进入实时控制</td></tr></tbody></table>",
+      "notes": "VCC 是职责对象，Agent 是实现能力，LLM 是可选技术，不应合并为一次决策。扩展现有系统能够解决的问题应优先复用。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "职责边界",
+      "title": "用户意图可以来自不同入口，车辆目标需要一致承接",
+      "lead": "按责任分工；既有系统的控制权和保护不因引入 Agent 自动迁移。",
+      "body": "<div class=\"grid three\"><div class=\"panel\"><div class=\"num\">01</div><h3>座舱／手机等入口</h3><p>表达对象、需求、约束与授权；座舱负责对话和歧义澄清。</p></div><div class=\"panel\"><div class=\"num\">02</div><h3>VCC 车控协调</h3><p>判断可行性、选择场景、组织目标、协调任务并解释整体结果。</p></div><div class=\"panel\"><div class=\"num\">03</div><h3>系统产品</h3><p>承诺本域能力，选择执行策略，完成域内控制、仲裁和保护。</p></div></div><div class=\"callout\">外部可提出方案；VCC 对其接受的任务负责。智驾运动控制权限仍由对应体系管理。</div>",
+      "notes": "共同协调职责放在哪里须结合已有系统评估。图示是建议责任结构，不表示新建部门或指定部署。VCC 不自动成为导航、内容或所有业务的总管。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "能力基础",
+      "title": "把接口事实转成可兑现的能力承诺",
+      "lead": "先做选定能力，再逐步扩展目录；能力不是每个 RPC 外面增加一个名称。",
+      "body": "<table><thead><tr><th>必须明确</th><th>对应问题</th><th>责任参与</th></tr></thead><tbody><tr><td>语义与边界</td><td>能做什么、针对谁、“稍暖”是什么意思</td><td>FO＋SO</td></tr><tr><td>条件与适用性</td><td>车型、配置、版本、设备和当前状态是否支持</td><td>SO＋AI＋领域架构师</td></tr><tr><td>输入与约束</td><td>精确目标、偏好、硬限制、控制来源</td><td>VCC 与使用方／产品 FO</td></tr><tr><td>执行与结果</td><td>如何映射服务、何时算完成、依据是什么</td><td>领域架构师＋SWE＋验证</td></tr><tr><td>演进与维护</td><td>变更影响谁、谁维护、怎样回归</td><td>产品责任团队＋矩阵支持</td></tr></tbody></table>",
+      "notes": "AiCabinFuncMgr 等已有接口含场景、区域、相对调温等语义，应优先研究复用。IDL 表达存在不证明全部车型已经实现完整能力。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "整体方案",
+      "title": "VCC 管目标与任务，系统产品管本域执行",
+      "lead": "在现有服务之上补契约与适配，按缺口建设，不先重构全部系统。",
+      "body": "<div class=\"stack\"><div class=\"layer \"><span class=\"label\">输入</span><b>精确命令／预定义场景／结构化目标组合</b><small>身份、对象与授权</small></div><div class=\"layer em\"><span class=\"label\">VCC</span><b>匹配与规划 → 可行性 → Mission 协调</b><small>整体状态、冲突与退出</small></div><div class=\"layer \"><span class=\"label\">能力边界</span><b>目标与结果契约 · 必要的系统侧适配</b><small>本域条件与执行策略</small></div><div class=\"layer \"><span class=\"label\">SOA 基础</span><b>服务调用／事件／状态／错误及质量信息</b><small>沿用真实底座语义</small></div><div class=\"layer \"><span class=\"label\">执行闭环</span><b>系统产品与控制器执行，持续保护</b><small>反馈事实与结果证据</small></div></div>",
+      "notes": "能力适配不必都是独立组件。soa_adaptor 是通信及 IDL 桥接积累，不承担规划和业务仲裁。具体软件职责与部署需与独立软件架构矩阵共同确认。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "对外交互",
+      "title": "固定表达规则，容纳新的目标组合",
+      "lead": "同一业务语义适配不同入口；精确请求可保持确定性路径。",
+      "body": "<div class=\"split\"><pre>{\n  \"request_id\": \"rest-001\",\n  \"goals\": [\"R2R_WARMER\", \"R2R_DIMMER\"],\n  \"constraints\": {\n    \"seat_movement\": \"FORBIDDEN\",\n    \"front_settings\": \"PRESERVE\"\n  },\n  \"preference\": \"QUIETER\"\n}</pre><div><h3>实际契约需补齐</h3><ul class=\"list\"><li>目标类型、区域和相对变化含义</li><li>来源授权、当前可用性和版本</li><li>接受／澄清／拒绝，以及后续结果</li><li>修改、取消与状态订阅</li></ul></div></div><p class=\"footnote\">JSON 仅为表达示意；身份权限由可信接入确认。MCP／A2A／现有服务均未冻结选型。</p>",
+      "notes": "示例中的枚举是解释性缩写，正式设计应采用有类型的目标参数。未定义的新能力仍需扩展语义与实现，任意 JSON 不等于任意功能。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "关键工程条件",
+      "title": "能发出请求，还要能证明发生了什么",
+      "lead": "执行结果和状态质量，是自主规划能够成立的基础。",
+      "body": "<div class=\"grid three\"><div class=\"panel\"><div class=\"num\">01</div><h3>结果要分层</h3><p>接受 ≠ 已发送 ≠ 域内执行成功 ≠ 整体目标满足；无法确认时明确未知。</p></div><div class=\"panel\"><div class=\"num\">02</div><h3>数据要有来源</h3><p>SM buffer 读取成功不等于新帧；读取时间不能替代源端时间，E2E 不伪造。</p></div><div class=\"panel\"><div class=\"num\">03</div><h3>约束要持续有效</h3><p>受理与执行检查相衔接；运行中条件变化、手动介入和故障由各层按职责处理。</p></div></div><div class=\"callout\">底座需求按业务推导：关联、时效、错误、队列和资源预算；不统一强制一种 QoS。</div>",
+      "notes": "本报告不提供功能安全符合性结论。关键点是模型外独立执行约束、保持现有保护、区分不同通信与业务状态。取消不等于物理撤销，恢复需单独定义。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "演进策略",
+      "title": "由闭环到组合，由使用证据到产品化",
+      "lead": "按能力成熟度推进；不同能力可以处于不同阶段。",
+      "body": "<div class=\"timeline\"><div class=\"phase\"><div class=\"stage\">STAGE 01</div><h3>场景闭环</h3><p>少量高频预定义／参数化场景，补齐能力和结果。</p><div class=\"exit\"><strong>推进条件</strong><br>正常、异常、拒绝和未知均有可解释反馈</div></div><div class=\"phase\"><div class=\"stage\">STAGE 02</div><h3>受约束组合</h3><p>在已验证能力与组合规则内进行路径选择。</p><div class=\"exit\"><strong>推进条件</strong><br>相对规则基线有收益；冲突和运行变化可控</div></div><div class=\"phase\"><div class=\"stage\">STAGE 03</div><h3>个人场景复用</h3><p>保存目标、约束与适用条件，支持修改与失效。</p><div class=\"exit\"><strong>推进条件</strong><br>再次运行能校验当前能力和车辆条件</div></div><div class=\"phase\"><div class=\"stage\">STAGE 04</div><h3>反馈产品化</h3><p>伴生归纳高价值需求，进入正式功能规划。</p><div class=\"exit\"><strong>推进条件</strong><br>有重复使用证据、责任团队及验证承接</div></div></div>",
+      "notes": "不是全量目录先完成才能试点，也不是所有新场景免代码上线。新增能力、硬件、权限或验收语义仍需产品和工程建设。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "实施步骤",
+      "title": "用一个业务切片贯通价值、技术与工程",
+      "lead": "先验证最关键的假设，再决定组件化与规模化。",
+      "body": "<table class=\"dense\"><thead><tr><th>步骤</th><th>必须拿到的结果</th><th>推进依据</th></tr></thead><tbody><tr><td>01 选任务与基线</td><td>清楚的用户问题、范围、替代方案和指标</td><td>业务价值可观察</td></tr><tr><td>02 盘能力与缺口</td><td>已有能力、限制、映射和责任人</td><td>避免重复开发或虚构能力</td></tr><tr><td>03 定契约与分工</td><td>任务、目标、结果、冲突和退出语义</td><td>相关责任方理解一致</td></tr><tr><td>04 验关键假设</td><td>Mock／主机／必要的真实 SDK 与台架证据</td><td>区分逻辑验证与实车证明</td></tr><tr><td>05 业务试点</td><td>授权条件下验证正常、异常及用户操作</td><td>收益超过新增成本</td></tr><tr><td>06 复盘再扩展</td><td>保留、调整或停止的证据</td><td>共性机制有真实复用需求</td></tr></tbody></table>",
+      "notes": "这些步骤是建议工作分解，不是已确认排期。试点开始前需明确业务 owner、实现团队、验证环境和投入。主机测试不能替代真实 SDK、ECU 和任务效果验证。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "所需能力",
+      "title": "业务、产品、平台和验证共同承接",
+      "lead": "矩阵 COE 提供共性支撑，不能代替业务与工程长期责任。",
+      "body": "<table class=\"dense\"><thead><tr><th>能力</th><th>主要承接</th><th>矩阵贡献</th></tr></thead><tbody><tr><td>场景与 Mission</td><td>VCC FO／SO、业务 SWE</td><td>契约方法与跨团队边界研究</td></tr><tr><td>本域目标执行</td><td>系统 FO／SO、领域架构师、SWE</td><td>能力映射与服务提升模式</td></tr><tr><td>模型与规划</td><td>VCC 相应算法／软件团队，按实际需要参与</td><td>适用边界与评估方法</td></tr><tr><td>中间件与底座</td><td>平台架构及底软团队</td><td>业务需求归纳、机制评估</td></tr><tr><td>软件职责与部署</td><td>独立软件架构矩阵及工程团队</td><td>提供服务与能力侧约束</td></tr><tr><td>验证与反馈</td><td>业务和相关验证责任团队</td><td>共用用例、Mock 和证据方法</td></tr></tbody></table>",
+      "notes": "AI 指车型架构角色，其参与车型分配与适用性评估。本页的模型团队指按需参与的算法和软件专业，不与 AI 角色混淆。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "完整案例 · 1/3",
+      "title": "先明确需求，再决定能否承接",
+      "lead": "二排孩子休息：稍暖、灯光稍暗，不动座椅，不改变前排设置。",
+      "body": "<div class=\"split\"><div><div class=\"case-label\">MISSION · REST-001</div><p class=\"quote\">舒服一点，<br>也别打扰别人。</p></div><div class=\"stack\"><div class=\"card\"><h3>目标与约束</h3><p>热舒适与灯光改善是目标；座椅不移动、前排设置保持是硬约束；安静是偏好。</p></div><div class=\"card accent\"><h3>事实与适用条件</h3><p>确认作用区域、占座及设备可用性；判断共享资源是否允许满足要求。未知信息不能当作已满足。</p></div></div></div>",
+      "notes": "例子假定目标能力已经定义，并非证明当前车辆已具备。入口澄清对象和授权，VCC 检查能力。若共享资源不能满足硬约束，应拒绝相关目标或请求选择替代，不静默改变前排。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "完整案例 · 2/3",
+      "title": "按目标分解，复用系统完整功能",
+      "lead": "VCC 不维护每个车型的风机、风道与加热设备脚本。",
+      "body": "<div class=\"flow\"><div><b>受理</b><p>检查来源、对象、约束、当前任务与可用性。</p></div><i aria-hidden=\"true\">→</i><div><b>任务建立</b><p>形成热舒适和灯光子目标，记录整体完成条件。</p></div><i aria-hidden=\"true\">→</i><div><b>域内承接</b><p>热舒适、灯光产品分别评估并执行；不调用座椅移动。</p></div><i aria-hidden=\"true\">→</i><div><b>结果聚合</b><p>汇总子目标与证据；明确达成、运行中或部分完成。</p></div></div><div class=\"callout\">若已有完整休息场景满足约束则复用；有差异时参数化或局部组合，避免每次从零规划。</div>",
+      "notes": "相对变化的完成标准需由产品定义，不能只看命令写成功。热舒适产品可内部选择其获授权的设备策略，但不能突破本任务硬约束。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "完整案例 · 3/3",
+      "title": "条件变化时，怎样继续负责",
+      "lead": "任务开始之后的行为，决定它是一次联动演示，还是完整任务。",
+      "body": "<table><thead><tr><th>运行事件</th><th>应有行为</th><th>向使用方解释</th></tr></thead><tbody><tr><td>热舒适能力拒绝，灯光可用</td><td>按预定部分执行政策处理；需要时澄清</td><td>不能完整满足，说明受限目标及原因</td></tr><tr><td>源状态无法确认时效</td><td>依能力策略处理，保留未知，不伪造完成</td><td>结果暂不能确认</td></tr><tr><td>用户手动调整或退出</td><td>依控制权规则调整／结束对应目标</td><td>任务已调整或结束；不默认全部恢复</td></tr><tr><td>新空气质量需求与安静冲突</td><td>VCC 协调整体目标，产品保持本域保护</td><td>说明取舍、降级及维持范围</td></tr></tbody></table>",
+      "notes": "状态只是发生了某个值，并不必然证明由本次请求导致。未来关联机制应区分目标状态满足与请求动作完成。恢复基准必须单独定义，不自动回放相反动作。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "学习与业务闭环",
+      "title": "从一次需求，走向可复用的个人场景",
+      "lead": "保存“为什么这样做、什么条件下有效”，而不只是底层动作日志。",
+      "body": "<div class=\"flow\"><div><b>候选场景</b><p>目标、对象、上下文、约束和组合理由。</p></div><i aria-hidden=\"true\">→</i><div><b>一次 Mission</b><p>执行证据、失败、用户修改和结束方式。</p></div><i aria-hidden=\"true\">→</i><div><b>个人复用</b><p>带版本和适用条件，再运行时重新校验。</p></div><i aria-hidden=\"true\">→</i><div><b>产品规划</b><p>伴生汇集重复需求，评估为正式预定义场景。</p></div></div><div class=\"callout\">候选 ≠ 已验证；个人场景 ≠ 通用产品。模型不能自行扩展物理能力或控制权限。</div>",
+      "notes": "收益需要通过重复使用和目标达成数据证明。场景记忆和伴生涉及的数据范围、授权和维护政策需由相关业务进一步定义。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "可行性与风险",
+      "title": "已有基础支持研究，尚不足以承诺整车效果",
+      "lead": "把已知、待验证和需要承接的事项分别管理。",
+      "body": "<div class=\"grid three\"><div class=\"panel\"><div class=\"num\">01</div><h3>已有研究基础</h3><p>已有平台 IDL、应用使用与 SM 桥接研究，部分服务包含场景、区域和相对调节语义。</p></div><div class=\"panel\"><div class=\"num\">02</div><h3>关键待验证</h3><p>整体结果证据、跨任务规则、真实 SDK 与 ECU 行为、动态规划相对规则的净收益。</p></div><div class=\"panel\"><div class=\"num\">03</div><h3>推进前提</h3><p>指定业务和产品责任人、实现与验证投入、试点范围、环境和退出条件。</p></div></div><div class=\"callout orange\">可行性判断：方向可行；独立职责、Agent 化程度与投入规模，以试点证据决定。</div>",
+      "notes": "此前桥接主机验证证明的是特定代码与 mock 的行为，不证明车控 Agent 或实车 Mission 已经实现。资源、时间和收益都不作无依据承诺。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "决策建议",
+      "title": "批准一次可验证的探索，建立可扩展的基础",
+      "lead": "把战略认可转成有限范围、有责任、有证据的下一步。",
+      "body": "<div class=\"grid three\"><div class=\"panel\"><div class=\"num\">01</div><h3>确认业务命题</h3><p>选定一个有新增价值的目标型任务，并明确与现有方案的比较基线。</p></div><div class=\"panel\"><div class=\"num\">02</div><h3>指定承接关系</h3><p>VCC 牵引，相关系统产品、软件架构、底座和验证团队确认参与。</p></div><div class=\"panel\"><div class=\"num\">03</div><h3>支持 COE 赋能</h3><p>以共同契约、服务提升和验证方法支撑试点；按结果决定扩展。</p></div></div><p class=\"footnote\">配套报告：<a class=\"source-link\" href=\"matrix.html#s2\">服务架构矩阵如何组织能力与资源 →</a>　｜　<a class=\"source-link\" href=\"sources.html\">来源与证据边界</a></p>",
+      "notes": "此页提出管理层可决策事项，不表示已获批准。下一步首先确定承接人和试点条件，不直接承诺全面建设独立 Agent 平台。",
+      "cover": false,
+      "foot": ""
+    }
+  ],
+  "matrix": [
+    {
+      "chapter": "组织命题",
+      "title": "以 SOA 为根基，<br>支撑车控智能化",
+      "lead": "服务架构矩阵的方向、能力规划与 COE 运作建议",
+      "body": "<div class=\"hero-line\"></div><div><span class=\"tag filled\">SOA 核心 know-how</span><span class=\"tag\">虚拟 COE</span><span class=\"tag\">赋能 VCC 等业务</span></div><div class=\"cover-meta\"><span>组织与业务规划建议</span><span>2026.11 · REV 1.0</span></div>",
+      "notes": "本报告以最后澄清为准：服务架构矩阵立足现有 SOA 能力向智能化需求延伸，不扩大为负责整体软件架构的组织；独立软件架构矩阵继续运营其职责。",
+      "cover": true,
+      "foot": ""
+    },
+    {
+      "chapter": "管理摘要",
+      "title": "矩阵的价值：把共同难题转成可采用的能力",
+      "lead": "既有服务架构是基础，车控 Agent 是重要需求牵引，不是唯一服务对象。",
+      "body": "<div class=\"grid three\"><div class=\"panel\"><div class=\"num\">01</div><h3>方向</h3><p>服务可调用 → 能力可理解、可使用 → 多能力可协同、结果可验证。</p></div><div class=\"panel\"><div class=\"num\">02</div><h3>定位</h3><p>虚拟 COE：共性契约、服务提升、底座需求、方法与知识资产。</p></div><div class=\"panel\"><div class=\"num\">03</div><h3>成效</h3><p>业务采用更快、跨入口行为更一致、重复工作减少、技术缺口提前暴露。</p></div></div><div class=\"callout\">组织升级保留 SOA 核心积累，向能力和交互延伸；不接管整体软件架构或量产交付。</div>",
+      "notes": "原规划多数条目据用户说明已完成可关闭，不以旧条目的逐项继承作为新规划主线。虚拟 COE 没有强交付属性，但需要稳定维护与应用反馈。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "战略定位",
+      "title": "从服务基础设施，向智能化使用能力延伸",
+      "lead": "呼应 SDV 战略，聚焦矩阵能够承担和组织验证的范围。",
+      "body": "<div class=\"stack\"><div class=\"layer \"><span class=\"label\">业务牵引</span><b>VCC／座舱／手机／其他车控使用方</b><small>需求、目标、使用反馈</small></div><div class=\"layer em\"><span class=\"label\">能力延伸</span><b>语义与约束 · 交互契约 · 状态与结果</b><small>矩阵新增关注重点</small></div><div class=\"layer \"><span class=\"label\">核心基础</span><b>SOA 抽象、接口、QoS、错误、版本与验证</b><small>最重要的基础设施和 know-how</small></div><div class=\"layer \"><span class=\"label\">协作关系</span><b>软件架构矩阵 · 系统产品 · 底座与验证</b><small>按边界共同研究</small></div></div>",
+      "notes": "战略材料是方向参考，不把其中全部横向平台或组织范围移交本矩阵。能力逻辑层不必新建独立运行平台。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "责任边界",
+      "title": "本矩阵研究能力怎样交互，软件架构矩阵组织软件体系",
+      "lead": "跨界问题联合研究，各自确认负责的部分。",
+      "body": "<table><thead><tr><th>主体</th><th>主要责任</th><th>主要输出</th></tr></thead><tbody><tr><td>服务架构矩阵 COE</td><td>服务与能力抽象、契约、协同机制、底座需求、验证方法</td><td>共性技术资产与服务侧约束</td></tr><tr><td>独立软件架构矩阵</td><td>软件职责、模块结构、运行与部署架构</td><td>软件体系方案与架构安排</td></tr><tr><td>VCC／业务团队</td><td>目标和场景、Mission 协调与整体业务结果</td><td>业务设计、实现与运营反馈</td></tr><tr><td>系统产品团队</td><td>本域能力承诺、策略、控制和保护</td><td>功能、服务实现与本域结果</td></tr><tr><td>中间件／底软团队</td><td>相应基础机制及功能性能实现</td><td>平台机制、版本与工程交付</td></tr></tbody></table>",
+      "notes": "能力契约需要 FO/SO 共同确认；外部 Agent 的业务分工也由相关责任团队参与。本矩阵不单方面决定功能承诺或整车控制权。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "能力规划",
+      "title": "形成五类能够被业务使用的专业资产",
+      "lead": "每项资产都要有适用范围、证据、维护人和实际采用反馈。",
+      "body": "<table><thead><tr><th>方向</th><th>重点成果</th><th>支撑 VCC 的作用</th></tr></thead><tbody><tr><td>能力抽象</td><td>描述方法、边界、条件、目标与结果模型</td><td>避免重复理解底层接口</td></tr><tr><td>交互契约</td><td>精确／目标请求、状态、上下文和版本语义</td><td>使多入口协作具有一致含义</td></tr><tr><td>服务提升</td><td>能力—服务映射、缺口识别和适配模式</td><td>把现有能力可靠地接到任务中</td></tr><tr><td>SOA 与底座演进</td><td>数据质量、关联、生命周期和功能性能需求</td><td>使任务反馈和协同有真实机制</td></tr><tr><td>工程验证与追溯</td><td>Mock、样例、契约检查、证据与版本索引</td><td>降低接入成本，提前暴露不成立的假设</td></tr></tbody></table>",
+      "notes": "这五类是业务能力版图，不要求一开始同时启动五个大型平台项目。优先围绕一个切片形成可复用成果。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "向外定义契约",
+      "title": "连接需求入口和车辆能力，而不绑定单一模型",
+      "lead": "业务语义共同定义，访问协议按实际使用方适配。",
+      "body": "<div class=\"flow\"><div><b>共同输入</b><p>使用方 FO 说明对象、目标、约束、授权与上下文。</p></div><i aria-hidden=\"true\">→</i><div><b>车辆语义</b><p>VCC 与产品确认能力含义、可用条件和结果。</p></div><i aria-hidden=\"true\">→</i><div><b>交互机制</b><p>矩阵组织状态、错误、版本和必要关联的共性研究。</p></div><i aria-hidden=\"true\">→</i><div><b>应用验证</b><p>SWE 与验证方检查真实可实现性，反馈契约限制。</p></div></div><div class=\"callout\">MCP／A2A／现有 SOA 是可选形式；不能用协议选择代替功能语义和责任。</div>",
+      "notes": "跨 Agent 的行为和控制权由相关业务团队确认。COE 组织共同契约方法，不成为所有入口的运行时仲裁者。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "向内提升服务",
+      "title": "按缺口演进，不要求全库重构",
+      "lead": "业务能力是分析对象，接口和代码是事实基础。",
+      "body": "<table><thead><tr><th>现有情况</th><th>建议方案</th><th>承接关系</th></tr></thead><tbody><tr><td>已有完整功能和结果</td><td>复用，补能力描述及映射</td><td>产品确认，COE 提供方法</td></tr><tr><td>功能具备，接口分散</td><td>产品侧能力封装或目标适配</td><td>领域团队设计实现，联合评估</td></tr><tr><td>可执行，结果不清</td><td>补齐状态、关联和验收语义</td><td>产品＋底座＋验证协作</td></tr><tr><td>真实能力不存在</td><td>登记产品缺口，评估投入</td><td>业务／产品组织承接，不能仅靠包装</td></tr></tbody></table><div class=\"callout\">service_arch 支撑静态事实追溯；soa_adaptor 提供桥接积累。两者都不自动生成业务能力。</div>",
+      "notes": "既有服务与业务需要逐项分析，不强制每个服务对应一个 Skill。请求成功与完成分开；固定字段裁剪与语义能力建设也是不同问题。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "向下提出需求",
+      "title": "把业务诉求转成可测量的底座要求",
+      "lead": "需求同时说明必要性、行为、代价和验证方式。",
+      "body": "<table><thead><tr><th>业务问题</th><th>需求方向</th><th>验收关注</th></tr></thead><tbody><tr><td>状态是否足够新</td><td>真实时间／更新／质量语义</td><td>无来源的信息不伪造</td></tr><tr><td>请求是否有进展</td><td>必要的关联、状态与结果通路</td><td>不把传输 ACK 当完成</td></tr><tr><td>并发与断连怎样处理</td><td>按接口配置队列、顺序、背压和恢复</td><td>异常隔离与重放边界</td></tr><tr><td>响应体验是否达标</td><td>受理、起效、反馈、状态时效与资源预算</td><td>从具体任务推导，不统一套 10ms</td></tr><tr><td>失败如何定位</td><td>调用、状态、错误、版本与证据关联</td><td>可复现、可解释、可追溯</td></tr></tbody></table>",
+      "notes": "中间件实现不能承担全部业务仲裁。运行机制与业务策略需分开；buffer 的读取次数不能当成上报次数，E2E 需真实来源且按业务需求使用。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "组织形式",
+      "title": "稳定核心＋领域代表＋按议题参与",
+      "lead": "利用现有岗位共建能力，不预设新增行政组织。",
+      "body": "<div class=\"grid three\"><div class=\"panel\"><div class=\"num\">01</div><h3>稳定核心</h3><p>矩阵召集与技术资产负责人；平台／领域架构、关键 SO/FO 稳定代表。</p></div><div class=\"panel\"><div class=\"num\">02</div><h3>领域协作</h3><p>相关 SO、FO、车型 AI、SWE 和验证工程师，以真实议题参与。</p></div><div class=\"panel\"><div class=\"num\">03</div><h3>按需支持</h3><p>DO、TPM，以及算法、数据等专项角色，参与承接和专业判断。</p></div></div><div class=\"callout\">AI 指车型架构角色。软件架构师在本矩阵提供专业输入，不改变其所属架构组织的责任。</div>",
+      "notes": "核心名单和投入需所属团队确认。稳定核心不要求每个领域每周都全员参会，也不要求 DO 全程参与研究。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "角色职责",
+      "title": "功能、系统、车型与工程事实必须相互校验",
+      "lead": "共同形成能力承诺，避免只从接口或某一方视角定义。",
+      "body": "<table class=\"dense\"><thead><tr><th>角色</th><th>在矩阵内承担</th><th>贡献成果</th></tr></thead><tbody><tr><td>FO</td><td>明确需求、目标、异常与完成条件</td><td>功能语义与验收依据</td></tr><tr><td>SO</td><td>确认系统能力、资源及软硬件限制</td><td>可兑现的能力边界</td></tr><tr><td>AI（车型架构）</td><td>判断整车分配和车型差异</td><td>车型适用性与架构约束</td></tr><tr><td>平台软件架构师</td><td>共性服务机制及底座需求</td><td>状态／错误／生命周期等模式</td></tr><tr><td>领域软件架构师</td><td>领域能力映射与服务演进</td><td>接口提升与适配方案</td></tr><tr><td>SWE＋验证工程师</td><td>以实现和试验证据校验方案</td><td>可行性、样例与证据边界</td></tr><tr><td>DO＋TPM</td><td>按需衔接交付、组织议题与记录</td><td>承接条件、行动与升级协调</td></tr></tbody></table>",
+      "notes": "角色分工不是行政授权。软件架构安排在独立架构机制内确认。技术共识、功能承诺、工程投入和发布承诺分别记录。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "工作流",
+      "title": "围绕共同技术问题形成闭环",
+      "lead": "COE 看护问题、方法与资产；正式开发由相应业务和平台组织承接。",
+      "body": "<table class=\"dense\"><thead><tr><th>环节</th><th>牵引与参与</th><th>可检查的成果</th></tr></thead><tbody><tr><td>01 提出业务问题</td><td>FO／SO／架构师／SWE</td><td>场景、现状、受影响方与证据</td></tr><tr><td>02 澄清能力边界</td><td>FO＋SO＋AI</td><td>目标、约束、完成条件与适用范围</td></tr><tr><td>03 共同研究方案</td><td>平台＋领域架构师</td><td>契约、服务缺口和底座需求</td></tr><tr><td>04 工程验证假设</td><td>SWE＋验证责任方</td><td>样例／试验、代价与限制</td></tr><tr><td>05 形成共识与承接</td><td>各责任方，DO 按需</td><td>决策理由、未决项、维护及承接主体</td></tr><tr><td>06 沉淀与反馈</td><td>资产负责人＋业务团队</td><td>版本化方法、采用反馈和修正</td></tr></tbody></table>",
+      "notes": "不将这条研究流程变成每个动态场景的审批流程。边界内组合由业务运行机制负责；新语义、新权限或边界变化进入相应确认。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "交互界面",
+      "title": "让每一方知道，交给对方的是什么",
+      "lead": "架构讨论要有对象、输入、判断和输出。",
+      "body": "<table><thead><tr><th>交互双方</th><th>交换内容</th><th>共同确认</th></tr></thead><tbody><tr><td>FO ↔ SO</td><td>目标与完成条件 ↔ 系统能力和约束</td><td>能力承诺能否兑现</td></tr><tr><td>本矩阵 ↔ 软件架构矩阵</td><td>服务／能力侧约束 ↔ 软件职责与部署安排</td><td>共性机制如何进入软件体系</td></tr><tr><td>平台 ↔ 领域架构师</td><td>通用交互机制 ↔ 领域目标与反馈含义</td><td>共性与业务边界</td></tr><tr><td>架构师 ↔ SWE／验证</td><td>设计假设 ↔ 实际行为、代价和证据</td><td>抽象是否可实现、可证明</td></tr><tr><td>COE ↔ 工程／项目组织</td><td>可采用方案及限制 ↔ 资源与版本条件</td><td>谁实现、谁维护、谁验收</td></tr></tbody></table>",
+      "notes": "矩阵没有自动覆盖产品与项目决策的权力。不能收敛的分歧记录证据后进入已有决策机制，授权需在组织运行前明确。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "资源需求",
+      "title": "虚拟 COE 需要稳定投入，但不等于新建交付团队",
+      "lead": "先保障研究、维护和试验能力，再按证据提出工程投入。",
+      "body": "<table><thead><tr><th>资源层次</th><th>建议投入方式</th><th>确认内容</th></tr></thead><tbody><tr><td>常态核心</td><td>召集人、关键专业代表与资产维护人，固定时间投入</td><td>姓名、可投入范围、维护责任和替补</td></tr><tr><td>业务切片</td><td>VCC／产品 FO/SO、相关架构和 SWE，阶段性参与</td><td>具体任务、业务目标与工程承接</td></tr><tr><td>验证条件</td><td>Mock、仿真及需要时的 SDK／台架和测试人员</td><td>环境、权限、可用时间和证据范围</td></tr><tr><td>运营支撑</td><td>TPM 可兼职，维护议题、记录与升级</td><td>减少协调负担，不替代技术负责人</td></tr></tbody></table><div class=\"callout\">资源确认规则：未明确参与者、投入和环境的事项保留为研究储备，不列入实施承诺。</div>",
+      "notes": "本报告不虚构人员编制或人月。下一页给出可讨论的试点测算示例；所有投入需所属经理和相关组织确认。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "试点投入示例",
+      "title": "先测算一个切片，不申请全量平台预算",
+      "lead": "以下仅为讨论用的容量模型，不是已批准编制、排期或交付承诺。",
+      "body": "<table><thead><tr><th>投入项</th><th>示例配置</th><th>使用范围</th></tr></thead><tbody><tr><td>COE 核心协作</td><td>6 名跨专业代表，各约 10%–20% 时间</td><td>契约、接口、方案和知识维护</td></tr><tr><td>参考实现／试验</td><td>2 名相关 SWE，各约 25%–50% 时间</td><td>限选定切片，生产实现另行承接</td></tr><tr><td>验证支持</td><td>1 名验证工程师，约 20%–40% 时间</td><td>用例、证据和必要环境</td></tr><tr><td>运营协调</td><td>TPM 约 10% 时间</td><td>议题、决策及跨团队协调</td></tr></tbody></table><div class=\"callout orange\">容量合计示例约 1.4–2.7 FTE；分散在既有团队、投入周期另定。业务 FO/SO 等额外投入需按切片补算。</div>",
+      "notes": "FTE 仅为时间容量，不代表新增人数。计算为 6×0.1~0.2 + 2×0.25~0.5 + 0.2~0.4 + 0.1。该示例不包含硬件、采购和量产开发成本，也不能当作整个项目预算。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "运营方式",
+      "title": "少量优先议题，持续形成可维护的共同资产",
+      "lead": "把例会变成专业协作机制，而不是项目状态汇报。",
+      "body": "<div class=\"grid three\"><div class=\"panel\"><div class=\"num\">01</div><h3>入口与优先级</h3><p>以业务价值、共性程度、风险与可验证性筛选议题；控制同时研究数量。</p></div><div class=\"panel\"><div class=\"num\">02</div><h3>节奏与决策</h3><p>建议双周技术工作会，阶段性专题验证，月度回顾采用与阻塞；异步保留证据。</p></div><div class=\"panel\"><div class=\"num\">03</div><h3>维护与反馈</h3><p>每项资产有 owner、版本、适用范围和变更理由；业务使用问题进入下一轮修正。</p></div></div><div class=\"callout\">建议授权：COE 形成共性技术建议；业务承诺、软件架构、工程资源与发布分别走既有责任机制。</div>",
+      "notes": "会议节奏为运营建议，可按实际负荷调整。不以会议和文档数量评价价值。需要支持本专业演进，但不能把所有研发问题都装入矩阵。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "演进策略",
+      "title": "先建立共同方法，再按真实需求建设平台能力",
+      "lead": "从一个切片出发，扩大复用范围。",
+      "body": "<div class=\"timeline\"><div class=\"phase\"><div class=\"stage\">STAGE 01</div><h3>建立运作</h3><p>明确职责、接口、核心代表，选择业务切片。</p><div class=\"exit\"><strong>推进条件</strong><br>问题有 owner、投入与验证条件</div></div><div class=\"phase\"><div class=\"stage\">STAGE 02</div><h3>形成样例</h3><p>契约、服务映射、底座需求和验证证据。</p><div class=\"exit\"><strong>推进条件</strong><br>业务可以采用并指出限制</div></div><div class=\"phase\"><div class=\"stage\">STAGE 03</div><h3>提取共性</h3><p>多切片复用规范、工具需求与适配模式。</p><div class=\"exit\"><strong>推进条件</strong><br>共性经过复用验证，维护主体明确</div></div><div class=\"phase\"><div class=\"stage\">STAGE 04</div><h3>持续演进</h3><p>能力资产版本化、影响分析、专业培养与反馈。</p><div class=\"exit\"><strong>推进条件</strong><br>采用效果可观察，投入与价值匹配</div></div></div>",
+      "notes": "没有强制日历里程碑；按条件推进。不要求矩阵同时自建世界模型、OTA、数据平台等战略图中的全部横向能力。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "成效与业务案例",
+      "title": "为什么它能帮助 VCC，而不只增加评审环节",
+      "lead": "以同一个“二排休息”任务检验矩阵是否产生实际支撑。",
+      "body": "<table><thead><tr><th>VCC 需要解决</th><th>COE 组织的贡献</th><th>评价依据</th></tr></thead><tbody><tr><td>外部怎样准确表达需求</td><td>目标、对象、约束与授权契约</td><td>澄清成本和契约理解一致性</td></tr><tr><td>现有服务能否满足</td><td>产品确认能力、映射与缺口</td><td>接入效率及缺口提前发现</td></tr><tr><td>反馈是否能判断结果</td><td>真实状态和结果语义、底座需求</td><td>未知可见，错误不被包装为成功</td></tr><tr><td>如何验证并复用</td><td>通用用例、Mock、样例和证据方法</td><td>复用与回归成本、采用反馈</td></tr></tbody></table><div class=\"callout\">COE 的价值 = 跨专业知识被组织成业务可采用的能力；不是代替 VCC 决策或代替工程交付。</div>",
+      "notes": "和 Agent 报告使用同一案例、同一责任边界。业务价值最终由试点检验；矩阵重点衡量赋能效率、共性复用与问题前移。",
+      "cover": false,
+      "foot": ""
+    },
+    {
+      "chapter": "决策建议",
+      "title": "确认边界，保障投入，选择一个共同议题",
+      "lead": "用有限范围的验证，为后续组织和技术投入提供依据。",
+      "body": "<div class=\"grid three\"><div class=\"panel\"><div class=\"num\">01</div><h3>认可定位</h3><p>SOA 为核心基础与 know-how，向能力与交互延伸；与软件架构矩阵分工协作。</p></div><div class=\"panel\"><div class=\"num\">02</div><h3>指定人员与承接</h3><p>稳定核心、议题 owner、资产维护人；研究与工程投入分别确认。</p></div><div class=\"panel\"><div class=\"num\">03</div><h3>支持共同试点</h3><p>与 VCC 和系统产品共选一个切片，按业务采用、验证证据与复用效果复盘。</p></div></div><p class=\"footnote\">配套报告：<a class=\"source-link\" href=\"agent.html#s2\">车控 Agent 的业务价值与实施路径 →</a>　｜　<a class=\"source-link\" href=\"sources.html\">来源与证据边界</a></p>",
+      "notes": "建议管理层确认的是定位、参与和探索范围，不是一次批准所有平台能力或全部业务目标。后续按真实成果提出进一步投入。",
+      "cover": false,
+      "foot": ""
+    }
+  ]
+}

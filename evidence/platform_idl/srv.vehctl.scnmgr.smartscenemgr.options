@@ -1,0 +1,2 @@
+srv.vehctl.scnmgr.SmtSceneInfoDta.waterdep_value    int_size:IS_16
+srv.vehctl.scnmgr.SmtSceneInfoDta.scene_arb_result    int_size:IS_8

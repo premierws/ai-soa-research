@@ -1,0 +1,511 @@
+{
+  "project": "ai_soa_research",
+  "research_date": "2026-11-12",
+  "archived_at": "2026-11-16",
+  "excludes": [
+    "metadata/archive_manifest.json",
+    "metadata/verification_result.json"
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 63,
+      "sha256": "b5ef92bae2d45aceb13e899e8394a3630bd3ad79d1557831350e18065bf45a9b"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5462,
+      "sha256": "fca93512d828dc6817905dfecc4c68b9dd0dbda0875fff4253e2609eafd1ecd1"
+    },
+    {
+      "path": "docs/key_conclusions.md",
+      "bytes": 5380,
+      "sha256": "a9154d92fff603a4759a7faabe5b3426bcc3ed14f541bde17cb774989757cd70"
+    },
+    {
+      "path": "docs/open_questions.md",
+      "bytes": 1844,
+      "sha256": "bf4c71be33cc62ba7e8e2baaaccc5078c665c1f8994d20d189eb795290a977f5"
+    },
+    {
+      "path": "docs/organization/01_positioning_and_boundaries.md",
+      "bytes": 3220,
+      "sha256": "a4c8d07145258a6c030d9ea7434dc093f698899acafd12a464aad5fd96e0343a"
+    },
+    {
+      "path": "docs/organization/02_capability_and_platform_directions.md",
+      "bytes": 4583,
+      "sha256": "627c5354cc239e8cee88b75e4a0f1da086e6a683fcabfedc9b89d8c58cf3efe2"
+    },
+    {
+      "path": "docs/organization/03_roles_and_responsibilities.md",
+      "bytes": 3996,
+      "sha256": "0610b698410b9318bfc2ff40b28c2a1d3fca106529dd5f335ed11f6eb2eaead4"
+    },
+    {
+      "path": "docs/organization/04_workflow_and_interfaces.md",
+      "bytes": 4605,
+      "sha256": "60fc3c67fe66b348732446672cc085f1a07c5212812e2438d44deb626379b661"
+    },
+    {
+      "path": "docs/organization/05_worked_examples.md",
+      "bytes": 3104,
+      "sha256": "4f16d470c5ff29dce63289315f6f950b67d83145f762d323af8b01df33d87f05"
+    },
+    {
+      "path": "docs/organization/06_decisions_and_open_questions.md",
+      "bytes": 3567,
+      "sha256": "6c327737cf16f713ee88974c5ab567dce2fb865bafcd8d4a7bd4a188ac2dddad"
+    },
+    {
+      "path": "docs/organization/07_discussion_record_2026-11-13.md",
+      "bytes": 6148,
+      "sha256": "3c344c7c20236bd16c1721cb080d93df64aad1f06c5125ad84427209d8b7efbf"
+    },
+    {
+      "path": "docs/organization/README.md",
+      "bytes": 3165,
+      "sha256": "2333cf4fd269818a10b12b021abe2d8d486c62cdd67c15bc407a45011961ea92"
+    },
+    {
+      "path": "docs/research_notes.md",
+      "bytes": 4833,
+      "sha256": "3bd714e3848c5f81dfa306bd9f8e9aa763569f8a102c58ac7d3cf09a29390a93"
+    },
+    {
+      "path": "docs/research_report_2026-11-12.md",
+      "bytes": 40500,
+      "sha256": "e21f345eb70e6c233a2370950dc3b3e39cdcee1d0cca294a5aef26ec44596d2b"
+    },
+    {
+      "path": "docs/strategy/current_baseline_2026-11-16.md",
+      "bytes": 3423,
+      "sha256": "2a310550485b3a21f576f6352e51836c1f5797b1137c7862ad75eea974fe0f5d"
+    },
+    {
+      "path": "evidence/evidence_matrix.md",
+      "bytes": 5268,
+      "sha256": "c1028b29c4376d14103b512782e43f7accd9cc2e22496ed31e006303e84b91e0"
+    },
+    {
+      "path": "evidence/feishu/research_report_readback_2026-11-12.md",
+      "bytes": 45519,
+      "sha256": "00f886630daff9e23d0687b610c5d048ad4afafb50e1e9b9e319eba90cb6f672"
+    },
+    {
+      "path": "evidence/platform_idl/srv.body.intrlight.amblimgr.options",
+      "bytes": 3177,
+      "sha256": "30fb8aab0c530859628cfd7a388def26d38da48380dc8d5da05b73fe5d4770b2"
+    },
+    {
+      "path": "evidence/platform_idl/srv.body.intrlight.amblimgr.proto",
+      "bytes": 6856,
+      "sha256": "3a1ceaf340eaa600f5fc39a61f36f0fc565fd76014a1138477324352372c5c27"
+    },
+    {
+      "path": "evidence/platform_idl/srv.body.intrlight.ambliscenemgr.options",
+      "bytes": 589,
+      "sha256": "240d4aad8121c38241c28c5f94a4d1a169485151730bb51915ff008b305deeb6"
+    },
+    {
+      "path": "evidence/platform_idl/srv.body.intrlight.ambliscenemgr.proto",
+      "bytes": 2618,
+      "sha256": "8a02acafa2cdd5c4c8b42aec2c392603e7abd0519e7c8973cc5e5ca50cbdf46b"
+    },
+    {
+      "path": "evidence/platform_idl/srv.body.window.winmgr.options",
+      "bytes": 1253,
+      "sha256": "842de5f772a4d8587b1cd284e735fb51e195ff9afaf50be642b97ec9c813196d"
+    },
+    {
+      "path": "evidence/platform_idl/srv.body.window.winmgr.proto",
+      "bytes": 7096,
+      "sha256": "131f8d8cb61639a283ae3ebe2ebc786780ff4d37f359d2d656b750e95e7cfef2"
+    },
+    {
+      "path": "evidence/platform_idl/srv.thermal.hvac.aicabinfuncmgr.options",
+      "bytes": 2553,
+      "sha256": "8403ee2796d8984eafa9f7b1a14743e762258f26512a6f2b59d3f5bb8349cdef"
+    },
+    {
+      "path": "evidence/platform_idl/srv.thermal.hvac.aicabinfuncmgr.proto",
+      "bytes": 7143,
+      "sha256": "c12dfb34fc161cc1d2df93d94f6ef3a9e88f0fe2129c8291034e782f58eaf318"
+    },
+    {
+      "path": "evidence/platform_idl/srv.vehctl.scnmgr.smartscenemgr.options",
+      "bytes": 135,
+      "sha256": "d09e040a715b847f7c4ade5d78febd165dc09cc90742562459873e68f4f1449a"
+    },
+    {
+      "path": "evidence/platform_idl/srv.vehctl.scnmgr.smartscenemgr.proto",
+      "bytes": 1886,
+      "sha256": "5048e0cb17c57d1038459de4252d49c3baca62cd97c00b9160096e7fdb390b8e"
+    },
+    {
+      "path": "evidence/service_arch/README.md",
+      "bytes": 1627,
+      "sha256": "555a5250115057684a3cd65f1bf77f0bd70d0bd08c0adef36b49f6e0aa6b9082"
+    },
+    {
+      "path": "evidence/service_arch/backend/field_constraint.py",
+      "bytes": 613,
+      "sha256": "9ef826060e53cc5fa40af2f42f2784eb9a5c9d82079a8c02696795296e07ebc2"
+    },
+    {
+      "path": "evidence/service_arch/backend/proto_parser.py",
+      "bytes": 3894,
+      "sha256": "566ca81a3aeba72650d6e186239e8091c16520b260e6bb822f1177e6d628b39f"
+    },
+    {
+      "path": "evidence/service_arch/backend/service_instance.py",
+      "bytes": 683,
+      "sha256": "5088d59fc06f864d73e179924a5d214d337c2bc32eeab6b524f6050947f9830c"
+    },
+    {
+      "path": "evidence/service_arch/backend/soa_parser.py",
+      "bytes": 4707,
+      "sha256": "9fa40ff63c11d79b2ec25e07ca6edddb58563949fbe550eec3f7660baf6bc374"
+    },
+    {
+      "path": "evidence/service_arch/backend/source_evidence.py",
+      "bytes": 1931,
+      "sha256": "c922905f3c8c162f24ae397968d2662b83457546262235a13d50f2e388f384a4"
+    },
+    {
+      "path": "evidence/service_arch/platform_README.md",
+      "bytes": 10377,
+      "sha256": "09c4334ea1c851f65c7b06bf83fd672491ad648b6c6035596229434e50604fb3"
+    },
+    {
+      "path": "evidence/soa_adaptor/README.md",
+      "bytes": 8757,
+      "sha256": "4e13f3ddf72bc0048f5525f27f4bca4e86c8c4aaa9551fe12eb233836fefa368"
+    },
+    {
+      "path": "evidence/soa_adaptor/contract/State_Contract_Design.md",
+      "bytes": 8687,
+      "sha256": "e27260e1d79193a726872cac517ec5f77e2b000037694055b8b48228563dfbbb"
+    },
+    {
+      "path": "evidence/soa_adaptor/contract/amblimgr_state_config.json",
+      "bytes": 17592,
+      "sha256": "7a5120b61357cbf1e5f495a2375781f59cf33b9928772c93d7497988d9d63771"
+    },
+    {
+      "path": "evidence/soa_adaptor/docs/Client_Read_State_Review.md",
+      "bytes": 2804,
+      "sha256": "0a2cf862e057efa53b16e264cf01ab56bb1e28d3de1d997837402c2cd4a722b0"
+    },
+    {
+      "path": "evidence/soa_adaptor/src/soa_adpt_amblimgr.c",
+      "bytes": 95252,
+      "sha256": "1562e45b8716d4ccb3418617ac95775f01e14a1ffbdf015d04add5d2b012cbcd"
+    },
+    {
+      "path": "evidence/soa_adaptor/src/soa_adpt_amblimgr_sm.c",
+      "bytes": 18167,
+      "sha256": "dce39373acdbd9fff019b214851dd66aaf1ed8001d3f300b9a9cd3cb37955ec3"
+    },
+    {
+      "path": "evidence/soa_adaptor/tests/test_read_policy.c",
+      "bytes": 1666,
+      "sha256": "fbd263ad53dfee9a4166fc8cfe495e2ddcc2ad70566c72ad7816d4a061123927"
+    },
+    {
+      "path": "evidence/source_excerpts.md",
+      "bytes": 14854,
+      "sha256": "73e7ccf986086d96f1fc97269499cd3ac42ed688c97b107006a4aa1a388df3e7"
+    },
+    {
+      "path": "examples/README.md",
+      "bytes": 778,
+      "sha256": "f60b6ba2a9ecab3fde1f2a91e1ed95f15622c1504e3e27d91ef6012cee7171ca"
+    },
+    {
+      "path": "examples/mission_contract.example.proto",
+      "bytes": 1405,
+      "sha256": "c06eebdc11ddbba9b53e9353153a28dfb7900a5d4e5112a331df7882607dd837"
+    },
+    {
+      "path": "examples/mission_receipt.json",
+      "bytes": 109,
+      "sha256": "ca686e23753acb2ef51ce4cf758132f3976450c49d29e989ba8d58fa387b1771"
+    },
+    {
+      "path": "examples/mission_request.json",
+      "bytes": 567,
+      "sha256": "70fa299c8ef84183ce84b695670e91139b20ec149b71a4743209b3a292e1407c"
+    },
+    {
+      "path": "metadata/README.md",
+      "bytes": 1643,
+      "sha256": "65f9c3304ddeb4cf789325e8980db23dfb4c5e25f1bfacdb105fcb7a7fb62e5d"
+    },
+    {
+      "path": "metadata/evidence_locators.json",
+      "bytes": 2900,
+      "sha256": "7f4d81e64684201e576d3956bedd1d63d8a89d04e7bc1719659c476822f8c6d4"
+    },
+    {
+      "path": "metadata/organization_validation_2026-11-13.json",
+      "bytes": 353,
+      "sha256": "25441f1ccd8847450c529ef96f103eb18347fb42cc69c5ca97e3368b9093b24b"
+    },
+    {
+      "path": "metadata/source_manifest.json",
+      "bytes": 27405,
+      "sha256": "dc7d5f5b1433134d070bf63dfca212f2f6aed1e77addcdb84457f60e4a3d90c8"
+    },
+    {
+      "path": "presentations/soa_matrix/DEPLOYMENT.md",
+      "bytes": 1482,
+      "sha256": "e7721cb33e5acd6838bd7955e33141dfd99acaf17d5e09d08cbfdd2815a36432"
+    },
+    {
+      "path": "presentations/soa_matrix/README.md",
+      "bytes": 1704,
+      "sha256": "4b3b776aedb51e28faed71308ce48558e0b8c0a4c0ddf6fce0628886df130e1a"
+    },
+    {
+      "path": "presentations/soa_matrix/agent.html",
+      "bytes": 28603,
+      "sha256": "9ac40e10fc6064a2b11c2a02945f9e8c7d8b5de345a21b0908c607cd6d146408"
+    },
+    {
+      "path": "presentations/soa_matrix/assets/deck.css",
+      "bytes": 11269,
+      "sha256": "1f454f3667752c98aeceb116ed18cb5b7eb035d754247edb678c61da35dac160"
+    },
+    {
+      "path": "presentations/soa_matrix/assets/deck.js",
+      "bytes": 4325,
+      "sha256": "7f462bd11ccda8f0c084a02dcd9799f230bd3dd58b46d3a78122facaedacf7a4"
+    },
+    {
+      "path": "presentations/soa_matrix/build_decks.py",
+      "bytes": 38543,
+      "sha256": "31f64b61aaaa70ac86137c7790b5582d4e4eedaa0a22cdad3d7bcb6ba190c0ef"
+    },
+    {
+      "path": "presentations/soa_matrix/deck_content.json",
+      "bytes": 46252,
+      "sha256": "cd830401e5917c0971fac168201257a1df79d8e3d4be61a4aecbcee49ad17742"
+    },
+    {
+      "path": "presentations/soa_matrix/index.html",
+      "bytes": 1474,
+      "sha256": "c275db8a4edbfc22163693e63ffb702ac0437e940ee6dd6eeb4f9b581e8d8553"
+    },
+    {
+      "path": "presentations/soa_matrix/matrix.html",
+      "bytes": 26059,
+      "sha256": "21d4a07980383aa6df28a61cfbf3e13988a1b198670087501713e6f71ab5637b"
+    },
+    {
+      "path": "presentations/soa_matrix/references/sdvai-reference.txt",
+      "bytes": 13547,
+      "sha256": "c6264a3f6a638b4a4d8eb11a7fd99f2342377bd13927ed190a2cf503241f802f"
+    },
+    {
+      "path": "presentations/soa_matrix/release_manifest.json",
+      "bytes": 4044,
+      "sha256": "cb74d0859c61fb805e89343a0c8a7ed82b0ea6f0771e8c170f2e6538b85135c8"
+    },
+    {
+      "path": "presentations/soa_matrix/sources.html",
+      "bytes": 2714,
+      "sha256": "f08b84e0abbc995d80ec304f0f1ae3d501535e5081a6369e55265c2f7c6240fc"
+    },
+    {
+      "path": "presentations/soa_matrix/verification/agent-16.png",
+      "bytes": 113241,
+      "sha256": "4ae7b59547681a47b4f0d16855b3f5e66970d74798368a802f56de8e1881d97d"
+    },
+    {
+      "path": "presentations/soa_matrix/verification/agent-4.png",
+      "bytes": 130825,
+      "sha256": "42b1d883b4086f2ba246a84fd11170c9fe7c7917c76216178fb71f8b4533bb7a"
+    },
+    {
+      "path": "presentations/soa_matrix/verification/agent-9.png",
+      "bytes": 129958,
+      "sha256": "b268cd961fef61a336ce117fb3398521fb95b353cb58ddcc0c2da453e459871f"
+    },
+    {
+      "path": "presentations/soa_matrix/verification/agent-cover.png",
+      "bytes": 68536,
+      "sha256": "b437031f675a3b3aaebbe022322bba8ae57a642c40edb7c7f3a428e8a5ce7c94"
+    },
+    {
+      "path": "presentations/soa_matrix/verification/agent-review.pdf",
+      "bytes": 1135044,
+      "sha256": "dd335d928d7b6343fb9aeaf5901ef781fbb03ffa4f26c7f0df4baea3bf6aa6ef"
+    },
+    {
+      "path": "presentations/soa_matrix/verification/browser_checks.json",
+      "bytes": 990,
+      "sha256": "24c77cf3e713d02998e8aedf6fb7c85d9b129716662f7705f1c3c9a1a992857e"
+    },
+    {
+      "path": "presentations/soa_matrix/verification/index.png",
+      "bytes": 139356,
+      "sha256": "eebd07f5a20425821ea7ec4e9ce6b94c635ac8cdc2f3f71e0de00a1c1800631f"
+    },
+    {
+      "path": "presentations/soa_matrix/verification/matrix-10.png",
+      "bytes": 129123,
+      "sha256": "abd4cb27c1d6db0329d9fd4ac5f9a19e9368a923b12ac5adcf58172cb8dcd3c1"
+    },
+    {
+      "path": "presentations/soa_matrix/verification/matrix-4.png",
+      "bytes": 134922,
+      "sha256": "f09b7fcfdf5abf0c5cac567123a5226bbbbde82dd7daf15e405c933a24084875"
+    },
+    {
+      "path": "presentations/soa_matrix/verification/matrix-9.png",
+      "bytes": 119449,
+      "sha256": "8cd777e8e62feb27a34e944d016859f129b66b4bb13ab865916d293079f1bf4f"
+    },
+    {
+      "path": "presentations/soa_matrix/verification/matrix-cover.png",
+      "bytes": 76151,
+      "sha256": "a996de631fdc6d9c68ba3aacd22aa59f33bad2aa2117af2cba2f08905acfe5bc"
+    },
+    {
+      "path": "presentations/soa_matrix/verification/matrix-review.pdf",
+      "bytes": 1056366,
+      "sha256": "b02963b744982607b537cc596f063b2bad46284bf4be3a5cef383cbf9e42da9f"
+    },
+    {
+      "path": "presentations/soa_matrix/verify_decks.cjs",
+      "bytes": 3593,
+      "sha256": "3ef2ecff8d9f65797d74e1ed9e3ea3028c1511883f438f37476391c22d8af7c8"
+    },
+    {
+      "path": "references/feishu/vcc_function_architecture_2026-11-12.md",
+      "bytes": 36881,
+      "sha256": "e2aa4385e967ac5086428bcce93e142a0d471a4f4709671dc034f6a2f4b72f65"
+    },
+    {
+      "path": "references/industry/soa_agent_article_user_supplied.md",
+      "bytes": 10339,
+      "sha256": "7daef7d6e41d4aeac1550cd49382ee87b5840d7b8cf1811159c850b5e94eafae"
+    },
+    {
+      "path": "references/organization/README.md",
+      "bytes": 2076,
+      "sha256": "0131bd04231ac4690d7b535ea76460bee3e82f0fb518123b811b6762cbf18850"
+    },
+    {
+      "path": "references/organization/service_architecture_matrix_charter_snapshot_2026-11-13.md",
+      "bytes": 9640,
+      "sha256": "16265a4d791ace091655702bfc5bff9dccec3aff2de285b4772db0437dc76dc9"
+    },
+    {
+      "path": "references/organization/service_architecture_technical_plan_snapshot_2026-11-13.md",
+      "bytes": 21912,
+      "sha256": "dfddfd610bc725bffb9a56848647c653325d3d16d85aa97bf1fc740fe3fcaf99"
+    },
+    {
+      "path": "references/organization/whiteboards/operating_workflow_nodes_2026-11-13.json",
+      "bytes": 78907,
+      "sha256": "39df1105ed7ccf933743faac586c7f50b7cd904fdf0ad1ba5baf9bc70ac7ed27"
+    },
+    {
+      "path": "references/organization/whiteboards/organization_roles_nodes_2026-11-13.json",
+      "bytes": 27769,
+      "sha256": "00b0b6d6f9ce4468d6cf4d5a210018e940e73e11b58fc45c0d6dfae88f64169c"
+    },
+    {
+      "path": "references/organization/whiteboards/text_index_2026-11-13.md",
+      "bytes": 2540,
+      "sha256": "5c569a75232da5be334f542f8336c53b2a79ded9b4c78458b7f94ad9438a6d53"
+    },
+    {
+      "path": "references/organization/whiteboards/working_interfaces_nodes_2026-11-13.json",
+      "bytes": 43024,
+      "sha256": "bc0f882b64322a81f74f31782fa06e7cb35839dce810e9f12917398d2778e3cd"
+    },
+    {
+      "path": "references/protocols/protocol_references.md",
+      "bytes": 1121,
+      "sha256": "7a5afafa231f3f9c7c95495de07ee7567ee63332e419c883b74071493118ea09"
+    },
+    {
+      "path": "references/soa_runtime/mcu_e2e_communication_protection.md",
+      "bytes": 44337,
+      "sha256": "f93fed83ddcea34f8fc4a4f0ed4a7f59fe7922f5ccaa4184075e2ae0fdef3712"
+    },
+    {
+      "path": "references/soa_runtime/mcu_glue_code_api.md",
+      "bytes": 60800,
+      "sha256": "b38b369ed34c30b9361bbb7440b769ce8a62806ee99a328fed4085d348f991b3"
+    },
+    {
+      "path": "references/soa_runtime/soa_error_handlings.md",
+      "bytes": 55177,
+      "sha256": "48ae2484b1ed07bfb5203926821c5fe67827ddf19ea623a318f31ed7cd301e8e"
+    },
+    {
+      "path": "references/soa_runtime/soa_poc_source.md",
+      "bytes": 63611,
+      "sha256": "55a88c532a22eb509d112b4a6b2c74fc3b27746d93d11f2445790e4e44bbe4cb"
+    },
+    {
+      "path": "references/soa_surveys/amblimgr_client_coverage.json",
+      "bytes": 20509,
+      "sha256": "dbf74a1cd3c65d9bf2a7289251d13f9201dbf7b2f0f35cd9dc4ce5c33107cf7c"
+    },
+    {
+      "path": "references/soa_surveys/amblimgr_client_coverage.md",
+      "bytes": 6994,
+      "sha256": "1af6f75b82a3fc0de0d0a773fdd74d4fe74ee531d7d9179da4dbbc8f77195ddb"
+    },
+    {
+      "path": "references/soa_surveys/amblimgr_client_inventory.json",
+      "bytes": 180794,
+      "sha256": "e83bc0854becdb62efc38a7148cb2d9b46f2fe8a2f9c9ab89c47525b2f8f6d88"
+    },
+    {
+      "path": "references/soa_surveys/amblimgr_client_inventory.md",
+      "bytes": 16625,
+      "sha256": "7571571ab69ef346f72e258552c8e53163fd7d4cee0a9de88e6d3d3093a5bfae"
+    },
+    {
+      "path": "references/soa_surveys/interface_scenario_survey.json",
+      "bytes": 3076441,
+      "sha256": "c20dcd54f7722e0e9e8dc0f0dc051cc53f64d29811f6976b298411c8b47eec7f"
+    },
+    {
+      "path": "references/soa_surveys/interface_scenario_survey.md",
+      "bytes": 8056,
+      "sha256": "ca8ea906ef03ef353ea151bdbc97892c5a37065334ef2b592976e4654e3c978a"
+    },
+    {
+      "path": "references/soa_surveys/request_field_usage_survey.json",
+      "bytes": 120858,
+      "sha256": "29846b0348cd31fb8641485819206257e1bf45fbc8445f7b8c1ae7c218644b08"
+    },
+    {
+      "path": "references/soa_surveys/request_field_usage_survey.md",
+      "bytes": 8071,
+      "sha256": "ae22a229bb4fa036e5a78f66f5c5205ed1a70ba2acec26dd090a8e89a0ae8b94"
+    },
+    {
+      "path": "references/source_catalog.md",
+      "bytes": 5492,
+      "sha256": "f995fede3c02d42c552a198cc209c3984f8a0e3388739380e19effa839ac5b0b"
+    },
+    {
+      "path": "tools/verify_archive.py",
+      "bytes": 3541,
+      "sha256": "c8663e1bb288b507d04c451f6eb0fc873c2da193b3ead2b5c3cf2236ac6c2fbe"
+    }
+  ],
+  "research_dates": [
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-16"
+  ]
+}

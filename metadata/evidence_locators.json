@@ -1,0 +1,114 @@
+[
+  {
+    "id": "E01",
+    "title": "VCC 依赖系统能力实现端到端",
+    "path": "references/feishu/vcc_function_architecture_2026-11-12.md",
+    "line_start": 3,
+    "line_end": 4
+  },
+  {
+    "id": "E02",
+    "title": "Mission 与系统产品分工",
+    "path": "references/feishu/vcc_function_architecture_2026-11-12.md",
+    "line_start": 1018,
+    "line_end": 1022
+  },
+  {
+    "id": "E03",
+    "title": "非中央化功能边界",
+    "path": "references/feishu/vcc_function_architecture_2026-11-12.md",
+    "line_start": 1024,
+    "line_end": 1027
+  },
+  {
+    "id": "E04",
+    "title": "域内执行与 SOA 复用",
+    "path": "references/feishu/vcc_function_architecture_2026-11-12.md",
+    "line_start": 1113,
+    "line_end": 1121
+  },
+  {
+    "id": "E05",
+    "title": "AmbLiMgr 请求与状态接口并存",
+    "path": "evidence/platform_idl/srv.body.intrlight.amblimgr.proto",
+    "line_start": 196,
+    "line_end": 222
+  },
+  {
+    "id": "E06",
+    "title": "WinMgr 同一服务含 FF 与 RR",
+    "path": "evidence/platform_idl/srv.body.window.winmgr.proto",
+    "line_start": 201,
+    "line_end": 234
+  },
+  {
+    "id": "E07",
+    "title": "AiCabinFuncMgr 含目标型参数",
+    "path": "evidence/platform_idl/srv.thermal.hvac.aicabinfuncmgr.proto",
+    "line_start": 109,
+    "line_end": 136
+  },
+  {
+    "id": "E08",
+    "title": "AiCabinFuncMgr 请求与状态",
+    "path": "evidence/platform_idl/srv.thermal.hvac.aicabinfuncmgr.proto",
+    "line_start": 195,
+    "line_end": 228
+  },
+  {
+    "id": "E09",
+    "title": "SmartSceneMgr 场景信息事件",
+    "path": "evidence/platform_idl/srv.vehctl.scnmgr.smartscenemgr.proto",
+    "line_start": 50,
+    "line_end": 59
+  },
+  {
+    "id": "E10",
+    "title": "既有场景控制形式",
+    "path": "evidence/platform_idl/srv.body.intrlight.ambliscenemgr.proto",
+    "line_start": 92,
+    "line_end": 113
+  },
+  {
+    "id": "E11",
+    "title": "buffer 与新帧不能混同",
+    "path": "evidence/soa_adaptor/README.md",
+    "line_start": 9,
+    "line_end": 20
+  },
+  {
+    "id": "E12",
+    "title": "原始 E2E 与业务处理分离",
+    "path": "evidence/soa_adaptor/README.md",
+    "line_start": 32,
+    "line_end": 39
+  },
+  {
+    "id": "E13",
+    "title": "FF 发送不代表 Server 完成",
+    "path": "evidence/soa_adaptor/README.md",
+    "line_start": 62,
+    "line_end": 64
+  },
+  {
+    "id": "E14",
+    "title": "版本化架构与来源证据",
+    "path": "evidence/service_arch/backend/source_evidence.py",
+    "line_start": 8,
+    "line_end": 19
+  },
+  {
+    "id": "E15",
+    "title": "服务实例及关系事实",
+    "path": "evidence/service_arch/platform_README.md",
+    "line_start": 34,
+    "line_end": 42
+  },
+  {
+    "id": "E16",
+    "title": "Event＋FF 样本统计边界",
+    "path": "references/soa_surveys/interface_scenario_survey.md",
+    "line_start": 18,
+    "line_end": 21
+  }
+]

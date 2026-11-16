@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-13",
+  "status": "passed",
+  "topic_documents": 8,
+  "new_source_snapshots": 5,
+  "markdown_files_checked": 12,
+  "local_links_checked": 28,
+  "roles_checked": 8,
+  "discussion_rounds": 4,
+  "previous_unrelated_archive_files_unchanged": true,
+  "scope": "组织专题内容、交互记录和归档完整性检查",
+  "errors": []
+}

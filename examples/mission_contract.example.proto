@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+package vcc.example;
+
+enum Area {
+  AREA_UNSPECIFIED = 0;
+  FRONT_ROW = 1;
+  SECOND_ROW_RIGHT = 2;
+}
+
+enum Domain {
+  DOMAIN_UNSPECIFIED = 0;
+  THERMAL = 1;
+  LIGHTING = 2;
+}
+
+message ThermalComfortGoal {
+  enum Change {
+    CHANGE_UNSPECIFIED = 0;
+    SLIGHTLY_WARMER = 1;
+    SLIGHTLY_COOLER = 2;
+  }
+  Area area = 1;
+  Change change = 2;
+}
+
+message LightingComfortGoal {
+  enum Change {
+    CHANGE_UNSPECIFIED = 0;
+    SLIGHTLY_DIMMER = 1;
+    SLIGHTLY_BRIGHTER = 2;
+  }
+  Area area = 1;
+  Change change = 2;
+}
+
+message Goal {
+  string goal_id = 1;
+  oneof target {
+    ThermalComfortGoal thermal_comfort = 2;
+    LightingComfortGoal lighting_comfort = 3;
+  }
+}
+
+message PreserveSettings {
+  Area area = 1;
+  repeated Domain domains = 2;
+}
+
+message MissionConstraints {
+  repeated PreserveSettings preserve_settings = 1;
+}
+
+enum Preference {
+  NO_PREFERENCE = 0;
+  ENERGY_SAVING = 1;
+}
+
+message MissionRequest {
+  string request_id = 1;
+  repeated Goal goals = 2;
+  MissionConstraints constraints = 3;
+  Preference preference = 4;
+}
+
+message MissionReceipt {
+  enum Admission {
+    ADMISSION_UNSPECIFIED = 0;
+    ACCEPTED = 1;
+    NEEDS_CLARIFICATION = 2;
+    REJECTED = 3;
+  }
+  string request_id = 1;
+  string mission_id = 2;
+  Admission admission = 3;
+  repeated string issues = 4;
+}
+
+service VehicleCabinControl {
+  rpc SubmitMission(MissionRequest) returns (MissionReceipt);
+}

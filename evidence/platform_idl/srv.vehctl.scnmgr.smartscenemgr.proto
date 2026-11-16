@@ -1,0 +1,59 @@
+/**
+ * @author bob.li
+ * @brief 
+ * @date 2026-02-05
+ * 
+ * @copyright Copyright (c) NIO 2026
+ * All rights reserved.
+ * This document contains proprietary information belonging to NIO. Passing on and copying of this document,
+ * and communication of its contents is not permitted without prior written authorization.
+ * 
+ */
+syntax = "proto3";
+package srv.vehctl.scnmgr;
+import "nrpc.option.proto";
+option (idl_version) = "2.1";
+
+enum AutoWadeModeInfo {
+    AUTOWADE_MODE_NO_REQ   = 0; // Autowade mode no request
+    AUTOWADE_MODE_ENTERREQ = 1; // Autowade mode enter request
+    AUTOWADE_MODE_EXITREQ  = 2; // Autowade mode exit request
+}
+
+enum WadeTrapRemindInfo {
+    WADETRAP_REMIND_NO_REQ  = 0; // Wade trap remind no request
+    WADETRAP_REMIND_REQ     = 1; // Wade trap remind request
+    WADETRAP_REMIND_INVALID = 2; // Wade trap remind invalid
+}
+
+message SmtSceneInfoDta {
+    int32 waterdep_value                    = 1; // Comment: water depth value  Unit: mm
+    bool waterdep_value_vld                 = 2; // 0x0  invalid 0x1 valid
+    AutoWadeModeInfo autowade_mode_info     = 3;
+    WadeTrapRemindInfo wadetrap_remind_info = 4;
+    /**
+     * Comment: Smart scene result
+     * Value  Description(EN)
+     * 0      SCENE_RESULT_NOREQ
+     * 1      SCENE_RESULT_NORMAL 
+     * 2      SCENE_RESULT_SNOW  
+     * 3      SCENE_RESULT_WET   
+     * 4      SCENE_RESULT_SAND   
+     * 5      SCENE_RESULT_MUD   
+     * 6      SCENE_RESULT_GRAVEL
+     * 7      SCENE_RESULT_WADE
+     */
+    uint32 scene_arb_result                 = 5;
+    bool prewade_mode_info                  = 6; // 0x0 off  0x1 on
+}
+
+service SmartSceneMgr {
+    option(service_id) = 6051;
+
+    rpc SmtSceneInfo(SmtSceneInfoDta) returns (Null) {
+        option (rpc_id) = 1;
+        option (method_type) = EVENT;
+        option (update_policy) = CYCLIC;
+        option (update_cycle_time) = 50;
+    }
+}

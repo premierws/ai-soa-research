@@ -1,0 +1,745 @@
+{
+  "method": [
+    "接口按 proto 中显式 rpc 声明计数，不将 Field 隐式操作拆分计数。",
+    "信号按每个 RPC 的输入和非空输出的叶子字段计数；嵌套结构递归展开，enum计1个；同一类型被不同RPC使用时分别计数。",
+    "数组按叶子路径计一次，不乘元素数量；发送完整构造的常量和整包复制字段也计为使用。接收只读缓存但无业务字段引用的信号计0。",
+    "这是静态引用覆盖统计，字段数比例不代表内存、CPU或网络字节比例。"
+  ],
+  "clients": [
+    {
+      "package": "srv.body.base",
+      "service": "RlsInfo",
+      "instance": null,
+      "total_rpcs": 8,
+      "configured_rpcs": 1,
+      "called_rpcs": 1,
+      "total_rpc_leaf_fields": 54,
+      "configured_rpc_leaf_fields": 12,
+      "used_leaf_fields": 1,
+      "details": [
+        {
+          "rpc": "LightSnrSts",
+          "used_leaf_fields": [
+            "head_lamps_on"
+          ],
+          "all_leaf_fields": [
+            "rls_front_brightness",
+            "rls_ambt_brightness",
+            "tunnel_detection_sts",
+            "head_lamps_on",
+            "light_snsr_active_sts",
+            "light_snsr_fail_sts",
+            "amb_li_illmn",
+            "hud_snsr_err_sts",
+            "optical_init_fail_sts",
+            "day_detn_sts",
+            "head_lamps_on_validity",
+            "head_lamps_on_alive_flag"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        }
+      ]
+    },
+    {
+      "package": "srv.body.intrlight",
+      "service": "DynAmbLiActu",
+      "instance": null,
+      "total_rpcs": 8,
+      "configured_rpcs": 7,
+      "called_rpcs": 7,
+      "total_rpc_leaf_fields": 28,
+      "configured_rpc_leaf_fields": 24,
+      "used_leaf_fields": 23,
+      "details": [
+        {
+          "rpc": "DynAmbLiSts",
+          "used_leaf_fields": [
+            "ambli_sts.ambli_sts"
+          ],
+          "all_leaf_fields": [
+            "ambli_sts.ambli_sts",
+            "ambli_sts.ambli_err"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "DynEnaCtrl",
+          "used_leaf_fields": [
+            "ena_ctrl"
+          ],
+          "all_leaf_fields": [
+            "ena_ctrl"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "DynGenBriCtrl",
+          "used_leaf_fields": [
+            "gen_bri_ctrl"
+          ],
+          "all_leaf_fields": [
+            "gen_bri_ctrl"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "DynNodeCtrl",
+          "used_leaf_fields": [
+            "node_ctrl.color",
+            "node_ctrl.color_vld",
+            "node_ctrl.bri"
+          ],
+          "all_leaf_fields": [
+            "node_ctrl.color",
+            "node_ctrl.color_vld",
+            "node_ctrl.bri"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "DynPrmSet",
+          "used_leaf_fields": [
+            "fade_tim",
+            "fade_mod_cmd",
+            "nat_tran_mod",
+            "nat_tran_tim",
+            "seg_flow",
+            "seg_node_pri",
+            "disp_mod",
+            "color_mod",
+            "bri_mod"
+          ],
+          "all_leaf_fields": [
+            "fade_tim",
+            "fade_mod_cmd",
+            "nat_tran_mod",
+            "nat_tran_tim",
+            "seg_flow",
+            "seg_node_pri",
+            "disp_mod",
+            "color_mod",
+            "bri_mod"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "DynSegCtrl",
+          "used_leaf_fields": [
+            "seg_ctrl.seg_start_posn",
+            "seg_ctrl.seg_nr",
+            "seg_ctrl.seg_color_vld",
+            "seg_ctrl.seg_start_color_h",
+            "seg_ctrl.seg_end_color_s",
+            "seg_ctrl.seg_start_bri",
+            "seg_ctrl.seg_end_bri"
+          ],
+          "all_leaf_fields": [
+            "seg_ctrl.seg_start_posn",
+            "seg_ctrl.seg_nr",
+            "seg_ctrl.seg_color_vld",
+            "seg_ctrl.seg_start_color_h",
+            "seg_ctrl.seg_end_color_s",
+            "seg_ctrl.seg_start_bri",
+            "seg_ctrl.seg_end_bri"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "DynSeqPilot",
+          "used_leaf_fields": [
+            "pilot_id"
+          ],
+          "all_leaf_fields": [
+            "pilot_id"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        }
+      ]
+    },
+    {
+      "package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiAp",
+      "total_rpcs": 6,
+      "configured_rpcs": 4,
+      "called_rpcs": 4,
+      "total_rpc_leaf_fields": 15,
+      "configured_rpc_leaf_fields": 9,
+      "used_leaf_fields": 9,
+      "details": [
+        {
+          "rpc": "StaColorCtrl",
+          "used_leaf_fields": [
+            "color_ctrl.color_or_h",
+            "color_ctrl.color_s"
+          ],
+          "all_leaf_fields": [
+            "color_ctrl.color_or_h",
+            "color_ctrl.color_s"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "StaEnaCtrl",
+          "used_leaf_fields": [
+            "ena_ctrl"
+          ],
+          "all_leaf_fields": [
+            "ena_ctrl"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "StaNodeBriCtrl",
+          "used_leaf_fields": [
+            "node_bri_ctrl"
+          ],
+          "all_leaf_fields": [
+            "node_bri_ctrl"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "StaPrmCtrl",
+          "used_leaf_fields": [
+            "fade_tim",
+            "fade_mod_cmd",
+            "nat_tran_mod",
+            "nat_tran_tim",
+            "breath_mod"
+          ],
+          "all_leaf_fields": [
+            "fade_tim",
+            "fade_mod_cmd",
+            "nat_tran_mod",
+            "nat_tran_tim",
+            "breath_mod"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        }
+      ]
+    },
+    {
+      "package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiFw",
+      "total_rpcs": 6,
+      "configured_rpcs": 5,
+      "called_rpcs": 4,
+      "total_rpc_leaf_fields": 15,
+      "configured_rpc_leaf_fields": 14,
+      "used_leaf_fields": 9,
+      "details": [
+        {
+          "rpc": "StaAmbLiSts",
+          "used_leaf_fields": [],
+          "all_leaf_fields": [
+            "ambli_sts.ambli_sts",
+            "ambli_sts.color_or_h",
+            "ambli_sts.color_s",
+            "ambli_sts.bri",
+            "ambli_sts.ambli_err"
+          ],
+          "has_api_call": false,
+          "observation": "configured_no_read_call"
+        },
+        {
+          "rpc": "StaColorCtrl",
+          "used_leaf_fields": [
+            "color_ctrl.color_or_h",
+            "color_ctrl.color_s"
+          ],
+          "all_leaf_fields": [
+            "color_ctrl.color_or_h",
+            "color_ctrl.color_s"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "StaEnaCtrl",
+          "used_leaf_fields": [
+            "ena_ctrl"
+          ],
+          "all_leaf_fields": [
+            "ena_ctrl"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "StaGenBriCtrl",
+          "used_leaf_fields": [
+            "gen_bri_ctrl"
+          ],
+          "all_leaf_fields": [
+            "gen_bri_ctrl"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "StaPrmCtrl",
+          "used_leaf_fields": [
+            "fade_tim",
+            "fade_mod_cmd",
+            "nat_tran_mod",
+            "nat_tran_tim",
+            "breath_mod"
+          ],
+          "all_leaf_fields": [
+            "fade_tim",
+            "fade_mod_cmd",
+            "nat_tran_mod",
+            "nat_tran_tim",
+            "breath_mod"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        }
+      ]
+    },
+    {
+      "package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiIp",
+      "total_rpcs": 6,
+      "configured_rpcs": 4,
+      "called_rpcs": 4,
+      "total_rpc_leaf_fields": 15,
+      "configured_rpc_leaf_fields": 9,
+      "used_leaf_fields": 9,
+      "details": [
+        {
+          "rpc": "StaColorCtrl",
+          "used_leaf_fields": [
+            "color_ctrl.color_or_h",
+            "color_ctrl.color_s"
+          ],
+          "all_leaf_fields": [
+            "color_ctrl.color_or_h",
+            "color_ctrl.color_s"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "StaEnaCtrl",
+          "used_leaf_fields": [
+            "ena_ctrl"
+          ],
+          "all_leaf_fields": [
+            "ena_ctrl"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "StaNodeBriCtrl",
+          "used_leaf_fields": [
+            "node_bri_ctrl"
+          ],
+          "all_leaf_fields": [
+            "node_bri_ctrl"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "StaPrmCtrl",
+          "used_leaf_fields": [
+            "fade_tim",
+            "fade_mod_cmd",
+            "nat_tran_mod",
+            "nat_tran_tim",
+            "breath_mod"
+          ],
+          "all_leaf_fields": [
+            "fade_tim",
+            "fade_mod_cmd",
+            "nat_tran_mod",
+            "nat_tran_tim",
+            "breath_mod"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        }
+      ]
+    },
+    {
+      "package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiStorg",
+      "total_rpcs": 6,
+      "configured_rpcs": 5,
+      "called_rpcs": 4,
+      "total_rpc_leaf_fields": 15,
+      "configured_rpc_leaf_fields": 14,
+      "used_leaf_fields": 9,
+      "details": [
+        {
+          "rpc": "StaAmbLiSts",
+          "used_leaf_fields": [],
+          "all_leaf_fields": [
+            "ambli_sts.ambli_sts",
+            "ambli_sts.color_or_h",
+            "ambli_sts.color_s",
+            "ambli_sts.bri",
+            "ambli_sts.ambli_err"
+          ],
+          "has_api_call": false,
+          "observation": "configured_no_read_call"
+        },
+        {
+          "rpc": "StaColorCtrl",
+          "used_leaf_fields": [
+            "color_ctrl.color_or_h",
+            "color_ctrl.color_s"
+          ],
+          "all_leaf_fields": [
+            "color_ctrl.color_or_h",
+            "color_ctrl.color_s"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "StaEnaCtrl",
+          "used_leaf_fields": [
+            "ena_ctrl"
+          ],
+          "all_leaf_fields": [
+            "ena_ctrl"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "StaNodeBriCtrl",
+          "used_leaf_fields": [
+            "node_bri_ctrl"
+          ],
+          "all_leaf_fields": [
+            "node_bri_ctrl"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "StaPrmCtrl",
+          "used_leaf_fields": [
+            "fade_tim",
+            "fade_mod_cmd",
+            "nat_tran_mod",
+            "nat_tran_tim",
+            "breath_mod"
+          ],
+          "all_leaf_fields": [
+            "fade_tim",
+            "fade_mod_cmd",
+            "nat_tran_mod",
+            "nat_tran_tim",
+            "breath_mod"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        }
+      ]
+    },
+    {
+      "package": "srv.body.safety",
+      "service": "SeatBasicSts",
+      "instance": null,
+      "total_rpcs": 5,
+      "configured_rpcs": 1,
+      "called_rpcs": 1,
+      "total_rpc_leaf_fields": 32,
+      "configured_rpc_leaf_fields": 5,
+      "used_leaf_fields": 2,
+      "details": [
+        {
+          "rpc": "SeatBasicStsArray",
+          "used_leaf_fields": [
+            "seat_basic_sts.occpnt_fail_sts",
+            "seat_basic_sts.occpnt_sensor_sts"
+          ],
+          "all_leaf_fields": [
+            "seat_basic_sts.seat_position",
+            "seat_basic_sts.occpnt_sensor_sts",
+            "seat_basic_sts.occpnt_fail_sts",
+            "seat_basic_sts.buckle_sts",
+            "seat_basic_sts.buckle_fail_sts"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        }
+      ]
+    },
+    {
+      "package": "srv.body.smtkey",
+      "service": "SmtKeyUsrIntnMgr",
+      "instance": null,
+      "total_rpcs": 1,
+      "configured_rpcs": 1,
+      "called_rpcs": 1,
+      "total_rpc_leaf_fields": 7,
+      "configured_rpc_leaf_fields": 7,
+      "used_leaf_fields": 1,
+      "details": [
+        {
+          "rpc": "SmtKeyUsrIntnNotify",
+          "used_leaf_fields": [
+            "smt_key_drv_veh_intera_phase"
+          ],
+          "all_leaf_fields": [
+            "smt_key_drv_veh_intera_phase",
+            "smt_key_usrprof_drv_detn",
+            "smt_key_vip_veh_intera_phase",
+            "smt_key_usr_intn_level",
+            "fusion_usr_intn_info.usr_frunk_open_intn",
+            "fusion_usr_intn_info.usr_trunk_open_intn",
+            "fusion_usr_intn_info.usr_pwrdoor_open_intn"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        }
+      ]
+    },
+    {
+      "package": "srv.infra.vehmoding",
+      "service": "VehMode",
+      "instance": null,
+      "total_rpcs": 4,
+      "configured_rpcs": 2,
+      "called_rpcs": 2,
+      "total_rpc_leaf_fields": 13,
+      "configured_rpc_leaf_fields": 7,
+      "used_leaf_fields": 0,
+      "details": [
+        {
+          "rpc": "VehModeInfo",
+          "used_leaf_fields": [],
+          "all_leaf_fields": [
+            "veh_mode"
+          ],
+          "has_api_call": true,
+          "observation": "read_and_cached_no_business_field_reference"
+        },
+        {
+          "rpc": "VehModeSettingInfo",
+          "used_leaf_fields": [],
+          "all_leaf_fields": [
+            "bmsuploadoffreq",
+            "netmdloffreq",
+            "transportmd_maxsoc",
+            "vehmode_maxchrgsoc",
+            "vehmodesw_act.vehmodesw_id",
+            "vehmodesw_act.vehmodesw_sts"
+          ],
+          "has_api_call": true,
+          "observation": "read_and_cached_no_business_field_reference"
+        }
+      ]
+    },
+    {
+      "package": "srv.infra.vehmoding",
+      "service": "VehState",
+      "instance": null,
+      "total_rpcs": 6,
+      "configured_rpcs": 1,
+      "called_rpcs": 1,
+      "total_rpc_leaf_fields": 14,
+      "configured_rpc_leaf_fields": 4,
+      "used_leaf_fields": 2,
+      "details": [
+        {
+          "rpc": "VehStateInfo",
+          "used_leaf_fields": [
+            "operator_state",
+            "veh_state_detailed"
+          ],
+          "all_leaf_fields": [
+            "veh_state_detailed",
+            "drv_state",
+            "operator_state",
+            "drv_state_detailed"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        }
+      ]
+    },
+    {
+      "package": "srv.motion.drv",
+      "service": "MotionCtrlInfo",
+      "instance": "MotionCtrlInfoPri",
+      "total_rpcs": 3,
+      "configured_rpcs": 1,
+      "called_rpcs": 1,
+      "total_rpc_leaf_fields": 83,
+      "configured_rpc_leaf_fields": 58,
+      "used_leaf_fields": 2,
+      "details": [
+        {
+          "rpc": "IfCommInfo",
+          "used_leaf_fields": [
+            "accr_pedl_posn",
+            "accr_pedl_posn_vld"
+          ],
+          "all_leaf_fields": [
+            "accr_pedl_posn",
+            "accr_pedl_posn_vld",
+            "act_gear",
+            "act_gear_vld",
+            "brk_pedl_prsd",
+            "brk_pedl_prsd_vld",
+            "brk_pedl_trvl",
+            "brk_trvl_vld",
+            "veh_spd_asild",
+            "veh_spd_asild_vld",
+            "peuf_mot_spd",
+            "peuf_mot_spd_vld",
+            "peuf_mot_act_tq",
+            "peuf_mot_act_tq_vld",
+            "peur_mot_spd",
+            "peur_mot_spd_vld",
+            "peur_mot_act_tq",
+            "peur_mot_act_tq_vld",
+            "veh_rdy",
+            "whl_spd_fl",
+            "whl_spd_fr",
+            "whl_spd_rl",
+            "whl_spd_rr",
+            "whl_spd_dir_fl",
+            "whl_spd_dir_fr",
+            "whl_spd_dir_rl",
+            "whl_spd_dir_rr",
+            "whl_spd_sts_fl",
+            "whl_spd_sts_fr",
+            "whl_spd_sts_rl",
+            "whl_spd_sts_rr",
+            "whl_pls_cntr_fl",
+            "whl_pls_cntr_fl_vld",
+            "whl_pls_cntr_fr",
+            "whl_pls_cntr_fr_vld",
+            "whl_pls_cntr_rl",
+            "whl_pls_cntr_rl_vld",
+            "whl_pls_cntr_rr",
+            "whl_pls_cntr_rr_vld",
+            "shifter_postn_sts",
+            "shifter_postn_sts_vld",
+            "arb_prk_butn_sts",
+            "arb_prk_butn_sts_vld",
+            "bcu_veh_spd",
+            "bcu_veh_spd_sts",
+            "veh_mov_dir",
+            "vehspd_asild_tv_ns",
+            "whlspd_tv_ns",
+            "tv_ns",
+            "spin_sts_fl",
+            "spin_sts_fr",
+            "spin_sts_rl",
+            "spin_sts_rr",
+            "spin_sts_fl_validity",
+            "spin_sts_fr_validity",
+            "spin_sts_rl_validity",
+            "spin_sts_rr_validity",
+            "peuf_bearing_temp_calc"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        }
+      ]
+    },
+    {
+      "package": "srv.vehctl.scnmgr",
+      "service": "DriveModeMgr",
+      "instance": null,
+      "total_rpcs": 7,
+      "configured_rpcs": 2,
+      "called_rpcs": 2,
+      "total_rpc_leaf_fields": 22,
+      "configured_rpc_leaf_fields": 12,
+      "used_leaf_fields": 2,
+      "details": [
+        {
+          "rpc": "DriveModeSts",
+          "used_leaf_fields": [
+            "dm_type"
+          ],
+          "all_leaf_fields": [
+            "dm_type",
+            "accr_type",
+            "regen_type",
+            "steer_type",
+            "steer_rd_type",
+            "level_ctrl_type",
+            "damp_type",
+            "fas_type",
+            "ac_type",
+            "profile_mode_trigger"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        },
+        {
+          "rpc": "EcoPlusModeInfo",
+          "used_leaf_fields": [
+            "eco_plus_mode_sts"
+          ],
+          "all_leaf_fields": [
+            "eco_plus_mode_sts",
+            "eco_plus_warn_info"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        }
+      ]
+    },
+    {
+      "package": "srv.vehicle.plm",
+      "service": "VehConfig",
+      "instance": null,
+      "total_rpcs": 77,
+      "configured_rpcs": 2,
+      "called_rpcs": 2,
+      "total_rpc_leaf_fields": 77,
+      "configured_rpc_leaf_fields": 2,
+      "used_leaf_fields": 1,
+      "details": [
+        {
+          "rpc": "IVcpVal_InteriorBodyColor",
+          "used_leaf_fields": [],
+          "all_leaf_fields": [
+            "vcp_val"
+          ],
+          "has_api_call": true,
+          "observation": "read_and_cached_no_business_field_reference"
+        },
+        {
+          "rpc": "IVcpVal_VehicleProject",
+          "used_leaf_fields": [
+            "vcp_val"
+          ],
+          "all_leaf_fields": [
+            "vcp_val"
+          ],
+          "has_api_call": true,
+          "observation": "explicit_field_reference"
+        }
+      ]
+    }
+  ]
+}

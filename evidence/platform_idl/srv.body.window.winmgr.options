@@ -1,0 +1,18 @@
+srv.body.window.WinTarPosnReq.win_tar_posn_req    int_size:IS_8
+srv.body.window.WinTarPosnReq.win_tar_posn_req    max_count:8 fixed_count:true
+srv.body.window.ProhibitWinReq.win_prohibit_req    max_count:8 fixed_count:true
+srv.body.window.ProhibitWinReqResult.req_result    int_size:IS_8
+srv.body.window.WinStsInfo.win_status_info    max_count:8 fixed_count:true
+srv.body.window.WinStsInfo.chd_win_lock_sts    int_size:IS_8
+srv.body.window.WinStsInfo.win_swt_lock_sts    int_size:IS_8
+srv.body.window.WinStsInfo.win_vent_sts    int_size:IS_8
+srv.body.window.WinStsInfoType.win_open_value    int_size:IS_8
+srv.body.window.WinStsInfoType.win_stop_reason    int_size:IS_8
+srv.body.window.WinSelfLearnReq.win_self_learn_req    int_size:IS_8
+srv.body.window.WinSelfLearnReqResult.win_self_learn_req_result    int_size:IS_8
+srv.body.window.SideShdTarPosnReq.side_shd_tar_posn_req    max_count:8 fixed_count:true
+srv.body.window.SideShdStsInfoType.side_shd_open_value    int_size:IS_8
+srv.body.window.SideShdStsInfoType.side_shd_stop_reason    int_size:IS_8
+srv.body.window.SideShdStsInfo.side_shd_status_info    max_count:8 fixed_count:true
+srv.body.window.ReqResultType.ctrl_result    int_size:IS_8
+srv.body.window.ReqResultType.fail_reason    int_size:IS_8

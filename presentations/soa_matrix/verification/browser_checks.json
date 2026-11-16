@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-16",
+  "checks": [
+    {
+      "name": "agent",
+      "size": {
+        "width": 1920,
+        "height": 1080
+      },
+      "slides": 20,
+      "layoutIssues": 0
+    },
+    {
+      "name": "matrix",
+      "size": {
+        "width": 1920,
+        "height": 1080
+      },
+      "slides": 18,
+      "layoutIssues": 0
+    },
+    {
+      "name": "agent",
+      "size": {
+        "width": 1366,
+        "height": 768
+      },
+      "slides": 20,
+      "layoutIssues": 0
+    },
+    {
+      "name": "matrix",
+      "size": {
+        "width": 1366,
+        "height": 768
+      },
+      "slides": 18,
+      "layoutIssues": 0
+    },
+    {
+      "name": "agent",
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "slides": 20,
+      "layoutIssues": 0
+    },
+    {
+      "name": "matrix",
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "slides": 18,
+      "layoutIssues": 0
+    }
+  ],
+  "browserErrors": [],
+  "passed": true
+}

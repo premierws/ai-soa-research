@@ -1,0 +1,237 @@
+/**
+ * @author ping.ai
+ * @brief 
+ * @date 2025-02-21
+ * 
+ * @copyright Copyright (c) NIO 2025
+ * All rights reserved.
+ * This document contains proprietary information belonging to NIO. Passing on and copying of this document,
+ * and communication of its contents is not permitted without prior written authorization.
+ * 
+ */
+syntax = "proto3";
+package srv.body.window;
+import "nrpc.option.proto";
+option (idl_version) = "3.0";
+
+message WinTarPosnReq {
+    uint32 req_src_type              = 1;
+    repeated uint32 win_tar_posn_req = 2;
+}
+
+message ProhibitWinReq {
+    uint32 req_src_type                          = 1;
+    repeated WinProhibitReqType win_prohibit_req = 2;
+}
+
+message ProhibitWinReqResult {
+    uint32 req_result     = 1;
+}
+
+message WinStsInfo {
+    repeated WinStsInfoType win_status_info = 1;
+    uint32 win_req_src_type                 = 2;
+    bool win_open_rmn                       = 3;
+    /**
+     * Value  Description(EN)
+     * bit0   :R1L 0 UNLOCK /1 LOCK
+     * bit1   R1R 0 NO PROHIBIT /1 PROHIBIT
+     * bit2   R2L 0 NO PROHIBIT /1 PROHIBIT
+     * bit3   R2R 0 NO PROHIBIT /1 PROHIBIT
+     * bit4   DRIVER 0 NO PROHIBIT /1 PROHIBIT
+     * bit5   PASSENGER 0 NO PROHIBIT /1 PROHIBIT
+     * bit6   R3L 0 NO PROHIBIT /1 PROHIBIT
+     * bit7   R3R 0 NO PROHIBIT /1 PROHIBIT
+     */
+    uint32 chd_win_lock_sts                 = 4;
+    /**
+     * Value  Description(EN)
+     * bit0   R1L 0 NO PROHIBIT /1 PROHIBIT
+     * bit1   R1R 0 NO PROHIBIT /1 PROHIBIT
+     * bit2   R2L 0 NO PROHIBIT /1 PROHIBIT
+     * bit3   R2R 0 NO PROHIBIT /1 PROHIBIT
+     * bit4   DRIVER 0 NO PROHIBIT /1 PROHIBIT
+     * bit5   PASSENGER 0 NO PROHIBIT /1 PROHIBIT
+     * bit6   R3L 0 NO PROHIBIT /1 PROHIBIT
+     * bit7   R3R 0 NO PROHIBIT /1 PROHIBIT
+     */
+    uint32 win_swt_lock_sts                 = 5;
+    ReqResultType rout_cal_req_result       = 6;
+    ReqResultType rout_ctrl_req_result      = 7;
+    /**
+     * Comment: bit0:R1L(0:not in vent,1:in vent)bit1:R1Rbit2:R2Lbit3:R2Rbit4:DRIVERbit5:PASSENGER
+     * Value  Description(EN)
+     * bit0   R1L 0 not in vent /1 in vent
+     * bit1   R1R 0 not in vent /1 in vent
+     * bit2   R2L 0 not in vent/1 in vent
+     * bit3   R2R 0 not in vent/1 in vent
+     * bit4   DRIVER 0 not in vent /1 in vent
+     * bit5   PASSENGER 0 not in vent /1 in vent
+     * bit6   R3L 0 not in vent/1 in vent
+     * bit7   R3R 0 not in vent /1 in vent
+     */
+    uint32 win_vent_sts                     = 8;
+}
+
+enum WinLocationType {
+    WIN_LOCN_ROW1_L    = 0;
+    WIN_LOCN_ROW1_R    = 1;
+    WIN_LOCN_ROW2_L    = 2;
+    WIN_LOCN_ROW2_R    = 3;
+    WIN_LOCN_DRIVER    = 4;
+    WIN_LOCN_PASSENGER = 5;
+    WIN_LOCN_ROW3_L    = 6;
+    WIN_LOCN_ROW3_R    = 7;
+}
+
+message WinStsInfoType {
+    uint32 win_open_value                       = 1; // Unit: %
+    CentWinInitStsType win_init_sts             = 2;
+    CentWinAntiPinchStsType win_anti_pinch_sts  = 3;
+    CentWinMovmtStsType win_movmt_sts           = 4;
+    CentWinOverheatProtnType win_overheat_protn = 5;
+    uint32 win_err                              = 6;
+    uint32 win_stop_reason                      = 7;
+    CentWinShoDropStsType win_short_drop_sts    = 8;
+}
+
+enum WinProhibitReqType {
+    WIN_PROHIBIT_NO_REQ = 0;
+    WIN_PROHIBIT_REQ    = 1;
+    WIN_PROHIBIT_CLEAR  = 2;
+}
+
+enum CentWinInitStsType {
+    CENT_WIN_INIT_NA         = 0;
+    CENT_WIN_INIT_NOT_ACTIVE = 1;
+    CENT_WIN_INIT_ACTIVE     = 2;
+    CENT_WIN_INITIALIZING    = 3;
+}
+
+enum CentWinAntiPinchStsType {
+    CENT_WIN_ANTI_PINCH_NA         = 0;
+    CENT_WIN_ANTI_PINCH_NOT_ACTIVE = 1;
+    CENT_WIN_ANTI_PINCH_ACTIVE     = 2;
+}
+
+enum CentWinMovmtStsType {
+    CENT_WIN_MOVMT_NA      = 0; // INVALID
+    CENT_WIN_MOVMT_STOP    = 1; // STOP
+    CENT_WIN_MOVMT_CLOSING = 2; // CLOSING
+    CENT_WIN_MOVMT_OPENING = 3; // OPENING
+}
+
+enum CentWinOverheatProtnType {
+    CENT_WIN_OVERHEAT_PROTN_NA         = 0;
+    CENT_WIN_OVERHEAT_PROTN_NOT_ACTIVE = 1;
+    CENT_WIN_OVERHEAT_PROTN_ACTIVE     = 2;
+}
+
+message WinSelfLearnReq {
+    uint32 req_src_type       = 1;
+    /**
+     * Value  Description(EN)
+     * 0      SELF_LEARN_NO_REQ
+     * 1      SELF_LEARN_REQ_START
+     * 2      SELF_LEARN_REQ_STOP
+     * 3      SELF_LEARN_REQ_CLEAR
+     */
+    uint32 win_self_learn_req = 2;
+}
+
+message WinSelfLearnReqResult {
+    uint32 win_self_learn_req_result = 1;
+}
+
+enum SideShdTarPosnReqType {
+    SIDE_SHD_TAR_POSN_NO_REQ     = 0; // NO REQUEST
+    SIDE_SHD_TAR_POSN_STOP       = 1; // STOP
+    SIDE_SHD_TAR_POSN_FULL_OPEN  = 2; // FULL OPEN
+    SIDE_SHD_TAR_POSN_FULL_CLOSE = 3; // FULL CLOSE
+}
+
+message SideShdTarPosnReq {
+    uint32 req_src_type                                  = 1;
+    repeated SideShdTarPosnReqType side_shd_tar_posn_req = 2;
+}
+
+enum SideShdFcnStsType {
+    SIDE_SHD_FCN_NA         = 0;
+    SIDE_SHD_FCN_NOT_ACTIVE = 1;
+    SIDE_SHD_FCN_ACTIVE     = 2;
+}
+
+enum SideShdMovmtStsType {
+    SIDE_SHD_MOVMT_NA      = 0;
+    SIDE_SHD_MOVMT_STOP    = 1;
+    SIDE_SHD_MOVMT_CLOSING = 2;
+    SIDE_SHD_MOVMT_OPENING = 3;
+}
+
+message SideShdStsInfoType {
+    uint32 side_shd_open_value                = 1; // Unit: %
+    SideShdFcnStsType side_shd_init_sts       = 2;
+    SideShdFcnStsType side_shd_anti_pinch_sts = 3;
+    SideShdMovmtStsType side_shd_movmt_sts    = 4;
+    SideShdFcnStsType side_shd_overheat_protn = 5;
+    uint32 side_shd_err                       = 6; // It describes side shade error status. Each bit represents one type of error
+    /**
+     * Value  Description(EN)
+     * 0      no error
+     */
+    uint32 side_shd_stop_reason               = 7;
+}
+
+message SideShdStsInfo {
+    repeated SideShdStsInfoType side_shd_status_info = 1;
+    uint32 side_shd_req_src_type                     = 2; // It describes side shade request source type after logic arbitratiion.
+}
+
+enum CentWinShoDropStsType {
+    CENT_WIN_SHORT_DROP_STS_INITIAL = 0;
+    CENT_WIN_IN_SHORT_DROP_STS      = 1;
+    CENT_WIN_NOT_IN_SHORT_DROP_STS  = 2;
+}
+
+message ReqResultType {
+    uint32 ctrl_result = 1;
+    uint32 fail_reason = 2;
+}
+
+service WinMgr {
+    option(service_id) = 2007;
+
+    rpc ReqWinTarPosn(WinTarPosnReq) returns (Null) {
+        option (rpc_id) = 101;
+        option (method_type) = METHOD;
+    }
+
+    rpc ReqWinProhibit(ProhibitWinReq) returns (ProhibitWinReqResult) {
+        option (rpc_id) = 104;
+        option (method_type) = METHOD;
+    }
+
+    rpc ReqWinSelfLearn(WinSelfLearnReq) returns (WinSelfLearnReqResult) {
+        option (rpc_id) = 105;
+        option (method_type) = METHOD;
+    }
+
+    rpc ReqSideShdTarPosn(SideShdTarPosnReq) returns (Null) {
+        option (rpc_id) = 106;
+        option (method_type) = METHOD;
+    }
+
+    rpc WinSts(WinStsInfo) returns (Null) {
+        option (rpc_id) = 103;
+        option (method_type) = FIELD_READONLY;
+        option (update_policy) = ON_CHANGE;
+        option (rpc_reliability_field_event) = RELIABLE;
+    }
+
+    rpc SideShdSts(SideShdStsInfo) returns (Null) {
+        option (rpc_id) = 108;
+        option (method_type) = FIELD_READONLY;
+        option (update_policy) = ON_CHANGE;
+        option (rpc_reliability_field_event) = RELIABLE;
+    }
+}

@@ -1,0 +1,624 @@
+{
+  "project": "ai_soa_research",
+  "research_date": "2026-11-12",
+  "archived_at": "2026-11-13",
+  "scope": "车控 Agent 及架构矩阵 COE 的阶段性研究资料归档；非可运行软件工程",
+  "files": [
+    {
+      "path": "docs/research_report_2026-11-12.md",
+      "source_kind": "discussion_consolidation",
+      "source_path": "/tmp/vcc_agent_conclusions_2026-11-12.md",
+      "source_url": "https://nio.feishu.cn/docx/TkkCd0PbuoGKmFxiJEGcYJhknBe",
+      "source_snapshot_date": "2026-11-12",
+      "bytes": 40500,
+      "sha256": "e21f345eb70e6c233a2370950dc3b3e39cdcee1d0cca294a5aef26ec44596d2b"
+    },
+    {
+      "path": "evidence/feishu/research_report_readback_2026-11-12.md",
+      "source_kind": "feishu_readback",
+      "source_path": "/tmp/vcc_agent_conclusions_feishu_readback.md",
+      "source_url": "https://nio.feishu.cn/docx/TkkCd0PbuoGKmFxiJEGcYJhknBe",
+      "source_snapshot_date": "2026-11-12",
+      "bytes": 45519,
+      "sha256": "00f886630daff9e23d0687b610c5d048ad4afafb50e1e9b9e319eba90cb6f672"
+    },
+    {
+      "path": "references/feishu/vcc_function_architecture_2026-11-12.md",
+      "source_kind": "feishu_source_snapshot",
+      "source_path": "/tmp/vcc-function-architecture.md",
+      "source_url": "https://nio.feishu.cn/wiki/Znw9wg6BQiRwwMkauRRcA5BInEf",
+      "source_snapshot_date": "2026-11-12",
+      "bytes": 36881,
+      "sha256": "e2aa4385e967ac5086428bcce93e142a0d471a4f4709671dc034f6a2f4b72f65"
+    },
+    {
+      "path": "references/soa_surveys/interface_scenario_survey.json",
+      "source_kind": "prior_research_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/workbench/analysis/interface_scenario_survey.json",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 3076441,
+      "sha256": "c20dcd54f7722e0e9e8dc0f0dc051cc53f64d29811f6976b298411c8b47eec7f",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "workbench/analysis/interface_scenario_survey.json",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "references/soa_surveys/amblimgr_client_coverage.md",
+      "source_kind": "prior_research_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/workbench/analysis/amblimgr_client_coverage.md",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 6994,
+      "sha256": "1af6f75b82a3fc0de0d0a773fdd74d4fe74ee531d7d9179da4dbbc8f77195ddb",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "workbench/analysis/amblimgr_client_coverage.md",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "references/soa_surveys/amblimgr_client_coverage.json",
+      "source_kind": "prior_research_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/workbench/analysis/amblimgr_client_coverage.json",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 20509,
+      "sha256": "dbf74a1cd3c65d9bf2a7289251d13f9201dbf7b2f0f35cd9dc4ce5c33107cf7c",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "workbench/analysis/amblimgr_client_coverage.json",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "references/soa_surveys/amblimgr_client_inventory.md",
+      "source_kind": "prior_research_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/workbench/analysis/amblimgr_client_inventory.md",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 16625,
+      "sha256": "7571571ab69ef346f72e258552c8e53163fd7d4cee0a9de88e6d3d3093a5bfae",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "workbench/analysis/amblimgr_client_inventory.md",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "references/soa_surveys/amblimgr_client_inventory.json",
+      "source_kind": "prior_research_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/workbench/analysis/amblimgr_client_inventory.json",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 180794,
+      "sha256": "e83bc0854becdb62efc38a7148cb2d9b46f2fe8a2f9c9ab89c47525b2f8f6d88",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "workbench/analysis/amblimgr_client_inventory.json",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "references/soa_surveys/interface_scenario_survey.md",
+      "source_kind": "prior_research_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/workbench/analysis/interface_scenario_survey.md",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 8056,
+      "sha256": "ca8ea906ef03ef353ea151bdbc97892c5a37065334ef2b592976e4654e3c978a",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "workbench/analysis/interface_scenario_survey.md",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "references/soa_surveys/request_field_usage_survey.md",
+      "source_kind": "prior_research_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/workbench/analysis/request_field_usage_survey.md",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 8071,
+      "sha256": "ae22a229bb4fa036e5a78f66f5c5205ed1a70ba2acec26dd090a8e89a0ae8b94",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "workbench/analysis/request_field_usage_survey.md",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "references/soa_surveys/request_field_usage_survey.json",
+      "source_kind": "prior_research_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/workbench/analysis/request_field_usage_survey.json",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 120858,
+      "sha256": "29846b0348cd31fb8641485819206257e1bf45fbc8445f7b8c1ae7c218644b08",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "workbench/analysis/request_field_usage_survey.json",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/platform_idl/srv.body.intrlight.amblimgr.proto",
+      "source_kind": "platform_idl_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/Reference/Proto/platform_services/srv.body.intrlight.amblimgr.proto",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 6856,
+      "sha256": "3a1ceaf340eaa600f5fc39a61f36f0fc565fd76014a1138477324352372c5c27",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "Reference/Proto/platform_services/srv.body.intrlight.amblimgr.proto",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/platform_idl/srv.body.intrlight.amblimgr.options",
+      "source_kind": "platform_idl_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/Reference/Proto/platform_services/srv.body.intrlight.amblimgr.options",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 3177,
+      "sha256": "30fb8aab0c530859628cfd7a388def26d38da48380dc8d5da05b73fe5d4770b2",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "Reference/Proto/platform_services/srv.body.intrlight.amblimgr.options",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/platform_idl/srv.body.window.winmgr.proto",
+      "source_kind": "platform_idl_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/Reference/Proto/platform_services/srv.body.window.winmgr.proto",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 7096,
+      "sha256": "131f8d8cb61639a283ae3ebe2ebc786780ff4d37f359d2d656b750e95e7cfef2",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "Reference/Proto/platform_services/srv.body.window.winmgr.proto",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/platform_idl/srv.body.window.winmgr.options",
+      "source_kind": "platform_idl_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/Reference/Proto/platform_services/srv.body.window.winmgr.options",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 1253,
+      "sha256": "842de5f772a4d8587b1cd284e735fb51e195ff9afaf50be642b97ec9c813196d",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "Reference/Proto/platform_services/srv.body.window.winmgr.options",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/platform_idl/srv.thermal.hvac.aicabinfuncmgr.proto",
+      "source_kind": "platform_idl_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/Reference/Proto/platform_services/srv.thermal.hvac.aicabinfuncmgr.proto",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 7143,
+      "sha256": "c12dfb34fc161cc1d2df93d94f6ef3a9e88f0fe2129c8291034e782f58eaf318",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "Reference/Proto/platform_services/srv.thermal.hvac.aicabinfuncmgr.proto",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/platform_idl/srv.thermal.hvac.aicabinfuncmgr.options",
+      "source_kind": "platform_idl_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/Reference/Proto/platform_services/srv.thermal.hvac.aicabinfuncmgr.options",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 2553,
+      "sha256": "8403ee2796d8984eafa9f7b1a14743e762258f26512a6f2b59d3f5bb8349cdef",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "Reference/Proto/platform_services/srv.thermal.hvac.aicabinfuncmgr.options",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/platform_idl/srv.vehctl.scnmgr.smartscenemgr.proto",
+      "source_kind": "platform_idl_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/Reference/Proto/platform_services/srv.vehctl.scnmgr.smartscenemgr.proto",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 1886,
+      "sha256": "5048e0cb17c57d1038459de4252d49c3baca62cd97c00b9160096e7fdb390b8e",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "Reference/Proto/platform_services/srv.vehctl.scnmgr.smartscenemgr.proto",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/platform_idl/srv.vehctl.scnmgr.smartscenemgr.options",
+      "source_kind": "platform_idl_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/Reference/Proto/platform_services/srv.vehctl.scnmgr.smartscenemgr.options",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 135,
+      "sha256": "d09e040a715b847f7c4ade5d78febd165dc09cc90742562459873e68f4f1449a",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "Reference/Proto/platform_services/srv.vehctl.scnmgr.smartscenemgr.options",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/platform_idl/srv.body.intrlight.ambliscenemgr.proto",
+      "source_kind": "platform_idl_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/Reference/Proto/platform_services/srv.body.intrlight.ambliscenemgr.proto",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 2618,
+      "sha256": "8a02acafa2cdd5c4c8b42aec2c392603e7abd0519e7c8973cc5e5ca50cbdf46b",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "Reference/Proto/platform_services/srv.body.intrlight.ambliscenemgr.proto",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/platform_idl/srv.body.intrlight.ambliscenemgr.options",
+      "source_kind": "platform_idl_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/Reference/Proto/platform_services/srv.body.intrlight.ambliscenemgr.options",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 589,
+      "sha256": "240d4aad8121c38241c28c5f94a4d1a169485151730bb51915ff008b305deeb6",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "Reference/Proto/platform_services/srv.body.intrlight.ambliscenemgr.options",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "references/soa_runtime/mcu_glue_code_api.md",
+      "source_kind": "prior_feishu_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/docs/references/mcu_glue_code_api.md",
+      "source_url": null,
+      "source_snapshot_date": "2026-11-09",
+      "bytes": 60800,
+      "sha256": "b38b369ed34c30b9361bbb7440b769ce8a62806ee99a328fed4085d348f991b3",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "docs/references/mcu_glue_code_api.md",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "references/soa_runtime/mcu_e2e_communication_protection.md",
+      "source_kind": "prior_feishu_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/docs/references/mcu_e2e_communication_protection.md",
+      "source_url": null,
+      "source_snapshot_date": "2026-11-09",
+      "bytes": 44337,
+      "sha256": "f93fed83ddcea34f8fc4a4f0ed4a7f59fe7922f5ccaa4184075e2ae0fdef3712",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "docs/references/mcu_e2e_communication_protection.md",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "references/soa_runtime/soa_error_handlings.md",
+      "source_kind": "prior_feishu_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/docs/references/soa_error_handlings.md",
+      "source_url": null,
+      "source_snapshot_date": "2026-11-09",
+      "bytes": 55177,
+      "sha256": "48ae2484b1ed07bfb5203926821c5fe67827ddf19ea623a318f31ed7cd301e8e",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "docs/references/soa_error_handlings.md",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "references/soa_runtime/soa_poc_source.md",
+      "source_kind": "prior_feishu_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/docs/references/soa_poc_source.md",
+      "source_url": null,
+      "source_snapshot_date": "2026-11-09",
+      "bytes": 63611,
+      "sha256": "55a88c532a22eb509d112b4a6b2c74fc3b27746d93d11f2445790e4e44bbe4cb",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "docs/references/soa_poc_source.md",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/soa_adaptor/README.md",
+      "source_kind": "code_or_design_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/workbench/soa_adaptor/README.md",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 8757,
+      "sha256": "4e13f3ddf72bc0048f5525f27f4bca4e86c8c4aaa9551fe12eb233836fefa368",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "workbench/soa_adaptor/README.md",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/soa_adaptor/docs/Client_Read_State_Review.md",
+      "source_kind": "code_or_design_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/workbench/soa_adaptor/docs/Client_Read_State_Review.md",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 2804,
+      "sha256": "0a2cf862e057efa53b16e264cf01ab56bb1e28d3de1d997837402c2cd4a722b0",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "workbench/soa_adaptor/docs/Client_Read_State_Review.md",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/soa_adaptor/contract/State_Contract_Design.md",
+      "source_kind": "code_or_design_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/workbench/soa_adaptor/contract/State_Contract_Design.md",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 8687,
+      "sha256": "e27260e1d79193a726872cac517ec5f77e2b000037694055b8b48228563dfbbb",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "workbench/soa_adaptor/contract/State_Contract_Design.md",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/soa_adaptor/src/soa_adpt_amblimgr_sm.c",
+      "source_kind": "code_or_design_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/workbench/soa_adaptor/src/soa_adpt_amblimgr_sm.c",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 18167,
+      "sha256": "dce39373acdbd9fff019b214851dd66aaf1ed8001d3f300b9a9cd3cb37955ec3",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "workbench/soa_adaptor/src/soa_adpt_amblimgr_sm.c",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/soa_adaptor/src/soa_adpt_amblimgr.c",
+      "source_kind": "code_or_design_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/workbench/soa_adaptor/src/soa_adpt_amblimgr.c",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 95252,
+      "sha256": "1562e45b8716d4ccb3418617ac95775f01e14a1ffbdf015d04add5d2b012cbcd",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "workbench/soa_adaptor/src/soa_adpt_amblimgr.c",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/soa_adaptor/tests/test_read_policy.c",
+      "source_kind": "code_or_design_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/workbench/soa_adaptor/tests/test_read_policy.c",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 1666,
+      "sha256": "fbd263ad53dfee9a4166fc8cfe495e2ddcc2ad70566c72ad7816d4a061123927",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "workbench/soa_adaptor/tests/test_read_policy.c",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/soa_adaptor/contract/amblimgr_state_config.json",
+      "source_kind": "code_or_design_snapshot",
+      "source_path": "/home/shaun/soa_adaptor/workbench/soa_adaptor/contract/amblimgr_state_config.json",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 17592,
+      "sha256": "7a5120b61357cbf1e5f495a2375781f59cf33b9928772c93d7497988d9d63771",
+      "repository": {
+        "local_path": "/home/shaun/soa_adaptor",
+        "head": "d7c2b67c9c3b20e5f48dccc758d8642df3d536a4",
+        "relative_path": "workbench/soa_adaptor/contract/amblimgr_state_config.json",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/service_arch/README.md",
+      "source_kind": "architecture_tool_snapshot",
+      "source_path": "/home/shaun/projects/ai-demo/service_arch/README.md",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 1627,
+      "sha256": "555a5250115057684a3cd65f1bf77f0bd70d0bd08c0adef36b49f6e0aa6b9082",
+      "repository": {
+        "local_path": "/home/shaun/projects/ai-demo/service_arch",
+        "head": "550e6b16dda029d870a36da892fa4b12fb9ebc34",
+        "relative_path": "README.md",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/service_arch/platform_README.md",
+      "source_kind": "architecture_tool_snapshot",
+      "source_path": "/home/shaun/projects/ai-demo/service_arch/platform/README.md",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 10377,
+      "sha256": "09c4334ea1c851f65c7b06bf83fd672491ad648b6c6035596229434e50604fb3",
+      "repository": {
+        "local_path": "/home/shaun/projects/ai-demo/service_arch",
+        "head": "550e6b16dda029d870a36da892fa4b12fb9ebc34",
+        "relative_path": "platform/README.md",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/service_arch/backend/source_evidence.py",
+      "source_kind": "architecture_tool_snapshot",
+      "source_path": "/home/shaun/projects/ai-demo/service_arch/platform/backend/app/services/source_evidence.py",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 1931,
+      "sha256": "c922905f3c8c162f24ae397968d2662b83457546262235a13d50f2e388f384a4",
+      "repository": {
+        "local_path": "/home/shaun/projects/ai-demo/service_arch",
+        "head": "550e6b16dda029d870a36da892fa4b12fb9ebc34",
+        "relative_path": "platform/backend/app/services/source_evidence.py",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/service_arch/backend/field_constraint.py",
+      "source_kind": "architecture_tool_snapshot",
+      "source_path": "/home/shaun/projects/ai-demo/service_arch/platform/backend/app/models/field_constraint.py",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 613,
+      "sha256": "9ef826060e53cc5fa40af2f42f2784eb9a5c9d82079a8c02696795296e07ebc2",
+      "repository": {
+        "local_path": "/home/shaun/projects/ai-demo/service_arch",
+        "head": "550e6b16dda029d870a36da892fa4b12fb9ebc34",
+        "relative_path": "platform/backend/app/models/field_constraint.py",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/service_arch/backend/service_instance.py",
+      "source_kind": "architecture_tool_snapshot",
+      "source_path": "/home/shaun/projects/ai-demo/service_arch/platform/backend/app/models/service_instance.py",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 683,
+      "sha256": "5088d59fc06f864d73e179924a5d214d337c2bc32eeab6b524f6050947f9830c",
+      "repository": {
+        "local_path": "/home/shaun/projects/ai-demo/service_arch",
+        "head": "550e6b16dda029d870a36da892fa4b12fb9ebc34",
+        "relative_path": "platform/backend/app/models/service_instance.py",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/service_arch/backend/proto_parser.py",
+      "source_kind": "architecture_tool_snapshot",
+      "source_path": "/home/shaun/projects/ai-demo/service_arch/platform/backend/app/services/parsers/proto_parser.py",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 3894,
+      "sha256": "566ca81a3aeba72650d6e186239e8091c16520b260e6bb822f1177e6d628b39f",
+      "repository": {
+        "local_path": "/home/shaun/projects/ai-demo/service_arch",
+        "head": "550e6b16dda029d870a36da892fa4b12fb9ebc34",
+        "relative_path": "platform/backend/app/services/parsers/proto_parser.py",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "evidence/service_arch/backend/soa_parser.py",
+      "source_kind": "architecture_tool_snapshot",
+      "source_path": "/home/shaun/projects/ai-demo/service_arch/platform/backend/app/services/parsers/soa_parser.py",
+      "source_url": null,
+      "source_snapshot_date": null,
+      "bytes": 4707,
+      "sha256": "9fa40ff63c11d79b2ec25e07ca6edddb58563949fbe550eec3f7660baf6bc374",
+      "repository": {
+        "local_path": "/home/shaun/projects/ai-demo/service_arch",
+        "head": "550e6b16dda029d870a36da892fa4b12fb9ebc34",
+        "relative_path": "platform/backend/app/services/parsers/soa_parser.py",
+        "working_tree_status": ""
+      }
+    },
+    {
+      "path": "references/organization/service_architecture_technical_plan_snapshot_2026-11-13.md",
+      "source_kind": "feishu_source_snapshot",
+      "source_path": "/tmp/ai_soa_org_planning_1.md",
+      "source_url": "https://nio.feishu.cn/docx/D0c9dbplIo0nOUxB4EDcBgiRnkf",
+      "source_snapshot_date": "2026-11-13",
+      "bytes": 21912,
+      "sha256": "dfddfd610bc725bffb9a56848647c653325d3d16d85aa97bf1fc740fe3fcaf99"
+    },
+    {
+      "path": "references/organization/service_architecture_matrix_charter_snapshot_2026-11-13.md",
+      "source_kind": "feishu_source_snapshot",
+      "source_path": "/tmp/ai_soa_org_planning_2.md",
+      "source_url": "https://nio.feishu.cn/docx/IOVydmcUVoHaFSxSr5AclP2RnFh",
+      "source_snapshot_date": "2026-11-13",
+      "bytes": 9640,
+      "sha256": "16265a4d791ace091655702bfc5bff9dccec3aff2de285b4772db0437dc76dc9"
+    },
+    {
+      "path": "references/organization/whiteboards/working_interfaces_nodes_2026-11-13.json",
+      "source_kind": "feishu_whiteboard_nodes",
+      "source_path": "/tmp/ai_soa_org_board_1.json",
+      "source_url": "https://nio.feishu.cn/docx/D0c9dbplIo0nOUxB4EDcBgiRnkf",
+      "source_snapshot_date": "2026-11-13",
+      "bytes": 43024,
+      "sha256": "bc0f882b64322a81f74f31782fa06e7cb35839dce810e9f12917398d2778e3cd"
+    },
+    {
+      "path": "references/organization/whiteboards/organization_roles_nodes_2026-11-13.json",
+      "source_kind": "feishu_whiteboard_nodes",
+      "source_path": "/tmp/ai_soa_org_board_2.json",
+      "source_url": "https://nio.feishu.cn/docx/IOVydmcUVoHaFSxSr5AclP2RnFh",
+      "source_snapshot_date": "2026-11-13",
+      "bytes": 27769,
+      "sha256": "00b0b6d6f9ce4468d6cf4d5a210018e940e73e11b58fc45c0d6dfae88f64169c"
+    },
+    {
+      "path": "references/organization/whiteboards/operating_workflow_nodes_2026-11-13.json",
+      "source_kind": "feishu_whiteboard_nodes",
+      "source_path": "/tmp/ai_soa_org_board_3.json",
+      "source_url": "https://nio.feishu.cn/docx/IOVydmcUVoHaFSxSr5AclP2RnFh",
+      "source_snapshot_date": "2026-11-13",
+      "bytes": 78907,
+      "sha256": "39df1105ed7ccf933743faac586c7f50b7cd904fdf0ad1ba5baf9bc70ac7ed27"
+    }
+  ],
+  "research_dates": [
+    "2026-11-12",
+    "2026-11-13"
+  ]
+}

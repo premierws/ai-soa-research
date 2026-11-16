@@ -1,0 +1,3569 @@
+{
+  "date": "2026-10-30",
+  "scan": {
+    "root": "/home/shaun/projects/ai-demo/service_arch/soa_deployment",
+    "source_files": 669,
+    "module_directories_with_matched_requests": 120,
+    "matched_request_call_sites": 826,
+    "resolved_local_idl_and_request_root": 744,
+    "method": "匹配C sm_write_*_request_*和sm_send_req_*_request_*；不覆盖全部C++ SDK调用和Field Set变体。计数为调用点，不是唯一RPC数。",
+    "candidate_scope": "初筛缺少直接字段引用的6个调用多涉及整包/函数传递，不能当成字段未使用反例；显式常量初筛50个调用只是候选，不是已证明可裁剪的总量。"
+  },
+  "verified_cases": [
+    {
+      "module": "CRSDriveModeMgr",
+      "service": "CbnClmtPenMgr",
+      "rpc": "ReqPenHvac",
+      "proto": "srv.thermal.hvac.cbnclmtpenmgr.proto",
+      "message": "HvacPenSet",
+      "total_leaf_fields": 9,
+      "variable_fields": [
+        "hvac_eco_mod_pen"
+      ],
+      "fixed_count": 8,
+      "assignment_line": 2719,
+      "call_line": 2763,
+      "note": "自动除雾和后吹风两个嵌套结构共4叶子字段固定；其余rear/airflow/temp/temp_level四项固定。仅ECO来自wk_Switch11。",
+      "source_file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CRSDriveModeMgr/src/CRSDriveModeMgr.c",
+      "proto_file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CRSDriveModeMgr/proto/srv.thermal.hvac.cbnclmtpenmgr.proto",
+      "response_type": "Null",
+      "rpc_line": 166,
+      "deployments": [
+        {
+          "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CRSDriveModeMgr/cfg/vdc-m7-a-main-leo/soa/soa_deployment.json",
+          "instances": [
+            null
+          ]
+        },
+        {
+          "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CRSDriveModeMgr/cfg/vdc-m7-a2-main-dom/soa/soa_deployment.json",
+          "instances": [
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "module": "CbnAqiMgr",
+      "service": "CbnClmtAssFuncMgr",
+      "rpc": "ReqCabinHvacAdjust",
+      "proto": "srv.thermal.hvac.cbnclmtassfuncmgr.proto",
+      "message": "CabinHvacAdjustReq",
+      "total_leaf_fields": 11,
+      "variable_fields": [
+        "osa_ratio_req_type",
+        "osa_ratio_req",
+        "frnt_blw_spd_req_type",
+        "frnt_blw_spd_req"
+      ],
+      "fixed_count": 7,
+      "assignment_line": 949,
+      "call_line": 1025,
+      "note": "req_src_id=1；booster/frnt_airflow/rear_airflow三组类型固定NO_REQ、值固定0；ConstB初始化在304行。",
+      "source_file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAqiMgr/src/CbnAqiMgr.c",
+      "proto_file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAqiMgr/proto/srv.thermal.hvac.cbnclmtassfuncmgr.proto",
+      "response_type": "Null",
+      "rpc_line": 69,
+      "deployments": [
+        {
+          "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAqiMgr/cfg/vdc-m7-a-main-leo/soa/soa_deployment.json",
+          "instances": [
+            null
+          ]
+        },
+        {
+          "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAqiMgr/cfg/vdc-m7-a2-main-dom/soa/soa_deployment.json",
+          "instances": [
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "module": "CbnAvcMgr",
+      "service": "CabinAvcCmd",
+      "rpc": "AvcCtl",
+      "proto": "srv.thermal.hvac.cabinavccmd.proto",
+      "message": "CabinAvcCtlMsIn",
+      "total_leaf_fields": 14,
+      "variable_fields": [
+        "speed_spec",
+        "actuator_set_pos"
+      ],
+      "fixed_count": 12,
+      "assignment_line": 3199,
+      "call_line": 3248,
+      "note": "FLSH示例，其他15实例同样是14字段、12固定2业务变量。固定字段包含实际控制模式，不能直接按“不使用”删除平台字段。",
+      "source_file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/src/CbnAvcMgr.c",
+      "proto_file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/proto/srv.thermal.hvac.cabinavccmd.proto",
+      "response_type": "Null",
+      "rpc_line": 231,
+      "deployments": [
+        {
+          "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/cfg/vdc-m7-a-main-leo/soa/soa_deployment.json",
+          "instances": [
+            "FLMH",
+            "FLMV",
+            "FLSH",
+            "FLSV",
+            "FRMH",
+            "FRMV",
+            "FRSH",
+            "FRSV",
+            "MLMH",
+            "MLMV",
+            "MLSH",
+            "MLSV",
+            "MRMH",
+            "MRMV",
+            "MRSH",
+            "MRSV"
+          ]
+        },
+        {
+          "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/cfg/vdc-m7-a2-main-dom/soa/soa_deployment.json",
+          "instances": [
+            "FLMH",
+            "FLMV",
+            "FLSH",
+            "FLSV",
+            "FRMH",
+            "FRMV",
+            "FRSH",
+            "FRSV",
+            "MLMH",
+            "MLMV",
+            "MLSH",
+            "MLSV",
+            "MRMH",
+            "MRMV",
+            "MRSH",
+            "MRSV"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "BDYmanSwtSeatApp",
+      "service": "SeatMoveMgr",
+      "rpc": "ReqSeatAdjEndur",
+      "proto": "srv.body.seat.seatmovemgr.proto",
+      "message": "SeatAdjEndurCmd",
+      "total_leaf_fields": 16,
+      "variable_fields": [
+        "cush_slide_req",
+        "back_rest_req",
+        "cush_hei_req",
+        "cush_len_req",
+        "front_cush_tilt_req",
+        "rear_cush_tilt_req",
+        "total_cush_tilt_req",
+        "uba_adj_req",
+        "headrest_adj_req",
+        "footrest_front_req",
+        "footrest_rear_req",
+        "leg_sup_len_req",
+        "leg_sup_tilt_req"
+      ],
+      "fixed_count": 3,
+      "assignment_line": 597,
+      "call_line": 650,
+      "note": "req_src_type固定；headfold_req、panodisp_filp_req固定MOVE_FB_NA（IDL值0）；FL/FR/RL/RR四实例同类构造。此接口为RR，响应语义仍需保留。",
+      "source_file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYmanSwtSeatApp/src/BDYmanSwtSeatApp.c",
+      "proto_file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYmanSwtSeatApp/proto/srv.body.seat.seatmovemgr.proto",
+      "response_type": "SeatAdjEndurReqResult",
+      "rpc_line": 224,
+      "deployments": [
+        {
+          "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYmanSwtSeatApp/cfg/vdc-m7-a-main-leo/soa/soa_deployment.json",
+          "instances": [
+            "SeatMoveMgr_FL",
+            "SeatMoveMgr_FR",
+            "SeatMoveMgr_RL",
+            "SeatMoveMgr_RR"
+          ]
+        },
+        {
+          "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYmanSwtSeatApp/cfg/vdc-m7-a2-main-dom/soa/soa_deployment.json",
+          "instances": [
+            "SeatMoveMgr_FL",
+            "SeatMoveMgr_FR",
+            "SeatMoveMgr_RL",
+            "SeatMoveMgr_RR"
+          ]
+        }
+      ]
+    }
+  ],
+  "input_hashes": [
+    {
+      "path": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYmanSwtSeatApp/cfg/vdc-m7-a-main-leo/soa/soa_deployment.json",
+      "sha256": "09421245648be6645ba518fd21842149a8a80c2af6167eff46871dad7477ed39"
+    },
+    {
+      "path": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYmanSwtSeatApp/cfg/vdc-m7-a2-main-dom/soa/soa_deployment.json",
+      "sha256": "2cbe4591f234654b27f09e03b33eeca4d30fe4485f7fd3626aa48596dc55689a"
+    },
+    {
+      "path": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYmanSwtSeatApp/proto/srv.body.seat.seatmovemgr.proto",
+      "sha256": "a6b8ebfeba5a340fc18368a7dce155933be66750d6f1e402033181bc4aab263f"
+    },
+    {
+      "path": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYmanSwtSeatApp/src/BDYmanSwtSeatApp.c",
+      "sha256": "3f0f8d56224c1911cfa7f52c380c263987b315e6c79ba97303ff2c1e7d60a7b1"
+    },
+    {
+      "path": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CRSDriveModeMgr/cfg/vdc-m7-a-main-leo/soa/soa_deployment.json",
+      "sha256": "872ee244799c52ea65dcc5d147add498b1ffccf0eee057c52d6769a14124ac20"
+    },
+    {
+      "path": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CRSDriveModeMgr/cfg/vdc-m7-a2-main-dom/soa/soa_deployment.json",
+      "sha256": "872ee244799c52ea65dcc5d147add498b1ffccf0eee057c52d6769a14124ac20"
+    },
+    {
+      "path": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CRSDriveModeMgr/proto/srv.thermal.hvac.cbnclmtpenmgr.proto",
+      "sha256": "5dacdabbbef6a88d5e545f126643a09800110c98cc7876e67c48cbe39e4e24ad"
+    },
+    {
+      "path": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CRSDriveModeMgr/src/CRSDriveModeMgr.c",
+      "sha256": "0b321a0044c14745456c065e50eee4a7653c087c3500f0ca197408e9c2a1b32a"
+    },
+    {
+      "path": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAqiMgr/cfg/vdc-m7-a-main-leo/soa/soa_deployment.json",
+      "sha256": "23dcdf5b7322ffa0bcf81bd280c6b11060f7e1d012b93bd30626415882dbe959"
+    },
+    {
+      "path": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAqiMgr/cfg/vdc-m7-a2-main-dom/soa/soa_deployment.json",
+      "sha256": "c3c3132beba8f731a138327f4a05249eb56f45f73bf683c0eece16058f8180aa"
+    },
+    {
+      "path": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAqiMgr/inc/CbnAqiMgr.h",
+      "sha256": "4a8421b0acba0bd57c06ecbfc5cdf4c8d6f5bf1cc050bc12f8046748d3bfd6e6"
+    },
+    {
+      "path": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAqiMgr/proto/srv.thermal.hvac.cbnclmtassfuncmgr.proto",
+      "sha256": "74846a42a67b41e9237c68afaf97ec7bc49415c759f50545ee7e4c2b4ab13362"
+    },
+    {
+      "path": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAqiMgr/src/CbnAqiMgr.c",
+      "sha256": "872acf24ec1febfb3638ab3606c08e88a10e8d82ac17e481211968d71bacdf06"
+    },
+    {
+      "path": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/cfg/vdc-m7-a-main-leo/soa/soa_deployment.json",
+      "sha256": "75db361d5dd059e36a5bfc85e1eda49fbd51b8586d10f748deaf2810c1377d16"
+    },
+    {
+      "path": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/cfg/vdc-m7-a2-main-dom/soa/soa_deployment.json",
+      "sha256": "75db361d5dd059e36a5bfc85e1eda49fbd51b8586d10f748deaf2810c1377d16"
+    },
+    {
+      "path": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/proto/srv.thermal.hvac.cabinavccmd.proto",
+      "sha256": "cbcbcda3392fd2e256fbfa274f0e7ecd51e925f35a6db67109cc06090f6e5c0d"
+    },
+    {
+      "path": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/src/CbnAvcMgr.c",
+      "sha256": "dbf774e925cbb469ba1c95a152d4b81e0f74c7505939d41dccf599428adb0282"
+    },
+    {
+      "path": "/home/shaun/soa_adaptor/Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "sha256": "5da896bc87b2c32805d4b153d64294f55ec63aa8b25d9a835277b7658bf96d61"
+    }
+  ],
+  "constant_candidates": [
+    {
+      "module": "MOTmbsl",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/ZONE/Motion_Longitudinal_Service_CETUS_Code-V37_Zone_RL250_BL157/AtomicService/MOTmbsl/src/MOTmbsl.c",
+      "line": 1382,
+      "api": "sm_write_motmbsl_request_sd_motion_drv_brkpedlstssd_brkpedlstsredun_ifbrkpedlposnche",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_at_inp",
+      "assignments": {
+        "brkPedlPosn": [
+          "MBSL_brkPedlPosn"
+        ],
+        "brkPedlPrsd": [
+          "MBSL_brkPedlPrsd ? ((uint8_T)1) : ((uint8_T)0)"
+        ],
+        "brkPedlPrsdVld": [
+          "MBSL_brkPedlPrsdVld"
+        ],
+        "brkTrvlSts": [
+          "MBSL_brkTrvlSts"
+        ],
+        "brkPedlOvrd": [
+          "MBSL_brkPedlOvrd"
+        ],
+        "brkPedlCalCmpl": [
+          "MBSL_brkPedlCalCmpl"
+        ],
+        "brkPedlPosn_validity": [
+          "1U"
+        ],
+        "brkPedlOvrd_validity": [
+          "1U"
+        ]
+      },
+      "constant_assignments": {
+        "brkPedlPosn_validity": [
+          "1U"
+        ],
+        "brkPedlOvrd_validity": [
+          "1U"
+        ]
+      }
+    },
+    {
+      "module": "MOTmbs",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/ZONE/Motion_Longitudinal_Service_CETUS_Code-V37_Zone_RL250_BL157/AtomicService/MOTmbs/src/MOTmbs.c",
+      "line": 7519,
+      "api": "sm_write_motmbs_request_sd_motion_drv_brkpedlstssd_brkpedlstspri_ifbrkpedlposnche",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_at_inp",
+      "assignments": {
+        "brkPedlPosn": [
+          "MBS_brkPedlPosn"
+        ],
+        "brkPedlPrsd": [
+          "MBS_brkPedlPrsd ? ((uint8_T)1) : ((uint8_T)0)"
+        ],
+        "brkPedlPrsdVld": [
+          "MBS_brkPedlPrsdVld"
+        ],
+        "brkTrvlSts": [
+          "MBS_brkTrvlSts"
+        ],
+        "brkPedlOvrd": [
+          "MBS_brkPedlOvrd"
+        ],
+        "brkPedlCalCmpl": [
+          "MBS_brkPedlCalCmpl"
+        ],
+        "brkPedlPosn_validity": [
+          "0U"
+        ],
+        "brkPedlOvrd_validity": [
+          "0U"
+        ]
+      },
+      "constant_assignments": {
+        "brkPedlPosn_validity": [
+          "0U"
+        ],
+        "brkPedlOvrd_validity": [
+          "0U"
+        ]
+      }
+    },
+    {
+      "module": "FrontWiperMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/FrontWiperMgr/src/FrontWiperMgr.c",
+      "line": 1907,
+      "api": "sm_write_frontwipermgr_request_srv_body_wiper_frontwipeactu_fwipectrl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_at_inp",
+      "assignments": {
+        "f_wipe_ctrl_mod": [
+          "(srv_body_wiper_FwipeCtrlModType)FrontWiperMgr_f_wiper_ctrl_modOut"
+        ],
+        "f_wipe_spd_variable": [
+          "WiperActuErrCode"
+        ],
+        "f_wipe_stop_req": [
+          "false"
+        ],
+        "f_wipe_splash_req": [
+          "false"
+        ],
+        "f_wipe_retry_req": [
+          "(srv_body_wiper_FwipeRetryReqType)wk_b_Ret"
+        ],
+        "f_wipe_enable": [
+          "wk_b_DataTypeConversion30"
+        ]
+      },
+      "constant_assignments": {
+        "f_wipe_stop_req": [
+          "false"
+        ],
+        "f_wipe_splash_req": [
+          "false"
+        ]
+      }
+    },
+    {
+      "module": "CbnFrdgMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnFrdgMgr/src/CbnFrdgMgr.c",
+      "line": 1375,
+      "api": "sm_send_req_cbnfrdgmgr_request_srv_infra_power_efusemanager_vdf_efusectrlreq",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodCaller_at_inport_0_",
+      "assignments": {
+        "efuseidreq_count": [
+          "1U"
+        ],
+        "client_id": [
+          "32U"
+        ],
+        "priority": [
+          "srv_infra_power_ManagerEfusePriorityEm_EFUSEMANAGER_PRIORITY_NORMAL"
+        ],
+        "efuselockreq": [
+          "srv_infra_power_ManagerLckReqEm_EFUSEMANAGERLCK_UNLOCK"
+        ]
+      },
+      "constant_assignments": {
+        "efuseidreq_count": [
+          "1U"
+        ],
+        "client_id": [
+          "32U"
+        ],
+        "priority": [
+          "srv_infra_power_ManagerEfusePriorityEm_EFUSEMANAGER_PRIORITY_NORMAL"
+        ],
+        "efuselockreq": [
+          "srv_infra_power_ManagerLckReqEm_EFUSEMANAGERLCK_UNLOCK"
+        ]
+      }
+    },
+    {
+      "module": "AmbLiMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/AmbLiMgr/src/AmbLiMgr.c",
+      "line": 1570,
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_dynambliactu_dynprmset",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_i04e",
+      "assignments": {
+        "fade_tim": [
+          "AmbLiMgr_DW.fade_tim_f1up"
+        ],
+        "fade_mod_cmd": [
+          "AmbLiMgr_DW.DataTypeConversion5"
+        ],
+        "nat_tran_mod": [
+          "AmbLiMgr_DW.DataTypeConversion2"
+        ],
+        "nat_tran_tim": [
+          "AmbLiMgr_DW.nat_tran_tim_cmru"
+        ],
+        "seg_flow": [
+          "srv_body_intrlight_DynSegFlowType_DYN_AMBLI_FLOW_NO_REQ"
+        ],
+        "seg_node_pri": [
+          "srv_body_intrlight_DynPriType_DYN_AMBLI_PRI_NO_REQ"
+        ],
+        "disp_mod": [
+          "srv_body_intrlight_DynDispModType_DYN_AMBLI_DISP_MODE_NO_REQ"
+        ],
+        "color_mod": [
+          "srv_body_intrlight_DynColorModType_DYN_AMBLI_COLOR_MODE_NO_REQ"
+        ],
+        "bri_mod": [
+          "AmbLiMgr_DW.DataTypeConversion3"
+        ]
+      },
+      "constant_assignments": {
+        "seg_flow": [
+          "srv_body_intrlight_DynSegFlowType_DYN_AMBLI_FLOW_NO_REQ"
+        ],
+        "seg_node_pri": [
+          "srv_body_intrlight_DynPriType_DYN_AMBLI_PRI_NO_REQ"
+        ],
+        "disp_mod": [
+          "srv_body_intrlight_DynDispModType_DYN_AMBLI_DISP_MODE_NO_REQ"
+        ],
+        "color_mod": [
+          "srv_body_intrlight_DynColorModType_DYN_AMBLI_COLOR_MODE_NO_REQ"
+        ]
+      }
+    },
+    {
+      "module": "AmbLiMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/AmbLiMgr/src/AmbLiMgr.c",
+      "line": 2157,
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_dynambliactu_dynprmset",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_eyku",
+      "assignments": {
+        "fade_tim": [
+          "AmbLiMgr_DW.fade_tim"
+        ],
+        "fade_mod_cmd": [
+          "AmbLiMgr_DW.DataTypeConversion5_bdpn"
+        ],
+        "nat_tran_mod": [
+          "AmbLiMgr_DW.DataTypeConversion2_obkp"
+        ],
+        "nat_tran_tim": [
+          "AmbLiMgr_DW.nat_tran_tim"
+        ],
+        "seg_flow": [
+          "srv_body_intrlight_DynSegFlowType_DYN_AMBLI_FLOW_NO_REQ"
+        ],
+        "seg_node_pri": [
+          "srv_body_intrlight_DynPriType_DYN_AMBLI_PRI_NO_REQ"
+        ],
+        "disp_mod": [
+          "srv_body_intrlight_DynDispModType_DYN_AMBLI_DISP_MODE_NO_REQ"
+        ],
+        "color_mod": [
+          "AmbLiMgr_DW.DataTypeConversion1"
+        ],
+        "bri_mod": [
+          "AmbLiMgr_DW.DataTypeConversion4"
+        ]
+      },
+      "constant_assignments": {
+        "seg_flow": [
+          "srv_body_intrlight_DynSegFlowType_DYN_AMBLI_FLOW_NO_REQ"
+        ],
+        "seg_node_pri": [
+          "srv_body_intrlight_DynPriType_DYN_AMBLI_PRI_NO_REQ"
+        ],
+        "disp_mod": [
+          "srv_body_intrlight_DynDispModType_DYN_AMBLI_DISP_MODE_NO_REQ"
+        ]
+      }
+    },
+    {
+      "module": "BDYmanSwtSeatApp",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYmanSwtSeatApp/src/BDYmanSwtSeatApp.c",
+      "line": 650,
+      "api": "sm_send_req_bdymanswtseatapp_request_srv_body_seat_seatmovemgr_seatmovemgr_fl_reqseatadjendur",
+      "root": "wk_SeatAdjEndurCmd",
+      "assignments": {
+        "req_src_type": [
+          "67305472U"
+        ],
+        "cush_slide_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_fl_seat_slide_req"
+        ],
+        "back_rest_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_fl_backrest_req"
+        ],
+        "cush_hei_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_fl_cushhei_req"
+        ],
+        "cush_len_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_fl_cush_len_req"
+        ],
+        "front_cush_tilt_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_fl_frnt_tilt_req"
+        ],
+        "rear_cush_tilt_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_fl_rear_tilt_req"
+        ],
+        "total_cush_tilt_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_fl_total_tilt_req"
+        ],
+        "uba_adj_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_fl_uba_req"
+        ],
+        "headrest_adj_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_fl_headrest_req"
+        ],
+        "headfold_req": [
+          "srv_body_seat_FrontBackReqType_MOVE_FB_NA"
+        ],
+        "footrest_front_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_fl_footrest_frnt_req"
+        ],
+        "footrest_rear_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_fl_footrest_rear_req"
+        ],
+        "leg_sup_len_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_fl_leg_sup_len_req"
+        ],
+        "leg_sup_tilt_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_fl_leg_sup_tilt_req"
+        ],
+        "panodisp_filp_req": [
+          "srv_body_seat_FrontBackReqType_MOVE_FB_NA"
+        ]
+      },
+      "constant_assignments": {
+        "req_src_type": [
+          "67305472U"
+        ],
+        "headfold_req": [
+          "srv_body_seat_FrontBackReqType_MOVE_FB_NA"
+        ],
+        "panodisp_filp_req": [
+          "srv_body_seat_FrontBackReqType_MOVE_FB_NA"
+        ]
+      }
+    },
+    {
+      "module": "BDYmanSwtSeatApp",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYmanSwtSeatApp/src/BDYmanSwtSeatApp.c",
+      "line": 931,
+      "api": "sm_send_req_bdymanswtseatapp_request_srv_body_seat_seatmovemgr_seatmovemgr_fr_reqseatadjendur",
+      "root": "wk_SeatAdjEndurCmd_kj1g",
+      "assignments": {
+        "req_src_type": [
+          "67305472U"
+        ],
+        "cush_slide_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_fr_seat_slide_req"
+        ],
+        "back_rest_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_fr_backrest_req"
+        ],
+        "cush_hei_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_fr_cushhei_req"
+        ],
+        "cush_len_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_fr_cush_len_req"
+        ],
+        "front_cush_tilt_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_fr_frnt_tilt_req"
+        ],
+        "rear_cush_tilt_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_fr_rear_tilt_req"
+        ],
+        "total_cush_tilt_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_fr_total_tilt_req"
+        ],
+        "uba_adj_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_fr_uba_req"
+        ],
+        "headrest_adj_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_fr_headrest_req"
+        ],
+        "headfold_req": [
+          "srv_body_seat_FrontBackReqType_MOVE_FB_NA"
+        ],
+        "footrest_front_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_fr_footrest_frnt_req"
+        ],
+        "footrest_rear_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_fr_footrest_rear_req"
+        ],
+        "leg_sup_len_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_fr_leg_sup_len_req"
+        ],
+        "leg_sup_tilt_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_fr_leg_sup_tilt_req"
+        ],
+        "panodisp_filp_req": [
+          "srv_body_seat_FrontBackReqType_MOVE_FB_NA"
+        ]
+      },
+      "constant_assignments": {
+        "req_src_type": [
+          "67305472U"
+        ],
+        "headfold_req": [
+          "srv_body_seat_FrontBackReqType_MOVE_FB_NA"
+        ],
+        "panodisp_filp_req": [
+          "srv_body_seat_FrontBackReqType_MOVE_FB_NA"
+        ]
+      }
+    },
+    {
+      "module": "BDYmanSwtSeatApp",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYmanSwtSeatApp/src/BDYmanSwtSeatApp.c",
+      "line": 1212,
+      "api": "sm_send_req_bdymanswtseatapp_request_srv_body_seat_seatmovemgr_seatmovemgr_rl_reqseatadjendur",
+      "root": "wk_SeatAdjEndurCmd_jylz",
+      "assignments": {
+        "req_src_type": [
+          "67305472U"
+        ],
+        "cush_slide_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_rl_seat_slide_req"
+        ],
+        "back_rest_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_rl_backrest_req"
+        ],
+        "cush_hei_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_rl_cushhei_req"
+        ],
+        "cush_len_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_rl_cush_len_req"
+        ],
+        "front_cush_tilt_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_rl_frnt_tilt_req"
+        ],
+        "rear_cush_tilt_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_rl_rear_tilt_req"
+        ],
+        "total_cush_tilt_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_rl_total_tilt_req"
+        ],
+        "uba_adj_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_rl_uba_req"
+        ],
+        "headrest_adj_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_rl_headrest_req"
+        ],
+        "headfold_req": [
+          "srv_body_seat_FrontBackReqType_MOVE_FB_NA"
+        ],
+        "footrest_front_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_rl_footrest_frnt_req"
+        ],
+        "footrest_rear_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_rl_footrest_rear_req"
+        ],
+        "leg_sup_len_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_rl_leg_sup_len_req"
+        ],
+        "leg_sup_tilt_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_rl_leg_sup_tilt_req"
+        ],
+        "panodisp_filp_req": [
+          "srv_body_seat_FrontBackReqType_MOVE_FB_NA"
+        ]
+      },
+      "constant_assignments": {
+        "req_src_type": [
+          "67305472U"
+        ],
+        "headfold_req": [
+          "srv_body_seat_FrontBackReqType_MOVE_FB_NA"
+        ],
+        "panodisp_filp_req": [
+          "srv_body_seat_FrontBackReqType_MOVE_FB_NA"
+        ]
+      }
+    },
+    {
+      "module": "BDYmanSwtSeatApp",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYmanSwtSeatApp/src/BDYmanSwtSeatApp.c",
+      "line": 1493,
+      "api": "sm_send_req_bdymanswtseatapp_request_srv_body_seat_seatmovemgr_seatmovemgr_rr_reqseatadjendur",
+      "root": "wk_SeatAdjEndurCmd_huef",
+      "assignments": {
+        "req_src_type": [
+          "67305472U"
+        ],
+        "cush_slide_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_rr_seat_slide_req"
+        ],
+        "back_rest_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_rr_backrest_req"
+        ],
+        "cush_hei_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_rr_cushhei_req"
+        ],
+        "cush_len_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_rr_cush_len_req"
+        ],
+        "front_cush_tilt_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_rr_frnt_tilt_req"
+        ],
+        "rear_cush_tilt_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_rr_rear_tilt_req"
+        ],
+        "total_cush_tilt_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_rr_total_tilt_req"
+        ],
+        "uba_adj_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_rr_uba_req"
+        ],
+        "headrest_adj_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_rr_headrest_req"
+        ],
+        "headfold_req": [
+          "srv_body_seat_FrontBackReqType_MOVE_FB_NA"
+        ],
+        "footrest_front_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_rr_footrest_frnt_req"
+        ],
+        "footrest_rear_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_rr_footrest_rear_req"
+        ],
+        "leg_sup_len_req": [
+          "(srv_body_seat_FrontBackReqType) ManSwtSeatApp_rr_leg_sup_len_req"
+        ],
+        "leg_sup_tilt_req": [
+          "(srv_body_seat_UpDownReqType) ManSwtSeatApp_rr_leg_sup_tilt_req"
+        ],
+        "panodisp_filp_req": [
+          "srv_body_seat_FrontBackReqType_MOVE_FB_NA"
+        ]
+      },
+      "constant_assignments": {
+        "req_src_type": [
+          "67305472U"
+        ],
+        "headfold_req": [
+          "srv_body_seat_FrontBackReqType_MOVE_FB_NA"
+        ],
+        "panodisp_filp_req": [
+          "srv_body_seat_FrontBackReqType_MOVE_FB_NA"
+        ]
+      }
+    },
+    {
+      "module": "BDYfrntWiprSwtApp",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYfrntWiprSwtApp/src/BDYfrntWiprSwtApp.c",
+      "line": 369,
+      "api": "sm_write_bdyfrntwiprswtapp_request_srv_body_base_rlsinfo_wiprprmreq",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_at_inp",
+      "assignments": {
+        "wipe_type": [
+          "false"
+        ],
+        "veh_type": [
+          "BDYfrntWiprSwtApp_DW.srv_vehicle_plm_VehConfig_IVcpVal_VehicleProject_EventSub.vcp_val"
+        ],
+        "wipr_switch_posn": [
+          "(srv_body_base_WiprSwtPosnType)WiprSwtApp_WiprSwtPosn"
+        ],
+        "rls_sens_setting": [
+          "(srv_body_base_WiprSensLvlType) BDYfrntWiprSwtApp_DW.srv_body_wiper_FrontWiperMgr_FwiperPrmSet_FieldSub.f_wiper_sens"
+        ],
+        "rls_ena": [
+          "true"
+        ],
+        "actv_wipe": [
+          "false"
+        ],
+        "feedback_wipe": [
+          "false"
+        ],
+        "ice_detn": [
+          "false"
+        ],
+        "spd_depency": [
+          "false"
+        ],
+        "steering_wheel_posn": [
+          "false"
+        ]
+      },
+      "constant_assignments": {
+        "wipe_type": [
+          "false"
+        ],
+        "rls_ena": [
+          "true"
+        ],
+        "actv_wipe": [
+          "false"
+        ],
+        "feedback_wipe": [
+          "false"
+        ],
+        "ice_detn": [
+          "false"
+        ],
+        "spd_depency": [
+          "false"
+        ],
+        "steering_wheel_posn": [
+          "false"
+        ]
+      }
+    },
+    {
+      "module": "BDYfrntWiprSwtApp",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYfrntWiprSwtApp/src/BDYfrntWiprSwtApp.c",
+      "line": 701,
+      "api": "sm_send_req_bdyfrntwiprswtapp_request_srv_body_wiper_frontwipermgr_reqfwipe",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodCaller_at_inport_0_",
+      "assignments": {
+        "req_src_type": [
+          "70320128U"
+        ],
+        "f_wiper_req": [
+          "(srv_body_wiper_FwiperReqType)WiprSwtApp_WiprCmdOutput"
+        ],
+        "f_wiper_int_time": [
+          "0U"
+        ],
+        "f_wiper_speed": [
+          "WiprSwtApp_SnrMultiInput"
+        ]
+      },
+      "constant_assignments": {
+        "req_src_type": [
+          "70320128U"
+        ],
+        "f_wiper_int_time": [
+          "0U"
+        ]
+      }
+    },
+    {
+      "module": "BDYseatSetting",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYseatSetting/src/BDYseatSetting.c",
+      "line": 1129,
+      "api": "sm_send_req_bdyseatsetting_request_srv_body_seat_seatmovemgr_seatmovemgr_rl_reqseatadjtarposn",
+      "root": "BDYseatSetting_DW.RL_TarPosn_Cmd",
+      "assignments": {
+        "cush_slide_tar_posn": [
+          "BDYseatSetting_DW.RL_Comfort_Posn.cush_slide_posn",
+          "MAX_uint8_T",
+          "0U"
+        ],
+        "back_rest_tar_posn": [
+          "MAX_uint8_T",
+          "BDYseatSetting_DW.RL_Comfort_Posn.backrest_posn",
+          "0U"
+        ],
+        "cush_hei_tar_posn": [
+          "MAX_uint8_T",
+          "BDYseatSetting_DW.RL_Comfort_Posn.cush_height_posn",
+          "0U"
+        ],
+        "cush_len_tar_posn": [
+          "MAX_uint8_T",
+          "BDYseatSetting_DW.RL_Comfort_Posn.cush_length_posn",
+          "0U"
+        ],
+        "front_cush_tilt_tar_posn": [
+          "MAX_uint8_T",
+          "BDYseatSetting_DW.RL_Comfort_Posn.front_cush_tilt_posn",
+          "0U"
+        ],
+        "rear_cush_tilt_tar_posn": [
+          "MAX_uint8_T",
+          "MAX_uint8_T",
+          "0U"
+        ],
+        "total_cush_tilt_tar_posn": [
+          "MAX_uint8_T",
+          "MAX_uint8_T",
+          "0U"
+        ],
+        "uba_adj_tar_posn": [
+          "MAX_uint8_T",
+          "BDYseatSetting_DW.RL_Comfort_Posn.uba_posn",
+          "0U"
+        ],
+        "headrest_adj_tar_posn": [
+          "MAX_uint8_T",
+          "BDYseatSetting_DW.RL_Comfort_Posn.head_rest_posn",
+          "0U"
+        ],
+        "headfold_tar_posn": [
+          "MAX_uint8_T",
+          "MAX_uint8_T",
+          "0U"
+        ],
+        "footrest_front_tar_posn": [
+          "MAX_uint8_T",
+          "MAX_uint8_T",
+          "0U"
+        ],
+        "footrest_rear_tar_posn": [
+          "MAX_uint8_T",
+          "BDYseatSetting_DW.RL_Comfort_Posn.footrest_posn",
+          "0U"
+        ],
+        "leg_sup_len_tar_posn": [
+          "MAX_uint8_T",
+          "BDYseatSetting_DW.RL_Comfort_Posn.leg_sup_len_posn",
+          "0U"
+        ],
+        "leg_sup_tilt_tar_posn": [
+          "MAX_uint8_T",
+          "BDYseatSetting_DW.RL_Comfort_Posn.leg_sup_tilt_posn",
+          "0U"
+        ],
+        "tar_posn_req": [
+          "srv_body_seat_SeatTarPosnReqType_SEAT_REQ_REQUEST",
+          "srv_body_seat_SeatTarPosnReqType_SEAT_REQ_REQUEST",
+          "srv_body_seat_SeatTarPosnReqType_SEAT_REQ_NO_REQUEST"
+        ],
+        "req_src_type": [
+          "BDYseatSetting_DW.TmpSignalConversionAtuOutport1_n0owfxbn.req_src_type",
+          "BDYseatSetting_DW.TmpSignalConversionAtuOutport1_n0owfxbn.req_src_type",
+          "0U"
+        ],
+        "seat_work_req": [
+          "8U",
+          "8U",
+          "0U"
+        ],
+        "panodisp_flip_tar_posn": [
+          "MAX_uint8_T",
+          "MAX_uint8_T",
+          "0U"
+        ]
+      },
+      "constant_assignments": {
+        "tar_posn_req": [
+          "srv_body_seat_SeatTarPosnReqType_SEAT_REQ_REQUEST",
+          "srv_body_seat_SeatTarPosnReqType_SEAT_REQ_REQUEST",
+          "srv_body_seat_SeatTarPosnReqType_SEAT_REQ_NO_REQUEST"
+        ],
+        "seat_work_req": [
+          "8U",
+          "8U",
+          "0U"
+        ]
+      }
+    },
+    {
+      "module": "BDYseatSetting",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYseatSetting/src/BDYseatSetting.c",
+      "line": 1157,
+      "api": "sm_send_req_bdyseatsetting_request_srv_body_seat_seatmovemgr_seatmovemgr_fl_reqseatadjtarposn",
+      "root": "BDYseatSetting_DW.FL_TarPosn_Cmd",
+      "assignments": {
+        "cush_slide_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.cush_slide_posn",
+          "0U"
+        ],
+        "back_rest_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.backrest_posn",
+          "0U"
+        ],
+        "cush_hei_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.cush_height_posn",
+          "0U"
+        ],
+        "cush_len_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.cush_length_posn",
+          "0U"
+        ],
+        "front_cush_tilt_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.front_cush_tilt_posn",
+          "0U"
+        ],
+        "rear_cush_tilt_tar_posn": [
+          "MAX_uint8_T",
+          "0U"
+        ],
+        "total_cush_tilt_tar_posn": [
+          "MAX_uint8_T",
+          "0U"
+        ],
+        "uba_adj_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.uba_posn",
+          "0U"
+        ],
+        "headrest_adj_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.head_rest_posn",
+          "0U"
+        ],
+        "headfold_tar_posn": [
+          "MAX_uint8_T",
+          "0U"
+        ],
+        "footrest_front_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.footrest_posn",
+          "0U"
+        ],
+        "footrest_rear_tar_posn": [
+          "MAX_uint8_T",
+          "0U"
+        ],
+        "leg_sup_len_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.leg_sup_len_posn",
+          "0U"
+        ],
+        "leg_sup_tilt_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.leg_sup_tilt_posn",
+          "0U"
+        ],
+        "tar_posn_req": [
+          "srv_body_seat_SeatTarPosnReqType_SEAT_REQ_REQUEST",
+          "srv_body_seat_SeatTarPosnReqType_SEAT_REQ_NO_REQUEST"
+        ],
+        "req_src_type": [
+          "BDYseatSetting_DW.TmpSignalConversionAtuOutport1_n0owfxbn.req_src_type",
+          "0U"
+        ],
+        "seat_work_req": [
+          "8U",
+          "0U"
+        ],
+        "panodisp_flip_tar_posn": [
+          "MAX_uint8_T",
+          "0U"
+        ]
+      },
+      "constant_assignments": {
+        "tar_posn_req": [
+          "srv_body_seat_SeatTarPosnReqType_SEAT_REQ_REQUEST",
+          "srv_body_seat_SeatTarPosnReqType_SEAT_REQ_NO_REQUEST"
+        ],
+        "seat_work_req": [
+          "8U",
+          "0U"
+        ]
+      }
+    },
+    {
+      "module": "BDYseatSetting",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYseatSetting/src/BDYseatSetting.c",
+      "line": 1186,
+      "api": "sm_send_req_bdyseatsetting_request_srv_body_seat_seatmovemgr_seatmovemgr_rr_reqseatadjtarposn",
+      "root": "BDYseatSetting_DW.FL_TarPosn_Cmd",
+      "assignments": {
+        "cush_slide_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.cush_slide_posn",
+          "0U"
+        ],
+        "back_rest_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.backrest_posn",
+          "0U"
+        ],
+        "cush_hei_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.cush_height_posn",
+          "0U"
+        ],
+        "cush_len_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.cush_length_posn",
+          "0U"
+        ],
+        "front_cush_tilt_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.front_cush_tilt_posn",
+          "0U"
+        ],
+        "rear_cush_tilt_tar_posn": [
+          "MAX_uint8_T",
+          "0U"
+        ],
+        "total_cush_tilt_tar_posn": [
+          "MAX_uint8_T",
+          "0U"
+        ],
+        "uba_adj_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.uba_posn",
+          "0U"
+        ],
+        "headrest_adj_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.head_rest_posn",
+          "0U"
+        ],
+        "headfold_tar_posn": [
+          "MAX_uint8_T",
+          "0U"
+        ],
+        "footrest_front_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.footrest_posn",
+          "0U"
+        ],
+        "footrest_rear_tar_posn": [
+          "MAX_uint8_T",
+          "0U"
+        ],
+        "leg_sup_len_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.leg_sup_len_posn",
+          "0U"
+        ],
+        "leg_sup_tilt_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.leg_sup_tilt_posn",
+          "0U"
+        ],
+        "tar_posn_req": [
+          "srv_body_seat_SeatTarPosnReqType_SEAT_REQ_REQUEST",
+          "srv_body_seat_SeatTarPosnReqType_SEAT_REQ_NO_REQUEST"
+        ],
+        "req_src_type": [
+          "BDYseatSetting_DW.TmpSignalConversionAtuOutport1_n0owfxbn.req_src_type",
+          "0U"
+        ],
+        "seat_work_req": [
+          "8U",
+          "0U"
+        ],
+        "panodisp_flip_tar_posn": [
+          "MAX_uint8_T",
+          "0U"
+        ]
+      },
+      "constant_assignments": {
+        "tar_posn_req": [
+          "srv_body_seat_SeatTarPosnReqType_SEAT_REQ_REQUEST",
+          "srv_body_seat_SeatTarPosnReqType_SEAT_REQ_NO_REQUEST"
+        ],
+        "seat_work_req": [
+          "8U",
+          "0U"
+        ]
+      }
+    },
+    {
+      "module": "BDYseatSetting",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYseatSetting/src/BDYseatSetting.c",
+      "line": 1215,
+      "api": "sm_send_req_bdyseatsetting_request_srv_body_seat_seatmovemgr_seatmovemgr_fr_reqseatadjtarposn",
+      "root": "BDYseatSetting_DW.FL_TarPosn_Cmd",
+      "assignments": {
+        "cush_slide_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.cush_slide_posn",
+          "0U"
+        ],
+        "back_rest_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.backrest_posn",
+          "0U"
+        ],
+        "cush_hei_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.cush_height_posn",
+          "0U"
+        ],
+        "cush_len_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.cush_length_posn",
+          "0U"
+        ],
+        "front_cush_tilt_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.front_cush_tilt_posn",
+          "0U"
+        ],
+        "rear_cush_tilt_tar_posn": [
+          "MAX_uint8_T",
+          "0U"
+        ],
+        "total_cush_tilt_tar_posn": [
+          "MAX_uint8_T",
+          "0U"
+        ],
+        "uba_adj_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.uba_posn",
+          "0U"
+        ],
+        "headrest_adj_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.head_rest_posn",
+          "0U"
+        ],
+        "headfold_tar_posn": [
+          "MAX_uint8_T",
+          "0U"
+        ],
+        "footrest_front_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.footrest_posn",
+          "0U"
+        ],
+        "footrest_rear_tar_posn": [
+          "MAX_uint8_T",
+          "0U"
+        ],
+        "leg_sup_len_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.leg_sup_len_posn",
+          "0U"
+        ],
+        "leg_sup_tilt_tar_posn": [
+          "BDYseatSetting_DW.FL_Comfort_Posn.leg_sup_tilt_posn",
+          "0U"
+        ],
+        "tar_posn_req": [
+          "srv_body_seat_SeatTarPosnReqType_SEAT_REQ_REQUEST",
+          "srv_body_seat_SeatTarPosnReqType_SEAT_REQ_NO_REQUEST"
+        ],
+        "req_src_type": [
+          "BDYseatSetting_DW.TmpSignalConversionAtuOutport1_n0owfxbn.req_src_type",
+          "0U"
+        ],
+        "seat_work_req": [
+          "8U",
+          "0U"
+        ],
+        "panodisp_flip_tar_posn": [
+          "MAX_uint8_T",
+          "0U"
+        ]
+      },
+      "constant_assignments": {
+        "tar_posn_req": [
+          "srv_body_seat_SeatTarPosnReqType_SEAT_REQ_REQUEST",
+          "srv_body_seat_SeatTarPosnReqType_SEAT_REQ_NO_REQUEST"
+        ],
+        "seat_work_req": [
+          "8U",
+          "0U"
+        ]
+      }
+    },
+    {
+      "module": "CRSAtsModeMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CRSAtsModeMgr/src/CRSAtsModeMgr.c",
+      "line": 1469,
+      "api": "sm_write_crsatsmodemgr_request_srv_thermal_hvac_cbnclmtpenmgr_reqpenhvac",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_at_inp",
+      "assignments": {
+        "hvac_rear_on_pen": [
+          "srv_thermal_hvac_RearOnPen_REAR_ON_PEN_NO_REQUEST"
+        ],
+        "hvac_eco_mod_pen": [
+          "srv_thermal_hvac_EcoModPen_ECO_MOD_PEN_NO_REQUEST"
+        ],
+        "hvac_auto_airflow_pen": [
+          "srv_thermal_hvac_AirflowAutoPen_NO_REQUEST"
+        ],
+        "cbn_temp_control_pen": [
+          "srv_thermal_hvac_TempCtrlPen_TEMP_CTRL_PEN_NO_REQUEST"
+        ],
+        "cbn_temp_control_level_pen": [
+          "srv_thermal_hvac_TempCtrlLvlPen_TEMP_CTRL_LVL_PEN_NO_REQUEST"
+        ]
+      },
+      "constant_assignments": {
+        "hvac_rear_on_pen": [
+          "srv_thermal_hvac_RearOnPen_REAR_ON_PEN_NO_REQUEST"
+        ],
+        "hvac_eco_mod_pen": [
+          "srv_thermal_hvac_EcoModPen_ECO_MOD_PEN_NO_REQUEST"
+        ],
+        "hvac_auto_airflow_pen": [
+          "srv_thermal_hvac_AirflowAutoPen_NO_REQUEST"
+        ],
+        "cbn_temp_control_pen": [
+          "srv_thermal_hvac_TempCtrlPen_TEMP_CTRL_PEN_NO_REQUEST"
+        ],
+        "cbn_temp_control_level_pen": [
+          "srv_thermal_hvac_TempCtrlLvlPen_TEMP_CTRL_LVL_PEN_NO_REQUEST"
+        ]
+      }
+    },
+    {
+      "module": "BDYcarpetLiApp",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYcarpetLiApp/src/BDYcarpetLiApp.c",
+      "line": 593,
+      "api": "sm_send_req_bdycarpetliapp_request_srv_body_extrlight_carpetlimgr_reqcarpetli",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodCaller_at_inport_0_",
+      "assignments": {
+        "carpet_li_req": [
+          "BDYcarpetLiApp_DW.carpet_li_req"
+        ],
+        "req_src_type": [
+          "BDYcarpetLiApp_DW.req_src_type"
+        ],
+        "light_dim_ratio_start": [
+          "0U"
+        ],
+        "light_dim_ratio_end": [
+          "0U"
+        ],
+        "light_dim_ratio_dur": [
+          "0U"
+        ]
+      },
+      "constant_assignments": {
+        "light_dim_ratio_start": [
+          "0U"
+        ],
+        "light_dim_ratio_end": [
+          "0U"
+        ],
+        "light_dim_ratio_dur": [
+          "0U"
+        ]
+      }
+    },
+    {
+      "module": "CbnAvcMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/src/CbnAvcMgr.c",
+      "line": 3248,
+      "api": "sm_write_cbnavcmgr_request_srv_thermal_hvac_cabinavccmd_flsh_avcctl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_at_inp",
+      "assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "speed_spec": [
+          "(srv_thermal_hvac_EnumAvcSpeedSpec)AVC_stFLSHSpdSet"
+        ],
+        "actuator_set_pos": [
+          "AVC_pctFLPosXToAtomic"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      },
+      "constant_assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      }
+    },
+    {
+      "module": "CbnAvcMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/src/CbnAvcMgr.c",
+      "line": 3325,
+      "api": "sm_write_cbnavcmgr_request_srv_thermal_hvac_cabinavccmd_flsv_avcctl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_gwtp",
+      "assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "speed_spec": [
+          "(srv_thermal_hvac_EnumAvcSpeedSpec)AVC_stFLSVSpdSet"
+        ],
+        "actuator_set_pos": [
+          "AVC_pctFLPosYToAtomic"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      },
+      "constant_assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      }
+    },
+    {
+      "module": "CbnAvcMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/src/CbnAvcMgr.c",
+      "line": 3402,
+      "api": "sm_write_cbnavcmgr_request_srv_thermal_hvac_cabinavccmd_mlsh_avcctl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_j12b",
+      "assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "speed_spec": [
+          "(srv_thermal_hvac_EnumAvcSpeedSpec)AVC_stMLSHSpdSet"
+        ],
+        "actuator_set_pos": [
+          "AVC_pctSecLePosXToAtomic"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      },
+      "constant_assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      }
+    },
+    {
+      "module": "CbnAvcMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/src/CbnAvcMgr.c",
+      "line": 3479,
+      "api": "sm_write_cbnavcmgr_request_srv_thermal_hvac_cabinavccmd_mlsv_avcctl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_n4us",
+      "assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "speed_spec": [
+          "(srv_thermal_hvac_EnumAvcSpeedSpec)AVC_stMLSVSpdSet"
+        ],
+        "actuator_set_pos": [
+          "AVC_pctSecLePosYToAtomic"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      },
+      "constant_assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      }
+    },
+    {
+      "module": "CbnAvcMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/src/CbnAvcMgr.c",
+      "line": 3556,
+      "api": "sm_write_cbnavcmgr_request_srv_thermal_hvac_cabinavccmd_mrmh_avcctl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_mpyl",
+      "assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "speed_spec": [
+          "(srv_thermal_hvac_EnumAvcSpeedSpec)AVC_stMRMHSpdSet"
+        ],
+        "actuator_set_pos": [
+          "AVC_pctSecRiMidPosXToAtomic"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      },
+      "constant_assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      }
+    },
+    {
+      "module": "CbnAvcMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/src/CbnAvcMgr.c",
+      "line": 3633,
+      "api": "sm_write_cbnavcmgr_request_srv_thermal_hvac_cabinavccmd_mrmv_avcctl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_jbrl",
+      "assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "speed_spec": [
+          "(srv_thermal_hvac_EnumAvcSpeedSpec)AVC_stMRMVSpdSet"
+        ],
+        "actuator_set_pos": [
+          "AVC_pctSecRiMidPosYToAtomic"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      },
+      "constant_assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      }
+    },
+    {
+      "module": "CbnAvcMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/src/CbnAvcMgr.c",
+      "line": 3710,
+      "api": "sm_write_cbnavcmgr_request_srv_thermal_hvac_cabinavccmd_mrsh_avcctl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_gjcu",
+      "assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "speed_spec": [
+          "(srv_thermal_hvac_EnumAvcSpeedSpec)AVC_stMRSHSpdSet"
+        ],
+        "actuator_set_pos": [
+          "AVC_pctSecRiPosXToAtomic"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      },
+      "constant_assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      }
+    },
+    {
+      "module": "CbnAvcMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/src/CbnAvcMgr.c",
+      "line": 3787,
+      "api": "sm_write_cbnavcmgr_request_srv_thermal_hvac_cabinavccmd_mrsv_avcctl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_px2h",
+      "assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "speed_spec": [
+          "(srv_thermal_hvac_EnumAvcSpeedSpec)AVC_stMRSVSpdSet"
+        ],
+        "actuator_set_pos": [
+          "AVC_pctSecRiPosYToAtomic"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      },
+      "constant_assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      }
+    },
+    {
+      "module": "CbnAvcMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/src/CbnAvcMgr.c",
+      "line": 3864,
+      "api": "sm_write_cbnavcmgr_request_srv_thermal_hvac_cabinavccmd_flmh_avcctl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_l223",
+      "assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "speed_spec": [
+          "(srv_thermal_hvac_EnumAvcSpeedSpec)AVC_stFLMHSpdSet"
+        ],
+        "actuator_set_pos": [
+          "AVC_pctFLMidPosXToAtomic"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      },
+      "constant_assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      }
+    },
+    {
+      "module": "CbnAvcMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/src/CbnAvcMgr.c",
+      "line": 3941,
+      "api": "sm_write_cbnavcmgr_request_srv_thermal_hvac_cabinavccmd_flmv_avcctl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_o2og",
+      "assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "speed_spec": [
+          "(srv_thermal_hvac_EnumAvcSpeedSpec)AVC_stFLMVSpdSet"
+        ],
+        "actuator_set_pos": [
+          "AVC_pctFLMidPosYToAtomic"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      },
+      "constant_assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      }
+    },
+    {
+      "module": "CbnAvcMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/src/CbnAvcMgr.c",
+      "line": 4018,
+      "api": "sm_write_cbnavcmgr_request_srv_thermal_hvac_cabinavccmd_frmh_avcctl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_li1i",
+      "assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "speed_spec": [
+          "(srv_thermal_hvac_EnumAvcSpeedSpec)AVC_stFRMHSpdSet"
+        ],
+        "actuator_set_pos": [
+          "AVC_pctFRMidPosXToAtomic"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      },
+      "constant_assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      }
+    },
+    {
+      "module": "CbnAvcMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/src/CbnAvcMgr.c",
+      "line": 4095,
+      "api": "sm_write_cbnavcmgr_request_srv_thermal_hvac_cabinavccmd_frmv_avcctl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_lbwk",
+      "assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "speed_spec": [
+          "(srv_thermal_hvac_EnumAvcSpeedSpec)AVC_stFRMVSpdSet"
+        ],
+        "actuator_set_pos": [
+          "AVC_pctFRMidPosYToAtomic"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      },
+      "constant_assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      }
+    },
+    {
+      "module": "CbnAvcMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/src/CbnAvcMgr.c",
+      "line": 4172,
+      "api": "sm_write_cbnavcmgr_request_srv_thermal_hvac_cabinavccmd_frsh_avcctl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_lzmh",
+      "assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "speed_spec": [
+          "(srv_thermal_hvac_EnumAvcSpeedSpec)AVC_stFRSHSpdSet"
+        ],
+        "actuator_set_pos": [
+          "AVC_pctFRPosXToAtomic"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      },
+      "constant_assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      }
+    },
+    {
+      "module": "CbnAvcMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/src/CbnAvcMgr.c",
+      "line": 4249,
+      "api": "sm_write_cbnavcmgr_request_srv_thermal_hvac_cabinavccmd_frsv_avcctl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_hpma",
+      "assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "speed_spec": [
+          "(srv_thermal_hvac_EnumAvcSpeedSpec)AVC_stFRSVSpdSet"
+        ],
+        "actuator_set_pos": [
+          "AVC_pctFRPosYToAtomic"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      },
+      "constant_assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      }
+    },
+    {
+      "module": "CbnAvcMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/src/CbnAvcMgr.c",
+      "line": 4326,
+      "api": "sm_write_cbnavcmgr_request_srv_thermal_hvac_cabinavccmd_mlmh_avcctl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_k21r",
+      "assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "speed_spec": [
+          "(srv_thermal_hvac_EnumAvcSpeedSpec)AVC_stMLMHSpdSet"
+        ],
+        "actuator_set_pos": [
+          "AVC_pctSecLeMidPosXToAtomic"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      },
+      "constant_assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      }
+    },
+    {
+      "module": "CbnAvcMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAvcMgr/src/CbnAvcMgr.c",
+      "line": 4403,
+      "api": "sm_write_cbnavcmgr_request_srv_thermal_hvac_cabinavccmd_mlmv_avcctl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_d1rg",
+      "assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "speed_spec": [
+          "(srv_thermal_hvac_EnumAvcSpeedSpec)AVC_stMLMVSpdSet"
+        ],
+        "actuator_set_pos": [
+          "AVC_pctSecLeMidPosYToAtomic"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      },
+      "constant_assignments": {
+        "init_request": [
+          "srv_thermal_hvac_EnumAvcInitRequest_ENUM_AVC_INIT_REQUEST_NOT_REQUEST"
+        ],
+        "actuator_address": [
+          "0U"
+        ],
+        "save_program_data": [
+          "srv_thermal_hvac_EnumAvcSaveProgramData_ENUM_AVC_SAVE_PROGRAM_DATA_NOTSAVE"
+        ],
+        "stall_det_release": [
+          "srv_thermal_hvac_EnumAvcStallDetRelease_ENUM_AVC_STALL_DET_RELEASE_STALL_DET_OFF"
+        ],
+        "clear_event_flag": [
+          "srv_thermal_hvac_EnumAvcClearEventFlag_ENUM_AVC_CLEARE_VENT_FLAG_NOT_RESETFLAG"
+        ],
+        "applied_hold_current": [
+          "srv_thermal_hvac_EnumAvcAppliedHoldCurrent_ENUM_AVC_APPLIED_HOLD_CURRENT_ACTR_COILS_NOT_ENERGISED"
+        ],
+        "select_pos_spec": [
+          "srv_thermal_hvac_EnumAvcSelectPosSpec_ENUM_AVC_SELECT_POS_SPEC_SET_POS_VALID"
+        ],
+        "actuator_start_pos": [
+          "0U"
+        ],
+        "emergy_run_release": [
+          "srv_thermal_hvac_EnumAvcEmergyRunRelease_ENUM_AVC_EMERGY_RUN_RELEASE_REQ_EMGRGY_RUN_OFF"
+        ],
+        "emergy_run_pos": [
+          "srv_thermal_hvac_EnumAvcEmergyRunPos_ENUM_AVC_EMERGY_RUN_POS_LOWER_STOP"
+        ],
+        "rotation_dir": [
+          "srv_thermal_hvac_EnumAvcRotationDir_ENUM_AVC_ROTATION_DIR_CW"
+        ],
+        "stop_mode": [
+          "srv_thermal_hvac_EnumAvcStopMode_ENUM_AVC_STOP_MODE_NORMAL_MODE"
+        ]
+      }
+    },
+    {
+      "module": "CRSproductionModeLiApp",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CRSproductionModeLiApp/src/CRSproductionModeLiApp.c",
+      "line": 831,
+      "api": "sm_send_req_crsproductionmodeliapp_request_srv_body_extrlight_carpetlimgr_reqcarpetli",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodCaller_at_inport_0_",
+      "assignments": {
+        "carpet_li_req": [
+          "srv_body_extrlight_CarpetLiReqType_REQ_CARPET_LI_ON",
+          "srv_body_extrlight_CarpetLiReqType_REQ_CARPET_LI_OFF"
+        ],
+        "req_src_type": [
+          "CRSproductionModeLiApp_ReqSrcTypeProduction_SY"
+        ],
+        "light_dim_ratio_start": [
+          "((uint8_T)CRSproductionModeLiApp_CarpetLiDimRatio100_SY)"
+        ],
+        "light_dim_ratio_end": [
+          "((uint8_T)CRSproductionModeLiApp_CarpetLiDimRatio100_SY)"
+        ],
+        "light_dim_ratio_dur": [
+          "((uint16_T)CRSproductionModeLiApp_CarpetLiDimRatioDur1000_SY)"
+        ]
+      },
+      "constant_assignments": {
+        "carpet_li_req": [
+          "srv_body_extrlight_CarpetLiReqType_REQ_CARPET_LI_ON",
+          "srv_body_extrlight_CarpetLiReqType_REQ_CARPET_LI_OFF"
+        ],
+        "req_src_type": [
+          "CRSproductionModeLiApp_ReqSrcTypeProduction_SY"
+        ]
+      }
+    },
+    {
+      "module": "TurnLiMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/TurnLiMgr/src/TurnLiMgr.c",
+      "line": 1863,
+      "api": "sm_write_turnlimgr_request_srv_body_extrlight_turnliactu_turnliactuf_lightturnctrl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_at_inp",
+      "assignments": {
+        "le_turn_cmd": [
+          "BDYextLghtTurnMgrExeLeftCmd"
+        ],
+        "ri_turn_cmd": [
+          "0U"
+        ],
+        "turn_li_type": [
+          "wk_turn_li_type"
+        ],
+        "turn_li_brightness_val": [
+          "100U"
+        ]
+      },
+      "constant_assignments": {
+        "ri_turn_cmd": [
+          "0U"
+        ],
+        "turn_li_brightness_val": [
+          "100U"
+        ]
+      }
+    },
+    {
+      "module": "TurnLiMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/TurnLiMgr/src/TurnLiMgr.c",
+      "line": 1905,
+      "api": "sm_write_turnlimgr_request_srv_body_extrlight_turnliactu_turnliactuml_lightturnctrl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_pinp",
+      "assignments": {
+        "le_turn_cmd": [
+          "BDYextLghtTurnMgrExeLeftCmd"
+        ],
+        "ri_turn_cmd": [
+          "0U"
+        ],
+        "turn_li_type": [
+          "wk_turn_li_type"
+        ],
+        "turn_li_brightness_val": [
+          "100U"
+        ]
+      },
+      "constant_assignments": {
+        "ri_turn_cmd": [
+          "0U"
+        ],
+        "turn_li_brightness_val": [
+          "100U"
+        ]
+      }
+    },
+    {
+      "module": "TurnLiMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/TurnLiMgr/src/TurnLiMgr.c",
+      "line": 1947,
+      "api": "sm_write_turnlimgr_request_srv_body_extrlight_turnliactu_turnliactumr_lightturnctrl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_kimt",
+      "assignments": {
+        "le_turn_cmd": [
+          "BDYextLghtTurnMgrExeLeftCmd"
+        ],
+        "ri_turn_cmd": [
+          "0U"
+        ],
+        "turn_li_type": [
+          "wk_turn_li_type"
+        ],
+        "turn_li_brightness_val": [
+          "100U"
+        ]
+      },
+      "constant_assignments": {
+        "ri_turn_cmd": [
+          "0U"
+        ],
+        "turn_li_brightness_val": [
+          "100U"
+        ]
+      }
+    },
+    {
+      "module": "CRSSmtKeyPsvAcsCtrl",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CRSSmtKeyPsvAcsCtrl/src/CRSSmtKeyPsvAcsCtrl.c",
+      "line": 5475,
+      "api": "sm_send_req_crssmtkeypsvacsctrl_request_srv_body_horn_hornmgr_reqcyclebuzz",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodCaller_at_inpo_lega",
+      "assignments": {
+        "req_src_type": [
+          "85983232U"
+        ],
+        "cycle_cmd": [
+          "srv_body_horn_HornCmdType_REQ_HORN_ON"
+        ],
+        "active_time": [
+          "30U"
+        ],
+        "deactive_time": [
+          "500U"
+        ],
+        "time": [
+          "1590U"
+        ]
+      },
+      "constant_assignments": {
+        "req_src_type": [
+          "85983232U"
+        ],
+        "cycle_cmd": [
+          "srv_body_horn_HornCmdType_REQ_HORN_ON"
+        ],
+        "active_time": [
+          "30U"
+        ],
+        "deactive_time": [
+          "500U"
+        ],
+        "time": [
+          "1590U"
+        ]
+      }
+    },
+    {
+      "module": "CRSSmtKeyPsvAcsCtrl",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CRSSmtKeyPsvAcsCtrl/src/CRSSmtKeyPsvAcsCtrl.c",
+      "line": 5911,
+      "api": "sm_write_crssmtkeypsvacsctrl_request_srv_body_extrlight_animatlimgr_reqanimatmode",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_at_inp",
+      "assignments": {
+        "animt_li_set_1": [
+          "1U"
+        ],
+        "animt_li_set_2": [
+          "0U"
+        ],
+        "animt_li_set_3": [
+          "0U"
+        ],
+        "req_src_type": [
+          "4U"
+        ]
+      },
+      "constant_assignments": {
+        "animt_li_set_1": [
+          "1U"
+        ],
+        "animt_li_set_2": [
+          "0U"
+        ],
+        "animt_li_set_3": [
+          "0U"
+        ],
+        "req_src_type": [
+          "4U"
+        ]
+      }
+    },
+    {
+      "module": "CRSDriveModeMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CRSDriveModeMgr/src/CRSDriveModeMgr.c",
+      "line": 2763,
+      "api": "sm_write_crsdrivemodemgr_request_srv_thermal_hvac_cbnclmtpenmgr_reqpenhvac",
+      "root": "wk_BusCreator7",
+      "assignments": {
+        "hvac_rear_on_pen": [
+          "srv_thermal_hvac_RearOnPen_REAR_ON_PEN_NO_REQUEST"
+        ],
+        "hvac_eco_mod_pen": [
+          "wk_Switch11"
+        ],
+        "hvac_auto_airflow_pen": [
+          "srv_thermal_hvac_AirflowAutoPen_NO_REQUEST"
+        ],
+        "cbn_temp_control_pen": [
+          "srv_thermal_hvac_TempCtrlPen_TEMP_CTRL_PEN_NO_REQUEST"
+        ],
+        "cbn_temp_control_level_pen": [
+          "srv_thermal_hvac_TempCtrlLvlPen_TEMP_CTRL_LVL_PEN_NO_REQUEST"
+        ]
+      },
+      "constant_assignments": {
+        "hvac_rear_on_pen": [
+          "srv_thermal_hvac_RearOnPen_REAR_ON_PEN_NO_REQUEST"
+        ],
+        "hvac_auto_airflow_pen": [
+          "srv_thermal_hvac_AirflowAutoPen_NO_REQUEST"
+        ],
+        "cbn_temp_control_pen": [
+          "srv_thermal_hvac_TempCtrlPen_TEMP_CTRL_PEN_NO_REQUEST"
+        ],
+        "cbn_temp_control_level_pen": [
+          "srv_thermal_hvac_TempCtrlLvlPen_TEMP_CTRL_LVL_PEN_NO_REQUEST"
+        ]
+      }
+    },
+    {
+      "module": "ThermalOutOfControlApp",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/ThermalOutOfControlApp/src/ThermalOutOfControlApp.c",
+      "line": 844,
+      "api": "sm_send_req_thermaloutofcontrolapp_request_srv_body_horn_hornmgr_reqcyclebuzz",
+      "root": "wk_BusCreator5",
+      "assignments": {
+        "req_src_type": [
+          "SafetyThermalId"
+        ],
+        "cycle_cmd": [
+          "srv_body_horn_HornCmdType_REQ_HORN_ON"
+        ],
+        "active_time": [
+          "500U"
+        ],
+        "deactive_time": [
+          "500U"
+        ],
+        "time": [
+          "30000U"
+        ]
+      },
+      "constant_assignments": {
+        "cycle_cmd": [
+          "srv_body_horn_HornCmdType_REQ_HORN_ON"
+        ],
+        "active_time": [
+          "500U"
+        ],
+        "deactive_time": [
+          "500U"
+        ],
+        "time": [
+          "30000U"
+        ]
+      }
+    },
+    {
+      "module": "DoorLockMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/DoorLockMgr/src/DoorLockMgr.c",
+      "line": 1853,
+      "api": "sm_send_req_doorlockmgr_request_srv_body_extrlight_turnlimgr_reqdurturnli",
+      "root": "wk_Switch_jxs3",
+      "assignments": {
+        "req_src_type": [
+          "68222976U",
+          "68222976U"
+        ],
+        "turn_li_dur_req": [
+          "srv_body_extrlight_TurnLiDurReqType_REQ_TURN_LI_DURATION_ON",
+          "srv_body_extrlight_TurnLiDurReqType_REQ_TURN_LI_DURATION_ON"
+        ],
+        "turn_li_dur_on_ti": [
+          "200U",
+          "1000U"
+        ],
+        "turn_li_dur_off_ti": [
+          "200U",
+          "0U"
+        ],
+        "turn_li_dur_cycles": [
+          "3U",
+          "1U"
+        ]
+      },
+      "constant_assignments": {
+        "req_src_type": [
+          "68222976U",
+          "68222976U"
+        ],
+        "turn_li_dur_req": [
+          "srv_body_extrlight_TurnLiDurReqType_REQ_TURN_LI_DURATION_ON",
+          "srv_body_extrlight_TurnLiDurReqType_REQ_TURN_LI_DURATION_ON"
+        ],
+        "turn_li_dur_on_ti": [
+          "200U",
+          "1000U"
+        ],
+        "turn_li_dur_off_ti": [
+          "200U",
+          "0U"
+        ],
+        "turn_li_dur_cycles": [
+          "3U",
+          "1U"
+        ]
+      }
+    },
+    {
+      "module": "DoorLockMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/DoorLockMgr/src/DoorLockMgr.c",
+      "line": 1880,
+      "api": "sm_send_req_doorlockmgr_request_srv_body_horn_hornmgr_reqcyclebuzz",
+      "root": "wk_BusCreator12",
+      "assignments": {
+        "req_src_type": [
+          "68222976U"
+        ],
+        "cycle_cmd": [
+          "srv_body_horn_HornCmdType_REQ_HORN_ON"
+        ],
+        "active_time": [
+          "10U"
+        ],
+        "deactive_time": [
+          "0U"
+        ],
+        "time": [
+          "10U"
+        ]
+      },
+      "constant_assignments": {
+        "req_src_type": [
+          "68222976U"
+        ],
+        "cycle_cmd": [
+          "srv_body_horn_HornCmdType_REQ_HORN_ON"
+        ],
+        "active_time": [
+          "10U"
+        ],
+        "deactive_time": [
+          "0U"
+        ],
+        "time": [
+          "10U"
+        ]
+      }
+    },
+    {
+      "module": "CRSanimationLiApp",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CRSanimationLiApp/src/CRSanimationLiApp.c",
+      "line": 865,
+      "api": "sm_write_crsanimationliapp_request_srv_body_extrlight_animatlimgr_reqanimatmode",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_at_inp",
+      "assignments": {
+        "animt_li_set_1": [
+          "wk_u8_Merge"
+        ],
+        "animt_li_set_2": [
+          "1U"
+        ],
+        "animt_li_set_3": [
+          "1U"
+        ],
+        "req_src_type": [
+          "BDYanimatli_SrcType"
+        ]
+      },
+      "constant_assignments": {
+        "animt_li_set_2": [
+          "1U"
+        ],
+        "animt_li_set_3": [
+          "1U"
+        ]
+      }
+    },
+    {
+      "module": "THMheatpumpmgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/THMheatpumpmgr/src/THMheatpumpmgr.c",
+      "line": 4534,
+      "api": "sm_write_thmheatpumpmgr_request_srv_thermal_thrmmgr_ecompmgr_ecompctl",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_kad2",
+      "assignments": {
+        "bool_allow_operation": [
+          "(boolean_T)((int32_T)((int32_T)(HPD_flgHpRoutineCtrl ? 1 : 0) | (int32_T) (CMPC_flgCmprAllwOp ? 1 : 0)) != 0)"
+        ],
+        "foat_tgt_spd": [
+          "HPD_rpmRoutineComprCmd",
+          "CMPC_nCmprTrgtSpd"
+        ],
+        "bool_restart": [
+          "false"
+        ],
+        "float_pwr_permit": [
+          "5000.0F"
+        ]
+      },
+      "constant_assignments": {
+        "bool_restart": [
+          "false"
+        ],
+        "float_pwr_permit": [
+          "5000.0F"
+        ]
+      }
+    },
+    {
+      "module": "CBNcapl",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CBNcapl/src/CBNcapl.c",
+      "line": 4639,
+      "api": "sm_send_req_cbncapl_request_srv_infra_power_efusemanager_vdf_efusectrlreq",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodCaller_at_inport_0_",
+      "assignments": {
+        "efuseidreq_count": [
+          "1U"
+        ],
+        "client_id": [
+          "32U"
+        ],
+        "priority": [
+          "srv_infra_power_ManagerEfusePriorityEm_EFUSEMANAGER_PRIORITY_NORMAL"
+        ],
+        "efuselockreq": [
+          "srv_infra_power_ManagerLckReqEm_EFUSEMANAGERLCK_UNLOCK"
+        ]
+      },
+      "constant_assignments": {
+        "efuseidreq_count": [
+          "1U"
+        ],
+        "client_id": [
+          "32U"
+        ],
+        "priority": [
+          "srv_infra_power_ManagerEfusePriorityEm_EFUSEMANAGER_PRIORITY_NORMAL"
+        ],
+        "efuselockreq": [
+          "srv_infra_power_ManagerLckReqEm_EFUSEMANAGERLCK_UNLOCK"
+        ]
+      }
+    },
+    {
+      "module": "BDYantilockOutApp",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/BDYantilockOutApp/src/BDYantilockOutApp.c",
+      "line": 379,
+      "api": "sm_send_req_bdyantilockoutapp_request_srv_body_horn_hornmgr_reqcyclebuzz",
+      "root": "wk_BusCreator5",
+      "assignments": {
+        "req_src_type": [
+          "70451200U"
+        ],
+        "cycle_cmd": [
+          "srv_body_horn_HornCmdType_REQ_HORN_ON"
+        ],
+        "active_time": [
+          "30U"
+        ],
+        "deactive_time": [
+          "500U"
+        ],
+        "time": [
+          "1090U"
+        ]
+      },
+      "constant_assignments": {
+        "req_src_type": [
+          "70451200U"
+        ],
+        "cycle_cmd": [
+          "srv_body_horn_HornCmdType_REQ_HORN_ON"
+        ],
+        "active_time": [
+          "30U"
+        ],
+        "deactive_time": [
+          "500U"
+        ],
+        "time": [
+          "1090U"
+        ]
+      }
+    },
+    {
+      "module": "AntiTheftMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/AntiTheftMgr/src/AntiTheftMgr.c",
+      "line": 2200,
+      "api": "sm_send_req_antitheftmgr_request_srv_body_horn_hornmgr_reqcyclebuzz",
+      "root": "wk_CycHornReqBus",
+      "assignments": {
+        "req_src_type": [
+          "36044800U"
+        ],
+        "cycle_cmd": [
+          "srv_body_horn_HornCmdType_REQ_HORN_OFF",
+          "srv_body_horn_HornCmdType_REQ_HORN_ON"
+        ],
+        "active_time": [
+          "wk_u16_ActiveTime"
+        ],
+        "deactive_time": [
+          "wk_u16_DeactiveTime"
+        ],
+        "time": [
+          "AntiTheftMgr_HornTime"
+        ]
+      },
+      "constant_assignments": {
+        "req_src_type": [
+          "36044800U"
+        ],
+        "cycle_cmd": [
+          "srv_body_horn_HornCmdType_REQ_HORN_OFF",
+          "srv_body_horn_HornCmdType_REQ_HORN_ON"
+        ]
+      }
+    },
+    {
+      "module": "CbnAqiMgr",
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/CbnAqiMgr/src/CbnAqiMgr.c",
+      "line": 1025,
+      "api": "sm_write_cbnaqimgr_request_srv_thermal_hvac_cbnclmtassfuncmgr_reqcabinhvacadjust",
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_at_inp",
+      "assignments": {
+        "req_src_id": [
+          "1U"
+        ],
+        "osa_ratio_req_type": [
+          "(srv_thermal_hvac_CabinAdjustType)AQI_stOSATypeReq"
+        ],
+        "osa_ratio_req": [
+          "AQI_pctOSAReq"
+        ],
+        "frnt_blw_spd_req_type": [
+          "(srv_thermal_hvac_CabinAdjustType)AQI_stPM25BlwTypeReq"
+        ],
+        "frnt_blw_spd_req": [
+          "AQI_pctPM25BlwReq"
+        ],
+        "booster_spd_req_type": [
+          "CbnAqiMgr_ConstB.DataTypeConversion22"
+        ],
+        "booster_spd_req": [
+          "0.0F"
+        ],
+        "frnt_ariflow_req_type": [
+          "CbnAqiMgr_ConstB.DataTypeConversion23"
+        ],
+        "frnt_ariflow_req": [
+          "0.0F"
+        ],
+        "rear_ariflow_req_type": [
+          "CbnAqiMgr_ConstB.DataTypeConversion24"
+        ],
+        "rear_ariflow_req": [
+          "0.0F"
+        ]
+      },
+      "constant_assignments": {
+        "req_src_id": [
+          "1U"
+        ],
+        "booster_spd_req": [
+          "0.0F"
+        ],
+        "frnt_ariflow_req": [
+          "0.0F"
+        ],
+        "rear_ariflow_req": [
+          "0.0F"
+        ]
+      }
+    }
+  ],
+  "unresolved_whole_message_candidates": [
+    {
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/ZONE/Motion_Longitudinal_Service_CETUS_Code-V37_Zone_RL250_BL157/LogicService/MOTlsv/src/MOTlsv.c",
+      "module": "MOTlsv",
+      "line": 17639,
+      "api": "sm_write_motlsv_request_srv_vehicle_logmgmt_fidsrv_isendfidreq",
+      "root": "MOTlsv_DW.FIdReqMsgRead",
+      "service": "FidSrv",
+      "rpc": "ISendFidReq",
+      "message": "FidReqMsg",
+      "fields": [
+        [
+          "uint32",
+          "swc_id"
+        ],
+        [
+          "uint32",
+          "fid_req_map"
+        ]
+      ],
+      "referenced": [],
+      "missing": [
+        "fid_req_map",
+        "swc_id"
+      ],
+      "proto": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/ZONE/Motion_Longitudinal_Service_CETUS_Code-V37_Zone_RL250_BL157/LogicService/MOTlsv/proto/srv.vehicle.logmgmt.fidsrv.proto"
+    },
+    {
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/ZONE/Motion_Longitudinal_Service_CETUS_Code-V37_Zone_RL250_BL157/LogicService/MOTlsv/src/MOTlsv.c",
+      "module": "MOTlsv",
+      "line": 28936,
+      "api": "sm_write_motlsv_request_srv_vehicle_logmgmt_dtcagent_isenddtcreqmax10",
+      "root": "wk_DTCArraySelector",
+      "service": "DtcAgent",
+      "rpc": "ISendDtcReqMax10",
+      "message": "DtcReqMsgMax10",
+      "fields": [
+        [
+          "uint32",
+          "swc_id"
+        ],
+        [
+          "uint32",
+          "dtc_cnt"
+        ],
+        [
+          "DtcReqProto",
+          "dtc_reqs"
+        ]
+      ],
+      "referenced": [],
+      "missing": [
+        "dtc_cnt",
+        "dtc_reqs",
+        "swc_id"
+      ],
+      "proto": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/ZONE/Motion_Longitudinal_Service_CETUS_Code-V37_Zone_RL250_BL157/LogicService/MOTlsv/proto/srv.vehicle.logmgmt.dtcagent.proto"
+    },
+    {
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/ZONE/Motion_Longitudinal_Service_CETUS_Code-V37_Zone_RL250_BL157/LogicService/MOTlsv/src/MOTlsv.c",
+      "module": "MOTlsv",
+      "line": 30068,
+      "api": "sm_write_motlsv_request_srv_vehicle_logmgmt_ltcsrv_isendlogtrgmax5",
+      "root": "wk_LogTrgMsgSend",
+      "service": "LtcSrv",
+      "rpc": "ISendLogTrgMax5",
+      "message": "LogTrgMsgMax5",
+      "fields": [
+        [
+          "uint32",
+          "swc_id"
+        ],
+        [
+          "uint32",
+          "trg_cnt"
+        ],
+        [
+          "LogTrgProto",
+          "trgs"
+        ]
+      ],
+      "referenced": [],
+      "missing": [
+        "swc_id",
+        "trg_cnt",
+        "trgs"
+      ],
+      "proto": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/ZONE/Motion_Longitudinal_Service_CETUS_Code-V37_Zone_RL250_BL157/LogicService/MOTlsv/proto/srv.vehicle.logmgmt.ltcsrv.proto"
+    },
+    {
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/ZONE/Motion_Longitudinal_Service_CETUS_Code-V37_Zone_RL250_BL157/LogicService/MOTlsv/src/MOTlsv.c",
+      "module": "MOTlsv",
+      "line": 30175,
+      "api": "sm_write_motlsv_request_srv_vehicle_logmgmt_ltcsrv_isendlogtrgmax5",
+      "root": "MOTlsv_DW.LogTrgMsgRead",
+      "service": "LtcSrv",
+      "rpc": "ISendLogTrgMax5",
+      "message": "LogTrgMsgMax5",
+      "fields": [
+        [
+          "uint32",
+          "swc_id"
+        ],
+        [
+          "uint32",
+          "trg_cnt"
+        ],
+        [
+          "LogTrgProto",
+          "trgs"
+        ]
+      ],
+      "referenced": [
+        "trg_cnt"
+      ],
+      "missing": [
+        "swc_id",
+        "trgs"
+      ],
+      "proto": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/ZONE/Motion_Longitudinal_Service_CETUS_Code-V37_Zone_RL250_BL157/LogicService/MOTlsv/proto/srv.vehicle.logmgmt.ltcsrv.proto"
+    },
+    {
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/ZONE/Motion_Longitudinal_Service_CETUS_Code-V37_Zone_RL250_BL157/AtomicService/MOTmbsl/src/MOTmbsl.c",
+      "module": "MOTmbsl",
+      "line": 4757,
+      "api": "sm_write_motmbsl_request_srv_vehicle_logmgmt_fidsrv_isendfidreq",
+      "root": "MOTmbsl_DW.FIdReqMsgRead",
+      "service": "FidSrv",
+      "rpc": "ISendFidReq",
+      "message": "FidReqMsg",
+      "fields": [
+        [
+          "uint32",
+          "swc_id"
+        ],
+        [
+          "uint32",
+          "fid_req_map"
+        ]
+      ],
+      "referenced": [],
+      "missing": [
+        "fid_req_map",
+        "swc_id"
+      ],
+      "proto": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/ZONE/Motion_Longitudinal_Service_CETUS_Code-V37_Zone_RL250_BL157/AtomicService/MOTmbsl/proto/srv.vehicle.logmgmt.fidsrv.proto"
+    },
+    {
+      "file": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/OdoInfoMgr/src/OdoInfoMgr.c",
+      "module": "OdoInfoMgr",
+      "line": 1929,
+      "api": "sm_send_req_odoinfomgr_request_srv_ct_rvx_cloudservice_cloudservicereq",
+      "root": "wk_CloudRequest",
+      "service": "CloudService",
+      "rpc": "CloudServiceReq",
+      "message": "CloudRequest",
+      "fields": [
+        [
+          "string",
+          "request_id"
+        ],
+        [
+          "string",
+          "app_id"
+        ],
+        [
+          "string",
+          "service_name"
+        ],
+        [
+          "string",
+          "service_package"
+        ],
+        [
+          "string",
+          "method_name"
+        ],
+        [
+          "Priority",
+          "prio"
+        ],
+        [
+          "int32",
+          "timeout"
+        ],
+        [
+          "RequestParam",
+          "request_param"
+        ],
+        [
+          "uint32",
+          "flag"
+        ]
+      ],
+      "referenced": [],
+      "missing": [
+        "app_id",
+        "flag",
+        "method_name",
+        "prio",
+        "request_id",
+        "request_param",
+        "service_name",
+        "service_package",
+        "timeout"
+      ],
+      "proto": "/home/shaun/projects/ai-demo/service_arch/soa_deployment/VDF/OdoInfoMgr/proto/srv.ct.rvx.cloudservice.proto"
+    }
+  ]
+}

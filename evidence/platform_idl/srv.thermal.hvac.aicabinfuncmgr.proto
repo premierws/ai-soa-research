@@ -1,0 +1,228 @@
+/**
+ * @author mark.gu1
+ * @brief Ai Cabin function call manager
+ * @date 2025-12-11
+ * 
+ * @copyright Copyright (c) NIO 2025
+ * All rights reserved.
+ * This document contains proprietary information belonging to NIO. Passing on and copying of this document,
+ * and communication of its contents is not permitted without prior written authorization.
+ * 
+ */
+syntax = "proto3";
+package srv.thermal.hvac;
+import "nrpc.option.proto";
+option (idl_version) = "1.3";
+
+message SeatSpatialAutoModeMsg {
+    /**
+     * Value  Description(EN)
+     * 1      front left
+     * 2      front right
+     * 3      rear left
+     * 4      rear middle
+     * 5      rear right
+     * 6      Third row left
+     * 7      Third row right
+     * 0      Default (driver)
+     */
+    uint32 seat_position             = 1;
+    /**
+     * Value  Description(EN)
+     * 0      not requested
+     * 1      request on
+     * 2      request to stop
+     */
+    uint32 on_off_req                = 2;
+    /**
+     * Value  Description(EN)
+     * 1      legroom
+     * 2      head space
+     * 3      backrest angle
+     */
+    repeated uint32 spatial_priority = 3;
+    uint32 fatigue_level = 4 [(uint32_max_value) = 2, (uint32_min_value) = 0];
+    uint32 req_src_type              = 5;
+}
+
+message SeatSpatialAutoModeInfo {
+    /**
+     * Value  Description(EN)
+     * 0      legroom
+     * 1      head space
+     * 2      backrest angle
+     */
+    repeated uint32 spatial_priority = 1;
+    uint32 fatigue_level = 2 [(uint32_max_value) = 2, (uint32_min_value) = 0];
+    uint32 req_src_type              = 3;
+    uint32 status                    = 4;
+    uint32 seat_position             = 5;
+}
+
+message SeatSpatialAutoModeStsMsg {
+    repeated SeatSpatialAutoModeInfo seat_spatial_auto_mode_sts = 1;
+}
+
+message ThmSceneModeMsg {
+    /**
+     * Value  Description(EN)
+     * 0      no request
+     * 1      Extreme cooling and temperature control mode
+     * 2      Extreme heating and temperature control mode
+     * 3      High temperature and humidity control mode
+     * 4      Windless and stuffy temperature control mode
+     * 5      turbid air and sultry scene
+     * 6      Local supercooling wind direction adjustment mode
+     * 7      Local dry and hot air direction adjustment mode
+     * 8      direct sunlight temperature control mode
+     * 9      Temperature control mode in and out of tunnel
+     * 10     Clothing adaptive temperature control mode
+     * 11     Adaptive temperature control model for human metabolism
+     * 12     Adaptive temperature control model for special groups
+     * 13     Gesture Temperature Control Mode
+     */
+    uint32 scene_id                        = 1;
+    int32 preference_shield                = 2;
+    int32 preference_ac_temp               = 3;
+    int32 preference_ac_fan                = 4;
+    int32 preference_seat_vent_heat        = 5;
+    uint32 req_src_type                    = 6;
+    /**
+     * Value  Description(EN)
+     * 0      not requested
+     * 1      Request to enter the specified temperature control mode
+     * 2      Cancel temperature control mode
+     */
+    uint32 on_off_req                      = 7;
+    /**
+     * Value  Description(EN)
+     * 1      front_left
+     * 2      front_right
+     * 3      rear_left
+     * 4      rear_middle
+     * 5      rear_right
+     * 6      row3_left
+     * 7      row3_right
+     * 0      Default (full cabin)
+     */
+    uint32 seat_position                   = 8;
+    uint32 request_id                      = 9;
+    /**
+     * Comment: fan outlet temperature adjust
+     * Value  Description(EN)
+     * 0      no_request
+     * 1      warmer
+     * 2      much warmer
+     * -1     cooler
+     * -2     much cooler
+     */
+    int32 temp_adjust                     = 10;
+    /**
+     * Comment: same size as body_part if fandirection_adjust is requested (fan direction for each requested body part), otherwise 0 length
+     * Value  Description(EN)
+     * 0      no_request
+     * 1      direct facing
+     * -1     avoid facing
+     */
+    repeated int32 fandirection_adjust    = 11;
+    /**
+     * Value  Description(EN)
+     * 0      total or unknown
+     * 1      head
+     * 2      body up
+     * 3      body down
+     * 4      back rest
+     * 5      arm left
+     * 6      arm right
+     * 7      leg left
+     * 8      leg right
+     * 9      foot
+     * 10     hand left
+     * 11     hand right
+     */
+    repeated uint32 body_part             = 12;
+    float temp_set                        = 13; // Comment: temperature set point  Unit: degC
+    /**
+     * Comment: manual up/down/left/right movement on left hand
+     * Value  Description(EN)
+     * 0      no request
+     * 1      move up
+     * 2      move down
+     * 3      move left
+     * 4      move right
+     */
+    uint32 manual_airvent_direction_left  = 14;
+    /**
+     * Comment: manual up/down/left/right movement on right hand
+     * Value  Description(EN)
+     * 0      no request
+     * 1      move up
+     * 2      move down
+     * 3      move left
+     * 4      move right
+     */
+    uint32 manual_airvent_direction_right = 15;
+}
+
+message AiCabinReqReturnMsg {
+    uint32 result        = 1;
+}
+
+message ThmSceneModeStsMsg {
+    uint32 scene_id                             = 1; // scene_id of last requested scene (if active)
+    int32 preference_shield                     = 2;
+    int32 preference_ac_temp                    = 3;
+    int32 preference_ac_fan                     = 4;
+    int32 preference_seat_vent_heat             = 5;
+    uint32 req_src_type                         = 6;
+    repeated ThmSeatAutoModeStsInfo detail_info = 7;
+    uint32 active_scenes                        = 8; // bitcoded active scene corresponding to scene_id 0~31
+}
+
+message ThmSeatAutoModeStsInfo {
+    uint32 seat_position          = 1;
+    float temp                    = 2; // Unit: degC
+    /**
+     * Value  Description(EN)
+     * 0      unknown
+     * 1      facing
+     * 2      avoiding
+     */
+    repeated uint32 fan_direction = 3;
+    uint32 fan_speed              = 4;
+}
+
+service AiCabinFuncMgr {
+    option(service_id) = 3064;
+
+    rpc SeatSpatialAutoMode(SeatSpatialAutoModeMsg) returns (AiCabinReqReturnMsg) {
+        option (rpc_id) = 1;
+        option (method_type) = METHOD;
+    }
+
+    rpc ThmSceneMode(ThmSceneModeMsg) returns (AiCabinReqReturnMsg) {
+        option (rpc_id) = 2;
+        option (method_type) = METHOD;
+    }
+
+    rpc ThmSceneModeRecommend(ThmSceneModeMsg) returns (Null) {
+        option (rpc_id) = 5;
+        option (method_type) = EVENT;
+        option (update_policy) = ON_CHANGE;
+        option (rpc_reliability) = RELIABLE;
+    }
+
+    rpc SeatSpatialAutoModeSts(SeatSpatialAutoModeStsMsg) returns (Null) {
+        option (rpc_id) = 3;
+        option (method_type) = FIELD_READONLY;
+        option (update_policy) = ON_CHANGE;
+        option (rpc_reliability_field_event) = RELIABLE;
+    }
+
+    rpc ThmSceneModeSts(ThmSceneModeStsMsg) returns (Null) {
+        option (rpc_id) = 4;
+        option (method_type) = FIELD_READONLY;
+        option (update_policy) = ON_CHANGE;
+        option (rpc_reliability_field_event) = RELIABLE;
+    }
+}

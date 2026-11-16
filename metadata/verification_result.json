@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "manifest_files_checked": 99,
+  "source_snapshots_checked": 44,
+  "local_links_checked": 97,
+  "report_sections": 20,
+  "examples_compared_to_report": 3,
+  "scope": "归档完整性检查，不是软件功能或实车验证",
+  "errors": []
+}

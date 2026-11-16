@@ -1,0 +1,9 @@
+srv.body.intrlight.AmbLiSceneUpdateMsg.scene_type    int_size:IS_8
+srv.body.intrlight.AmbLiSceneUpdateMsg.uuid_update    int_size:IS_8
+srv.body.intrlight.AmbLiSceneReqMsg.scene_type    int_size:IS_8
+srv.body.intrlight.AmbLiSceneReqMsg.uuid    int_size:IS_8
+srv.body.intrlight.AmbLiSceneReqMsg.scene_cmd    int_size:IS_8
+srv.body.intrlight.AmbLiSceneReqMsg.scene_progress    int_size:IS_16
+srv.body.intrlight.AmbLiSceneStsMsg.scene_update_sts    int_size:IS_8
+srv.body.intrlight.AmbLiSceneStsMsg.uuid_sts    int_size:IS_8
+srv.body.intrlight.AmbLiSceneStsMsg.scene_type_sts    int_size:IS_8

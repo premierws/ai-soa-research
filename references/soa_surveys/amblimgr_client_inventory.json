@@ -1,0 +1,7039 @@
+{
+  "module": "AmbLiMgr",
+  "analysis_date": "2026-10-30",
+  "method": "配置、IDL 和源码静态交叉追踪；未执行编译、运行测试或完整 C AST/调用图分析",
+  "limitations": [
+    "未执行控制流可达性证明；有字段引用不等于所有车型工况都会执行",
+    "未找到调用或业务字段引用不等于可直接删除，保留待核实",
+    "发送侧整包搬运保守保留，未将每条赋值追溯到最终业务输入",
+    "未从当前模块材料确认实际 ECU、ASIL 和集成调度表"
+  ],
+  "clients": [
+    {
+      "component_instance_name": "amblimgr",
+      "service_name": "RlsInfo",
+      "service_package": "srv.body.base",
+      "use_full_service_name": true,
+      "always_include_instance_name": true,
+      "domain_id": 1,
+      "rpc_behavior_customization": {
+        "builtin-interface": [
+          {
+            "request_name": "soa_error",
+            "generate": true
+          },
+          {
+            "request_name": "qos_event",
+            "generate": false
+          },
+          {
+            "request_name": "connect_state",
+            "generate": false
+          },
+          {
+            "request_name": "check_version",
+            "generate": false
+          }
+        ],
+        "default_settings": {
+          "interface_generation": false
+        },
+        "event": [
+          {
+            "request_name": "LightSnrSts",
+            "subscribe": true,
+            "disable_callback": true
+          }
+        ],
+        "method": []
+      },
+      "qos": {
+        "method": [],
+        "event": []
+      },
+      "protocol": "TOX",
+      "participant": "default"
+    },
+    {
+      "component_instance_name": "amblimgr",
+      "service_name": "DynAmbLiActu",
+      "service_package": "srv.body.intrlight",
+      "use_full_service_name": true,
+      "always_include_instance_name": true,
+      "domain_id": 1,
+      "rpc_behavior_customization": {
+        "builtin-interface": [
+          {
+            "request_name": "soa_error",
+            "generate": true
+          },
+          {
+            "request_name": "qos_event",
+            "generate": false
+          },
+          {
+            "request_name": "connect_state",
+            "generate": true
+          },
+          {
+            "request_name": "check_version",
+            "generate": false
+          }
+        ],
+        "default_settings": {
+          "interface_generation": false
+        },
+        "event": [
+          {
+            "request_name": "DynAmbLiSts",
+            "subscribe": true,
+            "disable_callback": true
+          }
+        ],
+        "method": [
+          {
+            "request_name": "DynEnaCtrl",
+            "generate_request": true
+          },
+          {
+            "request_name": "DynGenBriCtrl",
+            "generate_request": true
+          },
+          {
+            "request_name": "DynNodeCtrl",
+            "generate_request": true
+          },
+          {
+            "request_name": "DynPrmSet",
+            "generate_request": true
+          },
+          {
+            "request_name": "DynSegCtrl",
+            "generate_request": true
+          },
+          {
+            "request_name": "DynSeqPilot",
+            "generate_request": true
+          }
+        ]
+      },
+      "qos": {
+        "method": [],
+        "event": []
+      },
+      "protocol": "TOX",
+      "participant": "default"
+    },
+    {
+      "component_instance_name": "amblimgr",
+      "service_instance_name": "StaAmbLiAp",
+      "service_name": "StaAmbLiActu",
+      "service_package": "srv.body.intrlight",
+      "use_full_service_name": true,
+      "always_include_instance_name": true,
+      "domain_id": 1,
+      "rpc_behavior_customization": {
+        "builtin-interface": [
+          {
+            "request_name": "soa_error",
+            "generate": true
+          },
+          {
+            "request_name": "qos_event",
+            "generate": false
+          },
+          {
+            "request_name": "connect_state",
+            "generate": true
+          },
+          {
+            "request_name": "check_version",
+            "generate": false
+          }
+        ],
+        "default_settings": {
+          "interface_generation": false
+        },
+        "event": [],
+        "method": [
+          {
+            "request_name": "StaColorCtrl",
+            "generate_request": true
+          },
+          {
+            "request_name": "StaEnaCtrl",
+            "generate_request": true
+          },
+          {
+            "request_name": "StaNodeBriCtrl",
+            "generate_request": true
+          },
+          {
+            "request_name": "StaPrmCtrl",
+            "generate_request": true
+          }
+        ]
+      },
+      "qos": {
+        "method": [],
+        "event": []
+      },
+      "protocol": "TOX",
+      "participant": "default"
+    },
+    {
+      "component_instance_name": "amblimgr",
+      "service_instance_name": "StaAmbLiFw",
+      "service_name": "StaAmbLiActu",
+      "service_package": "srv.body.intrlight",
+      "use_full_service_name": true,
+      "always_include_instance_name": true,
+      "domain_id": 1,
+      "rpc_behavior_customization": {
+        "builtin-interface": [
+          {
+            "request_name": "soa_error",
+            "generate": true
+          },
+          {
+            "request_name": "qos_event",
+            "generate": false
+          },
+          {
+            "request_name": "connect_state",
+            "generate": true
+          },
+          {
+            "request_name": "check_version",
+            "generate": false
+          }
+        ],
+        "default_settings": {
+          "interface_generation": false
+        },
+        "event": [
+          {
+            "request_name": "StaAmbLiSts",
+            "subscribe": true,
+            "disable_callback": true
+          }
+        ],
+        "method": [
+          {
+            "request_name": "StaColorCtrl",
+            "generate_request": true
+          },
+          {
+            "request_name": "StaEnaCtrl",
+            "generate_request": true
+          },
+          {
+            "request_name": "StaGenBriCtrl",
+            "generate_request": true
+          },
+          {
+            "request_name": "StaPrmCtrl",
+            "generate_request": true
+          }
+        ]
+      },
+      "qos": {
+        "method": [],
+        "event": []
+      },
+      "protocol": "TOX",
+      "participant": "default"
+    },
+    {
+      "component_instance_name": "amblimgr",
+      "service_instance_name": "StaAmbLiIp",
+      "service_name": "StaAmbLiActu",
+      "service_package": "srv.body.intrlight",
+      "use_full_service_name": true,
+      "always_include_instance_name": true,
+      "domain_id": 1,
+      "rpc_behavior_customization": {
+        "builtin-interface": [
+          {
+            "request_name": "soa_error",
+            "generate": true
+          },
+          {
+            "request_name": "qos_event",
+            "generate": false
+          },
+          {
+            "request_name": "connect_state",
+            "generate": true
+          },
+          {
+            "request_name": "check_version",
+            "generate": false
+          }
+        ],
+        "default_settings": {
+          "interface_generation": false
+        },
+        "event": [],
+        "method": [
+          {
+            "request_name": "StaColorCtrl",
+            "generate_request": true
+          },
+          {
+            "request_name": "StaEnaCtrl",
+            "generate_request": true
+          },
+          {
+            "request_name": "StaNodeBriCtrl",
+            "generate_request": true
+          },
+          {
+            "request_name": "StaPrmCtrl",
+            "generate_request": true
+          }
+        ]
+      },
+      "qos": {
+        "method": [],
+        "event": []
+      },
+      "protocol": "TOX",
+      "participant": "default"
+    },
+    {
+      "component_instance_name": "amblimgr",
+      "service_instance_name": "StaAmbLiStorg",
+      "service_name": "StaAmbLiActu",
+      "service_package": "srv.body.intrlight",
+      "use_full_service_name": true,
+      "always_include_instance_name": true,
+      "domain_id": 1,
+      "rpc_behavior_customization": {
+        "builtin-interface": [
+          {
+            "request_name": "soa_error",
+            "generate": true
+          },
+          {
+            "request_name": "qos_event",
+            "generate": false
+          },
+          {
+            "request_name": "connect_state",
+            "generate": true
+          },
+          {
+            "request_name": "check_version",
+            "generate": false
+          }
+        ],
+        "default_settings": {
+          "interface_generation": false
+        },
+        "event": [
+          {
+            "request_name": "StaAmbLiSts",
+            "subscribe": true,
+            "disable_callback": true
+          }
+        ],
+        "method": [
+          {
+            "request_name": "StaColorCtrl",
+            "generate_request": true
+          },
+          {
+            "request_name": "StaEnaCtrl",
+            "generate_request": true
+          },
+          {
+            "request_name": "StaNodeBriCtrl",
+            "generate_request": true
+          },
+          {
+            "request_name": "StaPrmCtrl",
+            "generate_request": true
+          }
+        ]
+      },
+      "qos": {
+        "method": [],
+        "event": []
+      },
+      "protocol": "TOX",
+      "participant": "default"
+    },
+    {
+      "component_instance_name": "amblimgr",
+      "service_name": "SeatBasicSts",
+      "service_package": "srv.body.safety",
+      "use_full_service_name": true,
+      "always_include_instance_name": true,
+      "domain_id": 1,
+      "rpc_behavior_customization": {
+        "builtin-interface": [
+          {
+            "request_name": "soa_error",
+            "generate": true
+          },
+          {
+            "request_name": "qos_event",
+            "generate": false
+          },
+          {
+            "request_name": "connect_state",
+            "generate": false
+          },
+          {
+            "request_name": "check_version",
+            "generate": false
+          }
+        ],
+        "default_settings": {
+          "interface_generation": false
+        },
+        "event": [
+          {
+            "request_name": "SeatBasicStsArray",
+            "subscribe": true,
+            "disable_callback": true
+          }
+        ],
+        "method": []
+      },
+      "qos": {
+        "method": [],
+        "event": []
+      },
+      "protocol": "TOX",
+      "participant": "default"
+    },
+    {
+      "component_instance_name": "amblimgr",
+      "service_name": "SmtKeyUsrIntnMgr",
+      "service_package": "srv.body.smtkey",
+      "use_full_service_name": true,
+      "always_include_instance_name": true,
+      "domain_id": 1,
+      "rpc_behavior_customization": {
+        "builtin-interface": [
+          {
+            "request_name": "soa_error",
+            "generate": true
+          },
+          {
+            "request_name": "qos_event",
+            "generate": false
+          },
+          {
+            "request_name": "connect_state",
+            "generate": false
+          },
+          {
+            "request_name": "check_version",
+            "generate": false
+          }
+        ],
+        "default_settings": {
+          "interface_generation": false
+        },
+        "event": [
+          {
+            "request_name": "SmtKeyUsrIntnNotify",
+            "subscribe": true,
+            "disable_callback": true
+          }
+        ],
+        "method": []
+      },
+      "qos": {
+        "method": [],
+        "event": []
+      },
+      "protocol": "TOX",
+      "participant": "default"
+    },
+    {
+      "component_instance_name": "amblimgr",
+      "service_name": "VehMode",
+      "service_package": "srv.infra.vehmoding",
+      "use_full_service_name": true,
+      "always_include_instance_name": true,
+      "domain_id": 1,
+      "rpc_behavior_customization": {
+        "builtin-interface": [
+          {
+            "request_name": "soa_error",
+            "generate": true
+          },
+          {
+            "request_name": "qos_event",
+            "generate": false
+          },
+          {
+            "request_name": "connect_state",
+            "generate": false
+          },
+          {
+            "request_name": "check_version",
+            "generate": false
+          }
+        ],
+        "default_settings": {
+          "interface_generation": false
+        },
+        "event": [
+          {
+            "request_name": "VehModeInfo",
+            "subscribe": true,
+            "disable_callback": true
+          },
+          {
+            "request_name": "VehModeSettingInfo",
+            "subscribe": true,
+            "disable_callback": true
+          }
+        ],
+        "method": []
+      },
+      "qos": {
+        "method": [],
+        "event": []
+      },
+      "protocol": "TOX"
+    },
+    {
+      "component_instance_name": "amblimgr",
+      "service_name": "VehState",
+      "service_package": "srv.infra.vehmoding",
+      "use_full_service_name": true,
+      "always_include_instance_name": true,
+      "domain_id": 1,
+      "rpc_behavior_customization": {
+        "builtin-interface": [
+          {
+            "request_name": "soa_error",
+            "generate": true
+          },
+          {
+            "request_name": "qos_event",
+            "generate": false
+          },
+          {
+            "request_name": "connect_state",
+            "generate": false
+          },
+          {
+            "request_name": "check_version",
+            "generate": false
+          }
+        ],
+        "default_settings": {
+          "interface_generation": false
+        },
+        "event": [
+          {
+            "request_name": "VehStateInfo",
+            "subscribe": true,
+            "disable_callback": true
+          }
+        ],
+        "method": []
+      },
+      "qos": {
+        "method": [],
+        "event": []
+      },
+      "protocol": "TOX",
+      "participant": "default"
+    },
+    {
+      "component_instance_name": "amblimgr",
+      "service_instance_name": "MotionCtrlInfoPri",
+      "service_name": "MotionCtrlInfo",
+      "service_package": "srv.motion.drv",
+      "use_full_service_name": true,
+      "always_include_instance_name": true,
+      "domain_id": 1,
+      "rpc_behavior_customization": {
+        "builtin-interface": [
+          {
+            "request_name": "soa_error",
+            "generate": true
+          },
+          {
+            "request_name": "qos_event",
+            "generate": false
+          },
+          {
+            "request_name": "connect_state",
+            "generate": false
+          },
+          {
+            "request_name": "check_version",
+            "generate": false
+          }
+        ],
+        "default_settings": {
+          "interface_generation": false
+        },
+        "event": [
+          {
+            "request_name": "IfCommInfo",
+            "subscribe": true,
+            "disable_callback": true
+          }
+        ],
+        "method": []
+      },
+      "qos": {
+        "method": [],
+        "event": []
+      },
+      "protocol": "TOX",
+      "participant": "default"
+    },
+    {
+      "component_instance_name": "amblimgr",
+      "service_name": "DriveModeMgr",
+      "service_package": "srv.vehctl.scnmgr",
+      "use_full_service_name": true,
+      "always_include_instance_name": true,
+      "domain_id": 1,
+      "rpc_behavior_customization": {
+        "builtin-interface": [
+          {
+            "request_name": "soa_error",
+            "generate": true
+          },
+          {
+            "request_name": "qos_event",
+            "generate": false
+          },
+          {
+            "request_name": "connect_state",
+            "generate": false
+          },
+          {
+            "request_name": "check_version",
+            "generate": false
+          }
+        ],
+        "default_settings": {
+          "interface_generation": false
+        },
+        "event": [
+          {
+            "request_name": "DriveModeSts",
+            "subscribe": true,
+            "disable_callback": true
+          },
+          {
+            "request_name": "EcoPlusModeInfo",
+            "subscribe": true,
+            "disable_callback": true
+          }
+        ],
+        "method": []
+      },
+      "qos": {
+        "method": [],
+        "event": []
+      },
+      "protocol": "TOX",
+      "participant": "default"
+    },
+    {
+      "component_instance_name": "amblimgr",
+      "service_name": "VehConfig",
+      "service_package": "srv.vehicle.plm",
+      "use_full_service_name": true,
+      "always_include_instance_name": true,
+      "domain_id": 1,
+      "rpc_behavior_customization": {
+        "builtin-interface": [
+          {
+            "request_name": "soa_error",
+            "generate": true
+          },
+          {
+            "request_name": "qos_event",
+            "generate": false
+          },
+          {
+            "request_name": "connect_state",
+            "generate": false
+          },
+          {
+            "request_name": "check_version",
+            "generate": false
+          }
+        ],
+        "default_settings": {
+          "interface_generation": false
+        },
+        "event": [
+          {
+            "request_name": "IVcpVal_InteriorBodyColor",
+            "subscribe": true,
+            "disable_callback": true
+          },
+          {
+            "request_name": "IVcpVal_VehicleProject",
+            "subscribe": true,
+            "disable_callback": true
+          }
+        ],
+        "method": []
+      },
+      "qos": {
+        "method": [],
+        "event": []
+      },
+      "protocol": "TOX",
+      "participant": "default"
+    }
+  ],
+  "rpc_usage": [
+    {
+      "service": "RlsInfo",
+      "instance": "",
+      "rpc": "LightSnrSts",
+      "kind": "event",
+      "api": "sm_read_amblimgr_on_notify_srv_body_base_rlsinfo_lightsnrsts",
+      "calls": [
+        8177
+      ],
+      "root": "AmbLiMgr_DW.srv_body_base_RlsInfo_LightSnrSts_EventSub1",
+      "paths": {
+        "head_lamps_on": [
+          8219
+        ]
+      },
+      "message_type": "MsgLightSnrSts",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "100",
+        "method_type": "EVENT",
+        "update_policy": "CYCLIC",
+        "update_cycle_time": "50",
+        "e2e_s2c_enabled": "true",
+        "e2e_s2c_timeout": "250",
+        "e2e_s2c_max_delta_counter": "5",
+        "e2e_s2c_min_data_length": "96",
+        "e2e_s2c_max_data_length": "32768"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.base.rlsinfo.proto",
+      "rpc_line": 261,
+      "package": "srv.body.base",
+      "configured_instance_name": null,
+      "deployment_pointer": "/clients/0",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "rls_front_brightness",
+          "number": 1
+        },
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "rls_ambt_brightness",
+          "number": 2
+        },
+        {
+          "repeated": false,
+          "type": "RlsFcnOnOff",
+          "name": "tunnel_detection_sts",
+          "number": 3
+        },
+        {
+          "repeated": false,
+          "type": "RlsFcnOnOff",
+          "name": "head_lamps_on",
+          "number": 4
+        },
+        {
+          "repeated": false,
+          "type": "RlsFcnOnOff",
+          "name": "light_snsr_active_sts",
+          "number": 5
+        },
+        {
+          "repeated": false,
+          "type": "RlsErrSts",
+          "name": "light_snsr_fail_sts",
+          "number": 6
+        },
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "amb_li_illmn",
+          "number": 7
+        },
+        {
+          "repeated": false,
+          "type": "RlsErrSts",
+          "name": "hud_snsr_err_sts",
+          "number": 8
+        },
+        {
+          "repeated": false,
+          "type": "RlsErrSts",
+          "name": "optical_init_fail_sts",
+          "number": 9
+        },
+        {
+          "repeated": false,
+          "type": "DayDetnSts",
+          "name": "day_detn_sts",
+          "number": 10
+        },
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "head_lamps_on_validity",
+          "number": 11
+        },
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "head_lamps_on_alive_flag",
+          "number": 12
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "head_lamps_on",
+          "source_lines": [
+            8219
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "RlsFcnOnOff",
+              "name": "head_lamps_on",
+              "number": 4
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "按业务叶子字段裁剪，保留数组位置语义和状态契约"
+    },
+    {
+      "service": "DynAmbLiActu",
+      "instance": "",
+      "rpc": "DynAmbLiSts",
+      "kind": "event",
+      "api": "sm_read_amblimgr_on_notify_srv_body_intrlight_dynambliactu_dynamblists",
+      "calls": [
+        30241
+      ],
+      "root": "AmbLiMgr_DW.srv_body_intrlight_DynAmbLiActu_DynAmbLiSts_FieldSub",
+      "paths": {
+        "ambli_sts[0].ambli_sts": [
+          30315,
+          30331
+        ],
+        "ambli_sts[1].ambli_sts": [
+          30317,
+          30333
+        ],
+        "ambli_sts[2].ambli_sts": [
+          30319,
+          30335
+        ],
+        "ambli_sts[3].ambli_sts": [
+          30321,
+          30337
+        ],
+        "ambli_sts[4].ambli_sts": [
+          30323,
+          30339
+        ],
+        "ambli_sts[5].ambli_sts": [
+          30325,
+          30341
+        ],
+        "ambli_sts[6].ambli_sts": [
+          30327,
+          30343
+        ]
+      },
+      "message_type": "MsgDynAmbLiSts",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "107",
+        "method_type": "FIELD_READONLY",
+        "update_policy": "ON_CHANGE"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.dynambliactu.proto",
+      "rpc_line": 167,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": null,
+      "deployment_pointer": "/clients/1",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": true,
+          "type": "DynStsType",
+          "name": "ambli_sts",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "ambli_sts[0].ambli_sts",
+          "source_lines": [
+            30315,
+            30331
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "DynStsType",
+              "name": "ambli_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "DynOnOffType",
+              "name": "ambli_sts",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "path": "ambli_sts[1].ambli_sts",
+          "source_lines": [
+            30317,
+            30333
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "DynStsType",
+              "name": "ambli_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "DynOnOffType",
+              "name": "ambli_sts",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "path": "ambli_sts[2].ambli_sts",
+          "source_lines": [
+            30319,
+            30335
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "DynStsType",
+              "name": "ambli_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "DynOnOffType",
+              "name": "ambli_sts",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "path": "ambli_sts[3].ambli_sts",
+          "source_lines": [
+            30321,
+            30337
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "DynStsType",
+              "name": "ambli_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "DynOnOffType",
+              "name": "ambli_sts",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "path": "ambli_sts[4].ambli_sts",
+          "source_lines": [
+            30323,
+            30339
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "DynStsType",
+              "name": "ambli_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "DynOnOffType",
+              "name": "ambli_sts",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "path": "ambli_sts[5].ambli_sts",
+          "source_lines": [
+            30325,
+            30341
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "DynStsType",
+              "name": "ambli_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "DynOnOffType",
+              "name": "ambli_sts",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "path": "ambli_sts[6].ambli_sts",
+          "source_lines": [
+            30327,
+            30343
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "DynStsType",
+              "name": "ambli_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "DynOnOffType",
+              "name": "ambli_sts",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "按业务叶子字段裁剪，保留数组位置语义和状态契约"
+    },
+    {
+      "service": "DynAmbLiActu",
+      "instance": "",
+      "rpc": "DynEnaCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_dynambliactu_dynenactrl",
+      "calls": [
+        8925
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_pnn4",
+      "paths": {
+        "ena_ctrl[wk_i32_i]": [
+          8822
+        ]
+      },
+      "message_type": "MsgDynEnaCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "100",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.dynambliactu.proto",
+      "rpc_line": 132,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": null,
+      "deployment_pointer": "/clients/1",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": true,
+          "type": "bool",
+          "name": "ena_ctrl",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "ena_ctrl[wk_i32_i]",
+          "source_lines": [
+            8822
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "bool",
+              "name": "ena_ctrl",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "DynAmbLiActu",
+      "instance": "",
+      "rpc": "DynGenBriCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_dynambliactu_dyngenbrictrl",
+      "calls": [
+        9700
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_btdb",
+      "paths": {
+        "gen_bri_ctrl": [
+          9676
+        ]
+      },
+      "message_type": "MsgDynGenBriCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "104",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.dynambliactu.proto",
+      "rpc_line": 152,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": null,
+      "deployment_pointer": "/clients/1",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "gen_bri_ctrl",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "gen_bri_ctrl",
+          "source_lines": [
+            9676
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "uint32",
+              "name": "gen_bri_ctrl",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "DynAmbLiActu",
+      "instance": "",
+      "rpc": "DynNodeCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_dynambliactu_dynnodectrl",
+      "calls": [
+        9798
+      ],
+      "root": "wk_BusCreator4",
+      "paths": {
+        "node_ctrl[0]": [
+          9765,
+          9772
+        ]
+      },
+      "message_type": "MsgDynNodeCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "102",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.dynambliactu.proto",
+      "rpc_line": 142,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": null,
+      "deployment_pointer": "/clients/1",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": true,
+          "type": "DynNodeCtrlType",
+          "name": "node_ctrl",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "node_ctrl[0]",
+          "source_lines": [
+            9765,
+            9772
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "DynNodeCtrlType",
+              "name": "node_ctrl",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "DynAmbLiActu",
+      "instance": "",
+      "rpc": "DynPrmSet",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_dynambliactu_dynprmset",
+      "calls": [
+        11299
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_lphy",
+      "paths": {
+        "fade_tim": [
+          11254
+        ],
+        "fade_mod_cmd": [
+          11256
+        ],
+        "nat_tran_mod": [
+          11258
+        ],
+        "nat_tran_tim": [
+          11260
+        ],
+        "seg_flow": [
+          11262
+        ],
+        "seg_node_pri": [
+          11264
+        ],
+        "disp_mod": [
+          11266
+        ],
+        "color_mod": [
+          11268
+        ],
+        "bri_mod": [
+          11270
+        ]
+      },
+      "message_type": "MsgDynPrmSet",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "105",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.dynambliactu.proto",
+      "rpc_line": 157,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": null,
+      "deployment_pointer": "/clients/1",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "fade_tim",
+          "number": 1
+        },
+        {
+          "repeated": false,
+          "type": "DynSwtType",
+          "name": "fade_mod_cmd",
+          "number": 2
+        },
+        {
+          "repeated": false,
+          "type": "DynSwtType",
+          "name": "nat_tran_mod",
+          "number": 3
+        },
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "nat_tran_tim",
+          "number": 4
+        },
+        {
+          "repeated": false,
+          "type": "DynSegFlowType",
+          "name": "seg_flow",
+          "number": 5
+        },
+        {
+          "repeated": false,
+          "type": "DynPriType",
+          "name": "seg_node_pri",
+          "number": 6
+        },
+        {
+          "repeated": false,
+          "type": "DynDispModType",
+          "name": "disp_mod",
+          "number": 7
+        },
+        {
+          "repeated": false,
+          "type": "DynColorModType",
+          "name": "color_mod",
+          "number": 8
+        },
+        {
+          "repeated": false,
+          "type": "DynBriModType",
+          "name": "bri_mod",
+          "number": 9
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "fade_tim",
+          "source_lines": [
+            11254
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "uint32",
+              "name": "fade_tim",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "path": "fade_mod_cmd",
+          "source_lines": [
+            11256
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "DynSwtType",
+              "name": "fade_mod_cmd",
+              "number": 2
+            }
+          ]
+        },
+        {
+          "path": "nat_tran_mod",
+          "source_lines": [
+            11258
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "DynSwtType",
+              "name": "nat_tran_mod",
+              "number": 3
+            }
+          ]
+        },
+        {
+          "path": "nat_tran_tim",
+          "source_lines": [
+            11260
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "uint32",
+              "name": "nat_tran_tim",
+              "number": 4
+            }
+          ]
+        },
+        {
+          "path": "seg_flow",
+          "source_lines": [
+            11262
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "DynSegFlowType",
+              "name": "seg_flow",
+              "number": 5
+            }
+          ]
+        },
+        {
+          "path": "seg_node_pri",
+          "source_lines": [
+            11264
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "DynPriType",
+              "name": "seg_node_pri",
+              "number": 6
+            }
+          ]
+        },
+        {
+          "path": "disp_mod",
+          "source_lines": [
+            11266
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "DynDispModType",
+              "name": "disp_mod",
+              "number": 7
+            }
+          ]
+        },
+        {
+          "path": "color_mod",
+          "source_lines": [
+            11268
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "DynColorModType",
+              "name": "color_mod",
+              "number": 8
+            }
+          ]
+        },
+        {
+          "path": "bri_mod",
+          "source_lines": [
+            11270
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "DynBriModType",
+              "name": "bri_mod",
+              "number": 9
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "DynAmbLiActu",
+      "instance": "",
+      "rpc": "DynSegCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_dynambliactu_dynsegctrl",
+      "calls": [
+        12025
+      ],
+      "root": "wk_BusCreator",
+      "paths": {
+        "seg_ctrl[0]": [
+          12001
+        ]
+      },
+      "message_type": "MsgDynSegCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "101",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.dynambliactu.proto",
+      "rpc_line": 137,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": null,
+      "deployment_pointer": "/clients/1",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": true,
+          "type": "DynSegCtrlType",
+          "name": "seg_ctrl",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "seg_ctrl[0]",
+          "source_lines": [
+            12001
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "DynSegCtrlType",
+              "name": "seg_ctrl",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "DynAmbLiActu",
+      "instance": "",
+      "rpc": "DynSeqPilot",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_dynambliactu_dynseqpilot",
+      "calls": [
+        12133
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_osxr",
+      "paths": {
+        "pilot_id": [
+          12105
+        ]
+      },
+      "message_type": "MsgDynSeqPilot",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "106",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.dynambliactu.proto",
+      "rpc_line": 162,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": null,
+      "deployment_pointer": "/clients/1",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "pilot_id",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "pilot_id",
+          "source_lines": [
+            12105
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "uint32",
+              "name": "pilot_id",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiAp",
+      "rpc": "StaColorCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_staambliactu_staambliap_stacolorctrl",
+      "calls": [
+        19576
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_hawu",
+      "paths": {
+        "color_ctrl[wk_i32_i]": [
+          19473
+        ]
+      },
+      "message_type": "MsgStaColorCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "101",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "rpc_line": 91,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": "StaAmbLiAp",
+      "deployment_pointer": "/clients/2",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": true,
+          "type": "StaColorType",
+          "name": "color_ctrl",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "color_ctrl[wk_i32_i]",
+          "source_lines": [
+            19473
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "StaColorType",
+              "name": "color_ctrl",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiAp",
+      "rpc": "StaEnaCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_staambliactu_staambliap_staenactrl",
+      "calls": [
+        23217
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_kuhf",
+      "paths": {
+        "ena_ctrl[wk_i32_i]": [
+          23147
+        ]
+      },
+      "message_type": "MsgStaEnaCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "100",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "rpc_line": 86,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": "StaAmbLiAp",
+      "deployment_pointer": "/clients/2",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": true,
+          "type": "bool",
+          "name": "ena_ctrl",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "ena_ctrl[wk_i32_i]",
+          "source_lines": [
+            23147
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "bool",
+              "name": "ena_ctrl",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiAp",
+      "rpc": "StaNodeBriCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_staambliactu_staambliap_stanodebrictrl",
+      "calls": [
+        25655
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_przp",
+      "paths": {
+        "node_bri_ctrl[wk_i32_i]": [
+          25628
+        ]
+      },
+      "message_type": "MsgStaNodeBriCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "103",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "rpc_line": 101,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": "StaAmbLiAp",
+      "deployment_pointer": "/clients/2",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": true,
+          "type": "uint32",
+          "name": "node_bri_ctrl",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "node_bri_ctrl[wk_i32_i]",
+          "source_lines": [
+            25628
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "uint32",
+              "name": "node_bri_ctrl",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiAp",
+      "rpc": "StaPrmCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_staambliactu_staambliap_staprmctrl",
+      "calls": [
+        27848
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_cqgn",
+      "paths": {
+        "fade_tim": [
+          27810
+        ],
+        "fade_mod_cmd": [
+          27812
+        ],
+        "nat_tran_mod": [
+          27814
+        ],
+        "nat_tran_tim": [
+          27816
+        ],
+        "breath_mod[0]": [
+          27818
+        ],
+        "breath_mod[1]": [
+          27820
+        ],
+        "breath_mod[2]": [
+          27822
+        ]
+      },
+      "message_type": "MsgStaPrmCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "104",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "rpc_line": 106,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": "StaAmbLiAp",
+      "deployment_pointer": "/clients/2",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "fade_tim",
+          "number": 1
+        },
+        {
+          "repeated": false,
+          "type": "StaSwtType",
+          "name": "fade_mod_cmd",
+          "number": 2
+        },
+        {
+          "repeated": false,
+          "type": "StaSwtType",
+          "name": "nat_tran_mod",
+          "number": 3
+        },
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "nat_tran_tim",
+          "number": 4
+        },
+        {
+          "repeated": true,
+          "type": "StaBreathModType",
+          "name": "breath_mod",
+          "number": 5
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "fade_tim",
+          "source_lines": [
+            27810
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "uint32",
+              "name": "fade_tim",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "path": "fade_mod_cmd",
+          "source_lines": [
+            27812
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "StaSwtType",
+              "name": "fade_mod_cmd",
+              "number": 2
+            }
+          ]
+        },
+        {
+          "path": "nat_tran_mod",
+          "source_lines": [
+            27814
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "StaSwtType",
+              "name": "nat_tran_mod",
+              "number": 3
+            }
+          ]
+        },
+        {
+          "path": "nat_tran_tim",
+          "source_lines": [
+            27816
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "uint32",
+              "name": "nat_tran_tim",
+              "number": 4
+            }
+          ]
+        },
+        {
+          "path": "breath_mod[0]",
+          "source_lines": [
+            27818
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "StaBreathModType",
+              "name": "breath_mod",
+              "number": 5
+            }
+          ]
+        },
+        {
+          "path": "breath_mod[1]",
+          "source_lines": [
+            27820
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "StaBreathModType",
+              "name": "breath_mod",
+              "number": 5
+            }
+          ]
+        },
+        {
+          "path": "breath_mod[2]",
+          "source_lines": [
+            27822
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "StaBreathModType",
+              "name": "breath_mod",
+              "number": 5
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiFw",
+      "rpc": "StaAmbLiSts",
+      "kind": "event",
+      "api": "sm_read_amblimgr_on_notify_srv_body_intrlight_staambliactu_staamblifw_staamblists",
+      "calls": [],
+      "message_type": "MsgStaAmbLiSts",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "105",
+        "method_type": "FIELD_READONLY",
+        "update_policy": "ON_CHANGE"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "rpc_line": 111,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": "StaAmbLiFw",
+      "deployment_pointer": "/clients/3",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": true,
+          "type": "StaStsType",
+          "name": "ambli_sts",
+          "number": 1
+        }
+      ],
+      "signal_observation": "configured_no_read_call",
+      "resolved_paths": [],
+      "idl_recommendation": "待核实用途，暂不自动删除"
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiFw",
+      "rpc": "StaColorCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_staambliactu_staamblifw_stacolorctrl",
+      "calls": [
+        19007
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_ft5b",
+      "paths": {
+        "color_ctrl[wk_i32_i]": [
+          18904
+        ]
+      },
+      "message_type": "MsgStaColorCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "101",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "rpc_line": 91,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": "StaAmbLiFw",
+      "deployment_pointer": "/clients/3",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": true,
+          "type": "StaColorType",
+          "name": "color_ctrl",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "color_ctrl[wk_i32_i]",
+          "source_lines": [
+            18904
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "StaColorType",
+              "name": "color_ctrl",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiFw",
+      "rpc": "StaEnaCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_staambliactu_staamblifw_staenactrl",
+      "calls": [
+        22486
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_akdv",
+      "paths": {
+        "ena_ctrl[wk_i32_i]": [
+          22416
+        ]
+      },
+      "message_type": "MsgStaEnaCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "100",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "rpc_line": 86,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": "StaAmbLiFw",
+      "deployment_pointer": "/clients/3",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": true,
+          "type": "bool",
+          "name": "ena_ctrl",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "ena_ctrl[wk_i32_i]",
+          "source_lines": [
+            22416
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "bool",
+              "name": "ena_ctrl",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiFw",
+      "rpc": "StaGenBriCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_staambliactu_staamblifw_stagenbrictrl",
+      "calls": [
+        23518
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_n520",
+      "paths": {
+        "gen_bri_ctrl": [
+          23494
+        ]
+      },
+      "message_type": "MsgStaGenBriCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "102",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "rpc_line": 96,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": "StaAmbLiFw",
+      "deployment_pointer": "/clients/3",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "gen_bri_ctrl",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "gen_bri_ctrl",
+          "source_lines": [
+            23494
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "uint32",
+              "name": "gen_bri_ctrl",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiFw",
+      "rpc": "StaPrmCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_staambliactu_staamblifw_staprmctrl",
+      "calls": [
+        27254
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_g51o",
+      "paths": {
+        "fade_tim": [
+          27216
+        ],
+        "fade_mod_cmd": [
+          27218
+        ],
+        "nat_tran_mod": [
+          27220
+        ],
+        "nat_tran_tim": [
+          27222
+        ],
+        "breath_mod[0]": [
+          27224
+        ],
+        "breath_mod[1]": [
+          27226
+        ],
+        "breath_mod[2]": [
+          27228
+        ]
+      },
+      "message_type": "MsgStaPrmCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "104",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "rpc_line": 106,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": "StaAmbLiFw",
+      "deployment_pointer": "/clients/3",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "fade_tim",
+          "number": 1
+        },
+        {
+          "repeated": false,
+          "type": "StaSwtType",
+          "name": "fade_mod_cmd",
+          "number": 2
+        },
+        {
+          "repeated": false,
+          "type": "StaSwtType",
+          "name": "nat_tran_mod",
+          "number": 3
+        },
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "nat_tran_tim",
+          "number": 4
+        },
+        {
+          "repeated": true,
+          "type": "StaBreathModType",
+          "name": "breath_mod",
+          "number": 5
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "fade_tim",
+          "source_lines": [
+            27216
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "uint32",
+              "name": "fade_tim",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "path": "fade_mod_cmd",
+          "source_lines": [
+            27218
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "StaSwtType",
+              "name": "fade_mod_cmd",
+              "number": 2
+            }
+          ]
+        },
+        {
+          "path": "nat_tran_mod",
+          "source_lines": [
+            27220
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "StaSwtType",
+              "name": "nat_tran_mod",
+              "number": 3
+            }
+          ]
+        },
+        {
+          "path": "nat_tran_tim",
+          "source_lines": [
+            27222
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "uint32",
+              "name": "nat_tran_tim",
+              "number": 4
+            }
+          ]
+        },
+        {
+          "path": "breath_mod[0]",
+          "source_lines": [
+            27224
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "StaBreathModType",
+              "name": "breath_mod",
+              "number": 5
+            }
+          ]
+        },
+        {
+          "path": "breath_mod[1]",
+          "source_lines": [
+            27226
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "StaBreathModType",
+              "name": "breath_mod",
+              "number": 5
+            }
+          ]
+        },
+        {
+          "path": "breath_mod[2]",
+          "source_lines": [
+            27228
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "StaBreathModType",
+              "name": "breath_mod",
+              "number": 5
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiIp",
+      "rpc": "StaColorCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_staambliactu_staambliip_stacolorctrl",
+      "calls": [
+        22286
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_bnwa",
+      "paths": {
+        "color_ctrl[wk_i32_i]": [
+          22183
+        ]
+      },
+      "message_type": "MsgStaColorCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "101",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "rpc_line": 91,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": "StaAmbLiIp",
+      "deployment_pointer": "/clients/4",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": true,
+          "type": "StaColorType",
+          "name": "color_ctrl",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "color_ctrl[wk_i32_i]",
+          "source_lines": [
+            22183
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "StaColorType",
+              "name": "color_ctrl",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiIp",
+      "rpc": "StaEnaCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_staambliactu_staambliip_staenactrl",
+      "calls": [
+        23016
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_jyns",
+      "paths": {
+        "ena_ctrl[wk_i32_i]": [
+          22946
+        ]
+      },
+      "message_type": "MsgStaEnaCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "100",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "rpc_line": 86,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": "StaAmbLiIp",
+      "deployment_pointer": "/clients/4",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": true,
+          "type": "bool",
+          "name": "ena_ctrl",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "ena_ctrl[wk_i32_i]",
+          "source_lines": [
+            22946
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "bool",
+              "name": "ena_ctrl",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiIp",
+      "rpc": "StaNodeBriCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_staambliactu_staambliip_stanodebrictrl",
+      "calls": [
+        25421
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_coro",
+      "paths": {
+        "node_bri_ctrl[wk_i32_i]": [
+          25394
+        ]
+      },
+      "message_type": "MsgStaNodeBriCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "103",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "rpc_line": 101,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": "StaAmbLiIp",
+      "deployment_pointer": "/clients/4",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": true,
+          "type": "uint32",
+          "name": "node_bri_ctrl",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "node_bri_ctrl[wk_i32_i]",
+          "source_lines": [
+            25394
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "uint32",
+              "name": "node_bri_ctrl",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiIp",
+      "rpc": "StaPrmCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_staambliactu_staambliip_staprmctrl",
+      "calls": [
+        28751
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_ohqe",
+      "paths": {
+        "fade_tim": [
+          28713
+        ],
+        "fade_mod_cmd": [
+          28715
+        ],
+        "nat_tran_mod": [
+          28717
+        ],
+        "nat_tran_tim": [
+          28719
+        ],
+        "breath_mod[0]": [
+          28721
+        ],
+        "breath_mod[1]": [
+          28723
+        ],
+        "breath_mod[2]": [
+          28725
+        ]
+      },
+      "message_type": "MsgStaPrmCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "104",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "rpc_line": 106,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": "StaAmbLiIp",
+      "deployment_pointer": "/clients/4",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "fade_tim",
+          "number": 1
+        },
+        {
+          "repeated": false,
+          "type": "StaSwtType",
+          "name": "fade_mod_cmd",
+          "number": 2
+        },
+        {
+          "repeated": false,
+          "type": "StaSwtType",
+          "name": "nat_tran_mod",
+          "number": 3
+        },
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "nat_tran_tim",
+          "number": 4
+        },
+        {
+          "repeated": true,
+          "type": "StaBreathModType",
+          "name": "breath_mod",
+          "number": 5
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "fade_tim",
+          "source_lines": [
+            28713
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "uint32",
+              "name": "fade_tim",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "path": "fade_mod_cmd",
+          "source_lines": [
+            28715
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "StaSwtType",
+              "name": "fade_mod_cmd",
+              "number": 2
+            }
+          ]
+        },
+        {
+          "path": "nat_tran_mod",
+          "source_lines": [
+            28717
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "StaSwtType",
+              "name": "nat_tran_mod",
+              "number": 3
+            }
+          ]
+        },
+        {
+          "path": "nat_tran_tim",
+          "source_lines": [
+            28719
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "uint32",
+              "name": "nat_tran_tim",
+              "number": 4
+            }
+          ]
+        },
+        {
+          "path": "breath_mod[0]",
+          "source_lines": [
+            28721
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "StaBreathModType",
+              "name": "breath_mod",
+              "number": 5
+            }
+          ]
+        },
+        {
+          "path": "breath_mod[1]",
+          "source_lines": [
+            28723
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "StaBreathModType",
+              "name": "breath_mod",
+              "number": 5
+            }
+          ]
+        },
+        {
+          "path": "breath_mod[2]",
+          "source_lines": [
+            28725
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "StaBreathModType",
+              "name": "breath_mod",
+              "number": 5
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiStorg",
+      "rpc": "StaAmbLiSts",
+      "kind": "event",
+      "api": "sm_read_amblimgr_on_notify_srv_body_intrlight_staambliactu_staamblistorg_staamblists",
+      "calls": [],
+      "message_type": "MsgStaAmbLiSts",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "105",
+        "method_type": "FIELD_READONLY",
+        "update_policy": "ON_CHANGE"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "rpc_line": 111,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": "StaAmbLiStorg",
+      "deployment_pointer": "/clients/5",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": true,
+          "type": "StaStsType",
+          "name": "ambli_sts",
+          "number": 1
+        }
+      ],
+      "signal_observation": "configured_no_read_call",
+      "resolved_paths": [],
+      "idl_recommendation": "待核实用途，暂不自动删除"
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiStorg",
+      "rpc": "StaColorCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_staambliactu_staamblistorg_stacolorctrl",
+      "calls": [
+        17645
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_at_inp",
+      "paths": {
+        "color_ctrl[wk_i32_i]": [
+          17541
+        ]
+      },
+      "message_type": "MsgStaColorCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "101",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "rpc_line": 91,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": "StaAmbLiStorg",
+      "deployment_pointer": "/clients/5",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": true,
+          "type": "StaColorType",
+          "name": "color_ctrl",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "color_ctrl[wk_i32_i]",
+          "source_lines": [
+            17541
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "StaColorType",
+              "name": "color_ctrl",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiStorg",
+      "rpc": "StaEnaCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_staambliactu_staamblistorg_staenactrl",
+      "calls": [
+        22750
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_ouxh",
+      "paths": {
+        "ena_ctrl[wk_i32_i]": [
+          22680
+        ]
+      },
+      "message_type": "MsgStaEnaCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "100",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "rpc_line": 86,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": "StaAmbLiStorg",
+      "deployment_pointer": "/clients/5",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": true,
+          "type": "bool",
+          "name": "ena_ctrl",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "ena_ctrl[wk_i32_i]",
+          "source_lines": [
+            22680
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "bool",
+              "name": "ena_ctrl",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiStorg",
+      "rpc": "StaNodeBriCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_staambliactu_staamblistorg_stanodebrictrl",
+      "calls": [
+        24529
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_el5i",
+      "paths": {
+        "node_bri_ctrl[wk_i32_i]": [
+          24501
+        ]
+      },
+      "message_type": "MsgStaNodeBriCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "103",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "rpc_line": 101,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": "StaAmbLiStorg",
+      "deployment_pointer": "/clients/5",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": true,
+          "type": "uint32",
+          "name": "node_bri_ctrl",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "node_bri_ctrl[wk_i32_i]",
+          "source_lines": [
+            24501
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "uint32",
+              "name": "node_bri_ctrl",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiStorg",
+      "rpc": "StaPrmCtrl",
+      "kind": "method",
+      "api": "sm_write_amblimgr_request_srv_body_intrlight_staambliactu_staamblistorg_staprmctrl",
+      "calls": [
+        26590
+      ],
+      "root": "wk_BusConversion_InsertedFor_SfunctionMethodOneWayCaller_a_kyk3",
+      "paths": {
+        "fade_tim": [
+          26552
+        ],
+        "fade_mod_cmd": [
+          26554
+        ],
+        "nat_tran_mod": [
+          26556
+        ],
+        "nat_tran_tim": [
+          26558
+        ],
+        "breath_mod[0]": [
+          26560
+        ],
+        "breath_mod[1]": [
+          26562
+        ],
+        "breath_mod[2]": [
+          26564
+        ]
+      },
+      "message_type": "MsgStaPrmCtrl",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "104",
+        "method_type": "METHOD"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "rpc_line": 106,
+      "package": "srv.body.intrlight",
+      "configured_instance_name": "StaAmbLiStorg",
+      "deployment_pointer": "/clients/5",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "fade_tim",
+          "number": 1
+        },
+        {
+          "repeated": false,
+          "type": "StaSwtType",
+          "name": "fade_mod_cmd",
+          "number": 2
+        },
+        {
+          "repeated": false,
+          "type": "StaSwtType",
+          "name": "nat_tran_mod",
+          "number": 3
+        },
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "nat_tran_tim",
+          "number": 4
+        },
+        {
+          "repeated": true,
+          "type": "StaBreathModType",
+          "name": "breath_mod",
+          "number": 5
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "fade_tim",
+          "source_lines": [
+            26552
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "uint32",
+              "name": "fade_tim",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "path": "fade_mod_cmd",
+          "source_lines": [
+            26554
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "StaSwtType",
+              "name": "fade_mod_cmd",
+              "number": 2
+            }
+          ]
+        },
+        {
+          "path": "nat_tran_mod",
+          "source_lines": [
+            26556
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "StaSwtType",
+              "name": "nat_tran_mod",
+              "number": 3
+            }
+          ]
+        },
+        {
+          "path": "nat_tran_tim",
+          "source_lines": [
+            26558
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "uint32",
+              "name": "nat_tran_tim",
+              "number": 4
+            }
+          ]
+        },
+        {
+          "path": "breath_mod[0]",
+          "source_lines": [
+            26560
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "StaBreathModType",
+              "name": "breath_mod",
+              "number": 5
+            }
+          ]
+        },
+        {
+          "path": "breath_mod[1]",
+          "source_lines": [
+            26562
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "StaBreathModType",
+              "name": "breath_mod",
+              "number": 5
+            }
+          ]
+        },
+        {
+          "path": "breath_mod[2]",
+          "source_lines": [
+            26564
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "StaBreathModType",
+              "name": "breath_mod",
+              "number": 5
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "第一版保留完整请求字段、定长数组及常量语义"
+    },
+    {
+      "service": "SeatBasicSts",
+      "instance": "",
+      "rpc": "SeatBasicStsArray",
+      "kind": "event",
+      "api": "sm_read_amblimgr_on_notify_srv_body_safety_seatbasicsts_seatbasicstsarray",
+      "calls": [
+        21444
+      ],
+      "root": "AmbLiMgr_DW.srv_body_safety_SeatBasicSts_SeatBasicStsArray_FieldSub",
+      "paths": {
+        "seat_basic_sts[7].occpnt_sensor_sts": [
+          21485
+        ],
+        "seat_basic_sts[0].occpnt_sensor_sts": [
+          21509
+        ],
+        "seat_basic_sts[1].occpnt_sensor_sts": [
+          21512
+        ],
+        "seat_basic_sts[2].occpnt_sensor_sts": [
+          21515
+        ],
+        "seat_basic_sts[3].occpnt_sensor_sts": [
+          21518
+        ],
+        "seat_basic_sts[4].occpnt_sensor_sts": [
+          21521
+        ],
+        "seat_basic_sts[8].occpnt_sensor_sts": [
+          21525
+        ],
+        "seat_basic_sts[0].occpnt_fail_sts": [
+          21528
+        ],
+        "seat_basic_sts[1].occpnt_fail_sts": [
+          21530
+        ],
+        "seat_basic_sts[2].occpnt_fail_sts": [
+          21532
+        ],
+        "seat_basic_sts[3].occpnt_fail_sts": [
+          21534
+        ],
+        "seat_basic_sts[4].occpnt_fail_sts": [
+          21536
+        ],
+        "seat_basic_sts[7].occpnt_fail_sts": [
+          21538
+        ],
+        "seat_basic_sts[8].occpnt_fail_sts": [
+          21540
+        ]
+      },
+      "message_type": "SeatBasicStatus",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "100",
+        "method_type": "FIELD_READONLY",
+        "update_policy": "ON_CHANGE",
+        "rpc_reliability": "RELIABLE"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.safety.seatbasicsts.proto",
+      "rpc_line": 127,
+      "package": "srv.body.safety",
+      "configured_instance_name": null,
+      "deployment_pointer": "/clients/6",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": true,
+          "type": "SeatBasicStsInfo",
+          "name": "seat_basic_sts",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "seat_basic_sts[7].occpnt_sensor_sts",
+          "source_lines": [
+            21485
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "SeatBasicStsInfo",
+              "name": "seat_basic_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "OccpntStsType",
+              "name": "occpnt_sensor_sts",
+              "number": 2
+            }
+          ]
+        },
+        {
+          "path": "seat_basic_sts[0].occpnt_sensor_sts",
+          "source_lines": [
+            21509
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "SeatBasicStsInfo",
+              "name": "seat_basic_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "OccpntStsType",
+              "name": "occpnt_sensor_sts",
+              "number": 2
+            }
+          ]
+        },
+        {
+          "path": "seat_basic_sts[1].occpnt_sensor_sts",
+          "source_lines": [
+            21512
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "SeatBasicStsInfo",
+              "name": "seat_basic_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "OccpntStsType",
+              "name": "occpnt_sensor_sts",
+              "number": 2
+            }
+          ]
+        },
+        {
+          "path": "seat_basic_sts[2].occpnt_sensor_sts",
+          "source_lines": [
+            21515
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "SeatBasicStsInfo",
+              "name": "seat_basic_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "OccpntStsType",
+              "name": "occpnt_sensor_sts",
+              "number": 2
+            }
+          ]
+        },
+        {
+          "path": "seat_basic_sts[3].occpnt_sensor_sts",
+          "source_lines": [
+            21518
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "SeatBasicStsInfo",
+              "name": "seat_basic_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "OccpntStsType",
+              "name": "occpnt_sensor_sts",
+              "number": 2
+            }
+          ]
+        },
+        {
+          "path": "seat_basic_sts[4].occpnt_sensor_sts",
+          "source_lines": [
+            21521
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "SeatBasicStsInfo",
+              "name": "seat_basic_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "OccpntStsType",
+              "name": "occpnt_sensor_sts",
+              "number": 2
+            }
+          ]
+        },
+        {
+          "path": "seat_basic_sts[8].occpnt_sensor_sts",
+          "source_lines": [
+            21525
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "SeatBasicStsInfo",
+              "name": "seat_basic_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "OccpntStsType",
+              "name": "occpnt_sensor_sts",
+              "number": 2
+            }
+          ]
+        },
+        {
+          "path": "seat_basic_sts[0].occpnt_fail_sts",
+          "source_lines": [
+            21528
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "SeatBasicStsInfo",
+              "name": "seat_basic_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "bool",
+              "name": "occpnt_fail_sts",
+              "number": 3
+            }
+          ]
+        },
+        {
+          "path": "seat_basic_sts[1].occpnt_fail_sts",
+          "source_lines": [
+            21530
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "SeatBasicStsInfo",
+              "name": "seat_basic_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "bool",
+              "name": "occpnt_fail_sts",
+              "number": 3
+            }
+          ]
+        },
+        {
+          "path": "seat_basic_sts[2].occpnt_fail_sts",
+          "source_lines": [
+            21532
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "SeatBasicStsInfo",
+              "name": "seat_basic_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "bool",
+              "name": "occpnt_fail_sts",
+              "number": 3
+            }
+          ]
+        },
+        {
+          "path": "seat_basic_sts[3].occpnt_fail_sts",
+          "source_lines": [
+            21534
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "SeatBasicStsInfo",
+              "name": "seat_basic_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "bool",
+              "name": "occpnt_fail_sts",
+              "number": 3
+            }
+          ]
+        },
+        {
+          "path": "seat_basic_sts[4].occpnt_fail_sts",
+          "source_lines": [
+            21536
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "SeatBasicStsInfo",
+              "name": "seat_basic_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "bool",
+              "name": "occpnt_fail_sts",
+              "number": 3
+            }
+          ]
+        },
+        {
+          "path": "seat_basic_sts[7].occpnt_fail_sts",
+          "source_lines": [
+            21538
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "SeatBasicStsInfo",
+              "name": "seat_basic_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "bool",
+              "name": "occpnt_fail_sts",
+              "number": 3
+            }
+          ]
+        },
+        {
+          "path": "seat_basic_sts[8].occpnt_fail_sts",
+          "source_lines": [
+            21540
+          ],
+          "field_chain": [
+            {
+              "repeated": true,
+              "type": "SeatBasicStsInfo",
+              "name": "seat_basic_sts",
+              "number": 1
+            },
+            {
+              "repeated": false,
+              "type": "bool",
+              "name": "occpnt_fail_sts",
+              "number": 3
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "按业务叶子字段裁剪，保留数组位置语义和状态契约"
+    },
+    {
+      "service": "SmtKeyUsrIntnMgr",
+      "instance": "",
+      "rpc": "SmtKeyUsrIntnNotify",
+      "kind": "event",
+      "api": "sm_read_amblimgr_on_notify_srv_body_smtkey_smtkeyusrintnmgr_smtkeyusrintnnotify",
+      "calls": [
+        7570
+      ],
+      "root": "AmbLiMgr_DW.srv_body_smtkey_SmtKeyUsrIntnMgr_SmtKeyUsrIntnNotify_EventSub",
+      "paths": {
+        "smt_key_drv_veh_intera_phase": [
+          7644,
+          7680,
+          7704
+        ]
+      },
+      "message_type": "SmtKeyUsrIntnDataStruct",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "100",
+        "method_type": "EVENT",
+        "update_policy": "CYCLIC",
+        "update_cycle_time": "50"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.body.smtkey.smtkeyusrintnmgr.proto",
+      "rpc_line": 78,
+      "package": "srv.body.smtkey",
+      "configured_instance_name": null,
+      "deployment_pointer": "/clients/7",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": false,
+          "type": "SmtKeyDrvVehInteraPhase",
+          "name": "smt_key_drv_veh_intera_phase",
+          "number": 1
+        },
+        {
+          "repeated": false,
+          "type": "SmtKeyUserProfDrvDetn",
+          "name": "smt_key_usrprof_drv_detn",
+          "number": 2
+        },
+        {
+          "repeated": false,
+          "type": "SmtKeyVipVehInteraPhase",
+          "name": "smt_key_vip_veh_intera_phase",
+          "number": 3
+        },
+        {
+          "repeated": false,
+          "type": "SmtKeyUserIntnLevel",
+          "name": "smt_key_usr_intn_level",
+          "number": 4
+        },
+        {
+          "repeated": false,
+          "type": "FusionUsrIntnInfo",
+          "name": "fusion_usr_intn_info",
+          "number": 5
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "smt_key_drv_veh_intera_phase",
+          "source_lines": [
+            7644,
+            7680,
+            7704
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "SmtKeyDrvVehInteraPhase",
+              "name": "smt_key_drv_veh_intera_phase",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "按业务叶子字段裁剪，保留数组位置语义和状态契约"
+    },
+    {
+      "service": "VehMode",
+      "instance": "",
+      "rpc": "VehModeInfo",
+      "kind": "event",
+      "api": "sm_read_amblimgr_on_notify_srv_infra_vehmoding_vehmode_vehmodeinfo",
+      "calls": [
+        30370
+      ],
+      "root": "AmbLiMgr_DW.srv_infra_vehmoding_VehMode_VehModeInfo_FieldSub",
+      "paths": {},
+      "message_type": "VehModeMsg",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "101",
+        "method_type": "FIELD_READONLY",
+        "update_policy": "CYCLIC",
+        "update_cycle_time": "20",
+        "e2e_s2c_enabled": "true",
+        "e2e_s2c_timeout": "100",
+        "e2e_s2c_max_delta_counter": "3",
+        "e2e_s2c_min_data_length": "96",
+        "e2e_s2c_max_data_length": "32768"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.infra.vehmoding.vehmode.proto",
+      "rpc_line": 92,
+      "package": "srv.infra.vehmoding",
+      "configured_instance_name": null,
+      "deployment_pointer": "/clients/8",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": false,
+          "type": "VehModeDef",
+          "name": "veh_mode",
+          "number": 1
+        }
+      ],
+      "signal_observation": "read_and_cached_no_business_field_reference",
+      "resolved_paths": [],
+      "idl_recommendation": "待核实用途，暂不自动删除"
+    },
+    {
+      "service": "VehMode",
+      "instance": "",
+      "rpc": "VehModeSettingInfo",
+      "kind": "event",
+      "api": "sm_read_amblimgr_on_notify_srv_infra_vehmoding_vehmode_vehmodesettinginfo",
+      "calls": [
+        30411
+      ],
+      "root": "AmbLiMgr_DW.srv_infra_vehmoding_VehMode_VehModeSettingInfo_FieldSub",
+      "paths": {},
+      "message_type": "VehModeSettingMsg",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "103",
+        "method_type": "FIELD_READONLY",
+        "update_policy": "ON_CHANGE"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.infra.vehmoding.vehmode.proto",
+      "rpc_line": 104,
+      "package": "srv.infra.vehmoding",
+      "configured_instance_name": null,
+      "deployment_pointer": "/clients/8",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "bmsuploadoffreq",
+          "number": 1
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "netmdloffreq",
+          "number": 2
+        },
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "transportmd_maxsoc",
+          "number": 3
+        },
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "vehmode_maxchrgsoc",
+          "number": 4
+        },
+        {
+          "repeated": true,
+          "type": "VehModeSwType",
+          "name": "vehmodesw_act",
+          "number": 5
+        }
+      ],
+      "signal_observation": "read_and_cached_no_business_field_reference",
+      "resolved_paths": [],
+      "idl_recommendation": "待核实用途，暂不自动删除"
+    },
+    {
+      "service": "VehState",
+      "instance": "",
+      "rpc": "VehStateInfo",
+      "kind": "event",
+      "api": "sm_read_amblimgr_on_notify_srv_infra_vehmoding_vehstate_vehstateinfo",
+      "calls": [
+        8099
+      ],
+      "root": "AmbLiMgr_DW.MCUNVOSInput",
+      "paths": {
+        "operator_state": [
+          8153,
+          8155
+        ],
+        "veh_state_detailed": [
+          8157,
+          8159,
+          8161,
+          8163
+        ]
+      },
+      "message_type": "VehStateMsg",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "101",
+        "method_type": "FIELD_READONLY",
+        "update_policy": "CYCLIC",
+        "update_cycle_time": "10",
+        "rpc_reliability_field_event": "BEST_EFFORT",
+        "e2e_s2c_enabled": "true",
+        "e2e_s2c_timeout": "100",
+        "e2e_s2c_max_delta_counter": "5",
+        "e2e_s2c_min_data_length": "96",
+        "e2e_s2c_max_data_length": "32768"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.infra.vehmoding.vehstate.proto",
+      "rpc_line": 142,
+      "package": "srv.infra.vehmoding",
+      "configured_instance_name": null,
+      "deployment_pointer": "/clients/9",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": false,
+          "type": "VehStateDetailed",
+          "name": "veh_state_detailed",
+          "number": 1
+        },
+        {
+          "repeated": false,
+          "type": "DrvState",
+          "name": "drv_state",
+          "number": 2
+        },
+        {
+          "repeated": false,
+          "type": "OperatorState",
+          "name": "operator_state",
+          "number": 3
+        },
+        {
+          "repeated": false,
+          "type": "DrvStateDetailed",
+          "name": "drv_state_detailed",
+          "number": 4
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "operator_state",
+          "source_lines": [
+            8153,
+            8155
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "OperatorState",
+              "name": "operator_state",
+              "number": 3
+            }
+          ]
+        },
+        {
+          "path": "veh_state_detailed",
+          "source_lines": [
+            8157,
+            8159,
+            8161,
+            8163
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "VehStateDetailed",
+              "name": "veh_state_detailed",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "按业务叶子字段裁剪，保留数组位置语义和状态契约"
+    },
+    {
+      "service": "MotionCtrlInfo",
+      "instance": "MotionCtrlInfoPri",
+      "rpc": "IfCommInfo",
+      "kind": "event",
+      "api": "sm_read_amblimgr_on_notify_srv_motion_drv_motionctrlinfo_motionctrlinfopri_ifcomminfo",
+      "calls": [
+        9020
+      ],
+      "root": "AmbLiMgr_DW.srv_motion_drv_MotionCtrlInfo_IfCommInfo_EventSub",
+      "paths": {
+        "accr_pedl_posn_vld": [
+          9091,
+          9097,
+          9108,
+          9120,
+          9133
+        ],
+        "accr_pedl_posn": [
+          9093,
+          9099,
+          9101,
+          9110,
+          9112,
+          9122,
+          9124,
+          9135,
+          9137,
+          30155
+        ]
+      },
+      "message_type": "MotionCommInfo",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "100",
+        "method_type": "EVENT",
+        "update_policy": "CYCLIC",
+        "update_cycle_time": "20",
+        "e2e_s2c_enabled": "true",
+        "e2e_s2c_timeout": "100",
+        "e2e_s2c_max_delta_counter": "5",
+        "e2e_s2c_min_data_length": "96",
+        "e2e_s2c_max_data_length": "32768"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.motion.drv.motionctrlinfo.proto",
+      "rpc_line": 232,
+      "package": "srv.motion.drv",
+      "configured_instance_name": "MotionCtrlInfoPri",
+      "deployment_pointer": "/clients/10",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": false,
+          "type": "float",
+          "name": "accr_pedl_posn",
+          "number": 1
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "accr_pedl_posn_vld",
+          "number": 2
+        },
+        {
+          "repeated": false,
+          "type": "EnumMotionCtrlInfoActGear",
+          "name": "act_gear",
+          "number": 3
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "act_gear_vld",
+          "number": 4
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "brk_pedl_prsd",
+          "number": 5
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "brk_pedl_prsd_vld",
+          "number": 6
+        },
+        {
+          "repeated": false,
+          "type": "float",
+          "name": "brk_pedl_trvl",
+          "number": 7
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "brk_trvl_vld",
+          "number": 8
+        },
+        {
+          "repeated": false,
+          "type": "float",
+          "name": "veh_spd_asild",
+          "number": 9
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "veh_spd_asild_vld",
+          "number": 10
+        },
+        {
+          "repeated": false,
+          "type": "float",
+          "name": "peuf_mot_spd",
+          "number": 11
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "peuf_mot_spd_vld",
+          "number": 12
+        },
+        {
+          "repeated": false,
+          "type": "float",
+          "name": "peuf_mot_act_tq",
+          "number": 13
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "peuf_mot_act_tq_vld",
+          "number": 14
+        },
+        {
+          "repeated": false,
+          "type": "float",
+          "name": "peur_mot_spd",
+          "number": 15
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "peur_mot_spd_vld",
+          "number": 16
+        },
+        {
+          "repeated": false,
+          "type": "float",
+          "name": "peur_mot_act_tq",
+          "number": 17
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "peur_mot_act_tq_vld",
+          "number": 18
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "veh_rdy",
+          "number": 19
+        },
+        {
+          "repeated": false,
+          "type": "float",
+          "name": "whl_spd_fl",
+          "number": 20
+        },
+        {
+          "repeated": false,
+          "type": "float",
+          "name": "whl_spd_fr",
+          "number": 21
+        },
+        {
+          "repeated": false,
+          "type": "float",
+          "name": "whl_spd_rl",
+          "number": 22
+        },
+        {
+          "repeated": false,
+          "type": "float",
+          "name": "whl_spd_rr",
+          "number": 23
+        },
+        {
+          "repeated": false,
+          "type": "EnumWhlSpdDir",
+          "name": "whl_spd_dir_fl",
+          "number": 24
+        },
+        {
+          "repeated": false,
+          "type": "EnumWhlSpdDir",
+          "name": "whl_spd_dir_fr",
+          "number": 25
+        },
+        {
+          "repeated": false,
+          "type": "EnumWhlSpdDir",
+          "name": "whl_spd_dir_rl",
+          "number": 26
+        },
+        {
+          "repeated": false,
+          "type": "EnumWhlSpdDir",
+          "name": "whl_spd_dir_rr",
+          "number": 27
+        },
+        {
+          "repeated": false,
+          "type": "EnumMotionCtrlInfoWhlSpdStsFl",
+          "name": "whl_spd_sts_fl",
+          "number": 28
+        },
+        {
+          "repeated": false,
+          "type": "EnumMotionCtrlInfoWhlSpdStsFr",
+          "name": "whl_spd_sts_fr",
+          "number": 29
+        },
+        {
+          "repeated": false,
+          "type": "EnumMotionCtrlInfoWhlSpdStsRl",
+          "name": "whl_spd_sts_rl",
+          "number": 30
+        },
+        {
+          "repeated": false,
+          "type": "EnumMotionCtrlInfoWhlSpdStsRr",
+          "name": "whl_spd_sts_rr",
+          "number": 31
+        },
+        {
+          "repeated": false,
+          "type": "float",
+          "name": "whl_pls_cntr_fl",
+          "number": 32
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "whl_pls_cntr_fl_vld",
+          "number": 33
+        },
+        {
+          "repeated": false,
+          "type": "float",
+          "name": "whl_pls_cntr_fr",
+          "number": 34
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "whl_pls_cntr_fr_vld",
+          "number": 35
+        },
+        {
+          "repeated": false,
+          "type": "float",
+          "name": "whl_pls_cntr_rl",
+          "number": 36
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "whl_pls_cntr_rl_vld",
+          "number": 37
+        },
+        {
+          "repeated": false,
+          "type": "float",
+          "name": "whl_pls_cntr_rr",
+          "number": 38
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "whl_pls_cntr_rr_vld",
+          "number": 39
+        },
+        {
+          "repeated": false,
+          "type": "EnumMotionCtrlInfoShifterPostnSts",
+          "name": "shifter_postn_sts",
+          "number": 40
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "shifter_postn_sts_vld",
+          "number": 41
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "arb_prk_butn_sts",
+          "number": 42
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "arb_prk_butn_sts_vld",
+          "number": 43
+        },
+        {
+          "repeated": false,
+          "type": "float",
+          "name": "bcu_veh_spd",
+          "number": 44
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "bcu_veh_spd_sts",
+          "number": 45
+        },
+        {
+          "repeated": false,
+          "type": "EnumVehMovDir",
+          "name": "veh_mov_dir",
+          "number": 46
+        },
+        {
+          "repeated": false,
+          "type": "uint64",
+          "name": "vehspd_asild_tv_ns",
+          "number": 59
+        },
+        {
+          "repeated": false,
+          "type": "uint64",
+          "name": "whlspd_tv_ns",
+          "number": 60
+        },
+        {
+          "repeated": false,
+          "type": "uint64",
+          "name": "tv_ns",
+          "number": 61
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "spin_sts_fl",
+          "number": 62
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "spin_sts_fr",
+          "number": 63
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "spin_sts_rl",
+          "number": 64
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "spin_sts_rr",
+          "number": 65
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "spin_sts_fl_validity",
+          "number": 66
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "spin_sts_fr_validity",
+          "number": 67
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "spin_sts_rl_validity",
+          "number": 68
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "spin_sts_rr_validity",
+          "number": 69
+        },
+        {
+          "repeated": false,
+          "type": "float",
+          "name": "peuf_bearing_temp_calc",
+          "number": 70
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "accr_pedl_posn_vld",
+          "source_lines": [
+            9091,
+            9097,
+            9108,
+            9120,
+            9133
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "bool",
+              "name": "accr_pedl_posn_vld",
+              "number": 2
+            }
+          ]
+        },
+        {
+          "path": "accr_pedl_posn",
+          "source_lines": [
+            9093,
+            9099,
+            9101,
+            9110,
+            9112,
+            9122,
+            9124,
+            9135,
+            9137,
+            30155
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "float",
+              "name": "accr_pedl_posn",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "按业务叶子字段裁剪，保留数组位置语义和状态契约"
+    },
+    {
+      "service": "DriveModeMgr",
+      "instance": "",
+      "rpc": "DriveModeSts",
+      "kind": "event",
+      "api": "sm_read_amblimgr_on_notify_srv_vehctl_scnmgr_drivemodemgr_drivemodests",
+      "calls": [
+        16621
+      ],
+      "root": "AmbLiMgr_DW.srv_vehctl_scnmgr_DriveModeMgr_DriveModeSts_FieldSub",
+      "paths": {
+        "dm_type": [
+          16672,
+          16674,
+          16770,
+          16820,
+          16968,
+          18282,
+          21243,
+          23437,
+          24311,
+          25180,
+          25729,
+          26288
+        ]
+      },
+      "message_type": "DriveModeMgrDta",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "100",
+        "method_type": "FIELD_WRITABLE",
+        "update_policy": "ON_CHANGE",
+        "rpc_reliability_field_event": "RELIABLE"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.vehctl.scnmgr.drivemodemgr.proto",
+      "rpc_line": 243,
+      "package": "srv.vehctl.scnmgr",
+      "configured_instance_name": null,
+      "deployment_pointer": "/clients/11",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": false,
+          "type": "DriveModType",
+          "name": "dm_type",
+          "number": 1
+        },
+        {
+          "repeated": false,
+          "type": "AccrModType",
+          "name": "accr_type",
+          "number": 2
+        },
+        {
+          "repeated": false,
+          "type": "RgnModType",
+          "name": "regen_type",
+          "number": 3
+        },
+        {
+          "repeated": false,
+          "type": "SteerModType",
+          "name": "steer_type",
+          "number": 4
+        },
+        {
+          "repeated": false,
+          "type": "SteerRdModType",
+          "name": "steer_rd_type",
+          "number": 5
+        },
+        {
+          "repeated": false,
+          "type": "LvlCtrlModType",
+          "name": "level_ctrl_type",
+          "number": 6
+        },
+        {
+          "repeated": false,
+          "type": "DampModType",
+          "name": "damp_type",
+          "number": 7
+        },
+        {
+          "repeated": false,
+          "type": "FasModType",
+          "name": "fas_type",
+          "number": 8
+        },
+        {
+          "repeated": false,
+          "type": "AcModType",
+          "name": "ac_type",
+          "number": 9
+        },
+        {
+          "repeated": false,
+          "type": "bool",
+          "name": "profile_mode_trigger",
+          "number": 13
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "dm_type",
+          "source_lines": [
+            16672,
+            16674,
+            16770,
+            16820,
+            16968,
+            18282,
+            21243,
+            23437,
+            24311,
+            25180,
+            25729,
+            26288
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "DriveModType",
+              "name": "dm_type",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "按业务叶子字段裁剪，保留数组位置语义和状态契约"
+    },
+    {
+      "service": "DriveModeMgr",
+      "instance": "",
+      "rpc": "EcoPlusModeInfo",
+      "kind": "event",
+      "api": "sm_read_amblimgr_on_notify_srv_vehctl_scnmgr_drivemodemgr_ecoplusmodeinfo",
+      "calls": [
+        7788
+      ],
+      "root": "AmbLiMgr_DW.srv_vehctl_scnmgr_DriveModeMgr_EcoPlusModeInfo_FieldSub",
+      "paths": {
+        "eco_plus_mode_sts": [
+          7896,
+          7919,
+          27290
+        ]
+      },
+      "message_type": "EcoPlusModeInfoDta",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "103",
+        "method_type": "FIELD_READONLY",
+        "update_policy": "ON_CHANGE",
+        "rpc_reliability_field_event": "RELIABLE"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.vehctl.scnmgr.drivemodemgr.proto",
+      "rpc_line": 250,
+      "package": "srv.vehctl.scnmgr",
+      "configured_instance_name": null,
+      "deployment_pointer": "/clients/11",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": false,
+          "type": "EcoPlusModType",
+          "name": "eco_plus_mode_sts",
+          "number": 1
+        },
+        {
+          "repeated": false,
+          "type": "EcoPlusWarnType",
+          "name": "eco_plus_warn_info",
+          "number": 2
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "eco_plus_mode_sts",
+          "source_lines": [
+            7896,
+            7919,
+            27290
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "EcoPlusModType",
+              "name": "eco_plus_mode_sts",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "按业务叶子字段裁剪，保留数组位置语义和状态契约"
+    },
+    {
+      "service": "VehConfig",
+      "instance": "",
+      "rpc": "IVcpVal_InteriorBodyColor",
+      "kind": "event",
+      "api": "sm_read_amblimgr_on_notify_srv_vehicle_plm_vehconfig_ivcpval_interiorbodycolor",
+      "calls": [
+        30191
+      ],
+      "root": "AmbLiMgr_DW.srv_vehicle_plm_VehConfig_IVcpVal_InteriorBodyColor_EventSub",
+      "paths": {},
+      "message_type": "VcpVal",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "15",
+        "method_type": "EVENT"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.vehicle.plm.vehconfig.proto",
+      "rpc_line": 97,
+      "package": "srv.vehicle.plm",
+      "configured_instance_name": null,
+      "deployment_pointer": "/clients/12",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "vcp_val",
+          "number": 1
+        }
+      ],
+      "signal_observation": "read_and_cached_no_business_field_reference",
+      "resolved_paths": [],
+      "idl_recommendation": "待核实用途，暂不自动删除"
+    },
+    {
+      "service": "VehConfig",
+      "instance": "",
+      "rpc": "IVcpVal_VehicleProject",
+      "kind": "event",
+      "api": "sm_read_amblimgr_on_notify_srv_vehicle_plm_vehconfig_ivcpval_vehicleproject",
+      "calls": [
+        12826
+      ],
+      "root": "AmbLiMgr_DW.srv_vehicle_plm_VehConfig_IVcpVal_VehicleProject_EventSub",
+      "paths": {
+        "vcp_val": [
+          12865,
+          12869,
+          21550
+        ]
+      },
+      "message_type": "VcpVal",
+      "response_type": "Null",
+      "options": {
+        "rpc_id": "2",
+        "method_type": "EVENT"
+      },
+      "proto_file": "Reference/AmbLiMgr/proto/srv.vehicle.plm.vehconfig.proto",
+      "rpc_line": 43,
+      "package": "srv.vehicle.plm",
+      "configured_instance_name": null,
+      "deployment_pointer": "/clients/12",
+      "source_file": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "message_fields": [
+        {
+          "repeated": false,
+          "type": "uint32",
+          "name": "vcp_val",
+          "number": 1
+        }
+      ],
+      "signal_observation": "explicit_field_reference",
+      "resolved_paths": [
+        {
+          "path": "vcp_val",
+          "source_lines": [
+            12865,
+            12869,
+            21550
+          ],
+          "field_chain": [
+            {
+              "repeated": false,
+              "type": "uint32",
+              "name": "vcp_val",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "idl_recommendation": "按业务叶子字段裁剪，保留数组位置语义和状态契约"
+    }
+  ],
+  "message_definitions": {
+    "srv.body.intrlight.MsgDynEnaCtrl": [
+      {
+        "repeated": true,
+        "type": "bool",
+        "name": "ena_ctrl",
+        "number": 1
+      }
+    ],
+    "srv.body.intrlight.MsgDynSegCtrl": [
+      {
+        "repeated": true,
+        "type": "DynSegCtrlType",
+        "name": "seg_ctrl",
+        "number": 1
+      }
+    ],
+    "srv.body.intrlight.DynSegCtrlType": [
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "seg_start_posn",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "seg_nr",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "seg_color_vld",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "seg_start_color_h",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "seg_end_color_s",
+        "number": 5
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "seg_start_bri",
+        "number": 6
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "seg_end_bri",
+        "number": 7
+      }
+    ],
+    "srv.body.intrlight.DynNodeCtrlType": [
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "color",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "color_vld",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "bri",
+        "number": 3
+      }
+    ],
+    "srv.body.intrlight.MsgDynNodeCtrl": [
+      {
+        "repeated": true,
+        "type": "DynNodeCtrlType",
+        "name": "node_ctrl",
+        "number": 1
+      }
+    ],
+    "srv.body.intrlight.MsgDynContrColorCtrl": [
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "contr_high_color_h",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "contr_high_color_s",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "contr_low_color_h",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "contr_low_color_s",
+        "number": 4
+      }
+    ],
+    "srv.body.intrlight.MsgDynGenBriCtrl": [
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "gen_bri_ctrl",
+        "number": 1
+      }
+    ],
+    "srv.body.intrlight.MsgDynPrmSet": [
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "fade_tim",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "DynSwtType",
+        "name": "fade_mod_cmd",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "DynSwtType",
+        "name": "nat_tran_mod",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "nat_tran_tim",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "DynSegFlowType",
+        "name": "seg_flow",
+        "number": 5
+      },
+      {
+        "repeated": false,
+        "type": "DynPriType",
+        "name": "seg_node_pri",
+        "number": 6
+      },
+      {
+        "repeated": false,
+        "type": "DynDispModType",
+        "name": "disp_mod",
+        "number": 7
+      },
+      {
+        "repeated": false,
+        "type": "DynColorModType",
+        "name": "color_mod",
+        "number": 8
+      },
+      {
+        "repeated": false,
+        "type": "DynBriModType",
+        "name": "bri_mod",
+        "number": 9
+      }
+    ],
+    "srv.body.intrlight.MsgDynSeqPilot": [
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "pilot_id",
+        "number": 1
+      }
+    ],
+    "srv.body.intrlight.MsgDynAmbLiSts": [
+      {
+        "repeated": true,
+        "type": "DynStsType",
+        "name": "ambli_sts",
+        "number": 1
+      }
+    ],
+    "srv.body.intrlight.DynStsType": [
+      {
+        "repeated": false,
+        "type": "DynOnOffType",
+        "name": "ambli_sts",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "DynErrType",
+        "name": "ambli_err",
+        "number": 2
+      }
+    ],
+    "srv.body.intrlight.MsgStaEnaCtrl": [
+      {
+        "repeated": true,
+        "type": "bool",
+        "name": "ena_ctrl",
+        "number": 1
+      }
+    ],
+    "srv.body.intrlight.MsgStaColorCtrl": [
+      {
+        "repeated": true,
+        "type": "StaColorType",
+        "name": "color_ctrl",
+        "number": 1
+      }
+    ],
+    "srv.body.intrlight.MsgStaGenBriCtrl": [
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "gen_bri_ctrl",
+        "number": 1
+      }
+    ],
+    "srv.body.intrlight.MsgStaNodeBriCtrl": [
+      {
+        "repeated": true,
+        "type": "uint32",
+        "name": "node_bri_ctrl",
+        "number": 1
+      }
+    ],
+    "srv.body.intrlight.MsgStaPrmCtrl": [
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "fade_tim",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "StaSwtType",
+        "name": "fade_mod_cmd",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "StaSwtType",
+        "name": "nat_tran_mod",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "nat_tran_tim",
+        "number": 4
+      },
+      {
+        "repeated": true,
+        "type": "StaBreathModType",
+        "name": "breath_mod",
+        "number": 5
+      }
+    ],
+    "srv.body.intrlight.StaStsType": [
+      {
+        "repeated": false,
+        "type": "StaOnOffType",
+        "name": "ambli_sts",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "color_or_h",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "color_s",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "bri",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "StaErrType",
+        "name": "ambli_err",
+        "number": 5
+      }
+    ],
+    "srv.body.intrlight.MsgStaAmbLiSts": [
+      {
+        "repeated": true,
+        "type": "StaStsType",
+        "name": "ambli_sts",
+        "number": 1
+      }
+    ],
+    "srv.body.intrlight.StaColorType": [
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "color_or_h",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "color_s",
+        "number": 2
+      }
+    ],
+    "srv.body.intrlight.AmbLiColorSetType": [
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "color_or_h",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "color_or_h_vld",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "color_s",
+        "number": 3
+      }
+    ],
+    "srv.body.intrlight.MsgAmbLiSwtSet": [
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "req_src_type",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "AmbLiSwtType",
+        "name": "ambli_swt",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "AmbLiCmnSwtType",
+        "name": "bri_auto_mod",
+        "number": 21
+      },
+      {
+        "repeated": false,
+        "type": "MusicColorSelType",
+        "name": "music_color_swt",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "img_set",
+        "number": 12
+      },
+      {
+        "repeated": false,
+        "type": "AmbLiCmnSwtType",
+        "name": "img_auto_mod",
+        "number": 7
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "img_auto_spd",
+        "number": 8
+      },
+      {
+        "repeated": false,
+        "type": "AmbLiCmnSwtType",
+        "name": "psu_swt",
+        "number": 19
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "dyn_effect_mod",
+        "number": 18
+      },
+      {
+        "repeated": false,
+        "type": "DynEffectSpdType",
+        "name": "dyn_effect_spd",
+        "number": 17
+      },
+      {
+        "repeated": true,
+        "type": "AmbLiColorSetType",
+        "name": "diy_color_set",
+        "number": 15
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "diy_bri_set",
+        "number": 16
+      },
+      {
+        "repeated": false,
+        "type": "StreamDirType",
+        "name": "stream_dir",
+        "number": 13
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "color_swt",
+        "number": 14
+      },
+      {
+        "repeated": false,
+        "type": "IntrIllmnSwtType",
+        "name": "intr_illmn_swt",
+        "number": 20
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "scenario_set",
+        "number": 22
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "psu_bri_set",
+        "number": 23
+      },
+      {
+        "repeated": false,
+        "type": "AmbLiCmnSwtType",
+        "name": "lowbri_mode",
+        "number": 24
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "diy_bri_drv",
+        "number": 25
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "img_bri_set",
+        "number": 26
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "lowbri_mode_cmd",
+        "number": 27
+      },
+      {
+        "repeated": true,
+        "type": "uint32",
+        "name": "ambli_row_swt",
+        "number": 28
+      }
+    ],
+    "srv.body.intrlight.MsgAmbLiSceneReq": [
+      {
+        "repeated": false,
+        "type": "AmbLiCmnSwtType",
+        "name": "scene_req",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "SdowWarnType",
+        "name": "sdow_warn_req",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "VoiceReqType",
+        "name": "voice_req",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "req_src_type",
+        "number": 1
+      }
+    ],
+    "srv.body.intrlight.AmbLiStsType": [
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "color_or_h",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "color_s",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "bri",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "ambli_sts",
+        "number": 4
+      }
+    ],
+    "srv.body.intrlight.MsgAmbLiParamReq": [
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "req_src_type",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "zone_bri_vld",
+        "number": 3
+      },
+      {
+        "repeated": true,
+        "type": "uint32",
+        "name": "zone_bri",
+        "number": 7
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "node_bri_vld",
+        "number": 11
+      },
+      {
+        "repeated": true,
+        "type": "uint32",
+        "name": "node_bri",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "zone_color_or_h_vld",
+        "number": 9
+      },
+      {
+        "repeated": true,
+        "type": "uint32",
+        "name": "zone_color_or_h",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "zone_color_s_vld",
+        "number": 8
+      },
+      {
+        "repeated": true,
+        "type": "uint32",
+        "name": "zone_color_s",
+        "number": 6
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "seg_color_or_h_vld",
+        "number": 13
+      },
+      {
+        "repeated": true,
+        "type": "uint32",
+        "name": "seg_color_or_h",
+        "number": 10
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "seg_color_s_vld",
+        "number": 12
+      },
+      {
+        "repeated": true,
+        "type": "uint32",
+        "name": "seg_color_s",
+        "number": 5
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "node_color_vld",
+        "number": 14
+      },
+      {
+        "repeated": true,
+        "type": "uint32",
+        "name": "node_color",
+        "number": 15
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "dyn_fade_tim",
+        "number": 16
+      },
+      {
+        "repeated": true,
+        "type": "uint32",
+        "name": "sta_fade_tim",
+        "number": 17
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "dyn_nat_tran_tim",
+        "number": 18
+      },
+      {
+        "repeated": true,
+        "type": "uint32",
+        "name": "sta_nat_tran_tim",
+        "number": 19
+      }
+    ],
+    "srv.body.intrlight.MsgAmbLiStsInfo": [
+      {
+        "repeated": true,
+        "type": "AmbLiStsType",
+        "name": "ip_ambli_sts",
+        "number": 2
+      },
+      {
+        "repeated": true,
+        "type": "AmbLiStsType",
+        "name": "storg_ambli_sts",
+        "number": 3
+      },
+      {
+        "repeated": true,
+        "type": "AmbLiStsType",
+        "name": "fw_ambli_sts",
+        "number": 4
+      },
+      {
+        "repeated": true,
+        "type": "AmbLiStsType",
+        "name": "reseat_ambli_sts",
+        "number": 5
+      },
+      {
+        "repeated": true,
+        "type": "AmbLiStsType",
+        "name": "roof_ambli_sts",
+        "number": 6
+      },
+      {
+        "repeated": true,
+        "type": "AmbLiStsType",
+        "name": "dyn_ambli_sts",
+        "number": 7
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "ambli_work_src_type",
+        "number": 10
+      }
+    ],
+    "srv.vehicle.plm.VcmSt": [
+      {
+        "repeated": false,
+        "type": "VcmStT",
+        "name": "vcm_st",
+        "number": 1
+      }
+    ],
+    "srv.vehicle.plm.VcpVal": [
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "vcp_val",
+        "number": 1
+      }
+    ],
+    "srv.body.smtkey.SmtKeyUsrIntnDataStruct": [
+      {
+        "repeated": false,
+        "type": "SmtKeyDrvVehInteraPhase",
+        "name": "smt_key_drv_veh_intera_phase",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "SmtKeyUserProfDrvDetn",
+        "name": "smt_key_usrprof_drv_detn",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "SmtKeyVipVehInteraPhase",
+        "name": "smt_key_vip_veh_intera_phase",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "SmtKeyUserIntnLevel",
+        "name": "smt_key_usr_intn_level",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "FusionUsrIntnInfo",
+        "name": "fusion_usr_intn_info",
+        "number": 5
+      }
+    ],
+    "srv.body.smtkey.FusionUsrIntnInfo": [
+      {
+        "repeated": false,
+        "type": "FusionUsrUntnLevel",
+        "name": "usr_frunk_open_intn",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "FusionUsrUntnLevel",
+        "name": "usr_trunk_open_intn",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "FusionUsrUntnLevel",
+        "name": "usr_pwrdoor_open_intn",
+        "number": 3
+      }
+    ],
+    "srv.infra.vehmoding.VehModeMsg": [
+      {
+        "repeated": false,
+        "type": "VehModeDef",
+        "name": "veh_mode",
+        "number": 1
+      }
+    ],
+    "srv.infra.vehmoding.TargetVehModeMsg": [
+      {
+        "repeated": false,
+        "type": "VehModeDef",
+        "name": "target_veh_mode",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "VehMdReqType",
+        "name": "veh_mode_st_req",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "VehMdReqSource",
+        "name": "veh_mode_req_src",
+        "number": 3
+      }
+    ],
+    "srv.infra.vehmoding.VehModeSwType": [
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "vehmodesw_id",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "vehmodesw_sts",
+        "number": 2
+      }
+    ],
+    "srv.infra.vehmoding.VehModeSwMsg": [
+      {
+        "repeated": true,
+        "type": "VehModeSwType",
+        "name": "vehmodesw_set",
+        "number": 1
+      }
+    ],
+    "srv.infra.vehmoding.VehModeSwRspMsg": [
+      {
+        "repeated": false,
+        "type": "VehModeSwRsp",
+        "name": "vehmode_sw_rsp",
+        "number": 1
+      }
+    ],
+    "srv.infra.vehmoding.VehModeSettingMsg": [
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "bmsuploadoffreq",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "netmdloffreq",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "transportmd_maxsoc",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "vehmode_maxchrgsoc",
+        "number": 4
+      },
+      {
+        "repeated": true,
+        "type": "VehModeSwType",
+        "name": "vehmodesw_act",
+        "number": 5
+      }
+    ],
+    "srv.infra.vehmoding.VehStateMsg": [
+      {
+        "repeated": false,
+        "type": "VehStateDetailed",
+        "name": "veh_state_detailed",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "DrvState",
+        "name": "drv_state",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "OperatorState",
+        "name": "operator_state",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "DrvStateDetailed",
+        "name": "drv_state_detailed",
+        "number": 4
+      }
+    ],
+    "srv.infra.vehmoding.AdDrvTypeReqMsg": [
+      {
+        "repeated": false,
+        "type": "AdDrvTypeReq",
+        "name": "ad_drvtype_req",
+        "number": 1
+      }
+    ],
+    "srv.infra.vehmoding.SwUpdateStReqMsg": [
+      {
+        "repeated": false,
+        "type": "SwUpdateSource",
+        "name": "swupdate_souce",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "SwUpdateStReq",
+        "name": "swupdate_req",
+        "number": 2
+      }
+    ],
+    "srv.infra.vehmoding.OperatorStLatchReqMsg": [
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "operatorst_latchreq",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "OperatorStLatchSource",
+        "name": "operatorst_latchreq_src",
+        "number": 2
+      }
+    ],
+    "srv.infra.vehmoding.OperatorStReqMsg": [
+      {
+        "repeated": false,
+        "type": "OperatorStReq",
+        "name": "operatorst_contxtmd_req",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "operatorst_contxtmd_vld",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "OperatorStReq",
+        "name": "operatorst_pwrswap_req",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "operatorst_pwrswap_vld",
+        "number": 4
+      }
+    ],
+    "srv.infra.vehmoding.AdDrvTypeReqMsgCmpss": [
+      {
+        "repeated": false,
+        "type": "AdDrvTypeReq",
+        "name": "ad_drvtype_req_c",
+        "number": 1
+      }
+    ],
+    "srv.motion.drv.MotionCommInfo": [
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "accr_pedl_posn",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "accr_pedl_posn_vld",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "EnumMotionCtrlInfoActGear",
+        "name": "act_gear",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "act_gear_vld",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "brk_pedl_prsd",
+        "number": 5
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "brk_pedl_prsd_vld",
+        "number": 6
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "brk_pedl_trvl",
+        "number": 7
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "brk_trvl_vld",
+        "number": 8
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "veh_spd_asild",
+        "number": 9
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "veh_spd_asild_vld",
+        "number": 10
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "peuf_mot_spd",
+        "number": 11
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "peuf_mot_spd_vld",
+        "number": 12
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "peuf_mot_act_tq",
+        "number": 13
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "peuf_mot_act_tq_vld",
+        "number": 14
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "peur_mot_spd",
+        "number": 15
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "peur_mot_spd_vld",
+        "number": 16
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "peur_mot_act_tq",
+        "number": 17
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "peur_mot_act_tq_vld",
+        "number": 18
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "veh_rdy",
+        "number": 19
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "whl_spd_fl",
+        "number": 20
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "whl_spd_fr",
+        "number": 21
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "whl_spd_rl",
+        "number": 22
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "whl_spd_rr",
+        "number": 23
+      },
+      {
+        "repeated": false,
+        "type": "EnumWhlSpdDir",
+        "name": "whl_spd_dir_fl",
+        "number": 24
+      },
+      {
+        "repeated": false,
+        "type": "EnumWhlSpdDir",
+        "name": "whl_spd_dir_fr",
+        "number": 25
+      },
+      {
+        "repeated": false,
+        "type": "EnumWhlSpdDir",
+        "name": "whl_spd_dir_rl",
+        "number": 26
+      },
+      {
+        "repeated": false,
+        "type": "EnumWhlSpdDir",
+        "name": "whl_spd_dir_rr",
+        "number": 27
+      },
+      {
+        "repeated": false,
+        "type": "EnumMotionCtrlInfoWhlSpdStsFl",
+        "name": "whl_spd_sts_fl",
+        "number": 28
+      },
+      {
+        "repeated": false,
+        "type": "EnumMotionCtrlInfoWhlSpdStsFr",
+        "name": "whl_spd_sts_fr",
+        "number": 29
+      },
+      {
+        "repeated": false,
+        "type": "EnumMotionCtrlInfoWhlSpdStsRl",
+        "name": "whl_spd_sts_rl",
+        "number": 30
+      },
+      {
+        "repeated": false,
+        "type": "EnumMotionCtrlInfoWhlSpdStsRr",
+        "name": "whl_spd_sts_rr",
+        "number": 31
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "whl_pls_cntr_fl",
+        "number": 32
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "whl_pls_cntr_fl_vld",
+        "number": 33
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "whl_pls_cntr_fr",
+        "number": 34
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "whl_pls_cntr_fr_vld",
+        "number": 35
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "whl_pls_cntr_rl",
+        "number": 36
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "whl_pls_cntr_rl_vld",
+        "number": 37
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "whl_pls_cntr_rr",
+        "number": 38
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "whl_pls_cntr_rr_vld",
+        "number": 39
+      },
+      {
+        "repeated": false,
+        "type": "EnumMotionCtrlInfoShifterPostnSts",
+        "name": "shifter_postn_sts",
+        "number": 40
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "shifter_postn_sts_vld",
+        "number": 41
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "arb_prk_butn_sts",
+        "number": 42
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "arb_prk_butn_sts_vld",
+        "number": 43
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "bcu_veh_spd",
+        "number": 44
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "bcu_veh_spd_sts",
+        "number": 45
+      },
+      {
+        "repeated": false,
+        "type": "EnumVehMovDir",
+        "name": "veh_mov_dir",
+        "number": 46
+      },
+      {
+        "repeated": false,
+        "type": "uint64",
+        "name": "vehspd_asild_tv_ns",
+        "number": 59
+      },
+      {
+        "repeated": false,
+        "type": "uint64",
+        "name": "whlspd_tv_ns",
+        "number": 60
+      },
+      {
+        "repeated": false,
+        "type": "uint64",
+        "name": "tv_ns",
+        "number": 61
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "spin_sts_fl",
+        "number": 62
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "spin_sts_fr",
+        "number": 63
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "spin_sts_rl",
+        "number": 64
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "spin_sts_rr",
+        "number": 65
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "spin_sts_fl_validity",
+        "number": 66
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "spin_sts_fr_validity",
+        "number": 67
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "spin_sts_rl_validity",
+        "number": 68
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "spin_sts_rr_validity",
+        "number": 69
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "peuf_bearing_temp_calc",
+        "number": 70
+      }
+    ],
+    "srv.motion.drv.VafInfo": [
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "abs_actv",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "tcs_vdc_actv",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "EnumMotionCtrlInfoAvhSts",
+        "name": "avh_sts",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "EnumMotionCtrlInfoEpbSts",
+        "name": "epb_sts",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "abs_fail_sts",
+        "number": 5
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "epb_fail_sts",
+        "number": 6
+      },
+      {
+        "repeated": false,
+        "type": "EnumMotionCtrlInfoHdcSts",
+        "name": "hdc_sts",
+        "number": 7
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "cdp_actv",
+        "number": 8
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "dtc_actv",
+        "number": 9
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "arp_actv",
+        "number": 10
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "over_heat_sts",
+        "number": 11
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "tcs_vdc_fail_sts",
+        "number": 12
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "tcs_mod_sts",
+        "number": 13
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "vdc_mod_sts",
+        "number": 14
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "dtc_avl",
+        "number": 15
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "cdp_avl",
+        "number": 16
+      },
+      {
+        "repeated": false,
+        "type": "uint64",
+        "name": "tv_ns",
+        "number": 17
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "vdc_actv",
+        "number": 18
+      }
+    ],
+    "srv.motion.drv.MotionInfoMonitorType": [
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "tq_cmd_fa",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "brk_fx_trq_total",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "brk_fx_mod_total",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "brk_fx_type_total",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "rbu_brk_fx_sts",
+        "number": 5
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "brk_fx_sts_main",
+        "number": 6
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "brk_fx_sts_rdnt",
+        "number": 7
+      }
+    ],
+    "srv.vehctl.scnmgr.DriveModeMgrDta": [
+      {
+        "repeated": false,
+        "type": "DriveModType",
+        "name": "dm_type",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "AccrModType",
+        "name": "accr_type",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "RgnModType",
+        "name": "regen_type",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "SteerModType",
+        "name": "steer_type",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "SteerRdModType",
+        "name": "steer_rd_type",
+        "number": 5
+      },
+      {
+        "repeated": false,
+        "type": "LvlCtrlModType",
+        "name": "level_ctrl_type",
+        "number": 6
+      },
+      {
+        "repeated": false,
+        "type": "DampModType",
+        "name": "damp_type",
+        "number": 7
+      },
+      {
+        "repeated": false,
+        "type": "FasModType",
+        "name": "fas_type",
+        "number": 8
+      },
+      {
+        "repeated": false,
+        "type": "AcModType",
+        "name": "ac_type",
+        "number": 9
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "profile_mode_trigger",
+        "number": 13
+      }
+    ],
+    "srv.vehctl.scnmgr.EcoPlusModReqDta": [
+      {
+        "repeated": false,
+        "type": "EcoPlusModType",
+        "name": "eco_plus_mode_req",
+        "number": 1
+      }
+    ],
+    "srv.vehctl.scnmgr.EcoPlusModeInfoDta": [
+      {
+        "repeated": false,
+        "type": "EcoPlusModType",
+        "name": "eco_plus_mode_sts",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "EcoPlusWarnType",
+        "name": "eco_plus_warn_info",
+        "number": 2
+      }
+    ],
+    "srv.vehctl.scnmgr.AtsModReqDta": [
+      {
+        "repeated": false,
+        "type": "AtsFcnType",
+        "name": "ats_mode_req",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "FasEscapModeLvl",
+        "name": "fas_escap_mode_lvl_req",
+        "number": 2
+      }
+    ],
+    "srv.vehctl.scnmgr.AtsModInfoDta": [
+      {
+        "repeated": false,
+        "type": "AtsFcnType",
+        "name": "ats_mode_sts",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "AtsFcnWarnType",
+        "name": "ats_mode_warn_info",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "FasEscapModeLvl",
+        "name": "fas_escap_mode_lvl_info",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "wade_mode_warn_info",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "AtsFcnType",
+        "name": "ats_mode_auto_result",
+        "number": 5
+      }
+    ],
+    "srv.vehctl.scnmgr.AiSftyModReqDta": [
+      {
+        "repeated": false,
+        "type": "WetSftyModType",
+        "name": "wet_sfty_mod_req",
+        "number": 1
+      }
+    ],
+    "srv.vehctl.scnmgr.AiSftyModInfoDta": [
+      {
+        "repeated": false,
+        "type": "WetSftyModType",
+        "name": "wet_sfty_mod_sts",
+        "number": 1
+      }
+    ],
+    "srv.body.base.MsgSolarSnsrSts": [
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "rls_solar_le_radiation_inten",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "rls_solar_ri_radiation_inten",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "DualSolarFltSts",
+        "name": "rls_solar_flt_sts",
+        "number": 3
+      }
+    ],
+    "srv.body.base.MsgWiprPrmReq": [
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "wipe_type",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "veh_type",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "WiprSwtPosnType",
+        "name": "wipr_switch_posn",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "WiprSensLvlType",
+        "name": "rls_sens_setting",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "rls_ena",
+        "number": 5
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "actv_wipe",
+        "number": 7
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "feedback_wipe",
+        "number": 9
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "ice_detn",
+        "number": 10
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "spd_depency",
+        "number": 11
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "steering_wheel_posn",
+        "number": 13
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "rls_sens_para1",
+        "number": 14
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "rls_sens_para2",
+        "number": 15
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "veh_locn",
+        "number": 16
+      }
+    ],
+    "srv.body.base.MsgWiprSnrSts": [
+      {
+        "repeated": false,
+        "type": "RainySts",
+        "name": "rain_detn_sts",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "RainMonrWkUpEnaSts",
+        "name": "rain_monr_wakeup_ena_sts",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "WiperCtrlReq",
+        "name": "wiper_req",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "MultiStageWiperReq",
+        "name": "wiper_req_multi_stage",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "RlsErrSts",
+        "name": "rain_snsr_fail_sts",
+        "number": 5
+      },
+      {
+        "repeated": false,
+        "type": "RlsErrSts",
+        "name": "temp_snsr_fail_sts",
+        "number": 6
+      },
+      {
+        "repeated": false,
+        "type": "RlsErrSts",
+        "name": "optical_init_fail_sts",
+        "number": 7
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "rain_level_sts",
+        "number": 8
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "wiper_req_validity",
+        "number": 9
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "rs_optical1_basedata",
+        "number": 11
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "rs_optical2_basedata",
+        "number": 12
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "rs_optical1_rawdata",
+        "number": 13
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "rs_optical2_rawdata",
+        "number": 14
+      }
+    ],
+    "srv.body.base.MsgLightSnrSts": [
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "rls_front_brightness",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "rls_ambt_brightness",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "RlsFcnOnOff",
+        "name": "tunnel_detection_sts",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "RlsFcnOnOff",
+        "name": "head_lamps_on",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "RlsFcnOnOff",
+        "name": "light_snsr_active_sts",
+        "number": 5
+      },
+      {
+        "repeated": false,
+        "type": "RlsErrSts",
+        "name": "light_snsr_fail_sts",
+        "number": 6
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "amb_li_illmn",
+        "number": 7
+      },
+      {
+        "repeated": false,
+        "type": "RlsErrSts",
+        "name": "hud_snsr_err_sts",
+        "number": 8
+      },
+      {
+        "repeated": false,
+        "type": "RlsErrSts",
+        "name": "optical_init_fail_sts",
+        "number": 9
+      },
+      {
+        "repeated": false,
+        "type": "DayDetnSts",
+        "name": "day_detn_sts",
+        "number": 10
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "head_lamps_on_validity",
+        "number": 11
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "head_lamps_on_alive_flag",
+        "number": 12
+      }
+    ],
+    "srv.body.base.MsgDemistSnrSts": [
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "rls_demist_rh",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "rls_demist_rh_temp",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "rls_demist_ws_temp",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "rls_dew_point_temp",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "DemistFltSts",
+        "name": "rls_demist_flt_sts",
+        "number": 5
+      },
+      {
+        "repeated": false,
+        "type": "uint32",
+        "name": "rls_climate_supplier_id",
+        "number": 7
+      }
+    ],
+    "srv.body.base.MsgExtLiPrmReq": [
+      {
+        "repeated": false,
+        "type": "LiSensLvlType",
+        "name": "light_sens",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "rainy_light",
+        "number": 2
+      }
+    ],
+    "srv.body.base.MsgWinPrmReq": [
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "rain_monr_wakeup_ena",
+        "number": 1
+      }
+    ],
+    "srv.body.base.MsgCommPrmReq": [
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "bcu_veh_spd_sts",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "bcu_veh_spd",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "amblient_validity",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "float",
+        "name": "ambient_val",
+        "number": 4
+      }
+    ],
+    "srv.body.safety.SeatBasicStatus": [
+      {
+        "repeated": true,
+        "type": "SeatBasicStsInfo",
+        "name": "seat_basic_sts",
+        "number": 1
+      }
+    ],
+    "srv.body.safety.SeatBasicStsInfo": [
+      {
+        "repeated": false,
+        "type": "SeatPositionType",
+        "name": "seat_position",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "OccpntStsType",
+        "name": "occpnt_sensor_sts",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "occpnt_fail_sts",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "BuckleStsType",
+        "name": "buckle_sts",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "buckle_fail_sts",
+        "number": 5
+      }
+    ],
+    "srv.body.safety.SbrRmnStatus": [
+      {
+        "repeated": false,
+        "type": "SeatPositionType",
+        "name": "sbr_rmn_posn",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "SbrRmnReq",
+        "name": "sbr_rmn_req",
+        "number": 2
+      }
+    ],
+    "srv.body.safety.SbrStatus": [
+      {
+        "repeated": true,
+        "type": "SbrRmnStatus",
+        "name": "sbr_sts",
+        "number": 1
+      }
+    ],
+    "srv.body.safety.SbrAudioInhibit": [
+      {
+        "repeated": false,
+        "type": "WarnInhibitReq",
+        "name": "inhibit_second_row_left",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "WarnInhibitReq",
+        "name": "inhibit_second_row_middle",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "WarnInhibitReq",
+        "name": "inhibit_second_row_right",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "WarnInhibitReq",
+        "name": "inhibit_third_row_left",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "WarnInhibitReq",
+        "name": "inhibit_third_row_right",
+        "number": 5
+      },
+      {
+        "repeated": false,
+        "type": "WarnInhibitReq",
+        "name": "inhibit_sbr_req",
+        "number": 6
+      },
+      {
+        "repeated": false,
+        "type": "WarnInhibitReq",
+        "name": "inhibit_second_row_left_chldseat",
+        "number": 7
+      },
+      {
+        "repeated": false,
+        "type": "WarnInhibitReq",
+        "name": "inhibit_second_row_right_chldseat",
+        "number": 8
+      },
+      {
+        "repeated": false,
+        "type": "WarnInhibitReq",
+        "name": "inhibit_third_row_left_chldseat",
+        "number": 9
+      },
+      {
+        "repeated": false,
+        "type": "WarnInhibitReq",
+        "name": "inhibit_third_row_right_chldseat",
+        "number": 10
+      }
+    ],
+    "srv.body.safety.SbrAudioInhibitFb": [
+      {
+        "repeated": false,
+        "type": "WarnInhibitSts",
+        "name": "inhibit_sts_second_row_left",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "WarnInhibitSts",
+        "name": "inhibit_sts_second_row_middle",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "WarnInhibitSts",
+        "name": "inhibit_sts_second_row_right",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "WarnInhibitSts",
+        "name": "inhibit_sts_third_row_left",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "WarnInhibitSts",
+        "name": "inhibit_sts_third_row_right",
+        "number": 5
+      },
+      {
+        "repeated": false,
+        "type": "WarnInhibitSts",
+        "name": "inhibit_sbr_sts",
+        "number": 6
+      },
+      {
+        "repeated": false,
+        "type": "WarnInhibitSts",
+        "name": "inhibit_sts_second_row_left_chldseat",
+        "number": 7
+      },
+      {
+        "repeated": false,
+        "type": "WarnInhibitSts",
+        "name": "inhibit_sts_second_row_right_chldseat",
+        "number": 8
+      },
+      {
+        "repeated": false,
+        "type": "WarnInhibitSts",
+        "name": "inhibit_sts_third_row_left_chldseat",
+        "number": 9
+      },
+      {
+        "repeated": false,
+        "type": "WarnInhibitSts",
+        "name": "inhibit_sts_third_row_right_chldseat",
+        "number": 10
+      }
+    ],
+    "srv.body.safety.SbrTtsStatus": [
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "tts_sts_drv",
+        "number": 1
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "tts_sts_pass",
+        "number": 2
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "tts_sts_front_row",
+        "number": 3
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "tts_sts_second_row",
+        "number": 4
+      },
+      {
+        "repeated": false,
+        "type": "bool",
+        "name": "tts_sts_all",
+        "number": 5
+      }
+    ]
+  },
+  "proto_matches": [
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.body.base.rlsinfo.options",
+      "reference_file": "Reference/Proto/platform_services/srv.body.base.rlsinfo.options",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.body.base.rlsinfo.proto",
+      "reference_file": "Reference/Proto/platform_services/srv.body.base.rlsinfo.proto",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.amblimgr.options",
+      "reference_file": "Reference/Proto/platform_services/srv.body.intrlight.amblimgr.options",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.amblimgr.proto",
+      "reference_file": "Reference/Proto/platform_services/srv.body.intrlight.amblimgr.proto",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.dynambliactu.options",
+      "reference_file": "Reference/Proto/platform_services/srv.body.intrlight.dynambliactu.options",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.dynambliactu.proto",
+      "reference_file": "Reference/Proto/platform_services/srv.body.intrlight.dynambliactu.proto",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.options",
+      "reference_file": "Reference/Proto/platform_services/srv.body.intrlight.staambliactu.options",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "reference_file": "Reference/Proto/platform_services/srv.body.intrlight.staambliactu.proto",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.body.safety.seatbasicsts.options",
+      "reference_file": "Reference/Proto/platform_services/srv.body.safety.seatbasicsts.options",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.body.safety.seatbasicsts.proto",
+      "reference_file": "Reference/Proto/platform_services/srv.body.safety.seatbasicsts.proto",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.body.smtkey.smtkeyusrintnmgr.proto",
+      "reference_file": "Reference/Proto/platform_services/srv.body.smtkey.smtkeyusrintnmgr.proto",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.infra.vehmoding.vehmode.options",
+      "reference_file": "Reference/Proto/platform_services/srv.infra.vehmoding.vehmode.options",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.infra.vehmoding.vehmode.proto",
+      "reference_file": "Reference/Proto/platform_services/srv.infra.vehmoding.vehmode.proto",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.infra.vehmoding.vehstate.proto",
+      "reference_file": "Reference/Proto/platform_services/srv.infra.vehmoding.vehstate.proto",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.motion.drv.motionctrlinfo.options",
+      "reference_file": "Reference/Proto/platform_services/srv.motion.drv.motionctrlinfo.options",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.motion.drv.motionctrlinfo.proto",
+      "reference_file": "Reference/Proto/platform_services/srv.motion.drv.motionctrlinfo.proto",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.vehctl.scnmgr.drivemodemgr.options",
+      "reference_file": "Reference/Proto/platform_services/srv.vehctl.scnmgr.drivemodemgr.options",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.vehctl.scnmgr.drivemodemgr.proto",
+      "reference_file": "Reference/Proto/platform_services/srv.vehctl.scnmgr.drivemodemgr.proto",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.vehicle.plm.vehconfig.options",
+      "reference_file": "Reference/Proto/private_services/srv.vehicle.plm.vehconfig.options",
+      "byte_identical": true
+    },
+    {
+      "module_file": "Reference/AmbLiMgr/proto/srv.vehicle.plm.vehconfig.proto",
+      "reference_file": "Reference/Proto/private_services/srv.vehicle.plm.vehconfig.proto",
+      "byte_identical": true
+    }
+  ],
+  "input_hashes": [
+    {
+      "path": "Reference/AmbLiMgr/CMakeLists.txt",
+      "sha256": "1cb9f602d56d80e2fb3b8a092cdfccb936710f3dbaf046997f49d769aa1307d2"
+    },
+    {
+      "path": "Reference/AmbLiMgr/a2l/AmbLiMgr.a2l",
+      "sha256": "bc5981b4be5a6f79571de63ca71616a4bcf7b49a62a3c5a37cf0b63f396f0c1d"
+    },
+    {
+      "path": "Reference/AmbLiMgr/app.json",
+      "sha256": "f34516cb029e07330664efae5cb5980739708e9f2e1cce37a3697d1925965806"
+    },
+    {
+      "path": "Reference/AmbLiMgr/cfg/amblimgr.app_instance.json",
+      "sha256": "c67d62d0b78e2da5d7fae16b99ef1509dc6e635914aaeab574465be710ac8155"
+    },
+    {
+      "path": "Reference/AmbLiMgr/cfg/instance.json",
+      "sha256": "d8e1164a51812ca4747711caa4029369e05ee4618548279b606f14d4c4d1af33"
+    },
+    {
+      "path": "Reference/AmbLiMgr/cfg/soa/soa_deployment.json",
+      "sha256": "494af999e937b48860006e1deabb8221a586b0d9518bd1a921809fc2c6e617fc"
+    },
+    {
+      "path": "Reference/AmbLiMgr/cfg/user/amblimgr_cdf.json",
+      "sha256": "c6a2dcf3b5d37a983fa808db53fe8936727d3680f698ba78faf66b8f06780414"
+    },
+    {
+      "path": "Reference/AmbLiMgr/cfg/user/amblimgr_idf.json",
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "Reference/AmbLiMgr/inc/AmbLiMgr.h",
+      "sha256": "08a8c71c34c61d49fd955929e6ccfca03021bac56f1b14c9a3df43ec42d0718d"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/AmbLiMgrChart1_CMseKIV8.c",
+      "sha256": "aeb16a18614174e9f314f0bab71ff4867b80e2a64c8fdac6e0f79840a3a7a09b"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/AmbLiMgrChart1_CMseKIV8.h",
+      "sha256": "ccb93a104291a2b4f33abaaf363b14034290ab727a7f38b0a84383eabc2c53d7"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/Gsrv_body_intrlight_AmbLiMgr_AmbLiStsInfo.h",
+      "sha256": "575d3b929200c74db89b93e54bf06941f2802c051e652cfd625cf74ff27bf28d"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/Gsrv_body_intrlight_AmbLiMgr_AmbLiSwtSet.h",
+      "sha256": "e558f201bbecb2ab4416d0a8a0280d3bb69db51a94457eaa5a82011ff366cdc2"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/IfActionDom_qOC83Kfg.c",
+      "sha256": "406c77cb1509c97059b0df7c8f8d4df8517e865d9b75355f4a12d919366d1fbf"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/IfActionDom_qOC83Kfg.h",
+      "sha256": "3188b8bc1548910dee553019aff16eebde50d871573fe695fb62a177eade8ed5"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/IfActionSubsystem_req6_P4o1woaO.c",
+      "sha256": "22267ec06b889eca1c83ebf21aa6846060c503e5ce23464ab0ce97e7aa49cb65"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/IfActionSubsystem_req6_P4o1woaO.h",
+      "sha256": "a064f749542b3918760785c9492a6547912a2f98c0ecfcbd9b165112e472589f"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/LeoColor_requirements_base_U8qqw9db.c",
+      "sha256": "4542e5d1df25564c3b6e694d9612dd302dfcca66d9f4bfa0051e9623d7e17772"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/LeoColor_requirements_base_U8qqw9db.h",
+      "sha256": "860840efe62222e07b92ba18f6b348c216455bc7f88f99eb2f10d663a23181cb"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/LeoColor_requirements_base_gtSSZSgw.c",
+      "sha256": "572c5f12302dc98b5233b4150758a3d23525c67247a240cc871c20b1c6da71c5"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/LeoColor_requirements_base_gtSSZSgw.h",
+      "sha256": "ba8df800bf734ae2d99b002681c140e6b53c0f11ee045a62cb7473299651fe63"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/Musicmode_Subsystem_s2Yu4xGd.c",
+      "sha256": "125c380a341fe5fc8e7c21c9cf8b442bfc3507f47cbdb4323d9f0d9e7d0084c9"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/Musicmode_Subsystem_s2Yu4xGd.h",
+      "sha256": "e59148b1b9e9473bb5698d632a4086217fac629ff04a1f9fe103ffb7b9c6c624"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/Ssrv_body_intrlight_AmbLiMgr_AmbLiSwtSet.h",
+      "sha256": "ec52878ad4906f4adbac6dd1d295c5aad48aef99808535a77c83e491b7c27c1b"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/asr_s64.c",
+      "sha256": "018b1340283228f6429b3e9831fba7a839df1f1e2f06a0f988d11112923b29bf"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/asr_s64.h",
+      "sha256": "3b8188274fc071a39efb8f44688729d9631bf4697fd0ff2a5924e7af24ef9815"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/color_stream_base_yDEwBxqz.c",
+      "sha256": "a06be7221707ebb9a54199e9789f62b496ca490bf1ac36e0163522c50473b544"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/color_stream_base_yDEwBxqz.h",
+      "sha256": "184455645c030a93e1bf9ba7d351b7b87ec3349a882f8808f56006686e92013e"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_64sJYYFg.c",
+      "sha256": "8f058f8705e0927eb914171fe2a73c905de62b212dfaffaa063d30bad604e72a"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_64sJYYFg.h",
+      "sha256": "86fde26377dad403600d3cec4cf75bd816cae531f01271001e158d8264ea4db7"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_M9tKIgee.c",
+      "sha256": "d691fe6061ddd620259f22a66ed547753a28b01a65ca4ec4d97ecf5b40339955"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_M9tKIgee.h",
+      "sha256": "116757760d7aeb836d93ef651754e70b23ef17667fec1afbb3ce8394882180ef"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_ObBuegYQ.c",
+      "sha256": "31d5120f1089ddcc1e192b5394bff6a7085f67a46c8e94d8b0b06d670ed6cfc4"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_ObBuegYQ.h",
+      "sha256": "7ccf4b5e59d9e62bf865034a8264d5af3cfc19f3ed3e32f1dee0a5939864139f"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_Phmuc0wq.c",
+      "sha256": "fd46490112142ee4ea793f885f49f402f63bffff147d1047a3931bdadc2d288e"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_Phmuc0wq.h",
+      "sha256": "29c5a5bb27f450d979db9d907f04f9f04520f27c4dd51a37a042da236f525d26"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_PkecyNzf.c",
+      "sha256": "279495ba891fb3cb00fb66a1973ad1c9267d8ebd49b1918bf73fcd7aa64ba62f"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_PkecyNzf.h",
+      "sha256": "6e6be2d817392e05df5a8e75ca964649745cca81af887d330763237e2d10fa2a"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_QRhe1NGH.c",
+      "sha256": "2630c924f62a37c800ee8e2cbb24b3d87516504fe8a5ea07f76ede24f317ece9"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_QRhe1NGH.h",
+      "sha256": "84ea6ad44976353fa48cac49c0c597e964a5e3a1d91b476c4d22384b4b02dd3b"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_WRirffR7.c",
+      "sha256": "fdd07c9d769cbde257ae25e9b95acacc3423cf316acd4800f9ab1df51031f6a7"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_WRirffR7.h",
+      "sha256": "b8fbebfbe00d9cb8de77e034faad687e2dc535d5f15eba097ebebddee4ec1539"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_bxMRRNlH.c",
+      "sha256": "e78d11c8e9a306f693ce009ee592b8be3e68731bc4e3e925014e635a3532f589"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_bxMRRNlH.h",
+      "sha256": "bbf74d65af834e16e5c37a38b72c6b9352909435c40c954dd11fa3b1b3f294a2"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_dI3kAqvy.c",
+      "sha256": "4a589e92aa8be20dfcc1c789d688209b75ec176f66a8898fdab7fff5aa8cf922"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_dI3kAqvy.h",
+      "sha256": "9fc18f9bf5006659b1cf3ae280ad2df57b478c0ee0f3e912a0828e03459e60fb"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_i3xXLtvQ.c",
+      "sha256": "0ea53a806afe23081be90efe3ac964d92a242f8358b0f538fe368c37010263ad"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_i3xXLtvQ.h",
+      "sha256": "0a86d1fe1552595057cc57f8694bd6ff761cd405c0a11931fb292aa35a377116"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_mGqYnel6.c",
+      "sha256": "4bab65655218e670791d69cbb2bf6b86a95241df1544ea88fd83f805994cb355"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_mGqYnel6.h",
+      "sha256": "2bdb3fbabf945a2308d9c0f0ed6d8d36345a33a6a0b0f3c44a215849b207612d"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_xsxv1fN0.c",
+      "sha256": "af5caa9248fa18d6cac7040ca3b2b760724d0e7ed83766a9c29111f059b4a6bc"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_xsxv1fN0.h",
+      "sha256": "1ecf8e42afd52ff1c5203dee641868867cee903f5561c9a50939c575d7321370"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_yA1nAnvY.c",
+      "sha256": "a6a11389a67c7b7c2c3afe2c1ab7b519da205b29e8bc86d714e9b903ea38ba63"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/detChange2_yA1nAnvY.h",
+      "sha256": "f8ac68ee25eeb9d338892f4c5562982f8e208fbd83b58b87fd0d04a8132cb785"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/div_nde_s32_floor.c",
+      "sha256": "07548f43d434bb85301d7250644da5defb6fd33fef5e8b34f70eaa9925490677"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/div_nde_s32_floor.h",
+      "sha256": "57149b32da6072bbc13635d52826b6be3cf1ee63c22a7a31e08fba88af3aff36"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/findColorFromPoint_7aM319ZG.c",
+      "sha256": "ccdea5ef256c041becff8144d9f1daac4543d09cc25f09caca705a13aaee7213"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/findColorFromPoint_7aM319ZG.h",
+      "sha256": "aa4e450c14a24695304ca144e27781df6c419282c0605fcb5fd8aeb78715ab35"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/look1_iu8lu64n55yu8Ds16Is64n55_binlca.c",
+      "sha256": "dac3edfd4065c8667847218b16d80c9c24187112cbee5e4e636cbd1477b65a55"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/look1_iu8lu64n55yu8Ds16Is64n55_binlca.h",
+      "sha256": "9d2b73f8bc6de99af7877c4dd121f0f8c222bbaf8600fd7419e5a23d3147c99a"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/node_bri_ctrl_vector_fG1Byb90.c",
+      "sha256": "d3c171ac47fc2cd7d300457b720af2762bc786216f6eceb2e6537d2e4ebf8a69"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/node_bri_ctrl_vector_fG1Byb90.h",
+      "sha256": "1740267daa494f796ca3a704d5fc0b1e532d47e8019062e193aec6501417d323"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/req_seg_ctrl0_2uOVFxzw.c",
+      "sha256": "0b5a533a59629885489e0c19bdcd7dffa1baf36bacdf0c5531f9d15a0722289e"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/req_seg_ctrl0_2uOVFxzw.h",
+      "sha256": "44180401ab228c0e5cb4622c15d74f267bc1f39ecee2b05ce4c25bc320cc4d70"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/req_seg_ctrl0_kEm5vXYS.c",
+      "sha256": "64f0a6626c2d291d72180959aeb95d8d75a964ae03dc29185f1ce68b8991db6c"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/req_seg_ctrl0_kEm5vXYS.h",
+      "sha256": "b554d08410e5b355d7a1a2e5430c30a550eb029cd1a53d75a55371f74011678b"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/rt_roundd.c",
+      "sha256": "8e08432118d755b20805ee81be75252147e1e1c98218b1a582162a51067bc90e"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/rt_roundd.h",
+      "sha256": "2b0ade1b944be59de518fe6f6069396d614c8f2e6cff9ac13ddea029ed0fa6c3"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/setcolorinitvalue_iblnqAFW.c",
+      "sha256": "e47aea9d522fdfefca4383a9c9a6e7a3f4f1a95597d1a744a6b38d6d97c17cea"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/setcolorinitvalue_iblnqAFW.h",
+      "sha256": "3d76dccff4e26492dafac936effdeebbd330424944efdbe2dac012596a1b8b9e"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/srv_body_intrlight_AmbLiMgr_AmbLiSceneReq.h",
+      "sha256": "38e6af23c9e065ec05428e3a9126b7c855b864b78090d41c577b96b07625290c"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/staena_ctrl_IO_Q3F4BCoo.c",
+      "sha256": "00924f0f1dfd2a7873196380415955585fd1842e8e23aa9b6590652434341170"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/staena_ctrl_IO_Q3F4BCoo.h",
+      "sha256": "edd642f1ce1d692bd679a6d86c55c00208e2de1606cb3274297a7dc4f42f6bc0"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/staena_ctrl_IO_fI40dvkI.c",
+      "sha256": "ffae671a870505b480202f5416b81e9fe93fedc8693a77449abacbd62eb4bc44"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/staena_ctrl_IO_fI40dvkI.h",
+      "sha256": "8057911c3ad0b0c69d077a9e00704e73b6bf2e2489fbe2e69dc5caf999127937"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/start_end_diff_qxzi5MYd.c",
+      "sha256": "0c8de91bc07f1fdb2e2677811e90eea98ee90f9f87a7581190d1a8818d70c74f"
+    },
+    {
+      "path": "Reference/AmbLiMgr/lib/start_end_diff_qxzi5MYd.h",
+      "sha256": "27fc979b053573ac8641ebe2f95dab6c451510e6664b6fc6cb6e9fbdafbab7b6"
+    },
+    {
+      "path": "Reference/AmbLiMgr/ntxpkg.yml",
+      "sha256": "974b5f28e59d8ad91406369b99259329da24b22305ac44b58e410237e5e40ff8"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.body.base.rlsinfo.options",
+      "sha256": "81869bc40c6008106ae5ff57377dd2b72d3016cbb59ae8fa1cf4c27981c65255"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.body.base.rlsinfo.proto",
+      "sha256": "fc0197b0acc95b6aca07529f4da3345e9671e19947f5c78a205c2bb059a041cd"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.body.intrlight.amblimgr.options",
+      "sha256": "30fb8aab0c530859628cfd7a388def26d38da48380dc8d5da05b73fe5d4770b2"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.body.intrlight.amblimgr.proto",
+      "sha256": "3a1ceaf340eaa600f5fc39a61f36f0fc565fd76014a1138477324352372c5c27"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.body.intrlight.dynambliactu.options",
+      "sha256": "ac37bea58b3a8120d0eacc5d12c90d92348ae6aff243433fa283865ea0a03864"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.body.intrlight.dynambliactu.proto",
+      "sha256": "e6a8e41988fe09f9d4aeed4b6b0102c37762d91240df03e95553baa87e55a75f"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.options",
+      "sha256": "25702f56b6e73ec9ba42f9c2008b302bbe0984b17a2f10e637be3afd04460606"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.body.intrlight.staambliactu.proto",
+      "sha256": "a35b53be894eabdff4536d2dac1cd6d30372e79d66202f98fa181daafbc4db8c"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.body.safety.seatbasicsts.options",
+      "sha256": "e449b062a465ccf322a92d003b451584ed99848505ba59641e6e51f06715da27"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.body.safety.seatbasicsts.proto",
+      "sha256": "aa89fb281aea0fd4512019e7e0af1d6d4abcff2d745870d8964bea70a0c0c9ae"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.body.smtkey.smtkeyusrintnmgr.proto",
+      "sha256": "010cc62242bd5283844e73ff577c79f85ee024179ad3b3c2c34cca28fe2c52ee"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.infra.vehmoding.vehmode.options",
+      "sha256": "5bc201db2d693c4a1394f39ab43d61f0ee7e2fd0d32d1e56efe3b07478596305"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.infra.vehmoding.vehmode.proto",
+      "sha256": "3033fb73a599c3b21743712f66044405dcecef1443b9498d82669cc1bd15b24b"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.infra.vehmoding.vehstate.proto",
+      "sha256": "bac81ef18b731305d29104ddf7c0461735d8aab37deca40c2d372a4871377e24"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.motion.drv.motionctrlinfo.options",
+      "sha256": "179ab992f7e3bb78ab0600881f744fa7c46c623a13fa5dfd34673c93989e4eb5"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.motion.drv.motionctrlinfo.proto",
+      "sha256": "f822af0b8add39cc34453ab96cf465a33ef4a21c220ec7ec8185a15796567563"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.vehctl.scnmgr.drivemodemgr.options",
+      "sha256": "a60b036b4fd61e8d2197f5d451231caccbc8c3890e8af279a485dc42568b37d2"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.vehctl.scnmgr.drivemodemgr.proto",
+      "sha256": "8eeb27136b34ecac922ed369e7ece3ca503d45b1ff7c5b1d03175a31d70cc270"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.vehicle.plm.vehconfig.options",
+      "sha256": "81f471fcf89b8dfd0aa1041573f12274e05eb47ad9306d4d3d77d7c67dfd180f"
+    },
+    {
+      "path": "Reference/AmbLiMgr/proto/srv.vehicle.plm.vehconfig.proto",
+      "sha256": "8b9554bb9e641e061b0d1488abb9cad751b16060f249e028adeacca1f576b759"
+    },
+    {
+      "path": "Reference/AmbLiMgr/src/AmbLiMgr.c",
+      "sha256": "5da896bc87b2c32805d4b153d64294f55ec63aa8b25d9a835277b7658bf96d61"
+    },
+    {
+      "path": "Reference/AmbLiMgr/src/AmbLiMgr_adapter.c",
+      "sha256": "82da59d6168389f63d97faf1245d642694ce597e503d1b1ca778b606d0968f3e"
+    },
+    {
+      "path": "Reference/AmbLiMgr/swc_runnable.json",
+      "sha256": "ada88de3c56111e864ea1d0d8a44aa2757319a90f9a68bbb37054bffcbbc2405"
+    },
+    {
+      "path": "Reference/AmbLiMgr/tests/readme.txt",
+      "sha256": "97d4ede82ca227a7db7f0d5ca9f9c6f94560f420293b744f86e5d4d3e6686135"
+    }
+  ]
+}

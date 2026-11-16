@@ -1,0 +1,45 @@
+srv.body.intrlight.AmbLiColorSetType.color_or_h    int_size:IS_8
+srv.body.intrlight.AmbLiColorSetType.color_s    int_size:IS_8
+srv.body.intrlight.MsgAmbLiSwtSet.img_set    int_size:IS_8
+srv.body.intrlight.MsgAmbLiSwtSet.img_auto_spd    int_size:IS_8
+srv.body.intrlight.MsgAmbLiSwtSet.dyn_effect_mod    int_size:IS_8
+srv.body.intrlight.MsgAmbLiSwtSet.diy_color_set    max_count:12 fixed_count:true
+srv.body.intrlight.MsgAmbLiSwtSet.diy_bri_set    int_size:IS_8
+srv.body.intrlight.MsgAmbLiSwtSet.color_swt    int_size:IS_8
+srv.body.intrlight.MsgAmbLiSwtSet.scenario_set    int_size:IS_8
+srv.body.intrlight.MsgAmbLiSwtSet.psu_bri_set    int_size:IS_8
+srv.body.intrlight.MsgAmbLiSwtSet.diy_bri_drv    int_size:IS_8
+srv.body.intrlight.MsgAmbLiSwtSet.img_bri_set    int_size:IS_8
+srv.body.intrlight.MsgAmbLiSwtSet.lowbri_mode_cmd    int_size:IS_8
+srv.body.intrlight.MsgAmbLiSwtSet.ambli_row_swt    int_size:IS_8
+srv.body.intrlight.MsgAmbLiSwtSet.ambli_row_swt    max_count:12 fixed_count:true
+srv.body.intrlight.AmbLiStsType.color_or_h    int_size:IS_8
+srv.body.intrlight.AmbLiStsType.color_s    int_size:IS_8
+srv.body.intrlight.AmbLiStsType.bri    int_size:IS_8
+srv.body.intrlight.AmbLiStsType.ambli_sts    int_size:IS_8
+srv.body.intrlight.MsgAmbLiParamReq.zone_bri    int_size:IS_8
+srv.body.intrlight.MsgAmbLiParamReq.zone_bri    max_count:6 fixed_count:true
+srv.body.intrlight.MsgAmbLiParamReq.node_bri    int_size:IS_8
+srv.body.intrlight.MsgAmbLiParamReq.node_bri    max_count:207 fixed_count:true
+srv.body.intrlight.MsgAmbLiParamReq.zone_color_or_h    int_size:IS_8
+srv.body.intrlight.MsgAmbLiParamReq.zone_color_or_h    max_count:6 fixed_count:true
+srv.body.intrlight.MsgAmbLiParamReq.zone_color_s    int_size:IS_8
+srv.body.intrlight.MsgAmbLiParamReq.zone_color_s    max_count:6 fixed_count:true
+srv.body.intrlight.MsgAmbLiParamReq.seg_color_or_h    int_size:IS_8
+srv.body.intrlight.MsgAmbLiParamReq.seg_color_or_h    max_count:12 fixed_count:true
+srv.body.intrlight.MsgAmbLiParamReq.seg_color_s    int_size:IS_8
+srv.body.intrlight.MsgAmbLiParamReq.seg_color_s    max_count:12 fixed_count:true
+srv.body.intrlight.MsgAmbLiParamReq.node_color    int_size:IS_8
+srv.body.intrlight.MsgAmbLiParamReq.node_color    max_count:207 fixed_count:true
+srv.body.intrlight.MsgAmbLiParamReq.dyn_fade_tim    int_size:IS_16
+srv.body.intrlight.MsgAmbLiParamReq.sta_fade_tim    int_size:IS_16
+srv.body.intrlight.MsgAmbLiParamReq.sta_fade_tim    max_count:6 fixed_count:true
+srv.body.intrlight.MsgAmbLiParamReq.dyn_nat_tran_tim    int_size:IS_16
+srv.body.intrlight.MsgAmbLiParamReq.sta_nat_tran_tim    int_size:IS_16
+srv.body.intrlight.MsgAmbLiParamReq.sta_nat_tran_tim    max_count:6 fixed_count:true
+srv.body.intrlight.MsgAmbLiStsInfo.ip_ambli_sts    max_count:17 fixed_count:true
+srv.body.intrlight.MsgAmbLiStsInfo.storg_ambli_sts    max_count:17 fixed_count:true
+srv.body.intrlight.MsgAmbLiStsInfo.fw_ambli_sts    max_count:17 fixed_count:true
+srv.body.intrlight.MsgAmbLiStsInfo.reseat_ambli_sts    max_count:17 fixed_count:true
+srv.body.intrlight.MsgAmbLiStsInfo.roof_ambli_sts    max_count:17 fixed_count:true
+srv.body.intrlight.MsgAmbLiStsInfo.dyn_ambli_sts    max_count:17 fixed_count:true

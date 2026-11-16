@@ -1,0 +1,581 @@
+{
+  "version": "0.2",
+  "consumer": "AmbLiMgr",
+  "contract": "common_state_contract.json",
+  "profiles": "capability_profiles.json",
+  "design_status": "approved_client_rx_policy_2026_11_04",
+  "target": {
+    "ecu": "VDF_M",
+    "core": 2,
+    "runnable": "AmbLiMgr_timer_10ms",
+    "period_ms": 10,
+    "asil": null,
+    "source": "POC文档部署目标与本模块参考配置；真实集成基线另核对"
+  },
+  "endpoints": [
+    {
+      "source_package": "srv.vehctl.scnmgr",
+      "service": "DriveModeMgr",
+      "instance": null,
+      "role": "client",
+      "observe_connection": true,
+      "application_uses_connection": false,
+      "connection_exposure": "communication_health_only",
+      "application_reissue_on_reconnect": false,
+      "raw_connected_value_observed_in_business_code": null
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "DynAmbLiActu",
+      "instance": null,
+      "role": "client",
+      "observe_connection": true,
+      "application_uses_connection": true,
+      "connection_exposure": "status_event_preserving_raw_state_and_reason",
+      "application_reissue_on_reconnect": true,
+      "raw_connected_value_observed_in_business_code": 2
+    },
+    {
+      "source_package": "srv.motion.drv",
+      "service": "MotionCtrlInfo",
+      "instance": "MotionCtrlInfoPri",
+      "role": "client",
+      "observe_connection": true,
+      "application_uses_connection": false,
+      "connection_exposure": "communication_health_only",
+      "application_reissue_on_reconnect": false,
+      "raw_connected_value_observed_in_business_code": null
+    },
+    {
+      "source_package": "srv.body.base",
+      "service": "RlsInfo",
+      "instance": null,
+      "role": "client",
+      "observe_connection": true,
+      "application_uses_connection": false,
+      "connection_exposure": "communication_health_only",
+      "application_reissue_on_reconnect": false,
+      "raw_connected_value_observed_in_business_code": null
+    },
+    {
+      "source_package": "srv.body.safety",
+      "service": "SeatBasicSts",
+      "instance": null,
+      "role": "client",
+      "observe_connection": true,
+      "application_uses_connection": false,
+      "connection_exposure": "communication_health_only",
+      "application_reissue_on_reconnect": false,
+      "raw_connected_value_observed_in_business_code": null
+    },
+    {
+      "source_package": "srv.body.smtkey",
+      "service": "SmtKeyUsrIntnMgr",
+      "instance": null,
+      "role": "client",
+      "observe_connection": true,
+      "application_uses_connection": false,
+      "connection_exposure": "communication_health_only",
+      "application_reissue_on_reconnect": false,
+      "raw_connected_value_observed_in_business_code": null
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiAp",
+      "role": "client",
+      "observe_connection": true,
+      "application_uses_connection": true,
+      "connection_exposure": "status_event_preserving_raw_state_and_reason",
+      "application_reissue_on_reconnect": true,
+      "raw_connected_value_observed_in_business_code": 2
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiFw",
+      "role": "client",
+      "observe_connection": true,
+      "application_uses_connection": true,
+      "connection_exposure": "status_event_preserving_raw_state_and_reason",
+      "application_reissue_on_reconnect": true,
+      "raw_connected_value_observed_in_business_code": 2
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiIp",
+      "role": "client",
+      "observe_connection": true,
+      "application_uses_connection": true,
+      "connection_exposure": "status_event_preserving_raw_state_and_reason",
+      "application_reissue_on_reconnect": true,
+      "raw_connected_value_observed_in_business_code": 2
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiStorg",
+      "role": "client",
+      "observe_connection": true,
+      "application_uses_connection": true,
+      "connection_exposure": "status_event_preserving_raw_state_and_reason",
+      "application_reissue_on_reconnect": true,
+      "raw_connected_value_observed_in_business_code": 2
+    },
+    {
+      "source_package": "srv.vehicle.plm",
+      "service": "VehConfig",
+      "instance": null,
+      "role": "client",
+      "observe_connection": true,
+      "application_uses_connection": false,
+      "connection_exposure": "communication_health_only",
+      "application_reissue_on_reconnect": false,
+      "raw_connected_value_observed_in_business_code": null
+    },
+    {
+      "source_package": "srv.infra.vehmoding",
+      "service": "VehState",
+      "instance": null,
+      "role": "client",
+      "observe_connection": true,
+      "application_uses_connection": false,
+      "connection_exposure": "communication_health_only",
+      "application_reissue_on_reconnect": false,
+      "raw_connected_value_observed_in_business_code": null
+    }
+  ],
+  "bindings": [
+    {
+      "source_package": "srv.vehctl.scnmgr",
+      "service": "DriveModeMgr",
+      "instance": null,
+      "rpc": "DriveModeSts",
+      "operation": "notify",
+      "profile": "rx_state",
+      "internal_package": "vmbc.scnmgr",
+      "internal_type": "EVENT",
+      "reconstruction": {},
+      "e2e_state_used": false,
+      "receive_mode": "buffer",
+      "read_status_used": true
+    },
+    {
+      "source_package": "srv.vehctl.scnmgr",
+      "service": "DriveModeMgr",
+      "instance": null,
+      "rpc": "EcoPlusModeInfo",
+      "operation": "notify",
+      "profile": "rx_state",
+      "internal_package": "vmbc.scnmgr",
+      "internal_type": "EVENT",
+      "reconstruction": {},
+      "e2e_state_used": false,
+      "receive_mode": "buffer",
+      "read_status_used": true
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "DynAmbLiActu",
+      "instance": null,
+      "rpc": "DynEnaCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "DynAmbLiActu",
+      "instance": null,
+      "rpc": "DynSegCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "DynAmbLiActu",
+      "instance": null,
+      "rpc": "DynNodeCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "DynAmbLiActu",
+      "instance": null,
+      "rpc": "DynGenBriCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "DynAmbLiActu",
+      "instance": null,
+      "rpc": "DynPrmSet",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {
+        "seg_node_pri": {
+          "enum": "DynPriType",
+          "name": "DYN_AMBLI_PRI_NO_REQ",
+          "value": 0,
+          "field_number": 6
+        }
+      }
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "DynAmbLiActu",
+      "instance": null,
+      "rpc": "DynSeqPilot",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "DynAmbLiActu",
+      "instance": null,
+      "rpc": "DynAmbLiSts",
+      "operation": "notify",
+      "profile": "rx_state",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "EVENT",
+      "reconstruction": {},
+      "e2e_state_used": false,
+      "receive_mode": "buffer",
+      "read_status_used": true
+    },
+    {
+      "source_package": "srv.motion.drv",
+      "service": "MotionCtrlInfo",
+      "instance": "MotionCtrlInfoPri",
+      "rpc": "IfCommInfo",
+      "operation": "notify",
+      "profile": "rx_state_e2e",
+      "internal_package": "vmbc.drv",
+      "internal_type": "EVENT",
+      "reconstruction": {},
+      "e2e_state_used": true,
+      "receive_mode": "buffer",
+      "read_status_used": true
+    },
+    {
+      "source_package": "srv.body.base",
+      "service": "RlsInfo",
+      "instance": null,
+      "rpc": "LightSnrSts",
+      "operation": "notify",
+      "profile": "rx_state",
+      "internal_package": "vmbc.base",
+      "internal_type": "EVENT",
+      "reconstruction": {},
+      "e2e_state_used": false,
+      "receive_mode": "buffer",
+      "read_status_used": true
+    },
+    {
+      "source_package": "srv.body.safety",
+      "service": "SeatBasicSts",
+      "instance": null,
+      "rpc": "SeatBasicStsArray",
+      "operation": "notify",
+      "profile": "rx_state",
+      "internal_package": "vmbc.safety",
+      "internal_type": "EVENT",
+      "reconstruction": {},
+      "e2e_state_used": false,
+      "receive_mode": "buffer",
+      "read_status_used": true
+    },
+    {
+      "source_package": "srv.body.smtkey",
+      "service": "SmtKeyUsrIntnMgr",
+      "instance": null,
+      "rpc": "SmtKeyUsrIntnNotify",
+      "operation": "notify",
+      "profile": "rx_state",
+      "internal_package": "vmbc.smtkey",
+      "internal_type": "EVENT",
+      "reconstruction": {},
+      "e2e_state_used": false,
+      "receive_mode": "buffer",
+      "read_status_used": true
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiAp",
+      "rpc": "StaEnaCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiFw",
+      "rpc": "StaEnaCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiIp",
+      "rpc": "StaEnaCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiStorg",
+      "rpc": "StaEnaCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiAp",
+      "rpc": "StaColorCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiFw",
+      "rpc": "StaColorCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiIp",
+      "rpc": "StaColorCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiStorg",
+      "rpc": "StaColorCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiFw",
+      "rpc": "StaGenBriCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiAp",
+      "rpc": "StaNodeBriCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiIp",
+      "rpc": "StaNodeBriCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiStorg",
+      "rpc": "StaNodeBriCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiAp",
+      "rpc": "StaPrmCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiFw",
+      "rpc": "StaPrmCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiIp",
+      "rpc": "StaPrmCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.body.intrlight",
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiStorg",
+      "rpc": "StaPrmCtrl",
+      "operation": "request",
+      "profile": "tx_ff",
+      "internal_package": "vmbc.intrlight",
+      "internal_type": "METHOD",
+      "reconstruction": {}
+    },
+    {
+      "source_package": "srv.vehicle.plm",
+      "service": "VehConfig",
+      "instance": null,
+      "rpc": "IVcpVal_VehicleProject",
+      "operation": "notify",
+      "profile": "rx_state",
+      "internal_package": "vmbc.plm",
+      "internal_type": "EVENT",
+      "reconstruction": {},
+      "e2e_state_used": false,
+      "receive_mode": "buffer",
+      "read_status_used": true
+    },
+    {
+      "source_package": "srv.infra.vehmoding",
+      "service": "VehState",
+      "instance": null,
+      "rpc": "VehStateInfo",
+      "operation": "notify",
+      "profile": "rx_state",
+      "internal_package": "vmbc.vehmoding",
+      "internal_type": "EVENT",
+      "reconstruction": {},
+      "e2e_state_used": false,
+      "receive_mode": "buffer",
+      "read_status_used": true
+    }
+  ],
+  "excluded_business_operations": [
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiFw",
+      "rpc": "StaAmbLiSts",
+      "reason": "configured_no_read_call",
+      "source_lines": []
+    },
+    {
+      "service": "StaAmbLiActu",
+      "instance": "StaAmbLiStorg",
+      "rpc": "StaAmbLiSts",
+      "reason": "configured_no_read_call",
+      "source_lines": []
+    },
+    {
+      "service": "VehMode",
+      "instance": null,
+      "rpc": "VehModeInfo",
+      "reason": "read_and_cached_no_business_field_reference",
+      "source_lines": [
+        30370
+      ]
+    },
+    {
+      "service": "VehMode",
+      "instance": null,
+      "rpc": "VehModeSettingInfo",
+      "reason": "read_and_cached_no_business_field_reference",
+      "source_lines": [
+        30411
+      ]
+    },
+    {
+      "service": "VehConfig",
+      "instance": null,
+      "rpc": "IVcpVal_InteriorBodyColor",
+      "reason": "read_and_cached_no_business_field_reference",
+      "source_lines": [
+        30191
+      ]
+    }
+  ],
+  "exclusion_policy": "仅未纳入本轮VMBC业务子集，不批准删除原订阅/错误回调；迁移前确认外部用途或保持原路径",
+  "application_policy_notes": [
+    "业务数据读取结果与源数据质量分别暴露；应用自行决定debounce和回退，桥接不加入业务策略。",
+    "仅MotionCtrlInfo暴露原始E2E字段，其他八路关闭状态字段。",
+    "接收不以连接状态额外门控；发送侧重连隔离保持。"
+  ],
+  "deferred_integration_inputs": [
+    "正式Service ID、组件ID、ASIL与集成基线",
+    "实际SDK生成头及sm_e2e_state_t布局/接口名称",
+    "源Motion E2E状态通路是否实际支持（LOCAL getter不可直接信任）",
+    "底座首次写入有效性检查、源session隔离、真实调度与WCET"
+  ]
+}

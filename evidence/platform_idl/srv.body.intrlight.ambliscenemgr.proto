@@ -1,0 +1,113 @@
+/**
+ * @author jingde.ma
+ * @brief 
+ * @date 2026-02-05
+ * 
+ * @copyright Copyright (c) NIO 2026
+ * All rights reserved.
+ * This document contains proprietary information belonging to NIO. Passing on and copying of this document,
+ * and communication of its contents is not permitted without prior written authorization.
+ * 
+ */
+syntax = "proto3";
+package srv.body.intrlight;
+import "nrpc.option.proto";
+option (idl_version) = "1.0";
+
+message AmbLiSceneUpdateMsg {
+    uint32 req_src_type  = 1;
+    /**
+     * Value  Description(EN)
+     * 0      no request
+     * 1      festival
+     * 2      theater
+     */
+    uint32 scene_type    = 2;
+    /**
+     * Value  Description(EN)
+     * 0      NO_UPDATE
+     * 1      UUID1_UPDATE
+     * 2      UUID2_UPDATE
+     * 3      UUID3_UPDATE
+     */
+    uint32 uuid_update   = 3;
+}
+
+message AmbLiSceneReqMsg {
+    uint32 req_src_type   = 1;
+    /**
+     * Value  Description(EN)
+     * 0      NO_REQUEST
+     * 1      festival
+     * 2      theater
+     */
+    uint32 scene_type     = 2;
+    /**
+     * Value  Description(EN)
+     * 0      NO_REQUEST
+     * 1      UUID1
+     * 2      UUID2
+     * 3      UUID3
+     */
+    uint32 uuid           = 3;
+    /**
+     * Value  Description(EN)
+     * 0      NO_REQUEST
+     * 1      PLAY_ONCE
+     * 2      PLAY_CYCLE
+     * 3      OFF
+     * 4      PAUSE
+     * 5      RESUME
+     */
+    uint32 scene_cmd      = 4;
+    uint32 scene_progress = 5; // Unit: s
+}
+
+message AmbLiSceneStsMsg {
+    /**
+     * Value  Description(EN)
+     * 0      NOT_UPDATED
+     * 1      UPDATING
+     * 2      FAILED
+     * 3      SUCCESS
+     */
+    uint32 scene_update_sts = 1;
+    /**
+     * Value  Description(EN)
+     * 0      OFF
+     * 1      UUID1_ON
+     * 2      UUID2_ON
+     * 3      UUID3_ON
+     */
+    uint32 uuid_sts         = 2;
+    /**
+     * Value  Description(EN)
+     * 0      invalid
+     * 1      festival
+     * 2      theater
+     */
+    uint32 scene_type_sts   = 3;
+}
+
+service AmbLiSceneMgr {
+    option(service_id) = 2188;
+
+    rpc AmbLiSceneUpdate(AmbLiSceneUpdateMsg) returns (Null) {
+        option (rpc_id) = 1;
+        option (method_type) = METHOD;
+        option (rpc_reliability) = RELIABLE;
+    }
+
+    rpc AmbLiSceneReq(AmbLiSceneReqMsg) returns (Null) {
+        option (rpc_id) = 2;
+        option (method_type) = METHOD;
+        option (rpc_reliability) = RELIABLE;
+    }
+
+    rpc AmbLiSceneSts(AmbLiSceneStsMsg) returns (Null) {
+        option (rpc_id) = 3;
+        option (method_type) = FIELD_READONLY;
+        option (update_policy) = ON_CHANGE;
+        option (rpc_reliability_field_event) = RELIABLE;
+    }
+}

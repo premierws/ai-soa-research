@@ -1,0 +1,1529 @@
+{
+  "ok": true,
+  "identity": "user",
+  "data": {
+    "nodes": [
+      {
+        "angle": 0,
+        "height": 52.12799835205078,
+        "id": "a1:100",
+        "locked": false,
+        "parent_id": "n1:1",
+        "text": {
+          "angle": 0,
+          "font_size": 36,
+          "font_weight": "bold",
+          "horizontal_align": "center",
+          "italic": false,
+          "line_through": false,
+          "text": "服务架构矩阵",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "text_shape",
+        "width": 257.8873291015625,
+        "x": 1125.7435302734375,
+        "y": 703.46826171875,
+        "z_index": 1
+      },
+      {
+        "angle": 0,
+        "connector": {
+          "caption_auto_direction": false,
+          "end": {
+            "arrow_style": "line_arrow",
+            "attached_object": {
+              "id": "o1:172",
+              "position": {
+                "x": 1.000000238418579,
+                "y": 0.7467281818389893
+              },
+              "snap_to": "right"
+            }
+          },
+          "end_object": {
+            "id": "o1:172",
+            "position": {
+              "x": 1.000000238418579,
+              "y": 0.7467281818389893
+            },
+            "snap_to": "right"
+          },
+          "shape": "polyline",
+          "specified_coordinate": true,
+          "start": {
+            "arrow_style": "none",
+            "attached_object": {
+              "id": "o1:164",
+              "position": {
+                "x": 0,
+                "y": 0.14862819015979767
+              },
+              "snap_to": "left"
+            }
+          },
+          "start_object": {
+            "id": "o1:164",
+            "position": {
+              "x": 0,
+              "y": 0.14862819015979767
+            },
+            "snap_to": "left"
+          },
+          "turning_points": []
+        },
+        "height": 0.000213623046875,
+        "id": "c1:189",
+        "locked": false,
+        "style": {
+          "border_color": "#b85b41",
+          "border_color_type": 0,
+          "border_opacity": 100,
+          "border_style": "solid",
+          "border_width": "narrow",
+          "theme_border_color_code": 6
+        },
+        "type": "connector",
+        "width": 317.087158203125,
+        "x": 1536.78564453125,
+        "y": 461.3123474121094,
+        "z_index": 6
+      },
+      {
+        "angle": 0,
+        "height": 34.75199890136719,
+        "id": "a1:122",
+        "locked": false,
+        "text": {
+          "angle": 0,
+          "font_size": 24,
+          "font_weight": "regular",
+          "horizontal_align": "left",
+          "italic": false,
+          "line_through": false,
+          "text": "关键技术方案决策需求",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "text_shape",
+        "width": 240,
+        "x": 1575.3292236328125,
+        "y": 683.3785400390625,
+        "z_index": 11
+      },
+      {
+        "angle": 0,
+        "connector": {
+          "caption_auto_direction": false,
+          "end": {
+            "arrow_style": "line_arrow",
+            "attached_object": {
+              "id": "o1:172",
+              "position": {
+                "x": 0.7464263439178467,
+                "y": 1.0000001192092896
+              },
+              "snap_to": "bottom"
+            }
+          },
+          "end_object": {
+            "id": "o1:172",
+            "position": {
+              "x": 0.7464263439178467,
+              "y": 1.0000001192092896
+            },
+            "snap_to": "bottom"
+          },
+          "shape": "polyline",
+          "specified_coordinate": true,
+          "start": {
+            "arrow_style": "none",
+            "attached_object": {
+              "id": "o1:155",
+              "position": {
+                "x": 0.7464259266853333,
+                "y": 0
+              },
+              "snap_to": "top"
+            }
+          },
+          "start_object": {
+            "id": "o1:155",
+            "position": {
+              "x": 0.7464259266853333,
+              "y": 0
+            },
+            "snap_to": "top"
+          },
+          "turning_points": []
+        },
+        "height": 177.6173095703125,
+        "id": "c1:195",
+        "locked": false,
+        "style": {
+          "border_color": "#b85b41",
+          "border_color_type": 0,
+          "border_opacity": 100,
+          "border_style": "solid",
+          "border_width": "narrow",
+          "theme_border_color_code": 6
+        },
+        "type": "connector",
+        "width": 0.000244140625,
+        "x": 1393.7198486328125,
+        "y": 505.76123046875,
+        "z_index": 18
+      },
+      {
+        "angle": 0,
+        "height": 34.75199890136719,
+        "id": "a1:133",
+        "locked": false,
+        "text": {
+          "angle": 0,
+          "font_size": 24,
+          "font_weight": "regular",
+          "horizontal_align": "left",
+          "italic": false,
+          "line_through": false,
+          "text": "方案决策后，由SO/SW带回系统BU实施",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "text_shape",
+        "width": 432.5173034667969,
+        "x": 1038.428466796875,
+        "y": 789.3731689453125,
+        "z_index": 31
+      },
+      {
+        "angle": 0,
+        "children": [
+          "o1:173",
+          "a1:118"
+        ],
+        "height": 175.5,
+        "id": "n1:3",
+        "locked": false,
+        "type": "group",
+        "width": 564.2000122070312,
+        "x": 972.5887451171875,
+        "y": 1036.4945068359375,
+        "z_index": 5
+      },
+      {
+        "angle": 0,
+        "connector": {
+          "caption_auto_direction": false,
+          "end": {
+            "arrow_style": "line_arrow",
+            "position": {
+              "x": 1853.8726806640625,
+              "y": 729.5322875976562
+            }
+          },
+          "shape": "polyline",
+          "specified_coordinate": true,
+          "start": {
+            "arrow_style": "none",
+            "position": {
+              "x": 1536.785400390625,
+              "y": 729.5321655273438
+            }
+          },
+          "turning_points": []
+        },
+        "height": 0.0001220703125,
+        "id": "c1:190",
+        "locked": false,
+        "style": {
+          "border_color": "#b85b41",
+          "border_color_type": 0,
+          "border_opacity": 100,
+          "border_style": "solid",
+          "border_width": "narrow",
+          "theme_border_color_code": 6
+        },
+        "type": "connector",
+        "width": 317.0872802734375,
+        "x": 1536.785400390625,
+        "y": 729.5321655273438,
+        "z_index": 9
+      },
+      {
+        "angle": 0,
+        "connector": {
+          "caption_auto_direction": false,
+          "end": {
+            "arrow_style": "line_arrow",
+            "position": {
+              "x": 1536.7857666015625,
+              "y": 1167.5443115234375
+            }
+          },
+          "shape": "polyline",
+          "specified_coordinate": true,
+          "start": {
+            "arrow_style": "none",
+            "position": {
+              "x": 1853.872802734375,
+              "y": 1167.5445556640625
+            }
+          },
+          "turning_points": []
+        },
+        "height": 0.000244140625,
+        "id": "c1:193",
+        "locked": false,
+        "style": {
+          "border_color": "#b85b41",
+          "border_color_type": 0,
+          "border_opacity": 100,
+          "border_style": "solid",
+          "border_width": "narrow",
+          "theme_border_color_code": 6
+        },
+        "type": "connector",
+        "width": 317.0870361328125,
+        "x": 1536.7857666015625,
+        "y": 1167.5443115234375,
+        "z_index": 14
+      },
+      {
+        "angle": 0,
+        "connector": {
+          "caption_auto_direction": false,
+          "end": {
+            "arrow_style": "line_arrow",
+            "attached_object": {
+              "id": "o1:155",
+              "position": {
+                "x": 0.23323264718055725,
+                "y": 0
+              },
+              "snap_to": "top"
+            }
+          },
+          "end_object": {
+            "id": "o1:155",
+            "position": {
+              "x": 0.23323264718055725,
+              "y": 0
+            },
+            "snap_to": "top"
+          },
+          "shape": "polyline",
+          "specified_coordinate": true,
+          "start": {
+            "arrow_style": "none",
+            "attached_object": {
+              "id": "o1:172",
+              "position": {
+                "x": 0.23323307931423187,
+                "y": 1.0000001192092896
+              },
+              "snap_to": "bottom"
+            }
+          },
+          "start_object": {
+            "id": "o1:172",
+            "position": {
+              "x": 0.23323307931423187,
+              "y": 1.0000001192092896
+            },
+            "snap_to": "bottom"
+          },
+          "turning_points": []
+        },
+        "height": 177.6173095703125,
+        "id": "c1:194",
+        "locked": false,
+        "style": {
+          "border_color": "#b85b41",
+          "border_color_type": 0,
+          "border_opacity": 100,
+          "border_style": "solid",
+          "border_width": "narrow",
+          "theme_border_color_code": 6
+        },
+        "type": "connector",
+        "width": 0.000244140625,
+        "x": 1104.1778564453125,
+        "y": 505.76123046875,
+        "z_index": 17
+      },
+      {
+        "angle": 0,
+        "connector": {
+          "caption_auto_direction": false,
+          "end": {
+            "arrow_style": "line_arrow",
+            "position": {
+              "x": 1104.1778564453125,
+              "y": 1036.49462890625
+            }
+          },
+          "shape": "polyline",
+          "specified_coordinate": true,
+          "start": {
+            "arrow_style": "none",
+            "position": {
+              "x": 1104.1781005859375,
+              "y": 858.8773193359375
+            }
+          },
+          "turning_points": []
+        },
+        "height": 177.6173095703125,
+        "id": "c1:196",
+        "locked": false,
+        "style": {
+          "border_color": "#b85b41",
+          "border_color_type": 0,
+          "border_opacity": 100,
+          "border_style": "solid",
+          "border_width": "narrow",
+          "theme_border_color_code": 6
+        },
+        "type": "connector",
+        "width": 0.000244140625,
+        "x": 1104.1778564453125,
+        "y": 858.8773193359375,
+        "z_index": 21
+      },
+      {
+        "angle": 0,
+        "connector": {
+          "caption_auto_direction": false,
+          "end": {
+            "arrow_style": "line_arrow",
+            "attached_object": {
+              "id": "o1:178",
+              "position": {
+                "x": 1.0000001192092896,
+                "y": 0.4485112726688385
+              },
+              "snap_to": "right"
+            }
+          },
+          "end_object": {
+            "id": "o1:178",
+            "position": {
+              "x": 1.0000001192092896,
+              "y": 0.4485112726688385
+            },
+            "snap_to": "right"
+          },
+          "shape": "polyline",
+          "specified_coordinate": true,
+          "start": {
+            "arrow_style": "none",
+            "attached_object": {
+              "id": "o1:155",
+              "position": {
+                "x": 0,
+                "y": 0.24131610989570618
+              },
+              "snap_to": "left"
+            }
+          },
+          "start_object": {
+            "id": "o1:155",
+            "position": {
+              "x": 0,
+              "y": 0.24131610989570618
+            },
+            "snap_to": "left"
+          },
+          "turning_points": []
+        },
+        "height": 0.00054931640625,
+        "id": "c1:198",
+        "locked": false,
+        "style": {
+          "border_color": "#b85b41",
+          "border_color_type": 0,
+          "border_opacity": 100,
+          "border_style": "solid",
+          "border_width": "narrow",
+          "theme_border_color_code": 6
+        },
+        "type": "connector",
+        "width": 289.71087646484375,
+        "x": 682.8778686523438,
+        "y": 725.7286376953125,
+        "z_index": 27
+      },
+      {
+        "angle": 0,
+        "height": 34.75199890136719,
+        "id": "a1:131",
+        "locked": false,
+        "text": {
+          "angle": 0,
+          "font_size": 24,
+          "font_weight": "regular",
+          "horizontal_align": "left",
+          "italic": false,
+          "line_through": false,
+          "text": "NT3.x SOA问题方案需求",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "text_shape",
+        "width": 259.7279968261719,
+        "x": 697.8693237304688,
+        "y": 684.75830078125,
+        "z_index": 29
+      },
+      {
+        "angle": 0,
+        "composite_shape": {
+          "type": "round_rect"
+        },
+        "height": 983.698974609375,
+        "id": "o1:175",
+        "style": {
+          "border_color": "#3e395c",
+          "border_color_type": 0,
+          "border_opacity": 100,
+          "border_style": "solid",
+          "border_width": "extra_narrow",
+          "fill_color_type": 0,
+          "fill_opacity": 100,
+          "theme_border_color_code": 5,
+          "theme_fill_color_code": 0
+        },
+        "text": {
+          "angle": 0,
+          "font_size": 14,
+          "font_weight": "regular",
+          "horizontal_align": "center",
+          "italic": false,
+          "line_through": false,
+          "text": "",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "composite_shape",
+        "width": 1410.88525390625,
+        "x": 860.435546875,
+        "y": 279.788818359375,
+        "z_index": 0
+      },
+      {
+        "angle": 0,
+        "height": 34.75199890136719,
+        "id": "a1:125",
+        "locked": false,
+        "text": {
+          "angle": 0,
+          "font_size": 24,
+          "font_weight": "regular",
+          "horizontal_align": "left",
+          "italic": false,
+          "line_through": false,
+          "text": "决策结论",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "text_shape",
+        "width": 96,
+        "x": 1647.3292236328125,
+        "y": 1177.2410888671875,
+        "z_index": 16
+      },
+      {
+        "angle": 0,
+        "height": 69.50399780273438,
+        "id": "a1:128",
+        "locked": false,
+        "text": {
+          "angle": 0,
+          "font_size": 24,
+          "font_weight": "regular",
+          "horizontal_align": "left",
+          "italic": false,
+          "line_through": false,
+          "rich_text": {
+            "paragraphs": [
+              {
+                "elements": [
+                  {
+                    "element_type": 0,
+                    "text_element": {
+                      "text": "服务架构方案的软件实施评估",
+                      "text_style": {}
+                    }
+                  }
+                ],
+                "indent": 0,
+                "list_begin_index": 0,
+                "paragraph_type": 2,
+                "quote": false
+              },
+              {
+                "elements": [
+                  {
+                    "element_type": 0,
+                    "text_element": {
+                      "text": "软件架构问题解决方案需求",
+                      "text_style": {}
+                    }
+                  }
+                ],
+                "indent": 0,
+                "list_begin_index": 1,
+                "paragraph_type": 2,
+                "quote": false
+              }
+            ]
+          },
+          "text": "服务架构方案的软件实施评估\n软件架构问题解决方案需求",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "text_shape",
+        "width": 351.9743957519531,
+        "x": 896.1251831054688,
+        "y": 912.933837890625,
+        "z_index": 23
+      },
+      {
+        "angle": 0,
+        "composite_shape": {
+          "type": "rect"
+        },
+        "height": 881.7307739257812,
+        "id": "o1:164",
+        "locked": false,
+        "style": {
+          "border_color": "#b85b41",
+          "border_color_type": 0,
+          "border_opacity": 100,
+          "border_style": "solid",
+          "border_width": "medium",
+          "fill_color_type": 0,
+          "fill_opacity": 100,
+          "theme_border_color_code": 9,
+          "theme_fill_color_code": 0
+        },
+        "text": {
+          "angle": 0,
+          "font_size": 36,
+          "font_weight": "bold",
+          "horizontal_align": "center",
+          "italic": false,
+          "line_through": false,
+          "text": "VAS技术委员会",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "composite_shape",
+        "width": 345.5023193359375,
+        "x": 1853.872802734375,
+        "y": 330.26251220703125,
+        "z_index": 3
+      },
+      {
+        "angle": 0,
+        "children": [
+          "o1:172",
+          "a1:117"
+        ],
+        "height": 175.5,
+        "id": "n1:2",
+        "locked": false,
+        "type": "group",
+        "width": 564.2000122070312,
+        "x": 972.5887451171875,
+        "y": 330.2625732421875,
+        "z_index": 4
+      },
+      {
+        "angle": 0,
+        "connector": {
+          "caption_auto_direction": false,
+          "end": {
+            "arrow_style": "line_arrow",
+            "position": {
+              "x": 1853.8721923828125,
+              "y": 1082.6483154296875
+            }
+          },
+          "shape": "polyline",
+          "specified_coordinate": true,
+          "start": {
+            "arrow_style": "none",
+            "position": {
+              "x": 1536.784912109375,
+              "y": 1082.6483154296875
+            }
+          },
+          "turning_points": []
+        },
+        "height": 0,
+        "id": "c1:192",
+        "locked": false,
+        "style": {
+          "border_color": "#b85b41",
+          "border_color_type": 0,
+          "border_opacity": 100,
+          "border_style": "solid",
+          "border_width": "narrow",
+          "theme_border_color_code": 6
+        },
+        "type": "connector",
+        "width": 317.0872802734375,
+        "x": 1536.784912109375,
+        "y": 1082.6483154296875,
+        "z_index": 13
+      },
+      {
+        "angle": 0,
+        "children": [
+          "o1:155",
+          "a1:100"
+        ],
+        "height": 175.5,
+        "id": "n1:1",
+        "type": "group",
+        "width": 564.2000122070312,
+        "x": 972.5887451171875,
+        "y": 683.3785400390625,
+        "z_index": 1
+      },
+      {
+        "angle": 0,
+        "composite_shape": {
+          "type": "round_rect"
+        },
+        "height": 175.49862670898438,
+        "id": "o1:172",
+        "locked": false,
+        "parent_id": "n1:2",
+        "style": {
+          "border_color": "#b85b41",
+          "border_color_type": 0,
+          "border_dasharrays": [
+            4,
+            4
+          ],
+          "border_opacity": 100,
+          "border_style": "dash",
+          "border_width": "narrow",
+          "fill_color_type": 0,
+          "fill_opacity": 100,
+          "theme_border_color_code": 9,
+          "theme_fill_color_code": 0
+        },
+        "text": {
+          "angle": 0,
+          "font_size": 24,
+          "font_weight": "regular",
+          "horizontal_align": "center",
+          "italic": false,
+          "line_through": false,
+          "text": "",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "composite_shape",
+        "width": 564.19677734375,
+        "x": 972.5887451171875,
+        "y": 330.2625732421875,
+        "z_index": 0
+      },
+      {
+        "angle": 0,
+        "composite_shape": {
+          "type": "round_rect"
+        },
+        "height": 175.49862670898438,
+        "id": "o1:173",
+        "locked": false,
+        "parent_id": "n1:3",
+        "style": {
+          "border_color": "#b85b41",
+          "border_color_type": 0,
+          "border_dasharrays": [
+            4,
+            4
+          ],
+          "border_opacity": 100,
+          "border_style": "dash",
+          "border_width": "narrow",
+          "fill_color_type": 0,
+          "fill_opacity": 100,
+          "theme_border_color_code": 9,
+          "theme_fill_color_code": 0
+        },
+        "text": {
+          "angle": 0,
+          "font_size": 24,
+          "font_weight": "regular",
+          "horizontal_align": "center",
+          "italic": false,
+          "line_through": false,
+          "text": "",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "composite_shape",
+        "width": 564.19677734375,
+        "x": 972.5887451171875,
+        "y": 1036.4945068359375,
+        "z_index": 0
+      },
+      {
+        "angle": 0,
+        "height": 69.50399780273438,
+        "id": "a1:127",
+        "locked": false,
+        "text": {
+          "angle": 0,
+          "font_size": 24,
+          "font_weight": "regular",
+          "horizontal_align": "left",
+          "italic": false,
+          "line_through": false,
+          "rich_text": {
+            "paragraphs": [
+              {
+                "elements": [
+                  {
+                    "element_type": 0,
+                    "text_element": {
+                      "text": "平台化技术解决方案",
+                      "text_style": {}
+                    }
+                  }
+                ],
+                "indent": 0,
+                "list_begin_index": 0,
+                "paragraph_type": 2,
+                "quote": false
+              },
+              {
+                "elements": [
+                  {
+                    "element_type": 0,
+                    "text_element": {
+                      "text": "服务架构方案的业务影响评估",
+                      "text_style": {}
+                    }
+                  }
+                ],
+                "indent": 0,
+                "list_begin_index": 1,
+                "paragraph_type": 2,
+                "quote": false
+              }
+            ]
+          },
+          "text": "平台化技术解决方案\n服务架构方案的业务影响评估",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "text_shape",
+        "width": 351.9743957519531,
+        "x": 1238.2734375,
+        "y": 559.81787109375,
+        "z_index": 20
+      },
+      {
+        "angle": 0,
+        "height": 104.25599670410156,
+        "id": "a1:130",
+        "locked": false,
+        "text": {
+          "angle": 0,
+          "font_size": 36,
+          "font_weight": "bold",
+          "horizontal_align": "center",
+          "italic": false,
+          "line_through": false,
+          "text": "SOA架构战队",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "text_shape",
+        "width": 113.49549102783203,
+        "x": 501.9793395996094,
+        "y": 719.5103149414062,
+        "z_index": 26
+      },
+      {
+        "angle": 0,
+        "connector": {
+          "caption_auto_direction": false,
+          "end": {
+            "arrow_style": "line_arrow",
+            "attached_object": {
+              "id": "o1:155",
+              "position": {
+                "x": 1.0818062179396293e-7,
+                "y": 0.7840686440467834
+              },
+              "snap_to": "left"
+            }
+          },
+          "end_object": {
+            "id": "o1:155",
+            "position": {
+              "x": 1.0818062179396293e-7,
+              "y": 0.7840686440467834
+            },
+            "snap_to": "left"
+          },
+          "shape": "polyline",
+          "specified_coordinate": true,
+          "start": {
+            "arrow_style": "none",
+            "attached_object": {
+              "id": "o1:178",
+              "position": {
+                "x": 0.9999998807907104,
+                "y": 0.5565407872200012
+              },
+              "snap_to": "right"
+            }
+          },
+          "start_object": {
+            "id": "o1:178",
+            "position": {
+              "x": 0.9999998807907104,
+              "y": 0.5565407872200012
+            },
+            "snap_to": "right"
+          },
+          "turning_points": []
+        },
+        "height": 0.00006103515625,
+        "id": "c1:199",
+        "locked": false,
+        "style": {
+          "border_color": "#b85b41",
+          "border_color_type": 0,
+          "border_opacity": 100,
+          "border_style": "solid",
+          "border_width": "narrow",
+          "theme_border_color_code": 6
+        },
+        "type": "connector",
+        "width": 289.71099853515625,
+        "x": 682.8778076171875,
+        "y": 820.9815063476562,
+        "z_index": 28
+      },
+      {
+        "angle": 0,
+        "height": 34.75199890136719,
+        "id": "a1:132",
+        "locked": false,
+        "text": {
+          "angle": 0,
+          "font_size": 24,
+          "font_weight": "regular",
+          "horizontal_align": "left",
+          "italic": false,
+          "line_through": false,
+          "text": "NT3.x SOA方案实施需求",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "text_shape",
+        "width": 259.7279968261719,
+        "x": 697.8693237304688,
+        "y": 824.1253051757812,
+        "z_index": 30
+      },
+      {
+        "angle": 0,
+        "connector": {
+          "caption_auto_direction": false,
+          "end": {
+            "arrow_style": "line_arrow",
+            "attached_object": {
+              "id": "o1:164",
+              "position": {
+                "x": 0,
+                "y": 0.05234459415078163
+              },
+              "snap_to": "left"
+            }
+          },
+          "end_object": {
+            "id": "o1:164",
+            "position": {
+              "x": 0,
+              "y": 0.05234459415078163
+            },
+            "snap_to": "left"
+          },
+          "shape": "polyline",
+          "specified_coordinate": true,
+          "start": {
+            "arrow_style": "none",
+            "attached_object": {
+              "id": "o1:172",
+              "position": {
+                "x": 1,
+                "y": 0.26298603415489197
+              },
+              "snap_to": "right"
+            }
+          },
+          "start_object": {
+            "id": "o1:172",
+            "position": {
+              "x": 1,
+              "y": 0.26298603415489197
+            },
+            "snap_to": "right"
+          },
+          "turning_points": []
+        },
+        "height": 0.000091552734375,
+        "id": "c1:170",
+        "locked": false,
+        "style": {
+          "border_color": "#b85b41",
+          "border_color_type": 0,
+          "border_opacity": 100,
+          "border_style": "solid",
+          "border_width": "narrow",
+          "theme_border_color_code": 6
+        },
+        "type": "connector",
+        "width": 317.0872802734375,
+        "x": 1536.7855224609375,
+        "y": 376.416259765625,
+        "z_index": 2
+      },
+      {
+        "angle": 0,
+        "composite_shape": {
+          "type": "round_rect"
+        },
+        "height": 175.49862670898438,
+        "id": "o1:155",
+        "locked": false,
+        "parent_id": "n1:1",
+        "style": {
+          "border_color": "#b85b41",
+          "border_color_type": 0,
+          "border_opacity": 100,
+          "border_style": "dash",
+          "border_width": "narrow",
+          "fill_color_type": 0,
+          "fill_opacity": 100,
+          "theme_border_color_code": 9,
+          "theme_fill_color_code": 0
+        },
+        "text": {
+          "angle": 0,
+          "font_size": 24,
+          "font_weight": "regular",
+          "horizontal_align": "center",
+          "italic": false,
+          "line_through": false,
+          "text": "",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "composite_shape",
+        "width": 564.19677734375,
+        "x": 972.5887451171875,
+        "y": 683.3785400390625,
+        "z_index": 0
+      },
+      {
+        "angle": 0,
+        "height": 34.75199890136719,
+        "id": "a1:124",
+        "locked": false,
+        "text": {
+          "angle": 0,
+          "font_size": 24,
+          "font_weight": "regular",
+          "horizontal_align": "left",
+          "italic": false,
+          "line_through": false,
+          "text": "关键技术方案决策需求",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "text_shape",
+        "width": 240,
+        "x": 1575.3292236328125,
+        "y": 1036.494384765625,
+        "z_index": 15
+      },
+      {
+        "angle": 0,
+        "connector": {
+          "caption_auto_direction": false,
+          "end": {
+            "arrow_style": "line_arrow",
+            "position": {
+              "x": 1393.719970703125,
+              "y": 858.8773193359375
+            }
+          },
+          "shape": "polyline",
+          "specified_coordinate": true,
+          "start": {
+            "arrow_style": "none",
+            "position": {
+              "x": 1393.7197265625,
+              "y": 1036.49462890625
+            }
+          },
+          "turning_points": []
+        },
+        "height": 177.6173095703125,
+        "id": "c1:197",
+        "locked": false,
+        "style": {
+          "border_color": "#b85b41",
+          "border_color_type": 0,
+          "border_opacity": 100,
+          "border_style": "solid",
+          "border_width": "narrow",
+          "theme_border_color_code": 6
+        },
+        "type": "connector",
+        "width": 0.000244140625,
+        "x": 1393.7197265625,
+        "y": 858.8773193359375,
+        "z_index": 22
+      },
+      {
+        "angle": 0,
+        "height": 52.12799835205078,
+        "id": "a1:117",
+        "locked": false,
+        "parent_id": "n1:2",
+        "text": {
+          "angle": 0,
+          "font_size": 36,
+          "font_weight": "bold",
+          "horizontal_align": "center",
+          "italic": false,
+          "line_through": false,
+          "text": "系统架构矩阵",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "text_shape",
+        "width": 257.8873291015625,
+        "x": 1125.7435302734375,
+        "y": 391.9478759765625,
+        "z_index": 1
+      },
+      {
+        "angle": 0,
+        "height": 52.12799835205078,
+        "id": "a1:118",
+        "locked": false,
+        "parent_id": "n1:3",
+        "text": {
+          "angle": 0,
+          "font_size": 36,
+          "font_weight": "bold",
+          "horizontal_align": "center",
+          "italic": false,
+          "line_through": false,
+          "text": "软件架构矩阵",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "text_shape",
+        "width": 257.8873291015625,
+        "x": 1125.7435302734375,
+        "y": 1098.1798095703125,
+        "z_index": 1
+      },
+      {
+        "angle": 0,
+        "connector": {
+          "caption_auto_direction": false,
+          "end": {
+            "arrow_style": "line_arrow",
+            "position": {
+              "x": 1536.78564453125,
+              "y": 814.4282836914062
+            }
+          },
+          "shape": "polyline",
+          "specified_coordinate": true,
+          "start": {
+            "arrow_style": "none",
+            "position": {
+              "x": 1853.872802734375,
+              "y": 814.4285278320312
+            }
+          },
+          "turning_points": []
+        },
+        "height": 0.000244140625,
+        "id": "c1:191",
+        "locked": false,
+        "style": {
+          "border_color": "#b85b41",
+          "border_color_type": 0,
+          "border_opacity": 100,
+          "border_style": "solid",
+          "border_width": "narrow",
+          "theme_border_color_code": 6
+        },
+        "type": "connector",
+        "width": 317.087158203125,
+        "x": 1536.78564453125,
+        "y": 814.4282836914062,
+        "z_index": 10
+      },
+      {
+        "angle": 0,
+        "height": 34.75199890136719,
+        "id": "a1:123",
+        "locked": false,
+        "text": {
+          "angle": 0,
+          "font_size": 24,
+          "font_weight": "regular",
+          "horizontal_align": "left",
+          "italic": false,
+          "line_through": false,
+          "text": "决策结论及Code",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "text_shape",
+        "width": 178.03199768066406,
+        "x": 1606.313232421875,
+        "y": 824.1253051757812,
+        "z_index": 12
+      },
+      {
+        "angle": 0,
+        "height": 69.50399780273438,
+        "id": "a1:126",
+        "locked": false,
+        "text": {
+          "angle": 0,
+          "font_size": 24,
+          "font_weight": "regular",
+          "horizontal_align": "left",
+          "italic": false,
+          "line_through": false,
+          "rich_text": {
+            "paragraphs": [
+              {
+                "elements": [
+                  {
+                    "element_type": 0,
+                    "text_element": {
+                      "text": "服务架构变更需求",
+                      "text_style": {}
+                    }
+                  }
+                ],
+                "indent": 0,
+                "list_begin_index": 0,
+                "paragraph_type": 2,
+                "quote": false
+              },
+              {
+                "elements": [
+                  {
+                    "element_type": 0,
+                    "text_element": {
+                      "text": "问题解决方案需求",
+                      "text_style": {}
+                    }
+                  }
+                ],
+                "indent": 0,
+                "list_begin_index": 1,
+                "paragraph_type": 2,
+                "quote": false
+              }
+            ]
+          },
+          "text": "服务架构变更需求\n问题解决方案需求",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "text_shape",
+        "width": 231.97439575195312,
+        "x": 944.8877563476562,
+        "y": 559.81787109375,
+        "z_index": 19
+      },
+      {
+        "angle": 0,
+        "composite_shape": {
+          "type": "round_rect"
+        },
+        "height": 881.73046875,
+        "id": "o1:178",
+        "locked": false,
+        "style": {
+          "border_color": "#b85b41",
+          "border_color_type": 0,
+          "border_dasharrays": [
+            4,
+            4
+          ],
+          "border_opacity": 100,
+          "border_style": "dash",
+          "border_width": "narrow",
+          "fill_color_type": 0,
+          "fill_opacity": 100,
+          "theme_border_color_code": 9,
+          "theme_fill_color_code": 0
+        },
+        "text": {
+          "angle": 0,
+          "font_size": 24,
+          "font_weight": "regular",
+          "horizontal_align": "center",
+          "italic": false,
+          "line_through": false,
+          "text": "",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "composite_shape",
+        "width": 248.30142211914062,
+        "x": 434.576416015625,
+        "y": 330.2625732421875,
+        "z_index": 25
+      },
+      {
+        "angle": 0,
+        "height": 34.75199890136719,
+        "id": "a1:120",
+        "text": {
+          "angle": 0,
+          "font_size": 24,
+          "font_weight": "regular",
+          "horizontal_align": "left",
+          "italic": false,
+          "line_through": false,
+          "text": "关键技术方案决策需求",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "text_shape",
+        "width": 240,
+        "x": 1575.3292236328125,
+        "y": 330.2625732421875,
+        "z_index": 7
+      },
+      {
+        "angle": 0,
+        "height": 34.75199890136719,
+        "id": "a1:121",
+        "locked": false,
+        "text": {
+          "angle": 0,
+          "font_size": 24,
+          "font_weight": "regular",
+          "horizontal_align": "left",
+          "italic": false,
+          "line_through": false,
+          "text": "决策结论",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "text_shape",
+        "width": 96,
+        "x": 1647.3292236328125,
+        "y": 471.00921630859375,
+        "z_index": 8
+      },
+      {
+        "angle": 0,
+        "height": 69.50399780273438,
+        "id": "a1:129",
+        "locked": false,
+        "text": {
+          "angle": 0,
+          "font_size": 24,
+          "font_weight": "regular",
+          "horizontal_align": "left",
+          "italic": false,
+          "line_through": false,
+          "rich_text": {
+            "paragraphs": [
+              {
+                "elements": [
+                  {
+                    "element_type": 0,
+                    "text_element": {
+                      "text": "软件架构问题解决方案",
+                      "text_style": {}
+                    }
+                  }
+                ],
+                "indent": 0,
+                "list_begin_index": 0,
+                "paragraph_type": 2,
+                "quote": false
+              },
+              {
+                "elements": [
+                  {
+                    "element_type": 0,
+                    "text_element": {
+                      "text": "服务架构性能资源优化需求",
+                      "text_style": {}
+                    }
+                  }
+                ],
+                "indent": 0,
+                "list_begin_index": 1,
+                "paragraph_type": 2,
+                "quote": false
+              }
+            ]
+          },
+          "text": "软件架构问题解决方案\n服务架构性能资源优化需求",
+          "text_background_color_type": 0,
+          "text_color": "#1f2329",
+          "text_color_type": 0,
+          "theme_text_background_color_code": -1,
+          "theme_text_color_code": -1,
+          "underline": false,
+          "vertical_align": "mid"
+        },
+        "type": "text_shape",
+        "width": 327.9743957519531,
+        "x": 1281.73583984375,
+        "y": 912.933837890625,
+        "z_index": 24
+      }
+    ]
+  },
+  "_notice": {
+    "update": {
+      "command": "lark-cli update",
+      "current": "1.0.44",
+      "latest": "1.0.100",
+      "message": "lark-cli 1.0.100 available, current 1.0.44, run: lark-cli update"
+    }
+  }
+}
