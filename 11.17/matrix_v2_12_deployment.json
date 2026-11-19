@@ -1,0 +1,17 @@
+{
+  "url": "http://10.110.169.217:8890/matrix-v212/",
+  "sha256": "df9ab459e476ebcebc78833bcd12c52e087c14c5578e93107de470d09c5d0432",
+  "bytes": 100972,
+  "slides": 21,
+  "parts": 4,
+  "remote_verified": true,
+  "client_verified": true,
+  "preserved_previous": true,
+  "client_checks": [
+    "HTTP 200",
+    "SHA-256一致",
+    "21页",
+    "第四部分直达",
+    "总览跳转"
+  ]
+}

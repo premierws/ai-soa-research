@@ -1,0 +1,19 @@
+{
+  "url": "http://10.110.169.217:8890/matrix-v213-r1/",
+  "sha256": "70cc3a8887b9265f2b7ac954d9690821004ac3cc5fdd235caba38f83c9dbe23e",
+  "bytes": 91208,
+  "slides": 19,
+  "parts": 4,
+  "remote_verified": true,
+  "client_verified": true,
+  "preserved_previous": true,
+  "client_checks": [
+    "独立地址 HTTP200",
+    "SHA256一致",
+    "修订标识V2.13 R1",
+    "第10页无导航条",
+    "第17页无TPM",
+    "第19页技术决策CCB",
+    "线上三页截图"
+  ]
+}

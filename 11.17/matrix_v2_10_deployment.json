@@ -1,0 +1,12 @@
+{
+  "url": "http://10.110.169.217:8890/matrix-v210/",
+  "path": "/workspace/soa_matrix/matrix-v210/index.html",
+  "sha256": "f7394bc72cbb4ddf0d28b766566b83beb02abcd5ab666839e5e23e3826137429",
+  "bytes": 102420,
+  "slides": 26,
+  "parts": 5,
+  "remote_verified": true,
+  "previous_versions_preserved": true,
+  "transfer_result_recovered_by_hash": true,
+  "client_verified": true
+}

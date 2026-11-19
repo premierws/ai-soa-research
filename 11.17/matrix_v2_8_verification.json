@@ -1,0 +1,61 @@
+{
+  "slides": 25,
+  "checks": [
+    {
+      "w": 1920,
+      "h": 1080,
+      "status": 200,
+      "issues": []
+    },
+    {
+      "w": 1366,
+      "h": 768,
+      "status": 200,
+      "issues": []
+    },
+    {
+      "w": 1280,
+      "h": 720,
+      "status": 200,
+      "issues": []
+    }
+  ],
+  "errors": [],
+  "mobile": {
+    "horizontalOverflow": false
+  },
+  "passed": true,
+  "print": {
+    "overflow": [],
+    "pdfPages": 25
+  },
+  "parts": 5,
+  "addedPages": [
+    8,
+    9
+  ],
+  "visualReview": {
+    "pages": [
+      8,
+      9
+    ],
+    "passed": true
+  },
+  "contentReview": {
+    "existing_titles_preserved": true,
+    "new_pages": [
+      8,
+      9
+    ],
+    "source": "AiCabinFuncMgr existing IDL and agreed interface description pattern",
+    "suggestions_separate_from_existing_behavior": true
+  },
+  "online": {
+    "status": 200,
+    "slides": 25,
+    "parts": 5,
+    "sha256": "b85e0c070740ff1aef440a201bc1c038d680e3f4cb83883d5c933b8476b753c0",
+    "errors": [],
+    "passed": true
+  }
+}

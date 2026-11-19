@@ -1,0 +1,54 @@
+{
+  "slides": 24,
+  "checks": [
+    {
+      "w": 1920,
+      "h": 1080,
+      "status": 200,
+      "issues": []
+    },
+    {
+      "w": 1366,
+      "h": 768,
+      "status": 200,
+      "issues": []
+    },
+    {
+      "w": 1280,
+      "h": 720,
+      "status": 200,
+      "issues": []
+    }
+  ],
+  "errors": [],
+  "mobile": {
+    "horizontalOverflow": false
+  },
+  "passed": true,
+  "diagrams": 14,
+  "tables": 1,
+  "print": {
+    "overflow": [],
+    "pdf_pages": 24
+  },
+  "visual_review": {
+    "slides": [
+      2,
+      4,
+      5,
+      8,
+      13,
+      18,
+      20
+    ],
+    "result": "已检查主轴、能力封装、底座、流程及案例截图，文字完整、关系清晰。"
+  },
+  "online": {
+    "url": "http://10.110.169.217:8890/matrix-v24/",
+    "status": 200,
+    "sha256": "a544c447f4d4df3e1e8c61d177d2ffa30ebb294d322e779864aad17afff38dbd",
+    "slides": 24,
+    "errors": [],
+    "passed": true
+  }
+}

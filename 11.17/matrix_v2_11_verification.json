@@ -1,0 +1,70 @@
+{
+  "slides": 23,
+  "checks": [
+    {
+      "w": 1920,
+      "h": 1080,
+      "status": 200,
+      "issues": []
+    },
+    {
+      "w": 1366,
+      "h": 768,
+      "status": 200,
+      "issues": []
+    },
+    {
+      "w": 1280,
+      "h": 720,
+      "status": 200,
+      "issues": []
+    }
+  ],
+  "errors": [],
+  "mobile": {
+    "horizontalOverflow": false
+  },
+  "passed": true,
+  "print": {
+    "overflow": [],
+    "pdfPages": 23
+  },
+  "scope": {
+    "changed_part": 3,
+    "part_three_pages": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "outside_part_three_body_unchanged": true,
+    "directory_labels_updated": true,
+    "outside_part_three_unchanged_except_directory_labels": true
+  },
+  "chapter_agenda": {
+    "items": 6,
+    "jump_passed": true
+  },
+  "visual_review": {
+    "pages": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "passed": true
+  },
+  "online": {
+    "status": 200,
+    "slides": 23,
+    "part_three_pages": 6,
+    "chapter_agenda_links": 6,
+    "sha256": "22c4264e8dfde6dbf921b1a0c74c64d6ec04f7d1499f1972bf83f131a9a90b27",
+    "errors": [],
+    "passed": true
+  }
+}

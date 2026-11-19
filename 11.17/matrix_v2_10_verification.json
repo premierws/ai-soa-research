@@ -1,0 +1,65 @@
+{
+  "slides": 26,
+  "checks": [
+    {
+      "w": 1920,
+      "h": 1080,
+      "status": 200,
+      "issues": []
+    },
+    {
+      "w": 1366,
+      "h": 768,
+      "status": 200,
+      "issues": []
+    },
+    {
+      "w": 1280,
+      "h": 720,
+      "status": 200,
+      "issues": []
+    }
+  ],
+  "errors": [],
+  "mobile": {
+    "horizontalOverflow": false
+  },
+  "passed": true,
+  "print": {
+    "overflow": [],
+    "pdfPages": 26
+  },
+  "scope": {
+    "deleted_original_page": 4,
+    "reworked_original_pages": [
+      5,
+      7,
+      8,
+      9
+    ],
+    "third_chapter_onward_unchanged": true
+  },
+  "visual_review": {
+    "pages": [
+      4,
+      6,
+      7,
+      8
+    ],
+    "passed": true
+  },
+  "architecture": {
+    "five_layers_on_all_reworked_pages": true,
+    "scenario_and_basic_interfaces": true,
+    "runtime_fault_handling": true,
+    "third_chapter_onward_identical": true
+  },
+  "online": {
+    "status": 200,
+    "slides": 26,
+    "parts": 5,
+    "sha256": "f7394bc72cbb4ddf0d28b766566b83beb02abcd5ab666839e5e23e3826137429",
+    "errors": [],
+    "passed": true
+  }
+}

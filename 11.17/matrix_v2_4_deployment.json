@@ -1,0 +1,11 @@
+{
+  "url": "http://10.110.169.217:8890/matrix-v24/",
+  "host": "10.110.169.217",
+  "path": "/workspace/soa_matrix/matrix-v24/index.html",
+  "sha256": "a544c447f4d4df3e1e8c61d177d2ffa30ebb294d322e779864aad17afff38dbd",
+  "bytes": 87484,
+  "slides": 24,
+  "remote_verified": true,
+  "previous_versions_preserved": true,
+  "client_verified": true
+}

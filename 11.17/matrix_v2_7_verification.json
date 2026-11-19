@@ -1,0 +1,56 @@
+{
+  "slides": 23,
+  "checks": [
+    {
+      "w": 1920,
+      "h": 1080,
+      "status": 200,
+      "issues": []
+    },
+    {
+      "w": 1366,
+      "h": 768,
+      "status": 200,
+      "issues": []
+    },
+    {
+      "w": 1280,
+      "h": 720,
+      "status": 200,
+      "issues": []
+    }
+  ],
+  "errors": [],
+  "mobile": {
+    "horizontalOverflow": false
+  },
+  "passed": true,
+  "print": {
+    "overflow": [],
+    "pdfPages": 23
+  },
+  "parts": 5,
+  "dividerPages": [
+    2,
+    6,
+    14,
+    18,
+    21
+  ],
+  "content_preserved": true,
+  "visual_review": {
+    "pages": [
+      6,
+      7,
+      14
+    ],
+    "passed": true
+  },
+  "online": {
+    "status": 200,
+    "slides": 23,
+    "parts": 5,
+    "sha256": "af18d5fcc05ba7fe43a981c36276ce6f85a7cef9f1bad8d29414fb7181e34765",
+    "passed": true
+  }
+}

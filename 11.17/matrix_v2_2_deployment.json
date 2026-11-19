@@ -1,0 +1,19 @@
+{
+  "url": "http://10.110.169.217:8890/matrix-v22/",
+  "sha256": "9e0a8e5e46f539736987bf015793ce90cd68f3d2287600a721dea967dc0e0dfa",
+  "slides": 23,
+  "upload": {
+    "remote_path": "/tmp/matrix-planning-v22-20261117-publish.html",
+    "bytes": 49676,
+    "sha256": "9e0a8e5e46f539736987bf015793ce90cd68f3d2287600a721dea967dc0e0dfa",
+    "verified": true
+  },
+  "publish": {
+    "exit_code": 0,
+    "output": "PUBLISHED_SHA256=9e0a8e5e46f539736987bf015793ce90cd68f3d2287600a721dea967dc0e0dfa"
+  },
+  "server_verification": {
+    "exit_code": 0,
+    "output": "LIVE_HTTP_HASH_VERIFIED\nactive"
+  }
+}

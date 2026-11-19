@@ -1,0 +1,66 @@
+{
+  "slides": 18,
+  "checks": [
+    {
+      "w": 1920,
+      "h": 1080,
+      "status": 200,
+      "issues": []
+    },
+    {
+      "w": 1366,
+      "h": 768,
+      "status": 200,
+      "issues": []
+    },
+    {
+      "w": 1280,
+      "h": 720,
+      "status": 200,
+      "issues": []
+    }
+  ],
+  "errors": [],
+  "mobile": {
+    "horizontalOverflow": false
+  },
+  "passed": true,
+  "print": {
+    "overflow": [],
+    "pdfPages": 18
+  },
+  "diagrams": 12,
+  "tables": 1,
+  "visual_review": {
+    "slides": [
+      1,
+      4,
+      5,
+      11,
+      12,
+      14,
+      16,
+      18
+    ],
+    "passed": true
+  },
+  "content_review": {
+    "title_stable": true,
+    "four_directions": true,
+    "cases": [
+      "近车解锁开门",
+      "主驾自适应模式",
+      "阳光直射场景"
+    ],
+    "source_and_proposal_separated": true,
+    "reference_appendix_pages": 0
+  },
+  "online": {
+    "url": "http://10.110.169.217:8890/matrix-v26/",
+    "status": 200,
+    "slides": 18,
+    "sha256": "1a665fa618564064ed31fffc84167586e25f72ac6a6555e364d7ad4ae03c2a38",
+    "errors": [],
+    "passed": true
+  }
+}

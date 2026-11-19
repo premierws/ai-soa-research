@@ -1,0 +1,21 @@
+{
+  "url": "http://10.110.169.217:8890/matrix-v23/",
+  "sha256": "a6a16ed7485488ec45f03c99dab87ad077945b1ae17b308a7e31942684b02ef0",
+  "slides": 23,
+  "diagrams": 21,
+  "tables": 1,
+  "upload": {
+    "remote_path": "/tmp/matrix-planning-v23-20261117.html",
+    "bytes": 88587,
+    "sha256": "a6a16ed7485488ec45f03c99dab87ad077945b1ae17b308a7e31942684b02ef0",
+    "verified": true
+  },
+  "publish": {
+    "exit_code": 0,
+    "output": "PUBLISHED_V23"
+  },
+  "verify": {
+    "exit_code": 0,
+    "output": "HTTP_HASH_VERIFIED\nactive"
+  }
+}

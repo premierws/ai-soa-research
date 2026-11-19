@@ -1,0 +1,18 @@
+{
+  "url": "http://10.110.169.217:8890/matrix-v213/",
+  "sha256": "4f550287e334a1753b0d382b477a38f9f52a1c56de8f8350162c6c8362f25657",
+  "bytes": 91193,
+  "slides": 19,
+  "parts": 4,
+  "remote_verified": true,
+  "client_verified": true,
+  "preserved_previous": true,
+  "client_checks": [
+    "HTTP 200",
+    "SHA-256一致",
+    "19页",
+    "第四部分直达",
+    "总览跳转"
+  ],
+  "revision": "remove_page10_agenda_remove_page17_tpm_and_page19_ccb"
+}

@@ -1,0 +1,62 @@
+{
+  "slides": 27,
+  "checks": [
+    {
+      "w": 1920,
+      "h": 1080,
+      "status": 200,
+      "issues": []
+    },
+    {
+      "w": 1366,
+      "h": 768,
+      "status": 200,
+      "issues": []
+    },
+    {
+      "w": 1280,
+      "h": 720,
+      "status": 200,
+      "issues": []
+    }
+  ],
+  "errors": [],
+  "mobile": {
+    "horizontalOverflow": false
+  },
+  "passed": true,
+  "print": {
+    "overflow": [],
+    "pdfPages": 27
+  },
+  "parts": 5,
+  "visualReview": {
+    "pages": [
+      7,
+      8,
+      9,
+      11,
+      12,
+      18,
+      21,
+      25
+    ],
+    "passed": true
+  },
+  "contentReview": {
+    "parts": 5,
+    "agent_and_system_boundary": true,
+    "constraint_support_integrated": true,
+    "existing_case_scope_preserved": true,
+    "title_preserved": true,
+    "no_new_idl_fields": true
+  },
+  "online": {
+    "status": 200,
+    "slides": 27,
+    "parts": 5,
+    "sha256": "5421aeed251f0b3e96b1247d04aa423f4754031f5684cce8e329419385de2484",
+    "errors": [],
+    "passed": true
+  }
+}
